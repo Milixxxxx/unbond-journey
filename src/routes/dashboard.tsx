@@ -258,25 +258,3 @@ function Station({
     </Link>
   );
 }
-
-        {/* Personalisierte Empfehlung aus Toxicometer-Test (Brevo-Funnel) */}
-        {profile?.toxicometer_level &&
-          LEVEL_RECOMMENDATION[profile.toxicometer_level] &&
-          completedCount === 0 && (
-            <Link
-              to="/modul/$slug"
-              params={{ slug: LEVEL_RECOMMENDATION[profile.toxicometer_level].slug }}
-              className="mb-6 block rounded-xl border-l-4 border-bordeaux bg-gradient-to-r from-bordeaux/10 to-mauve/5 p-4 transition hover:from-bordeaux/15"
-            >
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-mauve">
-                Aus deinem Test
-              </p>
-              <p className="mt-1 font-display text-sm font-bold text-bordeaux">
-                {LEVEL_RECOMMENDATION[profile.toxicometer_level].tone}
-              </p>
-              <p className="mt-1 text-xs text-graphite/75">
-                Empfehlung: {LEVEL_RECOMMENDATION[profile.toxicometer_level].label} →
-              </p>
-            </Link>
-          )}
-
