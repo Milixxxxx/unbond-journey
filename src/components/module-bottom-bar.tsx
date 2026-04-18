@@ -1,11 +1,10 @@
-import { Link, useLocation, useNavigate } from "@tanstack/react-router";
-import { ChevronLeft, ChevronRight, LayoutGrid } from "lucide-react";
+import { Link, useNavigate } from "@tanstack/react-router";
+import { ChevronLeft, ChevronRight, LayoutGrid, BookOpen } from "lucide-react";
 import { getNeighbors, MODULES } from "@/lib/modules";
 
 export function ModuleBottomBar({ slug }: { slug: string }) {
   const { prev, next } = getNeighbors(slug);
   const navigate = useNavigate();
-  const location = useLocation();
 
   const moduleIdx = MODULES.findIndex((m) => m.slug === slug);
   const progress = ((moduleIdx + 1) / MODULES.length) * 100;
@@ -44,6 +43,14 @@ export function ModuleBottomBar({ slug }: { slug: string }) {
               style={{ width: `${progress}%` }}
             />
           </div>
+        </Link>
+
+        <Link
+          to="/glossar"
+          aria-label="Glossar öffnen"
+          className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-full text-bordeaux transition hover:bg-bordeaux/10"
+        >
+          <BookOpen className="h-5 w-5" />
         </Link>
 
         <button

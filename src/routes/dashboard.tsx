@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
 import { supabase } from "@/integrations/supabase/client";
 import { MODULES, PHASES, type Phase } from "@/lib/modules";
-import { CheckCircle2, Lock, LogOut, Sparkles, Activity } from "lucide-react";
+import { CheckCircle2, LogOut, Sparkles, Activity, BookOpen, BookHeart, Settings, Construction } from "lucide-react";
 
 export const Route = createFileRoute("/dashboard")({
   component: Dashboard,
@@ -96,13 +96,29 @@ function Dashboard() {
               {completedCount} von {totalAvailable} verfügbaren Schritten gemeistert
             </p>
           </div>
-          <button
-            onClick={() => signOut()}
-            aria-label="Abmelden"
-            className="grid h-9 w-9 place-items-center rounded-full text-graphite/60 hover:bg-black/5"
-          >
-            <LogOut className="h-4 w-4" />
-          </button>
+          <div className="flex items-center gap-1">
+            <Link
+              to="/journal"
+              aria-label="Mein Journal"
+              className="grid h-9 w-9 place-items-center rounded-full text-graphite/60 hover:bg-black/5"
+            >
+              <BookHeart className="h-4 w-4" />
+            </Link>
+            <Link
+              to="/einstellungen"
+              aria-label="Einstellungen"
+              className="grid h-9 w-9 place-items-center rounded-full text-graphite/60 hover:bg-black/5"
+            >
+              <Settings className="h-4 w-4" />
+            </Link>
+            <button
+              onClick={() => signOut()}
+              aria-label="Abmelden"
+              className="grid h-9 w-9 place-items-center rounded-full text-graphite/60 hover:bg-black/5"
+            >
+              <LogOut className="h-4 w-4" />
+            </button>
+          </div>
         </header>
 
         {/* Progress strip */}
@@ -156,7 +172,7 @@ function Dashboard() {
                 <ul className="space-y-3">
                   {phaseModules.map((m) => {
                     const done = doneSlugs.has(m.slug);
-                    const locked = !m.available;
+                    const isStub = !!m.stubBlurb;
                     return (
                       <li key={m.slug} className="relative">
                         <Station
@@ -164,7 +180,7 @@ function Dashboard() {
                           title={m.title}
                           subtitle={m.subtitle}
                           done={done}
-                          locked={locked}
+                          isStub={isStub}
                           slug={m.slug}
                         />
                       </li>
@@ -185,64 +201,51 @@ function Station({
   title,
   subtitle,
   done,
-  locked,
+  isStub,
   slug,
 }: {
   number: string;
   title: string;
   subtitle: string;
   done: boolean;
-  locked: boolean;
+  isStub: boolean;
   slug: string;
 }) {
-  const dot = (
-    <div
-      className={`relative z-10 grid h-14 w-14 flex-shrink-0 place-items-center rounded-full border-4 font-display font-bold ${
-        done
-          ? "border-sage bg-sage text-white"
-          : locked
-            ? "border-graphite/15 bg-cream text-graphite/30"
-            : "border-mauve bg-white text-bordeaux animate-pulse-soft"
-      }`}
-    >
-      {done ? <CheckCircle2 className="h-6 w-6" /> : locked ? <Lock className="h-4 w-4" /> : number}
-    </div>
-  );
-
-  const card = (
-    <div
-      className={`flex-1 rounded-xl border p-3 transition ${
-        locked
-          ? "border-border/40 bg-white/40 opacity-60"
-          : "border-border/60 bg-white/75 hover:bg-white hover:shadow-soft"
-      }`}
-    >
-      <div className="flex items-center justify-between gap-2">
-        <h3 className="font-display text-sm font-bold leading-tight text-bordeaux">{title}</h3>
-        {done && (
-          <span className="rounded-full bg-sage/20 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-sage">
-            erledigt
-          </span>
-        )}
-      </div>
-      <p className="mt-0.5 line-clamp-2 text-xs text-graphite/70">{subtitle}</p>
-      {locked && <p className="mt-1 text-[10px] uppercase tracking-wider text-graphite/40">Bald verfügbar</p>}
-    </div>
-  );
-
-  if (locked) {
-    return (
-      <div className="flex items-center gap-3">
-        {dot}
-        {card}
-      </div>
-    );
-  }
-
   return (
     <Link to="/modul/$slug" params={{ slug }} className="flex items-center gap-3">
-      {dot}
-      {card}
+      <div
+        className={`relative z-10 grid h-14 w-14 flex-shrink-0 place-items-center rounded-full border-4 font-display font-bold ${
+          done
+            ? "border-sage bg-sage text-white"
+            : isStub
+              ? "border-mauve/40 bg-white/80 text-mauve"
+              : "border-mauve bg-white text-bordeaux animate-pulse-soft"
+        }`}
+      >
+        {done ? (
+          <CheckCircle2 className="h-6 w-6" />
+        ) : isStub ? (
+          <Construction className="h-4 w-4" />
+        ) : (
+          number
+        )}
+      </div>
+      <div className="flex-1 rounded-xl border border-border/60 bg-white/75 p-3 transition hover:bg-white hover:shadow-soft">
+        <div className="flex items-center justify-between gap-2">
+          <h3 className="font-display text-sm font-bold leading-tight text-bordeaux">{title}</h3>
+          {done ? (
+            <span className="rounded-full bg-sage/20 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-sage">
+              erledigt
+            </span>
+          ) : isStub ? (
+            <span className="rounded-full bg-mauve/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-mauve">
+              Vorschau
+            </span>
+          ) : null}
+        </div>
+        <p className="mt-0.5 line-clamp-2 text-xs text-graphite/70">{subtitle}</p>
+      </div>
     </Link>
   );
 }
+

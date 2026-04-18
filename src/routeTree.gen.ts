@@ -11,6 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WillkommenRouteImport } from './routes/willkommen'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
+import { Route as JournalRouteImport } from './routes/journal'
+import { Route as GlossarRouteImport } from './routes/glossar'
+import { Route as EinstellungenRouteImport } from './routes/einstellungen'
+import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as IndexRouteImport } from './routes/index'
@@ -24,6 +28,26 @@ const WillkommenRoute = WillkommenRouteImport.update({
 const OnboardingRoute = OnboardingRouteImport.update({
   id: '/onboarding',
   path: '/onboarding',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JournalRoute = JournalRouteImport.update({
+  id: '/journal',
+  path: '/journal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GlossarRoute = GlossarRouteImport.update({
+  id: '/glossar',
+  path: '/glossar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EinstellungenRoute = EinstellungenRouteImport.update({
+  id: '/einstellungen',
+  path: '/einstellungen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatenschutzRoute = DatenschutzRouteImport.update({
+  id: '/datenschutz',
+  path: '/datenschutz',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardRoute = DashboardRouteImport.update({
@@ -51,6 +75,10 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/dashboard': typeof DashboardRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/einstellungen': typeof EinstellungenRoute
+  '/glossar': typeof GlossarRoute
+  '/journal': typeof JournalRoute
   '/onboarding': typeof OnboardingRoute
   '/willkommen': typeof WillkommenRoute
   '/modul/$slug': typeof ModulSlugRoute
@@ -59,6 +87,10 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/dashboard': typeof DashboardRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/einstellungen': typeof EinstellungenRoute
+  '/glossar': typeof GlossarRoute
+  '/journal': typeof JournalRoute
   '/onboarding': typeof OnboardingRoute
   '/willkommen': typeof WillkommenRoute
   '/modul/$slug': typeof ModulSlugRoute
@@ -68,6 +100,10 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/dashboard': typeof DashboardRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/einstellungen': typeof EinstellungenRoute
+  '/glossar': typeof GlossarRoute
+  '/journal': typeof JournalRoute
   '/onboarding': typeof OnboardingRoute
   '/willkommen': typeof WillkommenRoute
   '/modul/$slug': typeof ModulSlugRoute
@@ -78,6 +114,10 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/dashboard'
+    | '/datenschutz'
+    | '/einstellungen'
+    | '/glossar'
+    | '/journal'
     | '/onboarding'
     | '/willkommen'
     | '/modul/$slug'
@@ -86,6 +126,10 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/dashboard'
+    | '/datenschutz'
+    | '/einstellungen'
+    | '/glossar'
+    | '/journal'
     | '/onboarding'
     | '/willkommen'
     | '/modul/$slug'
@@ -94,6 +138,10 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/dashboard'
+    | '/datenschutz'
+    | '/einstellungen'
+    | '/glossar'
+    | '/journal'
     | '/onboarding'
     | '/willkommen'
     | '/modul/$slug'
@@ -103,6 +151,10 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthRoute: typeof AuthRoute
   DashboardRoute: typeof DashboardRoute
+  DatenschutzRoute: typeof DatenschutzRoute
+  EinstellungenRoute: typeof EinstellungenRoute
+  GlossarRoute: typeof GlossarRoute
+  JournalRoute: typeof JournalRoute
   OnboardingRoute: typeof OnboardingRoute
   WillkommenRoute: typeof WillkommenRoute
   ModulSlugRoute: typeof ModulSlugRoute
@@ -122,6 +174,34 @@ declare module '@tanstack/react-router' {
       path: '/onboarding'
       fullPath: '/onboarding'
       preLoaderRoute: typeof OnboardingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/journal': {
+      id: '/journal'
+      path: '/journal'
+      fullPath: '/journal'
+      preLoaderRoute: typeof JournalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/glossar': {
+      id: '/glossar'
+      path: '/glossar'
+      fullPath: '/glossar'
+      preLoaderRoute: typeof GlossarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/einstellungen': {
+      id: '/einstellungen'
+      path: '/einstellungen'
+      fullPath: '/einstellungen'
+      preLoaderRoute: typeof EinstellungenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/datenschutz': {
+      id: '/datenschutz'
+      path: '/datenschutz'
+      fullPath: '/datenschutz'
+      preLoaderRoute: typeof DatenschutzRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard': {
@@ -159,6 +239,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthRoute: AuthRoute,
   DashboardRoute: DashboardRoute,
+  DatenschutzRoute: DatenschutzRoute,
+  EinstellungenRoute: EinstellungenRoute,
+  GlossarRoute: GlossarRoute,
+  JournalRoute: JournalRoute,
   OnboardingRoute: OnboardingRoute,
   WillkommenRoute: WillkommenRoute,
   ModulSlugRoute: ModulSlugRoute,
@@ -166,12 +250,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}

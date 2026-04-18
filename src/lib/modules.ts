@@ -7,6 +7,9 @@ export type ModuleMeta = {
   subtitle: string;
   phase: Phase;
   available: boolean; // false = locked (Inhalt folgt)
+  // Stub-Daten für noch nicht voll ausgearbeitete Module:
+  stubBlurb?: string;
+  stubTopics?: string[];
 };
 
 export const PHASES: Record<Phase, { title: string; description: string; range: string }> = {
@@ -55,7 +58,15 @@ export const MODULES: ModuleMeta[] = [
     title: "Trauma-Bonding · Anatomie der Fessel",
     subtitle: "Warum dein Körper nicht loslassen will",
     phase: 1,
-    available: false,
+    available: true,
+    stubBlurb:
+      "Du verstehst rational, dass es schädlich war – und sehnst dich trotzdem zurück. Dieses Modul erklärt warum: Trauma-Bonding ist eine neurobiologische Konditionierung, keine Liebe.",
+    stubTopics: [
+      "Intermittierende Verstärkung",
+      "Dopamin-Achterbahn",
+      "Cycle of Abuse erkennen",
+      "Reflexion: Mein Bindungs-Fingerabdruck",
+    ],
   },
   {
     slug: "modul-03",
@@ -63,7 +74,15 @@ export const MODULES: ModuleMeta[] = [
     title: "Toxikometer & Realitäts-Check",
     subtitle: "Idealisierung systematisch dekonstruieren",
     phase: 2,
-    available: false,
+    available: true,
+    stubBlurb:
+      "Dein Gedächtnis hat ein selektives Highlight-Reel gespeichert. Wir bauen daneben ein realistisches Reel – Szene für Szene.",
+    stubTopics: [
+      "Negative Reappraisal",
+      "Faktencheck-Tagebuch",
+      "Idealisierung vs. Realität",
+      "Übung: Die zehn schwersten Momente",
+    ],
   },
   {
     slug: "modul-04",
@@ -71,7 +90,15 @@ export const MODULES: ModuleMeta[] = [
     title: "No-Contact als Entzug",
     subtitle: "Strikter Kontaktabbruch als neurobiologische Notwendigkeit",
     phase: 2,
-    available: false,
+    available: true,
+    stubBlurb:
+      "No-Contact ist kein Liebesentzug – es ist Entgiftung. Dein dopaminerges System braucht 60–90 Tage, um zu resetten.",
+    stubTopics: [
+      "Trigger-Inventar",
+      "Digitale Hygiene",
+      "Notfallplan für Begegnungen",
+      "Kalender: Tag 1 bis Tag 90",
+    ],
   },
   {
     slug: "modul-05",
@@ -79,7 +106,15 @@ export const MODULES: ModuleMeta[] = [
     title: "Trigger entmachten",
     subtitle: "Trigger-Landkarte und Urge Surfing in der Tiefe",
     phase: 3,
-    available: false,
+    available: true,
+    stubBlurb:
+      "Trigger sind nicht der Feind – sie sind Wegweiser. In diesem Modul lernst du, sie zu lesen, zu surfen und zu integrieren.",
+    stubTopics: [
+      "Trigger-Landkarte erstellen",
+      "Polyvagal-Theorie anwenden",
+      "Detached Mindfulness",
+      "Übung: Welle für Welle",
+    ],
   },
   {
     slug: "modul-06",
@@ -87,7 +122,15 @@ export const MODULES: ModuleMeta[] = [
     title: "ACT · Werte statt Wunden",
     subtitle: "Akzeptanz, Defusion, wertebasiertes Handeln",
     phase: 3,
-    available: false,
+    available: true,
+    stubBlurb:
+      "Du musst den Schmerz nicht wegmachen, um wieder zu leben. ACT zeigt: Heilung passiert, während du dein Leben in Richtung deiner Werte lebst.",
+    stubTopics: [
+      "Werte-Kompass",
+      "Kognitive Defusion",
+      "Akzeptanz statt Kampf",
+      "Committed Action",
+    ],
   },
   {
     slug: "modul-07",
@@ -95,7 +138,15 @@ export const MODULES: ModuleMeta[] = [
     title: "Identität jenseits der Bindung",
     subtitle: "Wer bist du, ohne sie?",
     phase: 4,
-    available: false,
+    available: true,
+    stubBlurb:
+      "In toxischen Beziehungen verschmilzt Identität. Hier rekonstruierst du, wer du warst, bevor du dich verlierst – und wer du jetzt sein willst.",
+    stubTopics: [
+      "Identitäts-Inventar",
+      "Verlorene Hobbys reaktivieren",
+      "Self-Concept Recovery",
+      "Übung: Ein Brief an mein altes Ich",
+    ],
   },
   {
     slug: "modul-08",
@@ -103,7 +154,15 @@ export const MODULES: ModuleMeta[] = [
     title: "Self-Expansion",
     subtitle: "Neue dopaminerge Belohnungssysteme aufbauen",
     phase: 4,
-    available: false,
+    available: true,
+    stubBlurb:
+      "Aron & Aron (1986): Wir wachsen durch Erweiterung. Du tauschst die süchtig machende Bindung gegen breite, nahrhafte Quellen von Bedeutung.",
+    stubTopics: [
+      "Novelty-Inventur",
+      "Skills statt Suchen",
+      "Flow-Aktivitäten",
+      "Übung: 30 Tage – 30 neue Mikro-Erfahrungen",
+    ],
   },
   {
     slug: "modul-09",
@@ -111,7 +170,15 @@ export const MODULES: ModuleMeta[] = [
     title: "WLW-Realität & Community",
     subtitle: "Fusion, kleine Pools, Re-Integration",
     phase: 4,
-    available: false,
+    available: true,
+    stubBlurb:
+      "Lesbische und queere Communities sind klein und verflochten. Wir bauen Strategien für emotionale Sicherheit und gesunde Verbindungen.",
+    stubTopics: [
+      "Minority-Stress verstehen",
+      "Boundaries in kleinen Szenen",
+      "Re-Integration ohne Re-Trauma",
+      "Übung: Mein queer Support-Net",
+    ],
   },
   {
     slug: "modul-10",
@@ -119,7 +186,15 @@ export const MODULES: ModuleMeta[] = [
     title: "Kintsugi · Posttraumatisches Wachstum",
     subtitle: "Narben als Teil deiner Stärke",
     phase: 4,
-    available: false,
+    available: true,
+    stubBlurb:
+      "Tedeschi & Calhoun (2004): Posttraumatisches Wachstum ist real. Nicht trotz, sondern durch die Erfahrung. Wir vergolden die Bruchstellen.",
+    stubTopics: [
+      "Meine 5 Stärken",
+      "Sinn-Konstruktion",
+      "Narrative Reframing",
+      "Abschluss: Mein Kintsugi-Manifest",
+    ],
   },
 ];
 
