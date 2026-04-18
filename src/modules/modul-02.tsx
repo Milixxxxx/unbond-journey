@@ -229,7 +229,7 @@ export function Modul02() {
             {
               key: "rat_eigene_1",
               label: "Dieser Satz hat mich am längsten gehalten:",
-              placeholder: "z.B. „Ohne mich überlebt sie nicht."",
+              placeholder: "z.B. „Ohne mich überlebt sie nicht.“",
             },
             {
               key: "rat_eigene_2",
@@ -238,7 +238,7 @@ export function Modul02() {
             {
               key: "rat_eigene_3",
               label: "Wenn ich diesen Satz mit ACT-Defusion ansehe, höre ich:",
-              placeholder: "„Da ist der Gedanke, dass…"",
+              placeholder: "„Da ist der Gedanke, dass …“",
             },
           ]}
         />
