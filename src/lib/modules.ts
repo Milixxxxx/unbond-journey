@@ -87,13 +87,14 @@ export const MODULES: ModuleMeta[] = [
   {
     slug: "modul-04",
     number: "04",
-    title: "No-Contact als Entzug",
+    title: "Suchtmuster brechen · No-Contact als Entzug",
     subtitle: "Strikter Kontaktabbruch als neurobiologische Notwendigkeit",
     phase: 2,
     available: false,
     stubBlurb:
-      "No-Contact ist kein Liebesentzug – es ist Entgiftung. Dein dopaminerges System braucht 60–90 Tage, um zu resetten.",
+      "No-Contact ist kein Liebesentzug – es ist Entgiftung. Dein dopaminerges System braucht 60–90 Tage, um zu resetten. Hier landet auch die Sucht-Vertiefung aus dem ursprünglichen Fundament-Kapitel.",
     stubTopics: [
+      "Sucht-Anatomie der Liebe",
       "Trigger-Inventar",
       "Digitale Hygiene",
       "Notfallplan für Begegnungen",
@@ -119,17 +120,17 @@ export const MODULES: ModuleMeta[] = [
   {
     slug: "modul-06",
     number: "06",
-    title: "ACT · Werte statt Wunden",
-    subtitle: "Akzeptanz, Defusion, wertebasiertes Handeln",
+    title: "Der Körper zuerst",
+    subtitle: "Polyvagal-Theorie, Vagus-Reset, somatische Regulation",
     phase: 3,
     available: false,
     stubBlurb:
-      "Du musst den Schmerz nicht wegmachen, um wieder zu leben. ACT zeigt: Heilung passiert, während du dein Leben in Richtung deiner Werte lebst.",
+      "Heilung beginnt nicht im Kopf – sie beginnt im Nervensystem. Hier landet die Polyvagal-Theorie aus dem ursprünglichen Fundament-Kapitel, plus konkrete Werkzeuge zur körperlichen Selbstregulation.",
     stubTopics: [
-      "Werte-Kompass",
-      "Kognitive Defusion",
-      "Akzeptanz statt Kampf",
-      "Committed Action",
+      "Polyvagal-Theorie verstehen",
+      "Vagus-Reset (Atem, Kälte, Summen)",
+      "Sicherheitssignale für den Körper",
+      "Übung: Tägliches Nervensystem-Ritual",
     ],
   },
   {
