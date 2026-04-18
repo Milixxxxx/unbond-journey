@@ -201,64 +201,51 @@ function Station({
   title,
   subtitle,
   done,
-  locked,
+  isStub,
   slug,
 }: {
   number: string;
   title: string;
   subtitle: string;
   done: boolean;
-  locked: boolean;
+  isStub: boolean;
   slug: string;
 }) {
-  const dot = (
-    <div
-      className={`relative z-10 grid h-14 w-14 flex-shrink-0 place-items-center rounded-full border-4 font-display font-bold ${
-        done
-          ? "border-sage bg-sage text-white"
-          : locked
-            ? "border-graphite/15 bg-cream text-graphite/30"
-            : "border-mauve bg-white text-bordeaux animate-pulse-soft"
-      }`}
-    >
-      {done ? <CheckCircle2 className="h-6 w-6" /> : locked ? <Lock className="h-4 w-4" /> : number}
-    </div>
-  );
-
-  const card = (
-    <div
-      className={`flex-1 rounded-xl border p-3 transition ${
-        locked
-          ? "border-border/40 bg-white/40 opacity-60"
-          : "border-border/60 bg-white/75 hover:bg-white hover:shadow-soft"
-      }`}
-    >
-      <div className="flex items-center justify-between gap-2">
-        <h3 className="font-display text-sm font-bold leading-tight text-bordeaux">{title}</h3>
-        {done && (
-          <span className="rounded-full bg-sage/20 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-sage">
-            erledigt
-          </span>
-        )}
-      </div>
-      <p className="mt-0.5 line-clamp-2 text-xs text-graphite/70">{subtitle}</p>
-      {locked && <p className="mt-1 text-[10px] uppercase tracking-wider text-graphite/40">Bald verfügbar</p>}
-    </div>
-  );
-
-  if (locked) {
-    return (
-      <div className="flex items-center gap-3">
-        {dot}
-        {card}
-      </div>
-    );
-  }
-
   return (
     <Link to="/modul/$slug" params={{ slug }} className="flex items-center gap-3">
-      {dot}
-      {card}
+      <div
+        className={`relative z-10 grid h-14 w-14 flex-shrink-0 place-items-center rounded-full border-4 font-display font-bold ${
+          done
+            ? "border-sage bg-sage text-white"
+            : isStub
+              ? "border-mauve/40 bg-white/80 text-mauve"
+              : "border-mauve bg-white text-bordeaux animate-pulse-soft"
+        }`}
+      >
+        {done ? (
+          <CheckCircle2 className="h-6 w-6" />
+        ) : isStub ? (
+          <Construction className="h-4 w-4" />
+        ) : (
+          number
+        )}
+      </div>
+      <div className="flex-1 rounded-xl border border-border/60 bg-white/75 p-3 transition hover:bg-white hover:shadow-soft">
+        <div className="flex items-center justify-between gap-2">
+          <h3 className="font-display text-sm font-bold leading-tight text-bordeaux">{title}</h3>
+          {done ? (
+            <span className="rounded-full bg-sage/20 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-sage">
+              erledigt
+            </span>
+          ) : isStub ? (
+            <span className="rounded-full bg-mauve/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-mauve">
+              Vorschau
+            </span>
+          ) : null}
+        </div>
+        <p className="mt-0.5 line-clamp-2 text-xs text-graphite/70">{subtitle}</p>
+      </div>
     </Link>
   );
+}
 }
