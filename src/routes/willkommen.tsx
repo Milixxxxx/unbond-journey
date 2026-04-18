@@ -157,10 +157,10 @@ function Welcome() {
 
         <div className="flex justify-center pt-4">
           <Link
-            to="/onboarding"
-            className="inline-flex items-center gap-2 rounded-full bg-bordeaux px-7 py-3 text-sm font-semibold text-white shadow-elegant hover:opacity-90"
+            to="/dashboard"
+            className="inline-flex items-center gap-2 rounded-md bg-bordeaux px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-white shadow-elegant transition hover:opacity-90"
           >
-            <Sparkles className="h-4 w-4" /> Wo fange ich an?
+            <Sparkles className="h-4 w-4" /> Zu deinem Pfad
           </Link>
         </div>
       </div>

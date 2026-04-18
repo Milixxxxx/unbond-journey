@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
 import { supabase } from "@/integrations/supabase/client";
 import { MODULES, PHASES, type Phase } from "@/lib/modules";
-import { CheckCircle2, LogOut, Sparkles, BookHeart, Settings, Construction } from "lucide-react";
+import { CheckCircle2, LogOut, BookHeart, Settings, Construction } from "lucide-react";
 import butterflyPattern from "@/assets/butterfly-pattern.png";
 
 export const Route = createFileRoute("/dashboard")({
@@ -86,7 +86,7 @@ function Dashboard() {
           </p>
           <Link
             to="/auth"
-            className="mt-4 inline-block rounded-full bg-bordeaux px-6 py-2.5 text-sm font-semibold text-white"
+            className="mt-4 inline-block bg-bordeaux px-6 py-2.5 text-sm font-semibold text-white shadow-elegant transition hover:opacity-90"
           >
             Zum Login
           </Link>
@@ -206,21 +206,8 @@ function Dashboard() {
             </Link>
           )}
 
-        {!profile?.toxicometer_score && (
-          <Link
-            to="/onboarding"
-            className="mb-6 flex items-center justify-between gap-3 rounded-2xl border border-dashed border-mauve/40 bg-mauve/5 p-5 text-left transition hover:bg-mauve/10"
-          >
-            <div className="flex items-center gap-3">
-              <Sparkles className="h-5 w-5 text-mauve" />
-              <div>
-                <p className="font-display text-base font-semibold text-bordeaux">Mach den Toxicometer-Test</p>
-                <p className="text-xs text-graphite/70">5 Minuten · klärt sanft, wo du anfangen kannst</p>
-              </div>
-            </div>
-            <span className="text-xl text-mauve">→</span>
-          </Link>
-        )}
+{/* Toxicometer-Test wird ausschließlich auf der Landingpage gemacht. 
+            Ergebnis kommt via Brevo-Mail-Link (?source=toxicometer&level=...) ins Profil. */}
 
         {/* Vertikaler Pfad mit Phasen */}
         <div className="relative mt-2">

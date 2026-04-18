@@ -10,7 +10,6 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WillkommenRouteImport } from './routes/willkommen'
-import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as JournalRouteImport } from './routes/journal'
 import { Route as GlossarRouteImport } from './routes/glossar'
 import { Route as EinstellungenRouteImport } from './routes/einstellungen'
@@ -23,11 +22,6 @@ import { Route as ModulSlugRouteImport } from './routes/modul.$slug'
 const WillkommenRoute = WillkommenRouteImport.update({
   id: '/willkommen',
   path: '/willkommen',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const OnboardingRoute = OnboardingRouteImport.update({
-  id: '/onboarding',
-  path: '/onboarding',
   getParentRoute: () => rootRouteImport,
 } as any)
 const JournalRoute = JournalRouteImport.update({
@@ -79,7 +73,6 @@ export interface FileRoutesByFullPath {
   '/einstellungen': typeof EinstellungenRoute
   '/glossar': typeof GlossarRoute
   '/journal': typeof JournalRoute
-  '/onboarding': typeof OnboardingRoute
   '/willkommen': typeof WillkommenRoute
   '/modul/$slug': typeof ModulSlugRoute
 }
@@ -91,7 +84,6 @@ export interface FileRoutesByTo {
   '/einstellungen': typeof EinstellungenRoute
   '/glossar': typeof GlossarRoute
   '/journal': typeof JournalRoute
-  '/onboarding': typeof OnboardingRoute
   '/willkommen': typeof WillkommenRoute
   '/modul/$slug': typeof ModulSlugRoute
 }
@@ -104,7 +96,6 @@ export interface FileRoutesById {
   '/einstellungen': typeof EinstellungenRoute
   '/glossar': typeof GlossarRoute
   '/journal': typeof JournalRoute
-  '/onboarding': typeof OnboardingRoute
   '/willkommen': typeof WillkommenRoute
   '/modul/$slug': typeof ModulSlugRoute
 }
@@ -118,7 +109,6 @@ export interface FileRouteTypes {
     | '/einstellungen'
     | '/glossar'
     | '/journal'
-    | '/onboarding'
     | '/willkommen'
     | '/modul/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -130,7 +120,6 @@ export interface FileRouteTypes {
     | '/einstellungen'
     | '/glossar'
     | '/journal'
-    | '/onboarding'
     | '/willkommen'
     | '/modul/$slug'
   id:
@@ -142,7 +131,6 @@ export interface FileRouteTypes {
     | '/einstellungen'
     | '/glossar'
     | '/journal'
-    | '/onboarding'
     | '/willkommen'
     | '/modul/$slug'
   fileRoutesById: FileRoutesById
@@ -155,7 +143,6 @@ export interface RootRouteChildren {
   EinstellungenRoute: typeof EinstellungenRoute
   GlossarRoute: typeof GlossarRoute
   JournalRoute: typeof JournalRoute
-  OnboardingRoute: typeof OnboardingRoute
   WillkommenRoute: typeof WillkommenRoute
   ModulSlugRoute: typeof ModulSlugRoute
 }
@@ -167,13 +154,6 @@ declare module '@tanstack/react-router' {
       path: '/willkommen'
       fullPath: '/willkommen'
       preLoaderRoute: typeof WillkommenRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/onboarding': {
-      id: '/onboarding'
-      path: '/onboarding'
-      fullPath: '/onboarding'
-      preLoaderRoute: typeof OnboardingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/journal': {
@@ -243,7 +223,6 @@ const rootRouteChildren: RootRouteChildren = {
   EinstellungenRoute: EinstellungenRoute,
   GlossarRoute: GlossarRoute,
   JournalRoute: JournalRoute,
-  OnboardingRoute: OnboardingRoute,
   WillkommenRoute: WillkommenRoute,
   ModulSlugRoute: ModulSlugRoute,
 }
