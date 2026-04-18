@@ -1,18 +1,41 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
 
 /**
- * Globaler dunkler Site-Header — visueller Anker zur Landingpage unbond.de.
+ * Cinematic Site-Header — transparent-dunkel, mit subtilem Backdrop-Blur.
+ * Fühlt sich an wie ein Atemzug über der Seite, nicht wie eine Wand.
  * Wird auf allen App-Seiten ausser den Vollscreen-Modul-Routen gezeigt.
  */
 export function SiteHeader() {
   const { user } = useAuth();
+  const { pathname } = useLocation();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Auf Dashboard verschmilzt der Header mit dem dunklen Hero (kein eigener BG nötig).
+  const onDashboard = pathname === "/dashboard";
+
   return (
-    <header className="sticky top-0 z-30 border-b border-white/10 bg-bordeaux/95 text-cream backdrop-blur supports-[backdrop-filter]:bg-bordeaux/85">
-      <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3">
-        <Link to={user ? "/dashboard" : "/"} className="flex items-baseline gap-2">
-          <span className="font-display text-base font-extrabold tracking-tight">UNBOND</span>
-          <span className="hidden text-[10px] font-semibold uppercase tracking-[0.22em] text-cream/70 sm:inline">
+    <header
+      className={`sticky top-0 z-30 transition-all duration-300 ${
+        scrolled || !onDashboard
+          ? "border-b border-white/10 bg-graphite/85 backdrop-blur-md supports-[backdrop-filter]:bg-graphite/70"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3.5">
+        <Link to={user ? "/dashboard" : "/"} className="group flex items-baseline gap-2">
+          <span className="font-display text-lg font-extrabold tracking-tight text-cream transition group-hover:text-sage-soft">
+            UN<span className="text-sage">BOND</span>
+          </span>
+          <span className="hidden text-[9px] font-semibold uppercase tracking-[0.28em] text-cream/55 sm:inline">
             Breaking Chains
           </span>
         </Link>
@@ -20,7 +43,7 @@ export function SiteHeader() {
         <nav className="flex items-center gap-1 text-xs font-medium">
           {user ? (
             <>
-              <HeaderLink to="/dashboard">Dashboard</HeaderLink>
+              <HeaderLink to="/dashboard">Reise</HeaderLink>
               <HeaderLink to="/journal">Journal</HeaderLink>
               <HeaderLink to="/glossar">Glossar</HeaderLink>
             </>
@@ -30,7 +53,7 @@ export function SiteHeader() {
               <HeaderLink to="/glossar">Glossar</HeaderLink>
               <Link
                 to="/auth"
-                className="ml-1 rounded-full bg-cream px-3 py-1.5 text-[11px] font-semibold text-bordeaux transition hover:bg-white"
+                className="ml-1 rounded-full bg-sage px-4 py-1.5 text-[11px] font-semibold text-graphite transition hover:bg-sage-soft hover:shadow-[0_0_20px_oklch(0.66_0.045_155_/_0.4)]"
               >
                 Anmelden
               </Link>
@@ -46,7 +69,7 @@ function HeaderLink({ to, children }: { to: string; children: React.ReactNode })
   return (
     <Link
       to={to}
-      className="rounded-full px-3 py-1.5 text-cream/80 transition hover:bg-white/10 hover:text-cream"
+      className="rounded-full px-3 py-1.5 text-cream/70 transition hover:bg-white/10 hover:text-cream"
       activeProps={{ className: "bg-white/15 text-cream" }}
     >
       {children}

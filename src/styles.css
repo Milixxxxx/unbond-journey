@@ -53,9 +53,9 @@
   --color-warning: var(--warning);
   --color-sos: var(--sos);
 
-  --font-display: "Montserrat", ui-sans-serif, system-ui, sans-serif;
-  --font-body: "Lato", ui-sans-serif, system-ui, sans-serif;
-  --font-lead: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-lead: "Montserrat", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
@@ -150,7 +150,9 @@
   h1, h2, h3, h4, h5 {
     font-family: var(--font-display);
     color: var(--color-bordeaux);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
+    font-feature-settings: "ss01", "ss02";
+    font-optical-sizing: auto;
   }
 
   /* Mobile-first body size */
