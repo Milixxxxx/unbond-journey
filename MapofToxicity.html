@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map of Toxicity - Glossar</title>
+    <!-- Tailwind CSS für das Design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons für die Symbole -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F4EDE4;
+        }
+        h1, h3 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .glossary-card:hover {
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-12 min-h-screen flex items-center justify-center">
+
+    <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden border border-[#E8C5C5] flex flex-col">
+        
+        <!-- Header Bereich -->
+        <header class="bg-white p-10 text-center border-b border-stone-100">
+            <h1 class="text-[#6B3E44] text-3xl md:text-4xl font-extrabold tracking-tighter mb-2 uppercase">
+                MAP OF TOXICITY
+            </h1>
+            <p class="text-[#9B7FA4] text-xs md:text-sm font-bold tracking-[0.2em] uppercase">
+                Begriffserklärung & Neurobiologische Validierung
+            </p>
+            <div class="mt-6 flex justify-center">
+                <div class="h-1 w-20 bg-[#C4836E] rounded-full"></div>
+            </div>
+        </header>
+
+        <!-- Grid Container für die Begriffe -->
+        <div id="glossary-grid" class="p-6 md:p-12 grid grid-cols-1 md:grid-cols-2 gap-6 bg-[#FAFAF8]">
+            <!-- Die Inhalte werden via JavaScript eingefügt, um den Code wartbar zu halten -->
+        </div>
+
+        <!-- Footer Bereich -->
+        <footer class="bg-white p-8 flex flex-col md:flex-row justify-between items-center gap-4 border-t border-stone-100">
+            <div class="flex items-center gap-2 text-[10px] font-bold text-[#9B7FA4] uppercase tracking-widest">
+                <i data-lucide="heart" class="w-3 h-3 text-[#C4836E]"></i> E-V-E Support System
+            </div>
+            <div class="text-[10px] text-stone-400 font-medium tracking-wider">
+                © 2024 UNBOND – BREAKING GLASS
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Daten für das Glossar
+        const glossaryData = [
+            {
+                term: "Love Bombing",
+                icon: "bomb",
+                definition: "Überflutung mit Zuneigung am Anfang, um schnell Abhängigkeit zu erzeugen und Grenzen abzubauen (Oxytocin/Dopamin-Flut).",
+                validation: "Es fühlt sich 'zu schön um wahr zu sein' an (weil es das ist). Genieße das Gefühl, aber bleib bei den Fakten."
+            },
+            {
+                term: "Future Faking",
+                icon: "sparkles",
+                definition: "Versprechen einer gemeinsamen Zukunft, die nie eintritt, um dich in der Gegenwart gefügig zu halten.",
+                validation: "Die Vorstellung der Zukunft löst im Gehirn fast genauso viel Glück aus wie die Realität. Du bleibst für die Hoffnung."
+            },
+            {
+                term: "Intermittierende Verstärkung",
+                icon: "dices",
+                definition: "Unvorhersehbarkeit der Zuneigung ('Heiß/Kalt'). Dopamin feuert am stärksten bei Unsicherheit.",
+                validation: "Herzrasen, wenn eine Nachricht kommt. Dein Körper wartet auf die Erlösung wie bei einem Spielautomaten."
+            },
+            {
+                term: "Gaslighting",
+                icon: "flame",
+                definition: "Systematisches Leugnen deiner Realität. Wenn Wahrnehmung bestritten wird, verliert das Gehirn den 'Sicherheits-Anker'.",
+                validation: "Du entschuldigst dich für Dinge, die du nicht getan hast, weil du deiner eigenen Wahrnehmung nicht mehr traust."
+            },
+            {
+                term: "Silent Treatment",
+                icon: "volume-x",
+                definition: "Bestrafung durch Schweigen. Soziale Ausgrenzung aktiviert im Gehirn Areale für körperlichen Schmerz.",
+                validation: "Du bettelst um Kontakt, nur damit der Schmerz aufhört. Ihr Schweigen löst biologische Panik aus."
+            },
+            {
+                term: "Flying Monkeys",
+                icon: "ghost",
+                definition: "Dritte Personen werden manipuliert, um dich zu überwachen oder unter Druck zu setzen.",
+                validation: "Du fühlst dich paranoid und isoliert, weil dein sicherer sozialer Raum vergiftet wurde."
+            },
+            {
+                term: "Trauma Bonding",
+                icon: "link",
+                definition: "Sucht nach der Erlösung vom Stress (Cortisol), den sie selbst verursacht hat. Ein biochemischer Klebstoff.",
+                validation: "Dein Körper entspannt sich nur, wenn sie nett ist. Das ist keine Liebe, das ist ein Überlebensmechanismus."
+            },
+            {
+                term: "Reactive Abuse",
+                icon: "zap",
+                definition: "Du explodierst nach langer Provokation und wirst als 'die Verrückte' dargestellt. Eine Stress-Entladung.",
+                validation: "Du schämst dich, aber du wurdest so lange in die Ecke gedrängt, bis du beißen musstest."
+            },
+            {
+                term: "Hoovering",
+                icon: "wind",
+                definition: "Versuch, dich wieder 'einzusaugen', oft wenn du heilst. Triggert alte Suchtpfade im Gehirn neu.",
+                validation: "Sofortige Hoffnung gemischt mit Übelkeit. Jede Reaktion ist 'Futter' für sie."
+            },
+            {
+                term: "Grey Rock (Der Ausweg)",
+                icon: "mountain",
+                definition: "Langeweile wie ein Stein. Keine Emotionen zeigen, um den 'Supply' (Energie) zu entziehen.",
+                validation: "Du fühlst dich innen wütend, bleibst außen cool. Du durchbrichst ihren Kreislauf durch Energieentzug.",
+                highlight: true
+            }
+        ];
+
+        const grid = document.getElementById('glossary-grid');
+
+        // Grid befüllen
+        glossaryData.forEach(item => {
+            const card = document.createElement('div');
+            card.className = `glossary-card flex flex-col p-6 rounded-3xl border ${
+                item.highlight 
+                ? 'bg-[#F1F6F3] border-[#7A9E8A] border-2 ring-4 ring-[#7A9E8A]/10' 
+                : 'bg-white border-stone-100 shadow-sm'
+            }`;
+
+            card.innerHTML = `
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="p-3 rounded-2xl ${item.highlight ? 'bg-[#7A9E8A] text-white' : 'bg-[#F4EDE4] text-[#6B3E44]'}">
+                        <i data-lucide="${item.icon}" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-extrabold text-[#6B3E44] leading-tight">
+                        ${item.term}
+                    </h3>
+                </div>
+                <p class="text-[#4A4E52] text-sm leading-relaxed mb-6 flex-grow">
+                    ${item.definition}
+                </p>
+                <div class="bg-[#7A9E8A]/10 border-l-4 border-[#7A9E8A] p-4 rounded-r-xl">
+                    <span class="block text-[10px] font-black text-[#7A9E8A] uppercase tracking-widest mb-1">
+                        Warum fühle ich das?
+                    </span>
+                    <p class="text-[#4A4E52] text-sm italic font-semibold leading-tight">
+                        "${item.validation}"
+                    </p>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+
+        // Icons initialisieren
+        lucide.createIcons();
+    </script>
+</body>
+</html>
