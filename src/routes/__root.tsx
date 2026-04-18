@@ -1,9 +1,10 @@
-import { Outlet, createRootRouteWithContext, HeadContent, Scripts, Link } from "@tanstack/react-router";
+import { Outlet, createRootRouteWithContext, HeadContent, Scripts, Link, useLocation } from "@tanstack/react-router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "sonner";
 import appCss from "../styles.css?url";
 import { AuthProvider } from "@/lib/auth-context";
 import { SosFloatingButton } from "@/components/sos-floating-button";
+import { SiteHeader } from "@/components/site-header";
 
 interface RouterContext {
   queryClient: QueryClient;
@@ -93,10 +94,22 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <Outlet />
+        <AppShell />
         <SosFloatingButton />
         <Toaster position="top-center" richColors />
       </AuthProvider>
     </QueryClientProvider>
+  );
+}
+
+function AppShell() {
+  const { pathname } = useLocation();
+  // Modul-Routen haben ihre eigene Top-Bar; dort blenden wir den globalen Header aus.
+  const hideHeader = pathname.startsWith("/modul/");
+  return (
+    <>
+      {!hideHeader && <SiteHeader />}
+      <Outlet />
+    </>
   );
 }
