@@ -103,14 +103,14 @@ function AuthPage() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="deine@email.de"
-                    className="w-full rounded-lg border-2 border-sage/40 bg-white/80 py-3 pl-10 pr-3 text-sm outline-none transition focus:border-sage"
+                    className="w-full border-2 border-sage/40 bg-white/80 py-3 pl-10 pr-3 text-sm outline-none transition focus:border-sage"
                   />
                 </div>
               </label>
               <button
                 type="submit"
                 disabled={sending}
-                className="w-full rounded-lg bg-bordeaux py-3 text-sm font-semibold text-white shadow-elegant transition hover:opacity-90 disabled:opacity-60"
+                className="w-full bg-bordeaux py-3 text-sm font-semibold uppercase tracking-wider text-white shadow-elegant transition hover:opacity-90 disabled:opacity-60"
               >
                 {sending ? "Wird gesendet…" : "Login-Link senden"}
               </button>
