@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
 import { supabase } from "@/integrations/supabase/client";
 import { MODULES, PHASES, type Phase } from "@/lib/modules";
-import { CheckCircle2, LogOut, Sparkles, BookHeart, Settings, Construction } from "lucide-react";
+import { CheckCircle2, LogOut, BookHeart, Settings, Construction } from "lucide-react";
 import butterflyPattern from "@/assets/butterfly-pattern.png";
 
 export const Route = createFileRoute("/dashboard")({
