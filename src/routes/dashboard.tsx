@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
 import { supabase } from "@/integrations/supabase/client";
 import { MODULES, PHASES, type Phase } from "@/lib/modules";
-import { CheckCircle2, Lock, LogOut, Sparkles, Activity } from "lucide-react";
+import { CheckCircle2, LogOut, Sparkles, Activity, BookOpen, BookHeart, Settings, Construction } from "lucide-react";
 
 export const Route = createFileRoute("/dashboard")({
   component: Dashboard,
@@ -96,14 +96,29 @@ function Dashboard() {
               {completedCount} von {totalAvailable} verfügbaren Schritten gemeistert
             </p>
           </div>
-          <button
-            onClick={() => signOut()}
-            aria-label="Abmelden"
-            className="grid h-9 w-9 place-items-center rounded-full text-graphite/60 hover:bg-black/5"
-          >
-            <LogOut className="h-4 w-4" />
-          </button>
-        </header>
+          <div className="flex items-center gap-1">
+            <Link
+              to="/journal"
+              aria-label="Mein Journal"
+              className="grid h-9 w-9 place-items-center rounded-full text-graphite/60 hover:bg-black/5"
+            >
+              <BookHeart className="h-4 w-4" />
+            </Link>
+            <Link
+              to="/einstellungen"
+              aria-label="Einstellungen"
+              className="grid h-9 w-9 place-items-center rounded-full text-graphite/60 hover:bg-black/5"
+            >
+              <Settings className="h-4 w-4" />
+            </Link>
+            <button
+              onClick={() => signOut()}
+              aria-label="Abmelden"
+              className="grid h-9 w-9 place-items-center rounded-full text-graphite/60 hover:bg-black/5"
+            >
+              <LogOut className="h-4 w-4" />
+            </button>
+          </div>
 
         {/* Progress strip */}
         <div className="glass-card mb-6 flex items-center gap-3 p-4 animate-fade-in">
