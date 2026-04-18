@@ -158,7 +158,7 @@ function Welcome() {
         <div className="flex justify-center pt-4">
           <Link
             to="/dashboard"
-            className="inline-flex items-center gap-2 bg-bordeaux px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-white shadow-elegant transition hover:opacity-90"
+            className="inline-flex items-center gap-2 rounded-md bg-bordeaux px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-white shadow-elegant transition hover:opacity-90"
           >
             <Sparkles className="h-4 w-4" /> Zu deinem Pfad
           </Link>
