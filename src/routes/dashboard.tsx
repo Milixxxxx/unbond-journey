@@ -119,6 +119,7 @@ function Dashboard() {
               <LogOut className="h-4 w-4" />
             </button>
           </div>
+        </header>
 
         {/* Progress strip */}
         <div className="glass-card mb-6 flex items-center gap-3 p-4 animate-fade-in">
