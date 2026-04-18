@@ -68,4 +68,9 @@ export const GLOSSAR: Record<string, GlossarEntry> = {
     short:
       "Japanische Kunst: Bruchstellen mit Gold reparieren. Narben sind kein Makel, sondern Teil der Stärke.",
   },
+  "defusion": {
+    term: "Kognitive Defusion (ACT)",
+    short:
+      "Gedanken als mentale Ereignisse beobachten („Da ist der Gedanke, dass…“) statt mit ihnen zu fusionieren – Kerntechnik der ACT (Hayes et al., 2006).",
+  },
 };
