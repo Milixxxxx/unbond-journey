@@ -1,0 +1,71 @@
+// Zentrales Glossar – Tooltips überall konsistent.
+// Spätere Glossar-Seite generiert sich daraus automatisch.
+
+export type GlossarEntry = {
+  term: string;
+  short: string; // für Tooltip
+  long?: string; // für Glossar-Seite
+};
+
+export const GLOSSAR: Record<string, GlossarEntry> = {
+  "trauma-bonding": {
+    term: "Trauma-Bonding",
+    short:
+      "Emotionale Bindung durch unvorhersehbaren Wechsel aus Nähe und Rückzug – suchtähnlich konditioniert.",
+  },
+  "intermittierende-verstaerkung": {
+    term: "Intermittierende Verstärkung",
+    short:
+      "Unregelmäßige Belohnungen erzeugen die stärkste Konditionierung – das Prinzip hinter dem Wechsel aus Nähe und Rückzug.",
+  },
+  "polyvagal": {
+    term: "Polyvagal-Theorie",
+    short:
+      "Neurobiologisches Modell von Porges (2011): Das autonome Nervensystem reagiert auf Sicherheit, Gefahr und Erstarrung.",
+  },
+  "negative-reappraisal": {
+    term: "Negative Reappraisal",
+    short:
+      "Bewusste Fokussierung auf negative Aspekte, um Liebesgefühle aktiv zu reduzieren – neurobiologisch messbar.",
+  },
+  "minority-stress": {
+    term: "Minority Stress",
+    short:
+      "Erhöhtes Stressniveau durch gesellschaftliche Diskriminierung und Stigmatisierung queerer Menschen (Meyer, 2003).",
+  },
+  "tipp": {
+    term: "TIPP-Protokoll",
+    short:
+      "Temperature, Intense Exercise, Paced Breathing, Progressive Relaxation – sofortige Notfall-Regulation des Nervensystems.",
+  },
+  "detached-mindfulness": {
+    term: "Detached Mindfulness",
+    short:
+      "Gedanken aus beobachtender Distanz wahrnehmen – ohne sich mit ihnen zu identifizieren oder auf sie zu reagieren.",
+  },
+  "kognitive-dissonanz": {
+    term: "Kognitive Dissonanz",
+    short:
+      "Zustand, wenn zwei widersprüchliche Überzeugungen gleichzeitig existieren – das Gehirn versucht, den Widerspruch aufzulösen.",
+  },
+  "urge-surfing": {
+    term: "Urge Surfing",
+    short:
+      "Den Impuls wie eine Welle beobachten – er steigt, erreicht seinen Höhepunkt und fällt wieder ab, ohne dass man handeln muss.",
+  },
+  "dopamin": {
+    term: "Dopamin",
+    short:
+      "Neurotransmitter des Belohnungssystems – bei Erwartung von Nähe ausgeschüttet, bei Entzug abrupt abfallend.",
+  },
+  "amygdala-hijacking": {
+    term: "Amygdala-Hijacking",
+    short:
+      "Das Alarmsystem des Gehirns übernimmt die Kontrolle – der präfrontale Kortex (rationales Denken) ist offline.",
+  },
+  "kintsugi": {
+    term: "Kintsugi",
+    short:
+      "Japanische Kunst: Bruchstellen mit Gold reparieren. Narben sind kein Makel, sondern Teil der Stärke.",
+  },
+};
