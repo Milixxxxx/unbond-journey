@@ -172,7 +172,7 @@ function Dashboard() {
                 <ul className="space-y-3">
                   {phaseModules.map((m) => {
                     const done = doneSlugs.has(m.slug);
-                    const locked = !m.available;
+                    const isStub = !!m.stubBlurb;
                     return (
                       <li key={m.slug} className="relative">
                         <Station
@@ -180,7 +180,7 @@ function Dashboard() {
                           title={m.title}
                           subtitle={m.subtitle}
                           done={done}
-                          locked={locked}
+                          isStub={isStub}
                           slug={m.slug}
                         />
                       </li>
@@ -248,4 +248,4 @@ function Station({
     </Link>
   );
 }
-}
+
