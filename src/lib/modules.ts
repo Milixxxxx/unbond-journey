@@ -16,7 +16,7 @@ export const PHASES: Record<Phase, { title: string; description: string; range: 
   1: {
     title: "Phase 1 · Akutstabilisierung & Entzug",
     description: "Physiologische Regulation vor psychologischer Analyse.",
-    range: "Kapitel 0 – Modul 02",
+    range: "SOS – Modul 02",
   },
   2: {
     title: "Phase 2 · Kognitive Entzauberung",
@@ -37,10 +37,10 @@ export const PHASES: Record<Phase, { title: string; description: string; range: 
 
 export const MODULES: ModuleMeta[] = [
   {
-    slug: "kapitel-0",
+    slug: "sos-soforthilfe",
     number: "0",
-    title: "Fundament",
-    subtitle: "Willkommen im Schmerz – verstehen, was passiert",
+    title: "SOS · Soforthilfe",
+    subtitle: "Werkzeuge für den akuten Moment – auch ohne Trennung nutzbar",
     phase: 1,
     available: true,
   },
