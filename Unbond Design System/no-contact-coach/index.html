@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de"><head>
+<meta charset="UTF-8"><title>UNBOND — No-Contact Coach</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Lato:ital,wght@0,400;0,700&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="styles.js"></script>
+<script type="text/babel" src="SOSButton.jsx"></script>
+<script type="text/babel" src="GaslightingDecoder.jsx"></script>
+<script type="text/babel" src="UrgeTimer.jsx"></script>
+<script type="text/babel" src="JournalPrompt.jsx"></script>
+<script type="text/babel">
+  function App(){
+    return (
+      <div style={coachStyles.shell}>
+        <div style={coachStyles.header}>
+          <div style={coachStyles.brand}>
+            <div style={coachStyles.mark}>
+              <svg width="26" height="26" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 40C20 40 35 35 45 35C55 35 65 25 75 15C75 15 65 30 60 40C55 50 60 60 65 75C65 75 55 65 45 60C35 55 20 60 20 60C20 60 25 55 25 45C25 35 20 40 20 40Z"/><circle cx="48" cy="42" r="1.5" fill="currentColor"/><path d="M25 40L10 38"/></svg>
+            </div>
+            <div>
+              <div style={coachStyles.title}>UNBOND</div>
+              <div style={coachStyles.subtitle}>No-Contact Coach</div>
+            </div>
+          </div>
+          <div style={coachStyles.streakBadge}>🔥 12 Tage Streak</div>
+        </div>
+
+        <div style={coachStyles.greeting}>
+          <div style={coachStyles.greetingEyebrow}>Guten Morgen, Mary</div>
+          <h1 style={coachStyles.greetingH1}>Heute wird weicher als gestern.</h1>
+          <p style={coachStyles.greetingP}>Dein Nervensystem hat 12 Tage lang geübt, wieder Sicherheit zu spüren. Wenn der Impuls kommt — benutze SOS. Kein Muss, kein Scheitern.</p>
+        </div>
+
+        <div style={coachStyles.grid}>
+          <JournalPrompt/>
+          <UrgeTimer/>
+          <GaslightingDecoder/>
+          <div style={coachStyles.card}>
+            <div style={{...coachStyles.cardEyebrow,color:'#6B3E44'}}>Modul · heute freigeschaltet</div>
+            <h3 style={coachStyles.cardTitle}>Modul 04 — Polyvagal & Nervensystem</h3>
+            <p style={coachStyles.cardDesc}>Warum dein Körper auf emotionale Kälte reagiert wie auf eine körperliche Bedrohung — und wie du dein Nervensystem aus dem Alarmzustand holst.</p>
+            <button style={{background:'linear-gradient(135deg,#6B3E44,#8B3E44)',color:'#fff',border:'none',padding:'12px 22px',borderRadius:8,fontFamily:"'Montserrat',sans-serif",fontWeight:700,fontSize:11,letterSpacing:1.5,textTransform:'uppercase',cursor:'pointer',boxShadow:'0 4px 15px rgba(107,62,68,0.25)'}}>Modul öffnen →</button>
+          </div>
+        </div>
+
+        <SOSButton/>
+      </div>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body></html>

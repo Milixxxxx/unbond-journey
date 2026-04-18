@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Form Inputs</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;padding:24px;background:#F4EDE4;font-family:'Lato',sans-serif;width:700px;box-sizing:border-box;color:#4A4E52}
+label{display:block;font-family:'Montserrat';font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#6B3E44;margin:12px 0 6px}
+.field{width:100%;padding:12px 14px;border:2px solid #7A9E8A;border-radius:8px;font-family:'Lato';font-size:14px;background:rgba(255,255,255,0.9);box-sizing:border-box}
+.field:focus{outline:none;border-color:#2D4F3C}
+textarea.field{min-height:80px;resize:vertical}
+.dashed{width:100%;border:none;border-bottom:1px dashed rgba(74,78,82,0.4);padding:6px 2px;font-family:'Lato';font-size:14px;background:transparent;color:#4A4E52;box-sizing:border-box}
+.save{color:#2D4F3C;font-size:11px;font-weight:700;margin-top:4px}
+</style></head><body>
+<label>Textarea · reflection</label>
+<textarea class="field" placeholder="Was fühlst du gerade? Schreibe ohne Bewertung…"></textarea>
+<span class="save">✓ Gespeichert vor 2 Min.</span>
+<label>Input · workbook entry</label>
+<input class="field" placeholder="Mein rotes Objekt im Raum:">
+<label>Inline dashed · exercise row</label>
+<input class="dashed" placeholder="Ein Tier mit B:">
+</body></html>

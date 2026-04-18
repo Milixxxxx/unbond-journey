@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Buttons</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;padding:24px;background:#F4EDE4;font-family:'Montserrat',sans-serif;width:700px;box-sizing:border-box;color:#4A4E52}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:16px 28px;border-radius:8px;font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;border:none;color:#fff}
+.btn-bordeaux{background:linear-gradient(135deg,#6B3E44,#8B3E44);box-shadow:0 4px 18px rgba(107,62,68,0.3)}
+.btn-terra{background:linear-gradient(135deg,#C4836E,#6B3E44)}
+.btn-green{background:linear-gradient(135deg,#7A9E8A,#5a8a6f)}
+.btn-ghost{background:rgba(122,158,138,0.18);color:#2D4F3C;border:1px solid rgba(122,158,138,0.4)}
+.btn-dark{background:#1A0F24;color:#fff;border-radius:24px;padding:18px 36px}
+.btn-sos{background:#C74B4B;color:#fff}
+.lbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#7A9E8A;margin:4px 0 4px;font-weight:700}
+.cell{display:flex;flex-direction:column;gap:6px}
+</style></head><body>
+<div class="grid">
+  <div class="cell"><div class="lbl">Primary · bordeaux gradient</div><button class="btn btn-bordeaux">Test jetzt starten</button></div>
+  <div class="cell"><div class="lbl">Accent · terracotta→bordeaux</div><button class="btn btn-terra">Übung starten</button></div>
+  <div class="cell"><div class="lbl">Calm · sage gradient</div><button class="btn btn-green">Weiter</button></div>
+  <div class="cell"><div class="lbl">Ghost · on dark</div><button class="btn btn-ghost">Mehr erfahren</button></div>
+  <div class="cell"><div class="lbl">Dark pill · coach</div><button class="btn btn-dark">Jetzt analysieren</button></div>
+  <div class="cell"><div class="lbl">SOS · emergency only</div><button class="btn btn-sos">SOS · Jetzt Hilfe</button></div>
+</div>
+</body></html>

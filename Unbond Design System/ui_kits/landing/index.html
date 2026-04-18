@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>UNBOND — Landing</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;padding:0}
+  body{
+    font-family:'Poppins','Lato',sans-serif;
+    background:url('../../assets/hero-bg.png') center top/cover no-repeat fixed;
+    background-color:#1a2420;
+    color:rgba(244,237,228,0.95);
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:linear-gradient(160deg,rgba(10,22,15,0.55) 0%,rgba(14,26,18,0.55) 40%,rgba(8,18,12,0.55) 100%);
+  }
+  .topnav{
+    position:fixed;top:0;left:0;right:0;z-index:20;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 32px;font-family:'Montserrat',sans-serif;
+    background:rgba(15,28,20,0.55);backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(122,158,138,0.15);
+  }
+  .topnav .brand{display:flex;align-items:center;gap:10px;color:#F4EDE4;font-weight:800;font-size:16px;letter-spacing:4px}
+  .topnav .brand svg{width:28px;height:28px;color:#F4EDE4}
+  .topnav .links{display:flex;gap:24px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase}
+  .topnav .links a{color:rgba(244,237,228,0.75);text-decoration:none;font-weight:600}
+  .topnav .links a:hover{color:#7A9E8A}
+  main{position:relative;z-index:1}
+  button:hover, a:hover {opacity:0.92}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <div class="brand">
+    <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 40C20 40 35 35 45 35C55 35 65 25 75 15C75 15 65 30 60 40C55 50 60 60 65 75C65 75 55 65 45 60C35 55 20 60 20 60C20 60 25 55 25 45C25 35 20 40 20 40Z"/><circle cx="48" cy="42" r="1.5" fill="currentColor"/><path d="M25 40L10 38"/></svg>
+    UNBOND
+  </div>
+  <div class="links">
+    <a href="#test">Test</a>
+    <a href="#ebook">E-Book</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</nav>
+<main>
+  <div id="hero"></div>
+  <div id="cards"></div>
+  <div id="toxi"></div>
+  <div id="faq"></div>
+</main>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="styles.js"></script>
+<script type="text/babel" src="Hero.jsx"></script>
+<script type="text/babel" src="ProblemCards.jsx"></script>
+<script type="text/babel" src="ToxiCometerCTA.jsx"></script>
+<script type="text/babel" src="FAQ.jsx"></script>
+<script type="text/babel">
+  ReactDOM.createRoot(document.getElementById('hero')).render(<Hero/>);
+  ReactDOM.createRoot(document.getElementById('cards')).render(<ProblemCards/>);
+  ReactDOM.createRoot(document.getElementById('toxi')).render(<ToxiCometerCTA/>);
+  ReactDOM.createRoot(document.getElementById('faq')).render(<FAQ/>);
+</script>
+</body>
+</html>
