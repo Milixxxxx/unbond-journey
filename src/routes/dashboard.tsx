@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useMemo, useState } from "react";
 import { MODULES, PHASES, type Phase } from "@/lib/modules";
-import { CheckCircle2, BookHeart, Settings, Construction } from "lucide-react";
+import { CheckCircle2, BookHeart, Settings, Construction, Star } from "lucide-react";
 import butterflyPattern from "@/assets/butterfly-pattern.png";
 
 export const Route = createFileRoute("/dashboard")({
@@ -22,10 +23,40 @@ function getGreeting() {
 }
 
 function Dashboard() {
-  const doneSlugs = new Set<string>();
-  const completedCount = 0;
+  const [earnedSlugs, setEarnedSlugs] = useState<string[]>([]);
   const totalAvailable = MODULES.filter((m) => m.available).length;
-  const progressPct = 0;
+  const availableModules = useMemo(() => MODULES.filter((m) => m.available), []);
+
+  useEffect(() => {
+    const readProgress = () => {
+      const earned = availableModules
+        .filter((module) => {
+          try {
+            const raw = window.localStorage.getItem(`unbond-progress:${module.slug}`);
+            if (!raw) return false;
+            const parsed = JSON.parse(raw) as { badgeEarned?: boolean };
+            return !!parsed.badgeEarned;
+          } catch {
+            return false;
+          }
+        })
+        .map((module) => module.slug);
+
+      setEarnedSlugs(earned);
+    };
+
+    readProgress();
+    window.addEventListener("unbond-progress-updated", readProgress);
+    window.addEventListener("storage", readProgress);
+    return () => {
+      window.removeEventListener("unbond-progress-updated", readProgress);
+      window.removeEventListener("storage", readProgress);
+    };
+  }, [availableModules]);
+
+  const doneSlugs = new Set<string>(earnedSlugs);
+  const completedCount = earnedSlugs.length;
+  const progressPct = totalAvailable ? Math.round((completedCount / totalAvailable) * 100) : 0;
 
   const phases: Phase[] = [1, 2, 3, 4];
   const greeting = getGreeting();
@@ -104,7 +135,7 @@ function Dashboard() {
 
       {/* ===================== HELLE ARBEITSFLÄCHE ===================== */}
       <div className="mx-auto max-w-2xl px-4 pt-2">
-        <div className="mb-6 rounded-2xl border border-bordeaux/20 bg-gradient-to-r from-bordeaux/10 via-mauve/5 to-transparent p-5">
+          <div className="mb-6 rounded-2xl border border-bordeaux/20 bg-gradient-to-r from-bordeaux/10 via-mauve/5 to-transparent p-5">
           <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-mauve">
             Freier Zugang
           </p>
@@ -112,8 +143,12 @@ function Dashboard() {
             Du kannst jetzt direkt durch alle Kapitel gehen.
           </p>
           <p className="mt-1.5 text-xs text-graphite/75">
-            Fortschritt und persönliche Speicherung sind vorübergehend pausiert, damit dich nichts mehr aussperrt.
+              Gerade sind nur die freigegebenen Testkapitel offen. Weitere Kapitel folgen erst nach deiner Freigabe.
           </p>
+            <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/70 px-3 py-1.5 text-xs font-semibold text-bordeaux">
+              <Star className="h-3.5 w-3.5 fill-current" />
+              {completedCount} Sternchen gesammelt
+            </div>
         </div>
 
         {/* Vertikaler Pfad mit Phasen */}
@@ -141,7 +176,8 @@ function Dashboard() {
                           title={m.title}
                           subtitle={m.subtitle}
                           done={done}
-                          isStub={isStub}
+                           isStub={isStub}
+                           available={m.available}
                           slug={m.slug}
                         />
                       </li>
@@ -210,6 +246,7 @@ function Station({
   subtitle,
   done,
   isStub,
+  available,
   slug,
 }: {
   number: string;
@@ -217,10 +254,15 @@ function Station({
   subtitle: string;
   done: boolean;
   isStub: boolean;
+  available: boolean;
   slug: string;
 }) {
   return (
-    <Link to="/modul/$slug" params={{ slug }} className="flex items-center gap-3">
+    <Link
+      to="/modul/$slug"
+      params={{ slug }}
+      className={`flex items-center gap-3 ${!available ? "opacity-80" : ""}`}
+    >
       <div
         className={`relative z-10 grid h-14 w-14 flex-shrink-0 place-items-center rounded-full border-4 font-display font-bold ${
           done
@@ -244,6 +286,10 @@ function Station({
           {done ? (
             <span className="rounded-full bg-sage/20 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-sage">
               erledigt
+            </span>
+          ) : !available ? (
+            <span className="rounded-full bg-muted px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+              wartet auf Freigabe
             </span>
           ) : isStub ? (
             <span className="rounded-full bg-mauve/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-mauve">
