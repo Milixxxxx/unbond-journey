@@ -1,22 +1,29 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
-
+import { Outlet, createRootRouteWithContext, HeadContent, Scripts, Link } from "@tanstack/react-router";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "sonner";
 import appCss from "../styles.css?url";
+import { AuthProvider } from "@/lib/auth-context";
+import { SosFloatingButton } from "@/components/sos-floating-button";
+
+interface RouterContext {
+  queryClient: QueryClient;
+}
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
+    <div className="flex min-h-screen items-center justify-center px-4">
+      <div className="glass-card max-w-md text-center p-10">
+        <h1 className="text-7xl font-bold text-bordeaux">404</h1>
+        <h2 className="mt-4 text-xl font-semibold">Diese Seite gibt es nicht</h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+          Vielleicht hat sich der Link verändert. Geh zurück zum Dashboard.
         </p>
         <div className="mt-6">
           <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            to="/dashboard"
+            className="inline-flex items-center justify-center rounded-md bg-bordeaux px-5 py-2.5 text-sm font-medium text-white transition hover:opacity-90"
           >
-            Go home
+            Zum Dashboard
           </Link>
         </div>
       </div>
@@ -24,24 +31,41 @@ function NotFoundComponent() {
   );
 }
 
-export const Route = createRootRoute({
+export const Route = createRootRouteWithContext<RouterContext>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
+      { name: "theme-color", content: "#6B3E44" },
+      { title: "UNBOND – Breaking Chains" },
+      {
+        name: "description",
+        content:
+          "Interaktives 10-Modul-Programm für lesbische und queere Frauen, die sich aus toxischen Beziehungen lösen. DSGVO-konform, EU-Hosting.",
+      },
+      { name: "author", content: "UNBOND" },
+      { property: "og:title", content: "UNBOND – Breaking Chains" },
+      {
+        property: "og:description",
+        content: "Dein Safe Space, um dich aus toxischen Bindungen zu befreien.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      {
+        rel: "preconnect",
+        href: "https://fonts.googleapis.com",
+      },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;700;800&family=Poppins:ital,wght@0,500;1,500&display=swap",
       },
     ],
   }),
@@ -52,7 +76,7 @@ export const Route = createRootRoute({
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="de">
       <head>
         <HeadContent />
       </head>
@@ -65,5 +89,14 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
-  return <Outlet />;
+  const { queryClient } = Route.useRouteContext();
+  return (
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <Outlet />
+        <SosFloatingButton />
+        <Toaster position="top-center" richColors />
+      </AuthProvider>
+    </QueryClientProvider>
+  );
 }
