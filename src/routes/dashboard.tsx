@@ -21,7 +21,17 @@ type ProgressRow = {
 type Profile = {
   display_name: string | null;
   toxicometer_score: number | null;
+  toxicometer_level: string | null;
+  acquisition_source: string | null;
   relationship_status: string | null;
+};
+
+// Mapping: ToxiCometer-Stufe → empfohlenes Einstiegs-Modul
+const LEVEL_RECOMMENDATION: Record<string, { slug: string; label: string; tone: string }> = {
+  critical: { slug: "modul-01", label: "Modul 01 · SOS — du brauchst zuerst Stabilisierung", tone: "Dein Test zeigte sehr hohe Belastung." },
+  high: { slug: "modul-01", label: "Modul 01 · SOS — wir starten mit Stabilisierung", tone: "Dein Test zeigte hohe Belastung." },
+  moderate: { slug: "kapitel-0", label: "Kapitel 0 · Fundament — verstehen, was passiert", tone: "Dein Test zeigte mittlere Belastung." },
+  low: { slug: "kapitel-0", label: "Kapitel 0 · Fundament — als Einstieg", tone: "Dein Test zeigte niedrige Belastung." },
 };
 
 function Dashboard() {
@@ -40,7 +50,7 @@ function Dashboard() {
         supabase.from("module_progress").select("module_slug,badge_earned,completed_at").eq("user_id", user.id),
         supabase
           .from("profiles")
-          .select("display_name,toxicometer_score,relationship_status")
+          .select("display_name,toxicometer_score,toxicometer_level,acquisition_source,relationship_status")
           .eq("id", user.id)
           .maybeSingle(),
       ]);
