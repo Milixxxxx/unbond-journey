@@ -79,6 +79,7 @@ export type Database = {
       }
       profiles: {
         Row: {
+          acquisition_source: string | null
           created_at: string
           display_name: string | null
           has_access: boolean
@@ -86,10 +87,12 @@ export type Database = {
           locale: string | null
           relationship_status: string | null
           toxicometer_completed_at: string | null
+          toxicometer_level: string | null
           toxicometer_score: number | null
           updated_at: string
         }
         Insert: {
+          acquisition_source?: string | null
           created_at?: string
           display_name?: string | null
           has_access?: boolean
@@ -97,10 +100,12 @@ export type Database = {
           locale?: string | null
           relationship_status?: string | null
           toxicometer_completed_at?: string | null
+          toxicometer_level?: string | null
           toxicometer_score?: number | null
           updated_at?: string
         }
         Update: {
+          acquisition_source?: string | null
           created_at?: string
           display_name?: string | null
           has_access?: boolean
@@ -108,6 +113,7 @@ export type Database = {
           locale?: string | null
           relationship_status?: string | null
           toxicometer_completed_at?: string | null
+          toxicometer_level?: string | null
           toxicometer_score?: number | null
           updated_at?: string
         }
