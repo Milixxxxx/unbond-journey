@@ -1,11 +1,19 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
+import { supabase } from "@/integrations/supabase/client";
 import { ArrowLeft, Mail, Shield, Sparkles } from "lucide-react";
 import { toast } from "sonner";
+import { z } from "zod";
+
+const SearchSchema = z.object({
+  source: z.string().optional(),
+  level: z.string().optional(),
+});
 
 export const Route = createFileRoute("/auth")({
   component: AuthPage,
+  validateSearch: (s) => SearchSchema.parse(s),
   head: () => ({
     meta: [
       { title: "Anmelden · UNBOND" },
@@ -15,11 +23,28 @@ export const Route = createFileRoute("/auth")({
 });
 
 function AuthPage() {
-  const { signInWithEmail, session } = useAuth();
+  const { signInWithEmail, session, user } = useAuth();
+  const search = Route.useSearch();
   const [email, setEmail] = useState("");
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const navigate = useNavigate();
+
+  // Source-Tracking aus Brevo-Mail-CTA: ?source=toxicometer&level=high
+  // Beim ersten Login auf das Profil schreiben, damit das Dashboard personalisiert begrüßen kann.
+  useEffect(() => {
+    if (!user) return;
+    const source = search.source;
+    const level = search.level;
+    if (!source && !level) return;
+    void supabase
+      .from("profiles")
+      .update({
+        ...(source ? { acquisition_source: source } : {}),
+        ...(level ? { toxicometer_level: level } : {}),
+      })
+      .eq("id", user.id);
+  }, [user, search.source, search.level]);
 
   if (session) {
     navigate({ to: "/dashboard" });

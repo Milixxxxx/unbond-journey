@@ -21,7 +21,17 @@ type ProgressRow = {
 type Profile = {
   display_name: string | null;
   toxicometer_score: number | null;
+  toxicometer_level: string | null;
+  acquisition_source: string | null;
   relationship_status: string | null;
+};
+
+// Mapping: ToxiCometer-Stufe → empfohlenes Einstiegs-Modul
+const LEVEL_RECOMMENDATION: Record<string, { slug: string; label: string; tone: string }> = {
+  critical: { slug: "modul-01", label: "Modul 01 · SOS — du brauchst zuerst Stabilisierung", tone: "Dein Test zeigte sehr hohe Belastung." },
+  high: { slug: "modul-01", label: "Modul 01 · SOS — wir starten mit Stabilisierung", tone: "Dein Test zeigte hohe Belastung." },
+  moderate: { slug: "kapitel-0", label: "Kapitel 0 · Fundament — verstehen, was passiert", tone: "Dein Test zeigte mittlere Belastung." },
+  low: { slug: "kapitel-0", label: "Kapitel 0 · Fundament — als Einstieg", tone: "Dein Test zeigte niedrige Belastung." },
 };
 
 function Dashboard() {
@@ -40,7 +50,7 @@ function Dashboard() {
         supabase.from("module_progress").select("module_slug,badge_earned,completed_at").eq("user_id", user.id),
         supabase
           .from("profiles")
-          .select("display_name,toxicometer_score,relationship_status")
+          .select("display_name,toxicometer_score,toxicometer_level,acquisition_source,relationship_status")
           .eq("id", user.id)
           .maybeSingle(),
       ]);
@@ -139,6 +149,27 @@ function Dashboard() {
             </div>
           </div>
         </div>
+
+        {/* Personalisierte Empfehlung aus Toxicometer-Test (Brevo-Funnel) */}
+        {profile?.toxicometer_level &&
+          LEVEL_RECOMMENDATION[profile.toxicometer_level] &&
+          completedCount === 0 && (
+            <Link
+              to="/modul/$slug"
+              params={{ slug: LEVEL_RECOMMENDATION[profile.toxicometer_level].slug }}
+              className="mb-6 block rounded-xl border-l-4 border-bordeaux bg-gradient-to-r from-bordeaux/10 to-mauve/5 p-4 transition hover:from-bordeaux/15"
+            >
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-mauve">
+                Aus deinem Test
+              </p>
+              <p className="mt-1 font-display text-sm font-bold text-bordeaux">
+                {LEVEL_RECOMMENDATION[profile.toxicometer_level].tone}
+              </p>
+              <p className="mt-1 text-xs text-graphite/75">
+                Empfehlung: {LEVEL_RECOMMENDATION[profile.toxicometer_level].label} →
+              </p>
+            </Link>
+          )}
 
         {!profile?.toxicometer_score && (
           <Link
@@ -248,4 +279,3 @@ function Station({
     </Link>
   );
 }
-
