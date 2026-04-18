@@ -77,17 +77,17 @@ function AuthPage() {
         </Link>
 
         <div className="glass-card-strong p-7">
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-mauve">
+          <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-mauve">
             <Sparkles className="h-3.5 w-3.5" />
             Passwortlos · Magic-Link
           </div>
-          <h1 className="mt-2 font-display text-2xl font-extrabold text-bordeaux">
-            {sent ? "Schau in dein Postfach" : "Willkommen zurück"}
+          <h1 className="mt-3 font-display text-3xl font-semibold leading-tight text-bordeaux">
+            {sent ? "Schau in dein Postfach" : "Schön, dass du da bist"}
           </h1>
-          <p className="mt-2 text-sm text-graphite/75">
+          <p className="mt-3 text-sm leading-relaxed text-graphite/75">
             {sent
-              ? "Wir haben dir einen Login-Link an deine E-Mail geschickt. Klicke ihn an, um fortzufahren."
-              : "Gib deine E-Mail ein – wir senden dir einen sicheren Login-Link. Kein Passwort nötig."}
+              ? "Wir haben dir einen Link geschickt. Klick ihn an — und wir machen weiter, wo du aufgehört hast."
+              : "Gib deine E-Mail ein. Wir schicken dir einen sicheren Link — kein Passwort, kein Stress."}
           </p>
 
           {!sent && (
@@ -103,7 +103,7 @@ function AuthPage() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="deine@email.de"
-                    className="w-full rounded-lg border-2 border-sage/40 bg-white/80 py-3 pl-10 pr-3 text-sm outline-none focus:border-sage"
+                    className="w-full rounded-lg border-2 border-sage/40 bg-white/80 py-3 pl-10 pr-3 text-sm outline-none transition focus:border-sage"
                   />
                 </div>
               </label>
@@ -120,8 +120,7 @@ function AuthPage() {
           <div className="mt-6 flex items-start gap-2 rounded-lg bg-sage/10 p-3 text-xs text-graphite/80">
             <Shield className="mt-0.5 h-4 w-4 flex-shrink-0 text-sage" />
             <p>
-              <strong>🇪🇺 Daten in Frankfurt</strong> · DSGVO · Keine Tracker. Deine E-Mail wird ausschließlich
-              für deinen Login verwendet.
+              <strong>🇪🇺 Daten bleiben in Frankfurt</strong> · DSGVO · Keine Tracker. Deine E-Mail nutzen wir nur für deinen Login — versprochen.
             </p>
           </div>
         </div>
