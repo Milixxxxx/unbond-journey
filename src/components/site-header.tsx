@@ -53,7 +53,7 @@ export function SiteHeader() {
               <HeaderLink to="/glossar">Glossar</HeaderLink>
               <Link
                 to="/auth"
-                className="ml-1 rounded-full bg-sage px-4 py-1.5 text-[11px] font-semibold text-graphite transition hover:bg-sage-soft hover:shadow-[0_0_20px_oklch(0.66_0.045_155_/_0.4)]"
+                className="ml-1 rounded-md bg-sage px-4 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-graphite transition hover:bg-sage-soft hover:shadow-[0_0_20px_oklch(0.66_0.045_155_/_0.4)]"
               >
                 Anmelden
               </Link>

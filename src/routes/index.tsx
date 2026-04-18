@@ -55,13 +55,13 @@ function Landing() {
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
               to="/auth"
-              className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-bordeaux px-6 py-3.5 text-sm font-semibold text-white shadow-elegant transition hover:opacity-90"
+              className="inline-flex flex-1 items-center justify-center gap-2 rounded-md bg-bordeaux px-6 py-3.5 text-sm font-semibold uppercase tracking-wider text-white shadow-elegant transition hover:opacity-90"
             >
               Beginne deine Reise <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               to="/willkommen"
-              className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border-2 border-bordeaux/20 bg-white/60 px-6 py-3.5 text-sm font-semibold text-bordeaux transition hover:bg-white"
+              className="inline-flex flex-1 items-center justify-center gap-2 rounded-md border-2 border-bordeaux/20 bg-white/60 px-6 py-3.5 text-sm font-semibold uppercase tracking-wider text-bordeaux transition hover:bg-white"
             >
               Erst mehr erfahren
             </Link>
