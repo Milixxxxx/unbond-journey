@@ -17,21 +17,21 @@ export function classify(score: number, max: number): { level: ToxiLevel; label:
     return {
       level: "gering",
       label: "Geringe Belastung",
-      recommendation: "Beginne mit der Einleitung und Kapitel 0, um die Grundlagen zu verstehen.",
+      recommendation: "Beginne mit der Einleitung und dem SOS-Modul, um die Werkzeuge kennenzulernen.",
     };
   }
   if (pct < 0.5) {
     return {
       level: "mittel",
       label: "Mittlere Belastung",
-      recommendation: "Starte mit Kapitel 0 und arbeite dich linear durch die Module.",
+      recommendation: "Starte mit dem SOS-Modul und arbeite dich linear durch die Module.",
     };
   }
   if (pct < 0.75) {
     return {
       level: "hoch",
       label: "Hohe Belastung",
-      recommendation: "Beginne sofort mit Modul 01 (SOS) zur Stabilisierung – Kapitel 0 begleitend.",
+      recommendation: "Beginne sofort mit dem SOS-Modul zur Stabilisierung – Modul 01 direkt im Anschluss.",
     };
   }
   return {

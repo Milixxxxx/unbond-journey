@@ -9,9 +9,9 @@ import {
 } from "@/components/exercise-fields";
 import { Brain, Lightbulb, ScrollText, Pencil, Microscope } from "lucide-react";
 
-const SLUG = "kapitel-0";
+const SLUG = "sos-soforthilfe";
 
-export function Kapitel0() {
+export function SosSoforthilfe() {
   return (
     <article className="space-y-7">
       {/* Story */}

@@ -3,7 +3,7 @@ import { getModule } from "@/lib/modules";
 import { ModuleTopBar } from "@/components/module-top-bar";
 import { ModuleBottomBar } from "@/components/module-bottom-bar";
 import { CrisisBanner } from "@/components/crisis-banner";
-import { Kapitel0 } from "@/modules/kapitel-0";
+import { SosSoforthilfe } from "@/modules/sos-soforthilfe";
 import { Modul01 } from "@/modules/modul-01";
 import { Modul02 } from "@/modules/modul-02";
 import { ModuleStub } from "@/modules/module-stub";
@@ -87,7 +87,7 @@ function ModulePage() {
   return (
     <div className="min-h-screen pb-safe">
       <ModuleTopBar
-        badge={meta.number === "0" ? "Kapitel 0 · Fundament" : `Schritt ${meta.number}`}
+        badge={meta.number === "0" ? "SOS · Freebee" : `Schritt ${meta.number}`}
         title={meta.title}
       />
 
@@ -95,8 +95,8 @@ function ModulePage() {
         <CrisisBanner />
 
         <div className="mt-6">
-          {meta.slug === "kapitel-0" ? (
-            <Kapitel0 />
+          {meta.slug === "sos-soforthilfe" ? (
+            <SosSoforthilfe />
           ) : meta.slug === "modul-01" ? (
             <Modul01 />
           ) : meta.slug === "modul-02" ? (
