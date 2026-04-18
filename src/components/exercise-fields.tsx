@@ -78,6 +78,7 @@ export function SliderField({
   const { exerciseState, setExercise, loaded } = useModuleProgress(slug);
   if (!loaded) return null;
   const val = exerciseState[exerciseKey] ?? defaultVal;
+  const steps = Array.from({ length: max - min + 1 }, (_, index) => min + index);
 
   return (
     <div>
@@ -85,14 +86,27 @@ export function SliderField({
         <span className="font-semibold text-bordeaux">{label}</span>
         <span className="font-display text-lg font-bold text-sage">{val}</span>
       </div>
-      <input
-        type="range"
-        min={min}
-        max={max}
-        value={val}
-        onChange={(e) => setExercise(exerciseKey, Number(e.target.value))}
-        className="w-full accent-[var(--color-sage)]"
-      />
+      <div className="grid grid-cols-6 gap-1.5 rounded-xl bg-white/65 p-2 sm:grid-cols-11">
+        {steps.map((step) => {
+          const active = val === step;
+
+          return (
+            <button
+              key={step}
+              type="button"
+              onClick={() => setExercise(exerciseKey, step)}
+              aria-pressed={active}
+              className={`grid h-10 place-items-center rounded-lg border-2 text-sm font-semibold transition ${
+                active
+                  ? "border-bordeaux bg-bordeaux text-white shadow-soft"
+                  : "border-sage/30 bg-white text-graphite/75 hover:border-sage hover:bg-sage/5"
+              }`}
+            >
+              {step}
+            </button>
+          );
+        })}
+      </div>
       {hint && <p className="mt-1 text-[11px] text-graphite/55">{hint}</p>}
     </div>
   );

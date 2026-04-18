@@ -3,11 +3,17 @@ import { ChevronLeft, ChevronRight, LayoutGrid, BookOpen } from "lucide-react";
 import { getNeighbors, MODULES } from "@/lib/modules";
 
 export function ModuleBottomBar({ slug }: { slug: string }) {
+  const availableModules = MODULES.filter((module) => module.available);
+  const availableIdx = availableModules.findIndex((module) => module.slug === slug);
   const { prev, next } = getNeighbors(slug);
   const navigate = useNavigate();
 
-  const moduleIdx = MODULES.findIndex((m) => m.slug === slug);
-  const progress = ((moduleIdx + 1) / MODULES.length) * 100;
+  const currentPrev = availableIdx >= 0 ? availableModules[availableIdx - 1] : prev;
+  const currentNext = availableIdx >= 0 ? availableModules[availableIdx + 1] : next;
+  const modulePosition = availableIdx >= 0 ? availableIdx + 1 : MODULES.findIndex((m) => m.slug === slug) + 1;
+  const progress = availableModules.length
+    ? (modulePosition / availableModules.length) * 100
+    : 0;
 
   return (
     <nav
@@ -20,8 +26,8 @@ export function ModuleBottomBar({ slug }: { slug: string }) {
     >
       <div className="mx-auto flex max-w-3xl items-center gap-2 px-3 py-2.5">
         <button
-          onClick={() => prev && navigate({ to: "/modul/$slug", params: { slug: prev.slug } })}
-          disabled={!prev}
+          onClick={() => currentPrev && navigate({ to: "/modul/$slug", params: { slug: currentPrev.slug } })}
+          disabled={!currentPrev}
           aria-label="Vorheriges Modul"
           className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-full text-bordeaux transition hover:bg-bordeaux/10 disabled:opacity-30"
         >
@@ -35,7 +41,7 @@ export function ModuleBottomBar({ slug }: { slug: string }) {
         >
           <div className="flex items-center gap-1.5 text-[11px] font-medium text-graphite">
             <LayoutGrid className="h-3 w-3" />
-            <span>{moduleIdx + 1} von {MODULES.length}</span>
+             <span>{modulePosition} von {availableModules.length || MODULES.length}</span>
           </div>
           <div className="h-1.5 w-full max-w-[180px] overflow-hidden rounded-full bg-sage/15">
             <div
@@ -54,8 +60,8 @@ export function ModuleBottomBar({ slug }: { slug: string }) {
         </Link>
 
         <button
-          onClick={() => next && navigate({ to: "/modul/$slug", params: { slug: next.slug } })}
-          disabled={!next}
+          onClick={() => currentNext && navigate({ to: "/modul/$slug", params: { slug: currentNext.slug } })}
+          disabled={!currentNext}
           aria-label="Nächstes Modul"
           className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-full bg-bordeaux text-white transition hover:opacity-90 disabled:opacity-30"
         >

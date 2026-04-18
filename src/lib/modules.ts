@@ -74,7 +74,7 @@ export const MODULES: ModuleMeta[] = [
     title: "Toxikometer & Realitäts-Check",
     subtitle: "Idealisierung systematisch dekonstruieren",
     phase: 2,
-    available: true,
+    available: false,
     stubBlurb:
       "Dein Gedächtnis hat ein selektives Highlight-Reel gespeichert. Wir bauen daneben ein realistisches Reel – Szene für Szene.",
     stubTopics: [
@@ -90,7 +90,7 @@ export const MODULES: ModuleMeta[] = [
     title: "No-Contact als Entzug",
     subtitle: "Strikter Kontaktabbruch als neurobiologische Notwendigkeit",
     phase: 2,
-    available: true,
+    available: false,
     stubBlurb:
       "No-Contact ist kein Liebesentzug – es ist Entgiftung. Dein dopaminerges System braucht 60–90 Tage, um zu resetten.",
     stubTopics: [
@@ -106,7 +106,7 @@ export const MODULES: ModuleMeta[] = [
     title: "Trigger entmachten",
     subtitle: "Trigger-Landkarte und Urge Surfing in der Tiefe",
     phase: 3,
-    available: true,
+    available: false,
     stubBlurb:
       "Trigger sind nicht der Feind – sie sind Wegweiser. In diesem Modul lernst du, sie zu lesen, zu surfen und zu integrieren.",
     stubTopics: [
@@ -122,7 +122,7 @@ export const MODULES: ModuleMeta[] = [
     title: "ACT · Werte statt Wunden",
     subtitle: "Akzeptanz, Defusion, wertebasiertes Handeln",
     phase: 3,
-    available: true,
+    available: false,
     stubBlurb:
       "Du musst den Schmerz nicht wegmachen, um wieder zu leben. ACT zeigt: Heilung passiert, während du dein Leben in Richtung deiner Werte lebst.",
     stubTopics: [
@@ -138,7 +138,7 @@ export const MODULES: ModuleMeta[] = [
     title: "Identität jenseits der Bindung",
     subtitle: "Wer bist du, ohne sie?",
     phase: 4,
-    available: true,
+    available: false,
     stubBlurb:
       "In toxischen Beziehungen verschmilzt Identität. Hier rekonstruierst du, wer du warst, bevor du dich verlierst – und wer du jetzt sein willst.",
     stubTopics: [
@@ -154,7 +154,7 @@ export const MODULES: ModuleMeta[] = [
     title: "Self-Expansion",
     subtitle: "Neue dopaminerge Belohnungssysteme aufbauen",
     phase: 4,
-    available: true,
+    available: false,
     stubBlurb:
       "Aron & Aron (1986): Wir wachsen durch Erweiterung. Du tauschst die süchtig machende Bindung gegen breite, nahrhafte Quellen von Bedeutung.",
     stubTopics: [
@@ -170,7 +170,7 @@ export const MODULES: ModuleMeta[] = [
     title: "WLW-Realität & Community",
     subtitle: "Fusion, kleine Pools, Re-Integration",
     phase: 4,
-    available: true,
+    available: false,
     stubBlurb:
       "Lesbische und queere Communities sind klein und verflochten. Wir bauen Strategien für emotionale Sicherheit und gesunde Verbindungen.",
     stubTopics: [
@@ -186,7 +186,7 @@ export const MODULES: ModuleMeta[] = [
     title: "Kintsugi · Posttraumatisches Wachstum",
     subtitle: "Narben als Teil deiner Stärke",
     phase: 4,
-    available: true,
+    available: false,
     stubBlurb:
       "Tedeschi & Calhoun (2004): Posttraumatisches Wachstum ist real. Nicht trotz, sondern durch die Erfahrung. Wir vergolden die Bruchstellen.",
     stubTopics: [

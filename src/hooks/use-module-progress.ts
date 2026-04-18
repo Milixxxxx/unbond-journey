@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 
+const STORAGE_PREFIX = "unbond-progress:";
+
 // Reactive hook für Modul-Fortschritt: liest beim Mount, debounced beim Schreiben.
 export function useModuleProgress(slug: string) {
   const { user } = useAuth();
@@ -10,9 +12,27 @@ export function useModuleProgress(slug: string) {
   const [badgeEarned, setBadgeEarned] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const storageKey = `${STORAGE_PREFIX}${slug}`;
 
   useEffect(() => {
     if (!user) {
+      try {
+        const raw = window.localStorage.getItem(storageKey);
+        if (raw) {
+          const parsed = JSON.parse(raw) as {
+            exerciseState?: Record<string, any>;
+            checklistState?: Record<string, boolean>;
+            badgeEarned?: boolean;
+          };
+          setExerciseState(parsed.exerciseState ?? {});
+          setChecklistState(parsed.checklistState ?? {});
+          setBadgeEarned(parsed.badgeEarned ?? false);
+        }
+      } catch {
+        setExerciseState({});
+        setChecklistState({});
+        setBadgeEarned(false);
+      }
       setLoaded(true);
       return;
     }
@@ -30,14 +50,28 @@ export function useModuleProgress(slug: string) {
       }
       setLoaded(true);
     })();
-  }, [user, slug]);
+  }, [user, slug, storageKey]);
 
   const persist = (
     nextExercise: Record<string, any>,
     nextChecklist: Record<string, boolean>,
     nextBadge: boolean,
   ) => {
-    if (!user) return;
+    if (!user) {
+      try {
+        window.localStorage.setItem(
+          storageKey,
+          JSON.stringify({
+            exerciseState: nextExercise,
+            checklistState: nextChecklist,
+            badgeEarned: nextBadge,
+          }),
+        );
+        window.dispatchEvent(new CustomEvent("unbond-progress-updated"));
+      } catch {
+      }
+      return;
+    }
     if (saveTimer.current) clearTimeout(saveTimer.current);
     saveTimer.current = setTimeout(async () => {
       await supabase.from("module_progress").upsert(
@@ -51,6 +85,7 @@ export function useModuleProgress(slug: string) {
         },
         { onConflict: "user_id,module_slug" },
       );
+      window.dispatchEvent(new CustomEvent("unbond-progress-updated"));
     }, 600);
   };
 
