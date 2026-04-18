@@ -48,6 +48,42 @@ function ModulePage() {
     );
   }
 
+  if (!meta.available) {
+    return (
+      <div className="min-h-screen pb-safe">
+        <ModuleTopBar
+          badge={`Schritt ${meta.number} · In Vorbereitung`}
+          title={meta.title}
+        />
+
+        <div className="mx-auto max-w-3xl px-4 py-6">
+          <CrisisBanner />
+
+          <div className="mt-6 rounded-2xl border border-mauve/20 bg-white/80 p-6 shadow-soft">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-mauve">
+              Kapitelweise Freigabe
+            </p>
+            <h2 className="mt-2 font-display text-xl font-bold text-bordeaux">
+              Dieses Kapitel ist noch nicht umgesetzt.
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-graphite/75">
+              Wir arbeiten ab jetzt wieder kapitelweise. Erst wenn ein Kapitel von dir freigegeben ist,
+              wird das nächste ausgearbeitet.
+            </p>
+            <Link
+              to="/dashboard"
+              className="mt-5 inline-flex rounded-full bg-bordeaux px-4 py-2 text-sm font-semibold text-white transition hover:opacity-90"
+            >
+              Zurück zur Kapitelübersicht
+            </Link>
+          </div>
+        </div>
+
+        <ModuleBottomBar slug={slug} />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen pb-safe">
       <ModuleTopBar
