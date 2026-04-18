@@ -54,10 +54,10 @@ function Landing() {
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
-              to="/auth"
+              to="/dashboard"
               className="inline-flex flex-1 items-center justify-center gap-2 rounded-md bg-bordeaux px-6 py-3.5 text-sm font-semibold uppercase tracking-wider text-white shadow-elegant transition hover:opacity-90"
             >
-              Beginne deine Reise <ArrowRight className="h-4 w-4" />
+              Inhalte öffnen <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               to="/willkommen"

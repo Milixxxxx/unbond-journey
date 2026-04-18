@@ -1,6 +1,5 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { useAuth } from "@/lib/auth-context";
 
 /**
  * Cinematic Site-Header — transparent-dunkel, mit subtilem Backdrop-Blur.
@@ -8,7 +7,6 @@ import { useAuth } from "@/lib/auth-context";
  * Wird auf allen App-Seiten ausser den Vollscreen-Modul-Routen gezeigt.
  */
 export function SiteHeader() {
-  const { user } = useAuth();
   const { pathname } = useLocation();
   const [scrolled, setScrolled] = useState(false);
 
@@ -19,7 +17,6 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Auf Dashboard verschmilzt der Header mit dem dunklen Hero (kein eigener BG nötig).
   const onDashboard = pathname === "/dashboard";
 
   return (
@@ -31,7 +28,7 @@ export function SiteHeader() {
       }`}
     >
       <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3.5">
-        <Link to={user ? "/dashboard" : "/"} className="group flex items-baseline gap-2">
+        <Link to="/dashboard" className="group flex items-baseline gap-2">
           <span className="font-display text-lg font-extrabold tracking-tight text-cream transition group-hover:text-sage-soft">
             UN<span className="text-sage">BOND</span>
           </span>
@@ -41,24 +38,10 @@ export function SiteHeader() {
         </Link>
 
         <nav className="flex items-center gap-1 text-xs font-medium">
-          {user ? (
-            <>
-              <HeaderLink to="/dashboard">Reise</HeaderLink>
-              <HeaderLink to="/journal">Journal</HeaderLink>
-              <HeaderLink to="/glossar">Glossar</HeaderLink>
-            </>
-          ) : (
-            <>
-              <HeaderLink to="/willkommen">Über</HeaderLink>
-              <HeaderLink to="/glossar">Glossar</HeaderLink>
-              <Link
-                to="/auth"
-                className="ml-1 rounded-md bg-sage px-4 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-graphite transition hover:bg-sage-soft hover:shadow-[0_0_20px_oklch(0.66_0.045_155_/_0.4)]"
-              >
-                Anmelden
-              </Link>
-            </>
-          )}
+          <HeaderLink to="/dashboard">Reise</HeaderLink>
+          <HeaderLink to="/journal">Journal</HeaderLink>
+          <HeaderLink to="/glossar">Glossar</HeaderLink>
+          <HeaderLink to="/einstellungen">Einstellungen</HeaderLink>
         </nav>
       </div>
     </header>

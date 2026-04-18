@@ -1,9 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
-import { useAuth } from "@/lib/auth-context";
-import { supabase } from "@/integrations/supabase/client";
 import { MODULES, PHASES, type Phase } from "@/lib/modules";
-import { CheckCircle2, LogOut, BookHeart, Settings, Construction } from "lucide-react";
+import { CheckCircle2, BookHeart, Settings, Construction } from "lucide-react";
 import butterflyPattern from "@/assets/butterfly-pattern.png";
 
 export const Route = createFileRoute("/dashboard")({
@@ -12,28 +9,6 @@ export const Route = createFileRoute("/dashboard")({
     meta: [{ title: "Deine Reise · UNBOND" }],
   }),
 });
-
-type ProgressRow = {
-  module_slug: string;
-  badge_earned: boolean;
-  completed_at: string | null;
-};
-
-type Profile = {
-  display_name: string | null;
-  toxicometer_score: number | null;
-  toxicometer_level: string | null;
-  acquisition_source: string | null;
-  relationship_status: string | null;
-};
-
-// Mapping: ToxiCometer-Stufe → empfohlenes Einstiegs-Modul
-const LEVEL_RECOMMENDATION: Record<string, { slug: string; label: string; tone: string }> = {
-  critical: { slug: "modul-01", label: "Modul 01 · SOS — fang hier an, atme zuerst", tone: "Dein Test zeigt: gerade ist viel." },
-  high: { slug: "modul-01", label: "Modul 01 · SOS — wir starten mit Stabilisierung", tone: "Dein Test zeigt hohe Belastung." },
-  moderate: { slug: "kapitel-0", label: "Kapitel 0 · Fundament — verstehen, was passiert", tone: "Dein Test zeigt mittlere Belastung." },
-  low: { slug: "kapitel-0", label: "Kapitel 0 · Fundament — als ruhiger Einstieg", tone: "Dein Test zeigt: du hast schon viel Klarheit." },
-};
 
 // Tageszeit-abhängige Begrüßung — kleine warme Geste
 function getGreeting() {
@@ -47,62 +22,14 @@ function getGreeting() {
 }
 
 function Dashboard() {
-  const { user, loading, signOut } = useAuth();
-  const [progress, setProgress] = useState<ProgressRow[]>([]);
-  const [profile, setProfile] = useState<Profile | null>(null);
-
-  useEffect(() => {
-    if (!loading && !user) return;
-    if (!user) return;
-    (async () => {
-      const [{ data: prog }, { data: prof }] = await Promise.all([
-        supabase.from("module_progress").select("module_slug,badge_earned,completed_at").eq("user_id", user.id),
-        supabase
-          .from("profiles")
-          .select("display_name,toxicometer_score,toxicometer_level,acquisition_source,relationship_status")
-          .eq("id", user.id)
-          .maybeSingle(),
-      ]);
-      setProgress(prog ?? []);
-      setProfile(prof ?? null);
-    })();
-  }, [user, loading]);
-
-  if (loading) {
-    return (
-      <div className="grid min-h-screen place-items-center text-sm text-muted-foreground">
-        Einen Moment…
-      </div>
-    );
-  }
-
-  if (!user) {
-    return (
-      <div className="grid min-h-screen place-items-center px-4">
-        <div className="glass-card max-w-sm p-6 text-center">
-          <h2 className="font-display text-2xl font-bold text-bordeaux">Schön, dass du hier bist</h2>
-          <p className="mt-2 text-sm text-graphite/75">
-            Melde dich an — dein Fortschritt wird sicher in Frankfurt gespeichert.
-          </p>
-          <Link
-            to="/auth"
-            className="mt-4 inline-block bg-bordeaux px-6 py-2.5 text-sm font-semibold text-white shadow-elegant transition hover:opacity-90"
-          >
-            Zum Login
-          </Link>
-        </div>
-      </div>
-    );
-  }
-
-  const doneSlugs = new Set(progress.filter((p) => p.badge_earned || p.completed_at).map((p) => p.module_slug));
-  const completedCount = doneSlugs.size;
+  const doneSlugs = new Set<string>();
+  const completedCount = 0;
   const totalAvailable = MODULES.filter((m) => m.available).length;
-  const progressPct = Math.round((completedCount / totalAvailable) * 100);
+  const progressPct = 0;
 
   const phases: Phase[] = [1, 2, 3, 4];
   const greeting = getGreeting();
-  const firstName = profile?.display_name?.split(" ")[0];
+  const firstName: string | undefined = undefined;
 
   return (
     <main className="min-h-screen pb-24">
@@ -140,13 +67,6 @@ function Dashboard() {
             >
               <Settings className="h-4 w-4" />
             </Link>
-            <button
-              onClick={() => signOut()}
-              aria-label="Abmelden"
-              className="grid h-9 w-9 place-items-center rounded-full text-cream/60 transition hover:bg-white/10 hover:text-cream"
-            >
-              <LogOut className="h-4 w-4" />
-            </button>
           </div>
 
           <div className="animate-fade-in">
@@ -164,8 +84,7 @@ function Dashboard() {
               {!firstName && <span className="text-sage-soft">.</span>}
             </h1>
             <p className="mt-5 max-w-md text-sm leading-relaxed text-cream/75 md:text-base">
-              Atme. Du musst heute nichts schaffen, nur da sein.
-              {completedCount > 0 && ` Du hast schon ${completedCount} Schritt${completedCount > 1 ? "e" : ""} hinter dir — das zählt.`}
+              Atme. Du musst heute nichts schaffen, nur da sein. Alle Inhalte sind gerade frei zugänglich — wir kümmern uns später wieder um den Login.
             </p>
           </div>
 
@@ -185,29 +104,17 @@ function Dashboard() {
 
       {/* ===================== HELLE ARBEITSFLÄCHE ===================== */}
       <div className="mx-auto max-w-2xl px-4 pt-2">
-        {/* Personalisierte Empfehlung aus Toxicometer-Test (Brevo-Funnel) */}
-        {profile?.toxicometer_level &&
-          LEVEL_RECOMMENDATION[profile.toxicometer_level] &&
-          completedCount === 0 && (
-            <Link
-              to="/modul/$slug"
-              params={{ slug: LEVEL_RECOMMENDATION[profile.toxicometer_level].slug }}
-              className="mb-6 block rounded-2xl border border-bordeaux/20 bg-gradient-to-r from-bordeaux/10 via-mauve/5 to-transparent p-5 transition hover:from-bordeaux/15 hover:shadow-soft"
-            >
-              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-mauve">
-                Aus deinem Test
-              </p>
-              <p className="mt-1.5 font-display text-base font-semibold leading-snug text-bordeaux">
-                {LEVEL_RECOMMENDATION[profile.toxicometer_level].tone}
-              </p>
-              <p className="mt-1.5 text-xs text-graphite/75">
-                Empfehlung: {LEVEL_RECOMMENDATION[profile.toxicometer_level].label} →
-              </p>
-            </Link>
-          )}
-
-{/* Toxicometer-Test wird ausschließlich auf der Landingpage gemacht. 
-            Ergebnis kommt via Brevo-Mail-Link (?source=toxicometer&level=...) ins Profil. */}
+        <div className="mb-6 rounded-2xl border border-bordeaux/20 bg-gradient-to-r from-bordeaux/10 via-mauve/5 to-transparent p-5">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-mauve">
+            Freier Zugang
+          </p>
+          <p className="mt-1.5 font-display text-base font-semibold leading-snug text-bordeaux">
+            Du kannst jetzt direkt durch alle Kapitel gehen.
+          </p>
+          <p className="mt-1.5 text-xs text-graphite/75">
+            Fortschritt und persönliche Speicherung sind vorübergehend pausiert, damit dich nichts mehr aussperrt.
+          </p>
+        </div>
 
         {/* Vertikaler Pfad mit Phasen */}
         <div className="relative mt-2">
