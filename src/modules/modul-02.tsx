@@ -19,6 +19,8 @@ import {
   Reflection3Step,
   CalloutBold,
   TransformationGoals,
+  TwentyOneDayChallenge,
+  HooverDecoder,
 } from "@/components/exercise";
 
 const SLUG = "modul-02";
