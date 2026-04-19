@@ -63,19 +63,10 @@ export const MODULES: ModuleMeta[] = [
   {
     slug: "modul-03",
     number: "03",
-    title: "Suchtmuster brechen · No-Contact als Entzug",
-    subtitle: "Strikter Kontaktabbruch als neurobiologische Notwendigkeit",
+    title: "No Contact als Neurobiologie",
+    subtitle: "Medizinisches Protokoll, drei Schleusen, 90-Tage-Detox – Breadcrumbing entlarven",
     phase: 2,
-    available: false,
-    stubBlurb:
-      "No-Contact ist kein Liebesentzug – es ist Entgiftung. Dein dopaminerges System braucht 60–90 Tage, um zu resetten. Hier landet auch die Sucht-Vertiefung (Love Addiction) aus dem ursprünglichen Fundament-Kapitel.",
-    stubTopics: [
-      "Sucht-Anatomie der Liebe",
-      "Trigger-Inventar",
-      "Digitale Hygiene",
-      "Notfallplan für Begegnungen",
-      "Kalender: Tag 1 bis Tag 90",
-    ],
+    available: true,
   },
   {
     slug: "modul-04",
