@@ -14,34 +14,29 @@ import { toast } from "sonner";
 
 const SEGMENTS = [
   {
-    text: "Unser letztes Gespräch war sehr belastend für mich, weil du dich sofort in die Opferrolle begeben hast.",
-    tactic: "DARVO – Täter-Opfer-Umkehr",
-    truth:
-      "Die Maske der Verletzten. Indem sie dich als „Opferrolle-Spielerin" framed, wirst du zur Täterin ihres schlechten Gewissens – und sie selbst zur eigentlich Leidenden. Deine Reaktion auf echten Schmerz wird zum Vergehen erklärt.",
+    text: `Unser letztes Gespräch war sehr belastend für mich, weil du dich sofort in die Opferrolle begeben hast.`,
+    tactic: `DARVO – Täter-Opfer-Umkehr`,
+    truth: `Die Maske der Verletzten. Indem sie dich als „Opferrolle-Spielerin“ framed, wirst du zur Täterin ihres schlechten Gewissens – und sie selbst zur eigentlich Leidenden. Deine Reaktion auf echten Schmerz wird zum Vergehen erklärt.`,
   },
   {
-    text: "Ich möchte dir ans Herz legen, die Dinge nicht immer so zu verdrehen.",
-    tactic: "Gaslighting – Realitätsverdrehung",
-    truth:
-      "Die Maske der Vernunft. Sie kontrolliert das Narrativ, indem deine berechtigte Darstellung zur „Verdrehung" erklärt wird. Dein Gedächtnis ist kein Fehler – es ist eine Bedrohung für ihre Version der Geschichte.",
+    text: `Ich möchte dir ans Herz legen, die Dinge nicht immer so zu verdrehen.`,
+    tactic: `Gaslighting – Realitätsverdrehung`,
+    truth: `Die Maske der Vernunft. Sie kontrolliert das Narrativ, indem deine berechtigte Darstellung zur „Verdrehung“ erklärt wird. Dein Gedächtnis ist kein Fehler – es ist eine Bedrohung für ihre Version der Geschichte.`,
   },
   {
-    text: "Ich war doch immer für dich da. Schade, dass du das alles im Nachhinein so siehst.",
-    tactic: "Pity Play & Gaslighting kombiniert",
-    truth:
-      "Die Maske der treuen Begleiterin. Das „Immer-für-dich-da-sein" war eine selektive Inszenierung. Jetzt wird deine klare Wahrnehmung als nachträgliche Verzerrung abgestempelt.",
+    text: `Ich war doch immer für dich da. Schade, dass du das alles im Nachhinein so siehst.`,
+    tactic: `Pity Play & Gaslighting kombiniert`,
+    truth: `Die Maske der treuen Begleiterin. Das „Immer-für-dich-da-sein“ war eine selektive Inszenierung. Jetzt wird deine klare Wahrnehmung als nachträgliche Verzerrung abgestempelt.`,
   },
   {
-    text: "Es wäre so schön gewesen. Lass uns doch wenigstens im Frieden sein.",
-    tactic: "Friedens-Falle – Hoovering",
-    truth:
-      "Die Maske der Reife. „Frieden" bedeutet hier: schweige, verzichte auf Konsequenzen, erkenne meine Version an. Der Appell an „wie schön es hätte sein können" zieht dich zurück in ein Narrativ der verpassten Gelegenheit – das dich wieder erreichbar macht.",
+    text: `Es wäre so schön gewesen. Lass uns doch wenigstens im Frieden sein.`,
+    tactic: `Friedens-Falle – Hoovering`,
+    truth: `Die Maske der Reife. „Frieden“ bedeutet hier: schweige, verzichte auf Konsequenzen, erkenne meine Version an. Der Appell an „wie schön es hätte sein können“ zieht dich zurück in ein Narrativ der verpassten Gelegenheit – das dich wieder erreichbar macht.`,
   },
   {
-    text: "Jede hätte ihren Anteil daran gehabt. Schuldzuweisungen führen nirgendwo hin.",
-    tactic: "Falsche Äquivalenz",
-    truth:
-      "Die Maske der Fairness. Wenn ihr „beide schuld" seid, gibt es kein Unrecht – nur unterschiedliche Perspektiven. Ihre Verhaltensweisen und deine Reaktionen darauf werden gleichgestellt. Das ist keine Fairness, das ist die Verwischung von Verantwortlichkeit.",
+    text: `Jede hätte ihren Anteil daran gehabt. Schuldzuweisungen führen nirgendwo hin.`,
+    tactic: `Falsche Äquivalenz`,
+    truth: `Die Maske der Fairness. Wenn ihr „beide schuld“ seid, gibt es kein Unrecht – nur unterschiedliche Perspektiven. Ihre Verhaltensweisen und deine Reaktionen darauf werden gleichgestellt. Das ist keine Fairness, das ist die Verwischung von Verantwortlichkeit.`,
   },
 ];
 
@@ -108,7 +103,7 @@ export function HooverDecoder({ slug }: { slug: string }) {
   return (
     <ExerciseFrame
       title="Hoover-Mail Decoder · Manipulationssprache entlarven"
-      subtitle="Wenn der „Wolf" zurückschreibt, klingt es selten offensichtlich böse. Hoovering-Nachrichten sind meisterhaft konstruiert – sie klingen nach Frieden, nach Reue, nach Sorge. Lerne, die Maske zu durchschauen."
+      subtitle={`Wenn der „Wolf“ zurückschreibt, klingt es selten offensichtlich böse. Hoovering-Nachrichten sind meisterhaft konstruiert – sie klingen nach Frieden, nach Reue, nach Sorge. Lerne, die Maske zu durchschauen.`}
       meta="Phase 1: Beispiel-Analyse · Phase 2: KI-gestützte Dekonstruktion deiner eigenen Nachricht"
       accent="bordeaux"
     >
