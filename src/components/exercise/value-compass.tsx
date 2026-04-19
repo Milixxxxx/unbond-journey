@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { Sparkles } from "lucide-react";
 import { useModuleProgress } from "@/hooks/use-module-progress";
 import { ExerciseFrame, type ExerciseAccent } from "./exercise-frame";
+import { TapScale } from "./tap-scale";
 
 /**
  * ValueCompass · Interaktiver Werte-Radar (6 Lebensbereiche).
@@ -235,16 +236,15 @@ export function ValueCompass({
                   {v} / 10
                 </span>
               </div>
-              <input
-                type="range"
-                min={0}
-                max={10}
-                step={1}
-                value={v}
-                onChange={(e) => setValue(a.id, Number(e.target.value))}
-                className="mt-2 w-full accent-bordeaux"
-                aria-label={`${a.label} Wert`}
-              />
+              <div className="mt-2.5">
+                <TapScale
+                  value={v}
+                  onChange={(n) => setValue(a.id, n)}
+                  leftLabel="gar nicht"
+                  rightLabel="voll"
+                  ariaLabel={`${a.label} Wert`}
+                />
+              </div>
               <div className="mt-2">
                 <label className="block text-[11px] font-semibold uppercase tracking-wider text-mauve">
                   <Sparkles className="mr-1 inline h-3 w-3" />
