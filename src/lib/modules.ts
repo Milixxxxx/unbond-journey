@@ -80,17 +80,9 @@ export const MODULES: ModuleMeta[] = [
     slug: "modul-05",
     number: "05",
     title: "Der Körper zuerst",
-    subtitle: "Polyvagal-Theorie, Vagus-Reset, somatische Regulation",
+    subtitle: "Polyvagal-Theorie, Vagus-Reset, somatische Regulation – Heilung beginnt im Nervensystem",
     phase: 3,
-    available: false,
-    stubBlurb:
-      "Heilung beginnt nicht im Kopf – sie beginnt im Nervensystem. Hier landet die Polyvagal-Theorie aus dem ursprünglichen Fundament-Kapitel, plus konkrete Werkzeuge zur körperlichen Selbstregulation.",
-    stubTopics: [
-      "Polyvagal-Theorie verstehen",
-      "Vagus-Reset (Atem, Kälte, Summen)",
-      "Sicherheitssignale für den Körper",
-      "Übung: Tägliches Nervensystem-Ritual",
-    ],
+    available: true,
   },
   {
     slug: "modul-06",
