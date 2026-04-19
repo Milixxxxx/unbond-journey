@@ -16,6 +16,8 @@ import {
   TransformationGoals,
 } from "@/components/exercise";
 import { UrgeSurfWave } from "@/components/exercise/urge-surf-wave";
+import { TriggerStreakLog } from "@/components/exercise/trigger-streak-log";
+import { IfThenTriggerPlan } from "@/components/exercise/if-then-trigger-plan";
 
 const SLUG = "modul-04";
 
