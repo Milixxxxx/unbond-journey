@@ -2,13 +2,14 @@ import { useMemo } from "react";
 import { Sparkles } from "lucide-react";
 import { useModuleProgress } from "@/hooks/use-module-progress";
 import { ExerciseFrame, type ExerciseAccent } from "./exercise-frame";
+import { TapScale } from "./tap-scale";
 
 /**
  * ValueCompass · Interaktiver Werte-Radar (6 Lebensbereiche).
  *
- * Jeder Bereich hat einen Slider 0–10 ("Wie gut lebst du diesen Wert HEUTE?")
+ * Jeder Bereich hat eine Tap-Skala 0–10 ("Wie gut lebst du diesen Wert HEUTE?")
  * und ein Mini-Ziel-Textfeld ("Ein kleiner Schritt diese Woche").
- * Visuell: animiertes SVG-Hexagon-Polygon, das sich live mit den Slidern verformt —
+ * Visuell: animiertes SVG-Hexagon-Polygon, das sich live mit den Tap-Werten verformt —
  * der Kompass wird zum Spiegel des eigenen Lebens.
  *
  * Persistiert unter exerciseState[storageKey] = { values: {id:0-10}, goals: {id:string} }.
@@ -42,7 +43,7 @@ export function ValueCompass({
   slug,
   storageKey = "value_compass",
   title = "Übung · Mein Werte-Kompass",
-  subtitle = "Wo lebst du heute schon im Einklang mit dir? Wo nicht? Zieh die Regler ehrlich – und formuliere für jeden Bereich einen winzigen, konkreten nächsten Schritt.",
+  subtitle = "Wo lebst du heute schon im Einklang mit dir? Wo nicht? Tippe ehrlich – und formuliere für jeden Bereich einen winzigen, konkreten nächsten Schritt.",
   meta = "🧭 Live-Radar · ~10 Min · Wird automatisch gespeichert",
   accent = "bordeaux",
   areas = DEFAULT_AREAS,
@@ -235,16 +236,15 @@ export function ValueCompass({
                   {v} / 10
                 </span>
               </div>
-              <input
-                type="range"
-                min={0}
-                max={10}
-                step={1}
-                value={v}
-                onChange={(e) => setValue(a.id, Number(e.target.value))}
-                className="mt-2 w-full accent-bordeaux"
-                aria-label={`${a.label} Wert`}
-              />
+              <div className="mt-2.5">
+                <TapScale
+                  value={v}
+                  onChange={(n) => setValue(a.id, n)}
+                  leftLabel="gar nicht"
+                  rightLabel="voll"
+                  ariaLabel={`${a.label} Wert`}
+                />
+              </div>
               <div className="mt-2">
                 <label className="block text-[11px] font-semibold uppercase tracking-wider text-mauve">
                   <Sparkles className="mr-1 inline h-3 w-3" />

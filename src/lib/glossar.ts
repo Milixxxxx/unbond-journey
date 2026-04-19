@@ -8,6 +8,26 @@ export type GlossarEntry = {
 };
 
 export const GLOSSAR: Record<string, GlossarEntry> = {
+  "extinction-burst": {
+    term: "Extinction Burst",
+    short:
+      "Kurze Intensivierung des Suchtverhaltens, wenn die gewohnte Belohnung ausbleibt — das letzte Aufbäumen vor dem Erlöschen.",
+  },
+  "self-expansion": {
+    term: "Self-Expansion Model",
+    short:
+      "Aron & Aron (1986): Wir wachsen durch Erweiterung — neue Erfahrungen, Menschen, Skills integrieren wir ins eigene Selbst.",
+  },
+  "ptg": {
+    term: "Posttraumatisches Wachstum",
+    short:
+      "Tedeschi & Calhoun (2004): Nach Krisen wachsen viele Menschen über den Ausgangszustand hinaus — mit klareren Werten und tieferer Empathie.",
+  },
+  "act": {
+    term: "ACT (Acceptance & Commitment Therapy)",
+    short:
+      "Hayes et al. (2006): Akzeptiere, was du nicht kontrollieren kannst — und handle nach deinen Werten.",
+  },
   "trauma-bonding": {
     term: "Trauma-Bonding",
     short:

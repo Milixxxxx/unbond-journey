@@ -29,3 +29,5 @@ export { ButterflyHug } from "./butterfly-hug";
 export { NervousSystemCheck } from "./nervous-system-check";
 export { ValueCompass } from "./value-compass";
 export type { ValueArea } from "./value-compass";
+export { TapScale } from "./tap-scale";
+export { RelapseTrafficLight } from "./relapse-traffic-light";
