@@ -14,6 +14,7 @@ import {
   StackedCards,
   CalloutBold,
   TransformationGoals,
+  MeditationCard,
 } from "@/components/exercise";
 import { UrgeSurfWave } from "@/components/exercise/urge-surf-wave";
 import { TriggerStreakLog } from "@/components/exercise/trigger-streak-log";
@@ -308,6 +309,14 @@ export function Modul04() {
           </div>
         </aside>
       </Section>
+
+      {/* ── Begleitende Meditation ── */}
+      <MeditationCard
+        title="Angst & Stress sofort lindern — Einschlafmeditation"
+        duration="2 Std"
+        source="ChakraTunes / Raphael Kempermann"
+        youtubeId="B4MjEWg-3Dw"
+      />
 
       {/* ── Transformationsziele ── */}
       <TransformationGoals

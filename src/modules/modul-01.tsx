@@ -15,6 +15,7 @@ import {
   StackedCards,
   CalloutBold,
   TransformationGoals,
+  MeditationCard,
 } from "@/components/exercise";
 
 const SLUG = "modul-01";
@@ -378,6 +379,14 @@ export function Modul01() {
           </div>
         </a>
       </Section>
+
+      {/* ── Begleitende Meditation ── */}
+      <MeditationCard
+        title="Nervensystem beruhigen & Cortisol senken — Stressabbau"
+        duration="2 Std"
+        source="ChakraTunes / Raphael Kempermann"
+        youtubeId="v9XmIgvP0Wc"
+      />
 
       {/* ── Transformationsziele ── */}
       <TransformationGoals

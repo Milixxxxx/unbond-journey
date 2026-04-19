@@ -22,6 +22,7 @@ import {
   TransformationGoals,
   TwentyOneDayChallenge,
   HooverDecoder,
+  MeditationCard,
 } from "@/components/exercise";
 
 const SLUG = "modul-02";
@@ -490,6 +491,20 @@ export function Modul02() {
           </div>
         </a>
       </Section>
+
+      {/* ── Begleitende Meditationen (zwei) ── */}
+      <MeditationCard
+        title="Lass los — ohne darüber zu reden"
+        duration="ChakraTunes"
+        source="Raphael Kempermann"
+        youtubeId="VXrIMaXIpkQ"
+      />
+      <MeditationCard
+        title="Gedankenkarussell stoppen — Einschlaf-Hypnose & Meditation"
+        duration="ChakraTunes"
+        source="Raphael Kempermann"
+        youtubeId="UnjielNyg08"
+      />
 
       {/* ── Transformationsziele ── */}
       <TransformationGoals
