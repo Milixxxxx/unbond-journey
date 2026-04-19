@@ -271,37 +271,8 @@ export function Modul07() {
             ]}
           />
 
-          {/* Übung 3 · Ersetzbarkeits-Mythos & Flying Monkeys */}
-          <Reflection3Step
-            slug={SLUG}
-            title="Übung 3 · Den Ersetzbarkeits-Mythos entlarven"
-            subtitle="Die schnelle neue Partnerin sagt nichts über deinen Wert. Sie sagt alles über ihr Muster. Schreib es auf — damit dein Gehirn es endlich glaubt."
-            meta="🪞 Reframing · ~15 Min"
-            accent="mauve"
-            steps={[
-              {
-                key: "replace_lie",
-                label: "Welche Lüge erzählt mir mein Trauma über ihre neue Beziehung?",
-                placeholder:
-                  'z.B. „Dass die Neue besser ist. Dass sie sich für die Neue endlich ändert. Dass ich nie genug war."',
-                rows: 3,
-              },
-              {
-                key: "replace_truth",
-                label: "Was sagt ihr schnelles U-Hauling / Weiterziehen WIRKLICH über ihr Muster?",
-                placeholder:
-                  'z.B. „Sie kann nicht allein sein. Es ist Flucht vor sich selbst. Es ist neues Love-Bombing — die Neue durchläuft jetzt, was ich durchlaufen habe."',
-                rows: 3,
-              },
-              {
-                key: "flying_monkeys_strategy",
-                label: "Flying Monkeys: Wer könnte instrumentalisiert sein — und was ist meine Schutzstrategie?",
-                placeholder:
-                  'z.B. „Freundin X erfährt nichts mehr über mein Leben. Wenn sie über Sandra spricht, sage ich ruhig: Ich möchte das nicht hören."',
-                rows: 3,
-              },
-            ]}
-          />
+          {/* Übung 3 · Lüge↔Wahrheit-FlipKarten + Selbstwert-Anker-Ritual */}
+          <ReplaceabilityMyth slug={SLUG} />
         </div>
       </Section>
 
