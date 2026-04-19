@@ -93,7 +93,8 @@ export function Modul05() {
               sich bewusst auf den Teppich, spürt den festen Boden unter sich,
               legt die rechte Hand auf den Bauch, die linke aufs Herz. Dann
               beginnt sie, die Panik mit Biologie zu überschreiben:{" "}
-              <strong>vier Sekunden ein, acht Sekunden aus</strong>.
+              <strong>vier Sekunden einatmen, sieben Sekunden die Luft anhalten,
+              acht Sekunden ausatmen</strong>.
             </p>
             <p>
               Schicht für Schicht bricht die neuronale Rüstung auf. Die
