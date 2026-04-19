@@ -23,7 +23,6 @@ import {
   NoContactSchleusen,
   NoContactContract,
   MeditationCard,
-  WhatIsNoContact,
   DetoxKiste,
 } from "@/components/exercise";
 
@@ -67,9 +66,6 @@ export function Modul03() {
           gerade lernt, ohne Gift zu atmen.
         </p>
       </ChapterIntro>
-
-      {/* ── Was No Contact ist · 6-Karten-Karussell ── */}
-      <WhatIsNoContact />
 
       {/* ── Story · Der kalte Entzug ── */}
       <Section icon={<ScrollText className="h-4 w-4" />} label="Story · Der kalte Entzug">

@@ -471,34 +471,7 @@ export function Modul02() {
         </CalloutBold>
       </Section>
 
-      {/* ── Begleit-Meditation ── */}
-      <Section icon={<Sparkles className="h-4 w-4" />} label="Begleitende Meditation">
-        <a
-          href="https://www.youtube.com/watch?v=UnjielNyg08"
-          target="_blank"
-          rel="noreferrer"
-          className="flex items-center gap-4 rounded-xl bg-gradient-to-br from-mauve/15 to-sage/15 p-4 transition hover:shadow-soft"
-        >
-          <div className="grid h-14 w-14 flex-shrink-0 place-items-center rounded-full bg-white/70 text-2xl">
-            🧘
-          </div>
-          <div>
-            <p className="font-display text-sm font-bold text-bordeaux">
-              Gedankenkarussell stoppen · Einschlaf-Hypnose
-            </p>
-            <p className="text-xs text-graphite/70">ChakraTunes / Raphael Kempermann</p>
-            <p className="mt-0.5 text-[11px] text-mauve underline">▹ Auf YouTube anhören</p>
-          </div>
-        </a>
-      </Section>
-
-      {/* ── Begleitende Meditationen (zwei) ── */}
-      <MeditationCard
-        title="Lass los — ohne darüber zu reden"
-        duration="ChakraTunes"
-        source="Raphael Kempermann"
-        youtubeId="VXrIMaXIpkQ"
-      />
+      {/* ── Begleitende Meditation ── */}
       <MeditationCard
         title="Gedankenkarussell stoppen — Einschlaf-Hypnose & Meditation"
         duration="ChakraTunes"

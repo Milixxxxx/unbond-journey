@@ -23,6 +23,21 @@ export const GLOSSAR: Record<string, GlossarEntry> = {
     short:
       "Neurobiologisches Modell von Porges (2011): Das autonome Nervensystem reagiert auf Sicherheit, Gefahr und Erstarrung.",
   },
+  "polyvagal-theorie": {
+    term: "Polyvagal-Theorie",
+    short:
+      "Neurobiologisches Modell von Porges (2011): Das autonome Nervensystem reagiert auf Sicherheit, Gefahr und Erstarrung.",
+  },
+  "kortisol": {
+    term: "Cortisol",
+    short:
+      "Stresshormon der Nebenniere – bei chronischem Stress dauerhaft erhöht und erschöpfend.",
+  },
+  "somatische-marker": {
+    term: "Somatische Marker",
+    short:
+      "Körpersignale (Bauchgefühl, Engegefühl), die unbewusst Entscheidungen steuern – Damasio (1994).",
+  },
   "negative-reappraisal": {
     term: "Negative Reappraisal",
     short:
