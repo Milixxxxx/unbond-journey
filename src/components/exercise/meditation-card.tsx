@@ -44,12 +44,12 @@ export function MeditationCard({
           <span
             aria-hidden
             className="absolute inset-0 rounded-full bg-sage/25"
-            style={{ animation: "med-breath 4.5s ease-in-out infinite" }}
+            style={{ animation: "breath 4.5s ease-in-out infinite" }}
           />
           <span
             aria-hidden
             className="absolute inset-2 rounded-full bg-sage/35"
-            style={{ animation: "med-breath 4.5s ease-in-out infinite", animationDelay: "0.6s" }}
+            style={{ animation: "breath 4.5s ease-in-out infinite", animationDelay: "0.6s" }}
           />
           <div className="absolute inset-0 grid place-items-center">
             <span className="text-3xl" role="img" aria-label="Meditation">
