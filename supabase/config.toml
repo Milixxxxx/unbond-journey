@@ -1,1 +1,4 @@
 project_id = "vwqgocqphkcdtdocqsse"
+
+[functions.hoover-decoder]
+verify_jwt = false
