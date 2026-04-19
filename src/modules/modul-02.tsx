@@ -518,7 +518,7 @@ const GASLIGHTING_BEISPIELE = [
     titel: "Eintrag 1 · Das Partnertattoo",
     color: "var(--color-bordeaux)",
     situation:
-      "Wir hatten uns ein tiefes Partnertattoo stechen lassen – „Go" und „Stop". Nur 2 Monate später ließ Sandra ihr Tattoo einfach überstechen. Als ich in Tränen ausbrach, sagte sie genervt: „Es passt halt nicht mehr zu mir. Du reagierst total über."",
+      'Wir hatten uns ein tiefes Partnertattoo stechen lassen – „Go" und „Stop". Nur 2 Monate später ließ Sandra ihr Tattoo einfach überstechen. Als ich in Tränen ausbrach, sagte sie genervt: „Es passt halt nicht mehr zu mir. Du reagierst total über."',
     gefuehl: "Ich dachte, ich sei zu klammernd. Ich redete mir ein, dass es ja nur ein Tattoo sei.",
     fakten:
       "Ein gemeinsames Tattoo ist ein massives Symbol für Bindung. Es nach 2 Monaten heimlich überstechen zu lassen, ist ein radikaler, verletzender Akt der Zurückweisung. Mein Schmerz war absolut angemessen.",
@@ -528,7 +528,7 @@ const GASLIGHTING_BEISPIELE = [
     titel: "Eintrag 2 · Der Geburtstag",
     color: "var(--color-mauve)",
     situation:
-      "Sandra hatte mir wochenlang versprochen, an meinem Geburtstag etwas Besonderes zu machen. Drei Tage vorher sagte sie mit einer fadenscheinigen Ausrede ab. Als ich enttäuscht war, wurde sie wütend: „Du bist so bedürftig. Deine Erwartungen erdrücken mich!"",
+      'Sandra hatte mir wochenlang versprochen, an meinem Geburtstag etwas Besonderes zu machen. Drei Tage vorher sagte sie mit einer fadenscheinigen Ausrede ab. Als ich enttäuscht war, wurde sie wütend: „Du bist so bedürftig. Deine Erwartungen erdrücken mich!"',
     gefuehl:
       "Ich dachte, meine Bedürfnisse nach Nähe und Zuverlässigkeit seien falsch.",
     fakten:
@@ -560,7 +560,7 @@ const BOTENSTOFFE = [
   {
     name: "Cortisol",
     icon: <Flame className="h-5 w-5 text-bordeaux" />,
-    desc: "Das Stresshormon. In Phasen des Rückzugs dauerhaft erhöht. Hält das Nervensystem in Alarmbereitschaft und verstärkt das Verlangen nach der einzigen bekannten „Lösung": ihr.",
+    desc: 'Das Stresshormon. In Phasen des Rückzugs dauerhaft erhöht. Hält das Nervensystem in Alarmbereitschaft und verstärkt das Verlangen nach der einzigen bekannten „Lösung": ihr.',
   },
 ];
 
@@ -596,7 +596,7 @@ const TAKTIKEN = [
     name: "Gaslighting",
     emoji: "🎭",
     color: "var(--color-bordeaux)",
-    desc: "„Du verdrehst alles." „Du bist zu empfindlich." Deine Realität wird zur Erfindung erklärt.",
+    desc: '„Du verdrehst alles." „Du bist zu empfindlich." Deine Realität wird zur Erfindung erklärt.',
   },
   {
     name: "DARVO",
@@ -608,18 +608,18 @@ const TAKTIKEN = [
     name: "Pity Play",
     emoji: "💧",
     color: "var(--color-terracotta)",
-    desc: "„Ich leide so sehr." Mitleid als Zugangscode zu deinen Grenzen.",
+    desc: '„Ich leide so sehr." Mitleid als Zugangscode zu deinen Grenzen.',
   },
   {
     name: "Friedens-Falle",
     emoji: "🕊",
     color: "var(--color-sage)",
-    desc: "„Lass uns im Frieden sein." Frieden als Tarnung für: Schweig und vergib ohne Konsequenz.",
+    desc: '„Lass uns im Frieden sein." Frieden als Tarnung für: Schweig und vergib ohne Konsequenz.',
   },
   {
     name: "Falsche Äquivalenz",
     emoji: "⚖️",
     color: "var(--color-graphite)",
-    desc: "„Wir waren beide schuld." Gewalt und Reaktion darauf werden gleichgesetzt.",
+    desc: '„Wir waren beide schuld." Gewalt und Reaktion darauf werden gleichgesetzt.',
   },
 ];
