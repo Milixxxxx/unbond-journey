@@ -44,7 +44,7 @@ Inhalt: nur Werkzeuge, keine Theorie (siehe unten)
 | ------- | ------------------------------ | ----------------------------------------------------------------- |
 | 01      | SOS & Trauma-Bonding verstehen | Neurobiologie, kPTBS, Spielautomat-Effekt, 4-Phasen-Zyklus        |
 | 02      | Die Rosa-Brille abnehmen       | Kognitive Dissonanz, Negative Reappraisal, Entzauberung           |
-| 03      | No Contact als Neurobiologie   | Entzug als medizinische Notwendigkeit, Suchtmuster brechen        |
+| 03      | No Contact                     | Entzug als medizinische Notwendigkeit, Suchtmuster brechen        |
 | 04      | Trigger entmachten             | Trigger-Landkarte, Reiz-Reaktions-Unterbrechung, STOP             |
 | 05      | Der Körper zuerst              | Polyvagal-Theorie, somatische Übungen, Fenster der Toleranz       |
 | 06      | Suchtmuster brechen            | Dopamin-Loop, Ersatzhandlungen, Rückfallprävention                |
