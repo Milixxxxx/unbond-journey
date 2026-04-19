@@ -288,59 +288,19 @@ export function Modul05() {
           {/* Vibe-Check */}
           <NervousSystemCheck slug={SLUG} />
 
-          {/* Übung 4 · 5-4-3-2-1 Grounding */}
-          <StackedCards
-            slug={SLUG}
-            storageKey="grounding_54321"
-            title="Übung 4 · Flashback-Stopper · 5-4-3-2-1"
-            subtitle="Bei plötzlichen Bildern, Herzrasen, weggleitendem Zeitgefühl: Aktiviere die fünf Sinne. Diese Technik zwingt dein Gehirn zurück ins Jetzt. Übe sie JETZT — nicht erst in der Krise."
-            meta="🪞 Sensorisches Grounding · ~5 Min · funktioniert auch im Bett"
-            accent="bordeaux"
-            rows={[
-              {
-                id: "g54321",
-                title: "Hier und jetzt",
-                fields: [
-                  {
-                    key: "sehen",
-                    label: "👁️ 5 Dinge, die ich SEHE",
-                    placeholder: "1. Holzmaserung am Tisch · 2. … · 3. … · 4. … · 5. …",
-                    rows: 3,
-                  },
-                  {
-                    key: "fuehlen",
-                    label: "✋ 4 Dinge, die ich FÜHLE",
-                    placeholder: "z.B. Stoff der Hose · Boden unter den Füßen · Luft auf der Haut · …",
-                    rows: 2,
-                  },
-                  {
-                    key: "hoeren",
-                    label: "👂 3 Dinge, die ich HÖRE",
-                    placeholder: "z.B. Kühlschrank, Auto draußen, mein Atem",
-                    rows: 2,
-                  },
-                  {
-                    key: "riechen",
-                    label: "👃 2 Dinge, die ich RIECHE",
-                    placeholder: "z.B. Kaffee, eigener Pulli",
-                    rows: 1,
-                  },
-                  {
-                    key: "schmecken",
-                    label: "👅 1 Ding, das ich SCHMECKE",
-                    placeholder: "z.B. Pfefferminz / Restkaffee / Wasser",
-                    rows: 1,
-                  },
-                  {
-                    key: "anker",
-                    label: "🛟 Mein Sicherheits-Anker-Satz",
-                    placeholder: "Heute ist [Datum]. Ich bin hier. Ich bin sicher genug in diesem Moment.",
-                    rows: 2,
-                  },
-                ],
-              },
-            ]}
-          />
+          {/* 5-4-3-2-1 Grounding ist als Notfall-Tool im SOS-Drawer (roter Button rechts unten) — hier bewusst nicht doppeln. */}
+          <div className="rounded-2xl border-l-4 border-bordeaux bg-bordeaux/8 p-4 text-sm leading-relaxed text-graphite/85">
+            <p className="font-display text-sm font-bold text-bordeaux">
+              🆘 Flashback-Stopper · 5-4-3-2-1 lebt im SOS-Koffer
+            </p>
+            <p className="mt-1.5 text-xs">
+              Bei plötzlichen Bildern, Herzrasen oder weggleitendem Zeitgefühl
+              brauchst du keine Vorbereitung — du brauchst <strong>sofort</strong>{" "}
+              ein Werkzeug. Tippe rechts unten auf den roten SOS-Button. Dort
+              wartet die geführte 5-4-3-2-1-Übung jederzeit auf dich, aus jedem
+              Kapitel heraus.
+            </p>
+          </div>
         </div>
       </Section>
 
