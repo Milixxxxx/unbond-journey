@@ -5,6 +5,7 @@ import { ModuleBottomBar } from "@/components/module-bottom-bar";
 import { CrisisBanner } from "@/components/crisis-banner";
 import { SosSoforthilfe } from "@/modules/sos-soforthilfe";
 import { Modul01 } from "@/modules/modul-01";
+import { Modul02 } from "@/modules/modul-02";
 import { ModuleStub } from "@/modules/module-stub";
 
 export const Route = createFileRoute("/modul/$slug")({
@@ -98,6 +99,8 @@ function ModulePage() {
             <SosSoforthilfe />
           ) : meta.slug === "modul-01" ? (
             <Modul01 />
+          ) : meta.slug === "modul-02" ? (
+            <Modul02 />
           ) : (
             <ModuleStub meta={meta} />
           )}
