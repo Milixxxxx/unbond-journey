@@ -20,7 +20,7 @@ export function NoContactContract({
   slug: string;
   accent?: ExerciseAccent;
 }) {
-  const { exerciseState, setExercise, loaded } = useModuleProgress(slug);
+  const { exerciseState, setExercise, setExerciseBulk, loaded } = useModuleProgress(slug);
   const [draft, setDraft] = useState({
     startDate: "",
     kanaele: "",
