@@ -36,7 +36,7 @@ Niemals den echten Namen verwenden, auch nicht versehentlich.
 
 ## KAPITELSTRUKTUR (final, nach Zusammenführung 01+02)
 
-**SOS-Modul** (Freebee / Lead-Magnet / Floating Drawer)
+**SOS-Modul** (Floating Drawer)
 Slug: `sos-soforthilfe` · Permanent erreichbar aus jedem Kapitel
 Inhalt: nur Werkzeuge, keine Theorie (siehe unten)
 
@@ -169,7 +169,7 @@ Bevorzugte Alternativen:
 
 ## PRODUKT-KONTEXT
 
-Verkauf über Copecart:
+Verkauf bisher über Copecart: neues System epmfehlen
 
 - Core (Kapitel 01–10): https://copecart.com/products/56b047e4/checkout · 29 € EB / 49 € reg.
 - Complete (+ Bonus D/E/F): https://copecart.com/products/8135e2ac/checkout · 45 € EB / 69 € reg.
