@@ -11,8 +11,9 @@ export const Route = createFileRoute("/dashboard")({
   }),
 });
 
-// Tageszeit-abhängige Begrüßung — kleine warme Geste
-function getGreeting() {
+// Tageszeit-abhängige Begrüßung — clientseitig berechnet, um Hydration-Mismatch zu vermeiden
+const NEUTRAL_GREETING = "Schön, dass du da bist";
+function computeGreeting() {
   const h = new Date().getHours();
   if (h < 5) return "Du bist wach";
   if (h < 11) return "Guten Morgen";
@@ -24,6 +25,10 @@ function getGreeting() {
 
 function Dashboard() {
   const [earnedSlugs, setEarnedSlugs] = useState<string[]>([]);
+  const [greeting, setGreeting] = useState<string>(NEUTRAL_GREETING);
+  useEffect(() => {
+    setGreeting(computeGreeting());
+  }, []);
   const totalAvailable = MODULES.filter((m) => m.available).length;
   const availableModules = useMemo(() => MODULES.filter((m) => m.available), []);
 
