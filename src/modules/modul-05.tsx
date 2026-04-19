@@ -12,7 +12,6 @@ import { ChapterIntro } from "@/components/chapter-intro";
 import {
   PillCloud,
   Reflection3Step,
-  StackedCards,
   CalloutBold,
   TransformationGoals,
   MeditationCard,
