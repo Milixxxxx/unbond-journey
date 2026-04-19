@@ -307,10 +307,13 @@ export function Modul03() {
         {/* Übung 4 · No-Contact-Kontrakt mit Countdown */}
         <NoContactContract slug={SLUG} />
 
-        {/* Übung 5 · Wenn-Dann-Notfallplan */}
+        {/* Übung 5 · Die Detox-Kiste (NEU aus SCHRITT_4_FINAL) */}
+        <DetoxKiste slug={SLUG} />
+
+        {/* Übung 6 · Wenn-Dann-Notfallplan */}
         <Reflection3Step
           slug={SLUG}
-          title="Übung 5 · Mein Wenn-Dann-Notfallplan"
+          title="Übung 6 · Mein Wenn-Dann-Notfallplan"
           subtitle="Implementation Intentions (Gollwitzer): vorbereitete Trigger-Antworten halten, wenn Willenskraft versagt."
           meta="🚨 Notfall-Skript · ⏱ 10 Min · 💡 Implementation Intentions"
           accent="bordeaux"
