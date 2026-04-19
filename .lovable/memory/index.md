@@ -1,27 +1,177 @@
-# Project Memory
+# UNBOND – Breaking Chains · Loveable System Prompt
 
-## Core
-Single source of truth for ALL book content: `.lovable/source/UNBOND_Final_v5.html` (6505 lines, in sandbox). This replaces all earlier versions. Ignore all other drafts.
-Never restructure, rename, reorder, or delete chapters without explicit user approval. Stick closely to the book's existing structure and content. Interactivity/gimmicks are welcome additions but must NEVER shorten or alter the Mary/Sandra story or other narrative passages — they must be transferred 1:1 verbatim from the source HTML.
-Work strictly chapter-by-chapter. Wait for explicit user approval of one chapter before starting the next. Modules 03–10 stay locked until released.
-When asking the user a question, always offer 3 concrete options.
+# Version: 2.0 · Stand: April 2026
 
-Chapter structure (verified): 01 SOS · 02 Trauma-Bonding · 03 Rosa-Brille abnehmen · 04 No Contact als Neurobiologie · 05 Trigger entmachten · 06 Körper zuerst · 07 Suchtmuster brechen · 08 WLW-Dynamiken · 09 Bindungsmuster & Inneres Kind · 10 Identität, Zukunft & Abschluss · Bonus D Behörden als Waffe · Bonus E Das Warum hinter dem Warum · Bonus F Ankommen in der Trauer.
+---
 
-ARCHITEKTUR-ENTSCHEIDUNG (final, vom User freigegeben): Kapitel 0 wird AUFGELÖST und in ein eigenständiges "SOS · Soforthilfe"-Modul transformiert. Slug: `sos-soforthilfe` (ersetzt `kapitel-0`). Titel: "SOS · Soforthilfe". Funktion: Freebee/Lead-Magnet + permanenter Anker, der via SOS-Floating-Button aus jedem Kapitel als Drawer erreichbar ist. Universell für Frauen IN der Beziehung UND nach Trennung.
-Inhalt SOS-Modul (nur Werkzeuge, keine Theorie): Mary&Sandra Story (Eröffnung, 1:1 verbatim) · Nervensystem-Check (3 Slider/Tap-Skala) · Notfall-Kontaktliste · TIPP-Skill · STOPP-Übung · 5-4-3-2-1 Grounding (Supermarkt) · Urge Surfing Kurzversion.
-Theorie-Umverteilung aus altem Kapitel 0: Dopamin/Neurobiologie → Modul 02 Trauma-Bonding · Love Addiction (UK 0.5) → Modul 02 Trauma-Bonding · Polyvagal-Theorie → Modul 06 "Der Körper zuerst" (umbenennen von "ACT · Werte statt Wunden") · Sucht-Vertiefung → Modul 04 (umbenennen zu "Suchtmuster brechen / No-Contact als Entzug"). ACT-Inhalte wandern in ein anderes passendes Modul (TBD mit User).
+## KERNREGEL: Single Source of Truth
 
-8-point QA workflow (mandatory after every chapter build):
-1) Alle Kapitelelemente vorhanden (Story, Diagnose, Lösung, Übungen, Deep Dive, Meditation, Checkliste).
-2) Story 1:1 aus Leitbuch übernommen — keine Kürzung, keine Paraphrase.
-3) Keypoints des Kapitels als Einleitungssätze vorne weg zusammengefasst.
-4) Aussagen wissenschaftlich belegt (Quellen genannt).
-5) Interaktionen eingepflegt + konkreter Vorschlag pro Kapitel (z.B. Swipe-Card für Red Flags).
-6) Abgleich mit geplanten Mini-Tools (Notion: https://www.notion.so/webApps-2eb4ac5f437580d7995be0bf07399f01) — welche WebApps unkompliziert einsetzbar.
-7) Transformationsziele helfen die Transformationsanforderungen umzusetzen.
-8) Gamification: Sternchen für erreichte Transformationsziele zählen, später eintauschbar gegen Kronen/Abzeichen, Bonuskapitel-Freischaltung.
+Die einzige Wahrheitsquelle für ALLE Buchinhalte ist:
+`.lovable/source/UNBOND_Final_v5.html`
 
-Mobile-Interaktion: Schieberegler sind auf Mobile zu umständlich. Standard-Ersatz noch offen — bevorzugt Tap-Skala (0–10 Buttons) oder Emoji-Skala (5 Stufen).
+Alle anderen Entwürfe, Drafts und Vorgängerversionen werden ignoriert.
 
-## Memories
+---
+
+## ANONYMISIERUNG – HARTE REGEL, KEINE AUSNAHMEN
+
+**Milena → Mary | Silke → Sandra**
+
+Diese Anonymisierung gilt in JEDER Story-Passage, JEDER Übung, JEDEM
+Beispiel, JEDEM Kommentar, JEDEM Dateinamen. Niemals rückgängig machen.
+Niemals den echten Namen verwenden, auch nicht versehentlich.
+
+---
+
+## TECHNIK-STACK
+
+- Framework: **React**
+- Datenbank & Auth: **Supabase** (kein localStorage, kein sessionStorage)
+- Design-System: gesondert hinterlegt – nicht hier definieren, immer
+  aus dem Design-System-File lesen
+- Interaktivität: React-State für UI-Zustand; Supabase für
+  persistierte Nutzerdaten (Journaling, Checkboxen, Fortschritt)
+
+---
+
+## KAPITELSTRUKTUR (final, nach Zusammenführung 01+02)
+
+**SOS-Modul** (Freebee / Lead-Magnet / Floating Drawer)
+Slug: `sos-soforthilfe` · Permanent erreichbar aus jedem Kapitel
+Inhalt: nur Werkzeuge, keine Theorie (siehe unten)
+
+| Nr      | Titel                          | Kernthema                                                         |
+| ------- | ------------------------------ | ----------------------------------------------------------------- |
+| 01      | SOS & Trauma-Bonding verstehen | Neurobiologie, kPTBS, Spielautomat-Effekt, 4-Phasen-Zyklus        |
+| 02      | Die Rosa-Brille abnehmen       | Kognitive Dissonanz, Negative Reappraisal, Entzauberung           |
+| 03      | No Contact als Neurobiologie   | Entzug als medizinische Notwendigkeit, Suchtmuster brechen        |
+| 04      | Trigger entmachten             | Trigger-Landkarte, Reiz-Reaktions-Unterbrechung, STOP             |
+| 05      | Der Körper zuerst              | Polyvagal-Theorie, somatische Übungen, Fenster der Toleranz       |
+| 06      | Suchtmuster brechen            | Dopamin-Loop, Ersatzhandlungen, Rückfallprävention                |
+| 07      | WLW-Dynamiken                  | Queere Spezifika, enge Community, U-Hauling, weaponized Queerness |
+| 08      | Bindungsmuster & Inneres Kind  | Bindungsstile, Anxious-Avoidant Trap, Reparenting                 |
+| 09      | Identität & Zukunft            | Self-Expansion, Werte, neue Identität jenseits der Beziehung      |
+| 10      | Abschluss & Integration        | Kintsugi, Brief, Ritual, Transformationsrückblick                 |
+| Bonus D | Behörden als Waffe             | Litigation Abuse, Dokumentation, rechtliche Absicherung           |
+| Bonus E | Das Warum hinter dem Warum     | Schema-Therapie, IFS, Bindungstheorie                             |
+| Bonus F | Ankommen in der Trauer         | Disenfranchised Grief, queerspezifische Trauer                    |
+
+**Bonus D/E/F sind gesperrt.** Freischaltung via Code-Modal.
+Freischalt-Code: `UNBOND-COMPLETE-2025`
+
+---
+
+## SOS-MODUL – Inhalt (vollständig)
+
+Funktion: Freebee + permanenter Anker via SOS-Floating-Button
+Erreichbar aus jedem Kapitel als Drawer/Overlay
+
+Enthält NUR:
+
+1. Mary & Sandra Story (Eröffnungsszene, 1:1 verbatim aus Leitdatei)
+2. Nervensystem-Check (Tap-Skala 0–10, 3 Items)
+3. Notfall-Kontaktliste (Telefonseelsorge 0800 111 0 111 etc.)
+4. TIPP-Skill (Temperature / Intense exercise / Paced breathing / Progressive relaxation)
+5. STOPP-Übung (mentale Notbremse)
+6. 5-4-3-2-1 Grounding (Supermarkt-Version)
+7. Urge Surfing Kurzversion
+
+Theorie-Inhalte aus altem Kapitel 0 wurden umverteilt:
+
+- Dopamin/Neurobiologie → Kapitel 01
+- Polyvagal-Theorie → Kapitel 05
+- Sucht-Vertiefung → Kapitel 06
+- ACT-Inhalte → nach Absprache mit User
+
+---
+
+## ARBEITSWEISE – VERBINDLICH
+
+### Kapitel-Reihenfolge
+
+- Immer ein Kapitel auf einmal
+- Warten auf explizite User-Freigabe vor dem nächsten Kapitel
+- Kapitel 03–10 + Bonus bleiben gesperrt bis freigegeben
+- Bei Fragen immer **3 konkrete Optionen** anbieten
+
+### Inhaltsübertragung
+
+- Story-Passagen (Mary & Sandra): **1:1 verbatim** aus der Leitdatei –
+  keine Kürzung, keine Paraphrasierung, keine Zusammenfassung
+- Wissenschaftliche Inhalte, Übungen, Quellen: ebenfalls 1:1 übernehmen
+- **Textlastige Passagen** werden interaktiv aufgearbeitet –
+  konkrete Methode **vorher mit User abstimmen**, nicht selbstständig entscheiden
+  (Optionen z.B.: Swipe-Cards, Accordion, Progressive Disclosure,
+  Highlight-Quiz, Animated Scroll)
+
+---
+
+## PFLICHT-ELEMENTE PRO KAPITEL
+
+Jedes Kapitel enthält diese Elemente – kein Element darf fehlen:
+
+1. **Mary & Sandra Story** – 3 Absätze, konkrete Szene, emotionale Tiefe
+2. **Einführungstext** – mind. 5 Abschnitte, Kernaussage klar, wichtige Begriffe hervorgehoben
+3. **Wissenschaftliche Grundlage** – mind. 3 Konzepte mit Quellen
+4. **Infografiken** – mind. 1–2 pro Kapitel, Beschriftung linksbündig darunter
+5. **Übungen** – mind. 3 pro Kapitel (Was / Wie / Dauer / Format / Warum)
+6. **Reflexionsfrage** – 1 Frage pro Kapitel, Eingabefeld
+7. **Transformationsziele** – 5 Ziele, mind. 3 von 5 müssen erreicht sein
+
+---
+
+## 8-PUNKTE QA-WORKFLOW (nach jedem Kapitel-Build)
+
+1. Alle 7 Pflicht-Elemente vorhanden?
+2. Mary & Sandra Story 1:1 aus Leitdatei übernommen – keine Kürzung?
+3. Keypoints des Kapitels als Einleitungssätze vorne zusammengefasst?
+4. Alle Aussagen wissenschaftlich belegt (Quellen genannt)?
+5. Interaktivität implementiert + konkreter neuer Vorschlag für nächste Iteration?
+6. Abgleich mit Mini-Tools (Notion: https://www.notion.so/webApps-2eb4ac5f437580d7995be0bf07399f01) – welche WebApps einsetzbar?
+7. Transformationsziele helfen die Transformationsanforderungen umzusetzen?
+8. Gamification-Logik korrekt implementiert (Sternchen → Supabase)?
+
+---
+
+## GAMIFICATION-SYSTEM
+
+- Jedes erreichte Transformationsziel = 1 Stern → in Supabase persistiert
+- Gesammelte Sterne → später eintauschbar gegen Kronen / Abzeichen
+- Bonuskapitel-Freischaltung via Supabase-Flag nach Code-Eingabe
+- Supabase-Tabellen: `user_progress`, `chapter_goals`, `unlock_codes`
+- Stern-Counter pro Kapitel sichtbar in Navigation
+
+---
+
+## MOBILE-INTERAKTION
+
+Schieberegler sind auf Mobile zu umständlich → nicht verwenden.
+
+Bevorzugte Alternativen:
+
+- **Tap-Skala** (0–10 Buttons, nebeneinander) – Standard für Bewertungen
+- **Emoji-Skala** (5 Stufen: 😣 😟 😐 🙂 😊) – für emotionale Selbsteinschätzung
+- Beide Varianten vor Implementierung mit User abstimmen
+
+---
+
+## NICHT ERLAUBT OHNE EXPLIZITE FREIGABE
+
+- Kapitel umbenennen
+- Kapitel umstrukturieren oder neu sortieren
+- Story-Passagen kürzen oder paraphrasieren
+- Transformationsziele ändern
+- Design-System-Variablen überschreiben
+- Neue Kapitel hinzufügen
+- Bonuskapitel ohne Code freischalten
+
+---
+
+## PRODUKT-KONTEXT
+
+Verkauf über Copecart:
+
+- Core (Kapitel 01–10): https://copecart.com/products/56b047e4/checkout · 29 € EB / 49 € reg.
+- Complete (+ Bonus D/E/F): https://copecart.com/products/8135e2ac/checkout · 45 € EB / 69 € reg.
+- Bundle (nur Bonus): https://copecart.com/products/ad1d8a74/checkout · 19 € EB / 29 € reg.
+  Early Bird bis 29. April 2026.
