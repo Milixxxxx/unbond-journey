@@ -233,7 +233,7 @@ export function Modul05() {
             slug={SLUG}
             storageKey="koerper_radar"
             title="Übung 1 · Mein Körper-Radar"
-            subtitle="Erinnere dich an die letzte belastende Interaktion. Wo hat dein Körper „Nein" gesagt — schon bevor dein Kopf es wusste?"
+            subtitle={`Erinnere dich an die letzte belastende Interaktion. Wo hat dein Körper „Nein" gesagt — schon bevor dein Kopf es wusste?`}
             meta="🫀 Somatische Inventur · ~5 Min · Mehrfachauswahl"
             accent="sage"
             pills={[
@@ -272,7 +272,7 @@ export function Modul05() {
               {
                 key: "radar_satz",
                 label: "Wenn dieser Körperteil sprechen könnte, würde er sagen:",
-                placeholder: "z.B. „Komm mir nicht zu nah." / „Das ist nicht sicher." / „Ich glaube ihr nicht."",
+                placeholder: 'z.B. „Komm mir nicht zu nah." / „Das ist nicht sicher." / „Ich glaube ihr nicht."',
                 rows: 3,
               },
             ]}
@@ -411,13 +411,13 @@ export function Modul05() {
           {
             key: "refl_warum",
             label: "Was hast du dir damals stattdessen erzählt?",
-            placeholder: "z.B. „Ich bin halt zu sensibel." / „Es liegt an mir." …",
+            placeholder: 'z.B. „Ich bin halt zu sensibel." / „Es liegt an mir." …',
             rows: 3,
           },
           {
             key: "refl_jetzt",
             label: "Was würdest du heute zu diesem Körper sagen?",
-            placeholder: "z.B. „Du hattest Recht. Es tut mir leid, dass ich dich nicht gehört habe." …",
+            placeholder: 'z.B. „Du hattest Recht. Es tut mir leid, dass ich dich nicht gehört habe." …',
             rows: 3,
           },
         ]}

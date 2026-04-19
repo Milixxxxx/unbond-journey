@@ -108,6 +108,8 @@ function ModulePage() {
             <Modul03 />
           ) : meta.slug === "modul-04" ? (
             <Modul04 />
+          ) : meta.slug === "modul-05" ? (
+            <Modul05 />
           ) : (
             <ModuleStub meta={meta} />
           )}
