@@ -402,7 +402,7 @@ export function Modul05() {
           { id: "g3", text: "Ich nutze den 4-7-8-Atem als Vagus-Reset, wenn mich ein Trigger erwischt." },
           { id: "g4", text: "Ich nehme körperliche Warnsignale als Information ernst — nicht als Schwäche." },
           { id: "g5", text: "Ich habe den Butterfly Hug ausprobiert und seine Wirkung selbst erlebt." },
-          { id: "g6", text: "Ich habe das 5-4-3-2-1 Grounding in einem ruhigen Moment geübt — damit es im Notfall sitzt." },
+          { id: "g6", text: "Ich weiß, wo der SOS-Button lebt — und dass dort 5-4-3-2-1, TIPP, STOPP, Urge-Surf und 4-7-8-Atem jederzeit warten." },
         ]}
       />
     </article>
