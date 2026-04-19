@@ -292,7 +292,7 @@ export function Modul06() {
                 key: "letter_dank",
                 label: "Wofür möchte ich dir danken — auch für die Wunden?",
                 placeholder:
-                  "z.B. „Dass du nicht aufgegeben hast." / „Dass du irgendwann ‚nein' gesagt hast." …",
+                  'z.B. „Dass du nicht aufgegeben hast." / „Dass du irgendwann ‚nein gesagt hast." …',
                 rows: 4,
               },
               {
@@ -404,13 +404,13 @@ export function Modul06() {
           {
             key: "core_was",
             label: "Wofür stehst du morgens auf, wenn niemand schaut, niemand applaudiert, niemand verlangt es?",
-            placeholder: "z.B. „Für meinen Hund." / „Für eine ruhige Tasse Tee." / „Für meine Patientinnen." …",
+            placeholder: 'z.B. „Für meinen Hund." / „Für eine ruhige Tasse Tee." / „Für meine Patientinnen." …',
             rows: 4,
           },
           {
             key: "core_warum",
             label: "Was sagt diese Antwort über deinen wahren Wert-Kern?",
-            placeholder: "z.B. „Dass mir Fürsorge wichtig ist — aber für mich, nicht für sie." …",
+            placeholder: 'z.B. „Dass mir Fürsorge wichtig ist — aber für mich, nicht für sie." …',
             rows: 4,
           },
           {
