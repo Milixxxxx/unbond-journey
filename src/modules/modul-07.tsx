@@ -236,37 +236,8 @@ export function Modul07() {
         label="Übungen · Drei Werkzeuge für die Szene"
       >
         <div className="space-y-5">
-          {/* Übung 1 · Szene-Karte mit Grün/Gelb/Rot */}
-          <Reflection3Step
-            slug={SLUG}
-            title="Übung 1 · Meine Szene-Karte (Community Boundaries)"
-            subtitle="Du planst nicht aus Angst — du planst aus Klarheit. Sortiere deine Räume nach Sicherheit für dein Nervensystem. Das ist deine persönliche Karte; sie darf sich monatlich ändern."
-            meta="🗺 Zonen-Mapping · ~10 Min"
-            accent="sage"
-            steps={[
-              {
-                key: "scene_green",
-                label: "🟢 GRÜN · Sichere Räume — hier triffst du sie garantiert nicht",
-                placeholder:
-                  'z.B. „Mein Yoga-Studio · Online-LGBTQ-Gruppen · Freundeskreis aus dem Studium · Buchladen X"',
-                rows: 3,
-              },
-              {
-                key: "scene_yellow",
-                label: "🟡 GELB · Riskante Räume — eine Begegnung ist möglich",
-                placeholder:
-                  'z.B. „Die queere Bar am Freitag · große Pride-Events · CSD-Demo"',
-                rows: 3,
-              },
-              {
-                key: "scene_red",
-                label: "🔴 ROT · Meiden — ihr altes Territorium, Flying-Monkey-Zonen",
-                placeholder:
-                  'z.B. „Ihr Stammlokal · gemeinsame engste Freundeskreise · ihre Stamm-WG-Partys"',
-                rows: 3,
-              },
-            ]}
-          />
+          {/* Übung 1 · Interaktive Szene-Karte (Drag&Drop, eigene Pins) */}
+          <SceneMap slug={SLUG} />
 
           {/* Übung 2 · Grey-Rock-Skript */}
           <Reflection3Step
