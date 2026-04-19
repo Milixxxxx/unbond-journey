@@ -14,6 +14,7 @@ import {
   Mail,
 } from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
+import { ChapterIntro } from "@/components/chapter-intro";
 import {
   StackedCards,
   Reflection3Step,
