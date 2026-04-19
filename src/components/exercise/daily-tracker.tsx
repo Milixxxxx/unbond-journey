@@ -43,10 +43,15 @@ export function DailyTracker({ slug }: { slug: string }) {
   const [editing, setEditing] = useState<string | null>(null);
   const [showAddOther, setShowAddOther] = useState(false);
 
+  const entries: DailyEntry[] = (exerciseState[STORAGE_KEY] ?? []) as DailyEntry[];
+  const sorted = useMemo(
+    () => [...entries].sort((a, b) => a.date.localeCompare(b.date)),
+    [entries],
+  );
+  const trendCallout = useMemo(() => analyseTrend(sorted), [sorted]);
+
   if (!loaded) return null;
 
-  const entries: DailyEntry[] = (exerciseState[STORAGE_KEY] ?? []) as DailyEntry[];
-  const sorted = [...entries].sort((a, b) => a.date.localeCompare(b.date));
   const today = todayISO();
   const todayEntry = entries.find((e) => e.date === today);
 
@@ -68,8 +73,6 @@ export function DailyTracker({ slug }: { slug: string }) {
     Anspannung: e.anspannung,
     Drang: e.drang,
   }));
-
-  const trendCallout = useMemo(() => analyseTrend(sorted), [sorted]);
 
   return (
     <ExerciseFrame
