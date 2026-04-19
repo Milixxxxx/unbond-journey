@@ -1,11 +1,9 @@
-import { useEffect, useRef, useState } from "react";
 import { CollapsibleBox } from "@/components/collapsible-box";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ZoomableImage } from "@/components/zoomable-image";
 import { ChecklistGoals } from "@/components/checklist-goals";
 import { ReflectionField, ReflectionInput } from "@/components/exercise-fields";
 import { DailyTracker } from "@/components/exercise/daily-tracker";
-import { useModuleProgress } from "@/hooks/use-module-progress";
 import {
   Brain,
   Lightbulb,
