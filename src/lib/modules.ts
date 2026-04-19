@@ -88,17 +88,9 @@ export const MODULES: ModuleMeta[] = [
     slug: "modul-06",
     number: "06",
     title: "Identität jenseits der Bindung",
-    subtitle: "Wer bist du, ohne sie?",
+    subtitle: "Self-Expansion, Werte-Kompass und das Vakuum füllen — wer du wirst, wenn die Bindung nicht mehr definiert, wer du bist",
     phase: 4,
-    available: false,
-    stubBlurb:
-      "In toxischen Beziehungen verschmilzt Identität. Hier rekonstruierst du, wer du warst, bevor du dich verlierst – und wer du jetzt sein willst.",
-    stubTopics: [
-      "Identitäts-Inventar",
-      "Verlorene Hobbys reaktivieren",
-      "Self-Concept Recovery",
-      "Übung: Ein Brief an mein altes Ich",
-    ],
+    available: true,
   },
   {
     slug: "modul-07",

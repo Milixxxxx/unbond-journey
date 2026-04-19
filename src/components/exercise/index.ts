@@ -27,3 +27,5 @@ export { DetoxKiste } from "./detox-kiste";
 export { BreathPacer } from "./breath-pacer";
 export { ButterflyHug } from "./butterfly-hug";
 export { NervousSystemCheck } from "./nervous-system-check";
+export { ValueCompass } from "./value-compass";
+export type { ValueArea } from "./value-compass";
