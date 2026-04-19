@@ -14,5 +14,6 @@ Pflichtelemente pro Kapitel in dieser REIHENFOLGE: ChapterIntro mit Keywords · 
 Meditationen IMMER 1:1 aus Leitdatei übernehmen — die in der Leitdatei verlinkte ID, KEINE andere. App-Modul → Leitdatei-Schritt-Mapping ist FIX.
 Verifizierte YouTube-IDs aus Leitdatei (alle 200 OK, App-Modul→ID): SOS=v9XmIgvP0Wc (Schritt 01) · 01=VXrIMaXIpkQ (Schritt 02) · 02=UnjielNyg08 (Schritt 03) · 03=9SpjxxYsDm8 (Schritt 04) · 04=B4MjEWg-3Dw (Schritt 05) · 05=1-vFTMy5DSU (Schritt 06) · 06=AEsnRt54VPY (Schritt 07) · 07=MYkQ3EU284g (Schritt 08) · 08=fXObOa9E_X4 (Schritt 09) · 09=d8pO3mbj-90 (Schritt 10).
 Vor Einsatz neuer YouTube-Links: oembed prüfen — `curl -s -o /dev/null -w "%{http_code}" "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=ID&format=json"` muss 200 liefern.
+Diagnose-Karten IMMER mit FlipCard-Komponente (`@/components/exercise` → `FlipCard`). Einheitliches Design im gesamten Buch: 5px Topborder in Akzentfarbe, Vorder-/Rückseite, animiertes Hand-Tap-Icon unten rechts als Geste-Hint. Niemals lokale DiagnosisCard neu definieren.
 
 ## Memories
