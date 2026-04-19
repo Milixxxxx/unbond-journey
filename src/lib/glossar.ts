@@ -73,4 +73,20 @@ export const GLOSSAR: Record<string, GlossarEntry> = {
     short:
       "Gedanken als mentale Ereignisse beobachten („Da ist der Gedanke, dass…“) statt mit ihnen zu fusionieren – Kerntechnik der ACT (Hayes et al., 2006).",
   },
+  "kokainentzug": {
+    term: "Kokainentzug (Hirnareale)",
+    short:
+      "Helen Fishers fMRI-Studien zeigen: Liebeskummer aktiviert dieselben Hirnareale (VTA, Nucleus Accumbens, Insula) wie der Entzug von Kokain — neurochemisch identisch.",
+  },
+  "nucleus-accumbens": {
+    term: "Nucleus Accumbens",
+    short:
+      "Belohnungszentrum im Mittelhirn — feuert bei Drogenkonsum genauso wie bei intermittierender Verstärkung. Es unterscheidet nicht zwischen Kontakt und Substanz.",
+  },
+  "hoovering": {
+    term: "Hoovering",
+    short:
+      "„Aufsaugen": Manipulationsversuch, dich nach Trennung wieder in den Bindungs-Zyklus zu ziehen — von freundlichen Nachrichten bis zu False-Self-Tränen (Durvasula).",
+  },
 };
+
