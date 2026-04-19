@@ -1,11 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { Heart, Phone, X, Wind, Hand, Eye, Activity, Thermometer, Sparkles, Play, Pause, RotateCcw } from "lucide-react";
-import { useAuth } from "@/lib/auth-context";
 
 type Tool = "tipp" | "stopp" | "ground" | "urge" | "atem";
 
 export function SosFloatingButton() {
-  const { user } = useAuth();
   const [open, setOpen] = useState(false);
   const [tool, setTool] = useState<Tool | null>(null);
 
@@ -22,8 +20,7 @@ export function SosFloatingButton() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open, tool]);
 
-  // Nur für eingeloggte Nutzerinnen
-  if (!user) return null;
+  // SOS ist immer erreichbar — auch ohne Login. Krise wartet nicht.
 
   return (
     <>
