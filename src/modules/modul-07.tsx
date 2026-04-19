@@ -13,6 +13,8 @@ import {
   TransformationGoals,
   MeditationCard,
   FlipCard,
+  SceneMap,
+  ReplaceabilityMyth,
 } from "@/components/exercise";
 
 const SLUG = "modul-07";
@@ -234,37 +236,8 @@ export function Modul07() {
         label="Übungen · Drei Werkzeuge für die Szene"
       >
         <div className="space-y-5">
-          {/* Übung 1 · Szene-Karte mit Grün/Gelb/Rot */}
-          <Reflection3Step
-            slug={SLUG}
-            title="Übung 1 · Meine Szene-Karte (Community Boundaries)"
-            subtitle="Du planst nicht aus Angst — du planst aus Klarheit. Sortiere deine Räume nach Sicherheit für dein Nervensystem. Das ist deine persönliche Karte; sie darf sich monatlich ändern."
-            meta="🗺 Zonen-Mapping · ~10 Min"
-            accent="sage"
-            steps={[
-              {
-                key: "scene_green",
-                label: "🟢 GRÜN · Sichere Räume — hier triffst du sie garantiert nicht",
-                placeholder:
-                  'z.B. „Mein Yoga-Studio · Online-LGBTQ-Gruppen · Freundeskreis aus dem Studium · Buchladen X"',
-                rows: 3,
-              },
-              {
-                key: "scene_yellow",
-                label: "🟡 GELB · Riskante Räume — eine Begegnung ist möglich",
-                placeholder:
-                  'z.B. „Die queere Bar am Freitag · große Pride-Events · CSD-Demo"',
-                rows: 3,
-              },
-              {
-                key: "scene_red",
-                label: "🔴 ROT · Meiden — ihr altes Territorium, Flying-Monkey-Zonen",
-                placeholder:
-                  'z.B. „Ihr Stammlokal · gemeinsame engste Freundeskreise · ihre Stamm-WG-Partys"',
-                rows: 3,
-              },
-            ]}
-          />
+          {/* Übung 1 · Interaktive Szene-Karte (Drag&Drop, eigene Pins) */}
+          <SceneMap slug={SLUG} />
 
           {/* Übung 2 · Grey-Rock-Skript */}
           <Reflection3Step
@@ -298,37 +271,8 @@ export function Modul07() {
             ]}
           />
 
-          {/* Übung 3 · Ersetzbarkeits-Mythos & Flying Monkeys */}
-          <Reflection3Step
-            slug={SLUG}
-            title="Übung 3 · Den Ersetzbarkeits-Mythos entlarven"
-            subtitle="Die schnelle neue Partnerin sagt nichts über deinen Wert. Sie sagt alles über ihr Muster. Schreib es auf — damit dein Gehirn es endlich glaubt."
-            meta="🪞 Reframing · ~15 Min"
-            accent="mauve"
-            steps={[
-              {
-                key: "replace_lie",
-                label: "Welche Lüge erzählt mir mein Trauma über ihre neue Beziehung?",
-                placeholder:
-                  'z.B. „Dass die Neue besser ist. Dass sie sich für die Neue endlich ändert. Dass ich nie genug war."',
-                rows: 3,
-              },
-              {
-                key: "replace_truth",
-                label: "Was sagt ihr schnelles U-Hauling / Weiterziehen WIRKLICH über ihr Muster?",
-                placeholder:
-                  'z.B. „Sie kann nicht allein sein. Es ist Flucht vor sich selbst. Es ist neues Love-Bombing — die Neue durchläuft jetzt, was ich durchlaufen habe."',
-                rows: 3,
-              },
-              {
-                key: "flying_monkeys_strategy",
-                label: "Flying Monkeys: Wer könnte instrumentalisiert sein — und was ist meine Schutzstrategie?",
-                placeholder:
-                  'z.B. „Freundin X erfährt nichts mehr über mein Leben. Wenn sie über Sandra spricht, sage ich ruhig: Ich möchte das nicht hören."',
-                rows: 3,
-              },
-            ]}
-          />
+          {/* Übung 3 · Lüge↔Wahrheit-FlipKarten + Selbstwert-Anker-Ritual */}
+          <ReplaceabilityMyth slug={SLUG} />
         </div>
       </Section>
 
