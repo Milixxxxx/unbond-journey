@@ -72,17 +72,9 @@ export const MODULES: ModuleMeta[] = [
     slug: "modul-04",
     number: "04",
     title: "Trigger entmachten",
-    subtitle: "Trigger-Landkarte und Urge Surfing in der Tiefe",
+    subtitle: "Trigger-Landkarte, ABC-Analyse und Urge Surfing — den Drang reiten statt ihm folgen",
     phase: 3,
-    available: false,
-    stubBlurb:
-      "Trigger sind nicht der Feind – sie sind Wegweiser. In diesem Modul lernst du, sie zu lesen, zu surfen und zu integrieren.",
-    stubTopics: [
-      "Trigger-Landkarte erstellen",
-      "Polyvagal-Theorie anwenden",
-      "Detached Mindfulness",
-      "Übung: Welle für Welle",
-    ],
+    available: true,
   },
   {
     slug: "modul-05",

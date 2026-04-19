@@ -87,7 +87,7 @@ export function Modul04() {
             </p>
             <p>
               Heute klammert sie sich kurz an den Einkaufswagen und wendet{" "}
-              <GlossarTerm term="Urge Surfing">Urge Surfing</GlossarTerm> an.
+              <GlossarTerm termKey="Urge Surfing">Urge Surfing</GlossarTerm> an.
               Drei Sekunden Augen zu, Metaposition. Sie kämpft nicht gegen die
               Panikwelle – sie beobachtet, wie sie aufsteigt, ihren Höhepunkt
               erreicht, und lässt sie ziehen wie eine Zeugin vom sicheren
@@ -111,7 +111,7 @@ export function Modul04() {
             Ein Trigger ist eine gespeicherte Reiz-Reaktions-Kette in deinem
             Gehirn. Ein Lied, ein Ort, eine Uhrzeit, ein Geruch — alles, was
             dein Gehirn mit ihr verknüpft hat, kann den{" "}
-            <GlossarTerm term="Dopamin">Dopamin</GlossarTerm>-Spike auslösen.
+            <GlossarTerm termKey="Dopamin">Dopamin</GlossarTerm>-Spike auslösen.
             Das ABC-Modell hilft dir, diese Ketten zu identifizieren und zu
             entschärfen:
           </p>
@@ -271,7 +271,7 @@ export function Modul04() {
         >
           <p>
             LeDoux beschrieb in seiner Forschung zur{" "}
-            <GlossarTerm term="Amygdala-Hijacking">Amygdala</GlossarTerm>, dass
+            <GlossarTerm termKey="Amygdala-Hijacking">Amygdala</GlossarTerm>, dass
             konditionierte Reize – also Trigger – eine „Abkürzung" zum
             Angstzentrum aktivieren, die den rationalen Präfrontalcortex
             umgeht. Dein Gehirn hat den Trigger blitzschnell als gefährlich
