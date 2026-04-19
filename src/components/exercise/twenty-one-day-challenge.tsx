@@ -16,7 +16,7 @@ export function TwentyOneDayChallenge({
   subtitle,
   meta = "21 Tage · 5 Min/Tag · automatisch gespeichert",
   accent = "sage" as ExerciseAccent,
-  placeholder = "Eine konkrete, faktisch belegte Erinnerung – z.B. „Sie hat mich vor meinen Freundinnen bloßgestellt, als ich…"",
+  placeholder = `Eine konkrete, faktisch belegte Erinnerung – z.B. „Sie hat mich vor meinen Freundinnen bloßgestellt, als ich…“`,
 }: {
   slug: string;
   storageKey?: string;

@@ -304,7 +304,7 @@ const TAKTIKEN = [
     emoji: "🎭",
     color: "var(--color-bordeaux)",
     bg: "rgba(107,62,68,0.10)",
-    desc: "„Du verdrehst alles." „Du bist zu empfindlich." Deine Realität wird zur Erfindung erklärt.",
+    desc: `„Du verdrehst alles.“ „Du bist zu empfindlich.“ Deine Realität wird zur Erfindung erklärt.`,
   },
   {
     name: "DARVO",
@@ -318,20 +318,20 @@ const TAKTIKEN = [
     emoji: "💧",
     color: "var(--color-terracotta)",
     bg: "rgba(196,131,110,0.12)",
-    desc: "„Ich leide so sehr." Mitleid als Zugangscode zu deinen Grenzen.",
+    desc: `„Ich leide so sehr.“ Mitleid als Zugangscode zu deinen Grenzen.`,
   },
   {
     name: "Friedens-Falle",
     emoji: "🕊",
     color: "var(--color-sage)",
     bg: "rgba(122,158,138,0.12)",
-    desc: "„Lass uns im Frieden sein." Frieden als Tarnung für: schweige und vergib ohne Konsequenz.",
+    desc: `„Lass uns im Frieden sein.“ Frieden als Tarnung für: schweige und vergib ohne Konsequenz.`,
   },
   {
     name: "Falsche Äquivalenz",
     emoji: "⚖️",
     color: "var(--color-graphite)",
     bg: "rgba(74,78,82,0.08)",
-    desc: "„Wir waren beide schuld." Gewalt und Reaktion darauf werden gleichgesetzt.",
+    desc: `„Wir waren beide schuld.“ Gewalt und Reaktion darauf werden gleichgesetzt.`,
   },
 ];
