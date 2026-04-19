@@ -255,13 +255,13 @@ export function Modul06() {
               {
                 key: "arch_was",
                 label: "Was hole ich zurück?",
-                placeholder: "z.B. „Mein Skizzenbuch" / „Meinen Chor" / „Meine Sonntagsspaziergänge"",
+                placeholder: 'z.B. „Mein Skizzenbuch" / „Meinen Chor" / „Meine Sonntagsspaziergänge"',
                 rows: 2,
               },
               {
                 key: "arch_warum",
                 label: "Warum war es mir wichtig — bevor sie kam?",
-                placeholder: "z.B. „Weil ich da still und ganz war." …",
+                placeholder: 'z.B. „Weil ich da still und ganz war." …',
                 rows: 3,
               },
               {
