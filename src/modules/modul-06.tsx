@@ -5,8 +5,7 @@ import {
   Microscope,
   Sparkles,
   Quote,
-  Send,
-  Pencil,
+  Flame,
 } from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
@@ -16,110 +15,99 @@ import {
   CalloutBold,
   TransformationGoals,
   MeditationCard,
-  LikertScale,
-  ValueCompass,
+  RelapseTrafficLight,
 } from "@/components/exercise";
 
 const SLUG = "modul-06";
 
 /**
- * MODUL 06 · Identität jenseits der Bindung
+ * MODUL 06 · Suchtmuster brechen
  *
- * Quelle: UNBOND_Final_v5.html, Z. 4066–4267 (Schritt 10 · Identität, Zukunft & Abschluss).
- * Wir ziehen das Identitätskapitel hier auf Phase-4-Position vor, weil es nach
- * der Körperarbeit (Modul 05) der nächste logische Schritt ist: erst beruhigen,
- * dann das Vakuum füllen.
+ * Quelle: UNBOND_Final_v5.html · Schritt 06 (in der Quelle als „Schritt 07" gerendert,
+ * laut Memory-Reihenfolge ist es Kapitel 06).
  *
  * Roter Faden:
- *  Modul 05 hat das Nervensystem aus dem Alarm geholt. Jetzt steht das Vakuum
- *  im Raum — der Platz, den die toxische Bindung jahrelang besetzt hat. Hier
- *  beginnen wir, dieses Vakuum mit eigenen Werten, eigenem Tun, eigener Vision
- *  zu füllen. Self-Expansion (Aron & Aron) statt Self-Constriction.
- *  Übergang zu Modul 07 (Self-Expansion vertieft) und 09 (Kintsugi-Abschluss).
+ *  Nach dem Körper (Modul 05) ist jetzt der Drang dran. Wenn nach Wochen
+ *  No Contact plötzlich der stärkste Hunger nach ihr kommt — der Extinction
+ *  Burst — entscheidet sich, ob die Sucht stirbt oder ob sie neu anwächst.
+ *  Hier bauen wir das Frühwarnsystem (Rückfall-Ampel), kartieren Cues
+ *  (Cue-Audit) und ersetzen toxisches Dopamin durch gesunde Belohnung
+ *  (Reward Replacement).
  *
  * Vermeidung von Doppelungen:
- *  - 5-4-3-2-1 / SOS-Tools: bereits global im SOS-Drawer.
- *  - Polyvagal/Atemarbeit: in Modul 05 ausführlich, hier nur referenziert.
- *  - Hoovering/No-Contact-Mechanik: in Modul 02/03, hier nur als Kontext.
- *  - Wertekompass aus Schritt 06 der Quelle wird HIER didaktisch verankert
- *    (in der Quelle stand er etwas isoliert in Schritt 06).
- *
- * Pflichtelemente (Buch-Architektur):
- *  - ChapterIntro mit Keywords
- *  - Story · Mary · "Der Brief, den sie niemals abschickt"
- *  - Diagnose · Self-Constriction & das Vakuum
- *  - Lösung · ACT-Werteklärung & Self-Expansion
- *  - Übungen: Werte-Kompass · Identitäts-Archäologie · Brief ans alte Ich
- *  - Vibe-Check: "Wer bist du gerade?" (Likert)
- *  - Deep Dive · Aron & Aron · Hayes · Sapolsky · Tedeschi
- *  - Reflexion · "Wofür stehst du auf, wenn niemand zuschaut?"
- *  - Meditation · Sage-Akzent
- *  - TransformationGoals (5–6 Ziele)
+ *  - Urge Surfing / 4-7-8: bereits global im SOS (modul SOS-Soforthilfe).
+ *  - Polyvagal/Atemarbeit: in Modul 05.
+ *  - No-Contact-Schleusen: in Modul 03.
+ *  - Identitätsarbeit / Self-Expansion: erst in Modul 09.
  */
 export function Modul06() {
   return (
     <article className="space-y-7">
       {/* ── Einleitung ── */}
       <ChapterIntro
-        title="Kapitel 06 · Identität jenseits der Bindung"
+        title="Kapitel 06 · Suchtmuster brechen"
         keywords={[
-          "Self-Expansion",
-          "Werte-Kompass",
+          "Extinction Burst",
+          "Cue-Audit",
+          "Rückfall-Ampel",
           "Reward Replacement",
-          "Wer war ich vorher?",
-          "Vakuum füllen",
+          "Dopamin-Reset",
         ]}
       >
         <p>
-          Wenn die toxische Bindung geht, bleibt eine Lücke — und sie fühlt sich
-          an wie ein Sturz ins Nichts. Das Vakuum ist nicht dein Versagen. Es
-          ist der Platz, den dein eigenes, jahrelang verkleinertes Ich
-          zurückgelassen hat.
+          Wenn nach Wochen No Contact plötzlich der stärkste Drang überhaupt
+          einsetzt — Hände zittern, Herz rast, Finger über dem Send-Button —
+          ist das <strong>kein Rückfall</strong>. Es ist das letzte Aufbäumen
+          einer sterbenden Sucht. Du bist nicht zurück am Anfang. Du bist
+          mitten in der Wende.
         </p>
         <p>
-          In diesem Kapitel füllst du diesen Platz nicht mit der nächsten Person
-          — sondern mit dir. Mit Werten, alten Hobbys, kleinen Schritten und
-          einer Vision, die endlich nur dir gehört.
+          In diesem Kapitel lernst du, deinen ganz persönlichen Spielautomaten
+          zu entlarven: Welche Uhrzeit, welcher Ort, welcher Song — was hat
+          dein Gehirn alles mit ihr verknotet? Du baust deine Rückfall-Ampel
+          und ersetzt das toxische Dopamin durch ein neues, eigenes
+          Belohnungssystem.
         </p>
       </ChapterIntro>
 
       {/* ── Story ── */}
       <Section
         icon={<ScrollText className="h-4 w-4" />}
-        label="Story · Der Brief, den sie niemals abschickt"
+        label="Story · Das Feuer vor dem Erlöschen"
       >
         <div className="glass-card-strong p-5">
           <div className="space-y-3 text-sm leading-relaxed animate-fade-in-stagger">
             <h3 className="font-display text-base font-bold text-bordeaux">
-              Mary, ein Jahr später
+              Mary, Tag 21 · Der absolute Tiefpunkt
             </h3>
             <p>
-              Ein Jahr ist vergangen. Wenn Mary morgens aufwacht, fragt sie sich
-              manchmal: <em>Wer war ich ohne das ständige Drama?</em> Fünf Jahre
-              lang bestand ihre Lebensaufgabe darin, Sandras Stimmungen zu
-              scannen, das eigene Leben bis zur Unsichtbarkeit zu schrumpfen und
-              in Hab-Acht-Stellung auf eine Krume Zuneigung zu warten. Das
-              Vakuum nach der Trennung fühlte sich an wie ein Sturz ins Nichts.
+              Einundzwanzig Tage ohne Kontakt. Mary hatte begonnen, sich
+              stabiler zu fühlen — der rohe Schmerz einem tauben, berechenbaren
+              Pochen gewichen. Dann, an einem regnerischen Donnerstagabend,
+              trifft es sie wie ein physischer Schlag: ein unwiderstehlicher
+              Drang, Sandra zu kontaktieren. Herz rasend, Hände zitternd, der
+              Verstand im Panikmodus: <em>Nur eine Nachricht. Sag ihr, dass du
+              sie hasst. Dass du sie liebst. Egal was — aber tu es jetzt.</em>
             </p>
             <p>
-              Doch in den letzten Monaten hat sich der Wind gedreht. Die
-              politischen Projekte und queeren Initiativen, die sie wegen
-              Sandras Eifersucht aufgegeben hatte, hat sie wieder aus der
-              Schublade geholt. Morgens checkt sie nicht mehr panisch Sandras
-              Instagram, sondern organisiert LGBTQ-Events. Jedes tiefe Lachen
-              mit Freunden, in dem Sandra niemals eine Rolle spielte, ist ein
-              Leuchtstein ihres neuen Ichs.
+              Früher hätte das unweigerlich zur Kurzschlussreaktion geführt:
+              eine nächtliche Sprachnachricht voller Tränen, die Sandra am
+              nächsten Tag ignoriert oder kalt als Waffe gegen Mary gewendet
+              hätte. Das Handy liegt in ihrer Hand. Ein einziger Touch trennt
+              sie von der kurzfristigen Erlösung. Jede Zelle ihres Körpers
+              verlangt nach dem toxischen Dopamin-Hit.
             </p>
             <p>
-              Heute sitzt Mary ruhig in ihrem Zimmer und faltet einen Brief.
-              Den ultimativen Abschiedsbrief an Sandra — ohne Forderungen, ohne
-              Anklage. Einen Brief, den sie <strong>niemals abschicken wird</strong>,
-              weil Sandra jede Zeile zu ihren Gunsten verdrehen würde. Mary
-              hält darin nur die schlichte Wahrheit fest: Sandra war nicht die
-              große Liebe ihres Lebens. Sie war ein destruktives Muster, das
-              Mary nun vollständig dechiffriert hat. Sie lässt den Brief in die
-              Schublade gleiten und drückt sie zu. Die Illusion ist tot.{" "}
-              <strong>Mary lebt.</strong>
+              Doch Mary weiß jetzt: Das ist nicht die Rückkehr der Liebe. Kein
+              Zeichen des Universums. Es ist der{" "}
+              <strong>Extinction Burst</strong> — das letzte verzweifelte
+              Aufbäumen ihres süchtigen Nervensystems, weil die dysfunktionale
+              Belohnung ausbleibt. Wie ein sterbendes Feuer, das kurz vor dem
+              Erlöschen noch einmal aufloht. Sie legt das Handy zitternd auf
+              den Tisch, atmet — und ruft ihre engste Freundin an statt Sandra.
+              Sie schwitzt, sie weint, aber sie überlebt die Nacht. Am nächsten
+              Morgen ist der Drang verflogen. Das Feuer brennt ab.{" "}
+              <strong>Mary ist stärker als der Reflex.</strong>
             </p>
           </div>
         </div>
@@ -128,55 +116,57 @@ export function Modul06() {
       {/* ── Diagnose ── */}
       <Section
         icon={<Brain className="h-4 w-4" />}
-        label="Diagnose · Self-Constriction & das Vakuum"
+        label="Diagnose · Extinction Burst & Cue-Reaktivität"
       >
         <CalloutBold
           kind="science"
-          title="Wer bist du, wenn keine Krise mehr abzuwenden ist?"
-          source="Aron & Aron (1986) · Self-Expansion Model"
+          title="Warum dein Gehirn keinen Unterschied macht"
+          source="O'Brien et al. (1992) · Marlatt & Gordon (1985) · Bouton (2002)"
         >
           <p>
-            Arthur und Elaine Aron beschrieben mit dem{" "}
-            <GlossarTerm termKey="self-expansion">Self-Expansion Model</GlossarTerm>
-            , dass wir gesunde Beziehungen nutzen, um unser Selbst durch neue
-            Erfahrungen, Hobbys, Menschen zu <em>erweitern</em>. In
-            Trauma-Bonds geschieht das Gegenteil:{" "}
-            <strong>Self-Constriction.</strong> Du hast dich verkleinert, um
-            den Frieden zu wahren. Hobbys aufgegeben. Freundschaften
-            ausgedünnt. Eigene Meinungen geschluckt.
+            In der Suchtforschung spricht man vom{" "}
+            <GlossarTerm termKey="extinction-burst">Extinction Burst</GlossarTerm>
+            : Wenn eine gelernte Belohnung ausbleibt, verstärkt das Gehirn
+            zunächst genau das Verhalten, das früher zur Belohnung führte. Das
+            ist kein Versagen — es ist das Gegenteil. Es bedeutet, dass die
+            Suchtstruktur zu bröckeln beginnt. Wenn du nach drei Wochen
+            plötzlich einen massiven Drang verspürst, ist das nicht der
+            Rückfall. Es ist das <strong>Sterben der Sucht</strong>.
           </p>
           <p>
-            Wenn diese Beziehung endet, kollabiert nicht nur die Partnerschaft
-            — sondern die zentrale Bewältigungsstrategie deines Lebens. Das
-            Vakuum, das du fühlst, ist <strong>real</strong>. Es ist der Platz,
-            den dein eigenes amputiertes System zurückgelassen hat.
+            O&rsquo;Brien et al. (1992) zeigten: Konditionierte Umgebungsreize —
+            Cues — lösen bei suchtähnlichen Bindungen dieselben physiologischen
+            Reaktionen aus wie bei Substanzabhängigkeit. Ein Lied, eine
+            Uhrzeit, ein Ort, ein Geruch. Dein Gehirn hat Hunderte unsichtbarer
+            Verknüpfungen gespeichert, die automatisch das Suchtzentrum
+            aktivieren — ohne dein Zutun.
           </p>
           <p>
-            Die effektivste Heilung ist nicht „Zeit". Es ist{" "}
-            <strong>gerichtete, neue Selbstwirksamkeit</strong>. Wir füllen die
-            Lücke im{" "}
-            <GlossarTerm termKey="dopamin">Dopamin</GlossarTerm>-System durch
-            neue Kompetenzen, neue Netzwerke und wiederentdeckte Hobbys
-            (Reward Replacement). Identität entsteht nicht durch endloses
-            Analysieren der toxischen Person — sondern durch konsequentes
-            Handeln im Einklang mit deinen eigenen, unantastbaren Werten.
+            Marlatt &amp; Gordon (1985) identifizierten <strong>drei
+            Hochrisiko-Kategorien</strong> für Rückfall: negative emotionale
+            Zustände (Einsamkeit, Trauer), sozialer Druck und direkter
+            Cue-Kontakt. Bouton (2002) ergänzte: Konditionierte Reaktionen
+            löschen sich nie vollständig — sie werden durch neue, konkurrierende
+            Assoziationen <em>überlagert</em>. Deshalb kann ein einziger
+            Profil-Klick nach Monaten alles zurückwerfen. Die alte Bahn ist
+            nicht weg. Sie ist nur leiser geworden.
           </p>
         </CalloutBold>
 
         <div className="grid gap-3 sm:grid-cols-2">
           <DiagnosisCard
-            emoji="🌑"
+            emoji="🔥"
             color="var(--color-bordeaux)"
-            label="Self-Constriction"
-            heading="Was dir die Bindung genommen hat"
-            text="Hobbys, Freunde, Meinungen, Träume, Schlafrhythmus, Stimme. Alles wurde kleiner gemacht, um zu überleben."
+            label="Extinction Burst"
+            heading="Das Feuer vor dem Erlöschen"
+            text="Tag 14, 21, 30 · plötzlicher Drang. Nicht Liebe. Nicht das Universum. Es ist die Sucht, die stirbt."
           />
           <DiagnosisCard
-            emoji="🌱"
-            color="var(--color-sage)"
-            label="Self-Expansion"
-            heading="Was jetzt dran ist"
-            text="Werte reaktivieren, Mikro-Schritte, Reward Replacement. Identität als Verb, nicht als Zustand."
+            emoji="🧲"
+            color="var(--color-mauve)"
+            label="Cue-Reaktivität"
+            heading="Die unsichtbaren Auslöser"
+            text="Lieder, Orte, Uhrzeiten, Düfte — dein Gehirn hat sie alle mit ihr verknotet. Erkennen ist der erste Knoten lösen."
           />
         </div>
       </Section>
@@ -184,28 +174,22 @@ export function Modul06() {
       {/* ── Lösung ── */}
       <Section
         icon={<Lightbulb className="h-4 w-4" />}
-        label="Lösung · ACT-Werteklärung & Mikro-Bewegung"
+        label="Lösung · Cue-Audit & Rückfall-Ampel"
       >
         <div className="rounded-2xl bg-white/70 p-4 text-sm leading-relaxed text-graphite/85 shadow-glass">
           <p>
-            Hayes, Strosahl &amp; Wilson (2006) beschrieben mit der{" "}
-            <GlossarTerm termKey="act">ACT</GlossarTerm>-Werteklärung einen der
-            robustesten Wege aus chronischer Stagnation: Werte sind{" "}
-            <em>kein Ziel</em>, sondern ein Kompass. Sie bestehen aus dem, was
-            du fortlaufend tust — nicht aus dem, was du erreichst.
+            Die Rückfallforschung zeigt klar: Die konsequente Reduktion von
+            Umgebungs-Cues ist ein <strong>stärkerer Prädiktor</strong> für
+            erfolgreiche Remission als Motivation oder Willenskraft. Du
+            kämpfst nicht gegen Gefühle — du kämpfst gegen konditionierte
+            neuronale Bahnen. Das ist ein biologischer Prozess, kein
+            Charaktermangel.
           </p>
           <p className="mt-2">
-            Sapolsky (2017) ergänzt neurobiologisch: Dein Dopaminsystem
-            generiert Motivation nicht durch das <em>Erreichen</em> von Zielen,
-            sondern durch die <strong>Antizipation</strong> — das Gehen auf ein
-            Ziel zu. Jeder kleine, wertebasierte Schritt erzeugt Dopamin und
-            durchbricht die depressive Spirale des Wartens.
-          </p>
-          <p className="mt-2">
-            Wenn du deinem Nervensystem eine konkrete Richtung aufzeigst,
-            aktiviert dein präfrontaler Kortex Dopamin-Pfade für{" "}
-            <em>eigene</em> Ziele — anstatt für die Fixierung auf Verlust.
-            Transformation beginnt im Mikro.
+            Die <strong>Rückfall-Ampel</strong> ist kein Warnsystem für
+            Versagen, sondern ein Früherkennungssystem für Zustände, die ohne
+            Intervention zur Krise werden. Rot ist kein Urteil. Rot ist ein
+            Handlungsauftrag. Und wer rechtzeitig handelt, fällt nicht.
           </p>
         </div>
       </Section>
@@ -213,166 +197,133 @@ export function Modul06() {
       {/* ── Übungen ── */}
       <Section
         icon={<Sparkles className="h-4 w-4" />}
-        label="Übungen · Drei Werkzeuge zum Wiederfinden"
+        label="Übungen · Drei Werkzeuge gegen den Sog"
       >
         <div className="space-y-5">
-          {/* Übung 1 · Werte-Kompass (Hauptübung, interaktiver Radar) */}
-          <ValueCompass slug={SLUG} />
-
-          {/* Übung 2 · Identitäts-Archäologie */}
+          {/* Übung 1 · Cue-Audit als PillCloud */}
           <PillCloud
             slug={SLUG}
-            storageKey="identity_archaeology"
-            title="Übung 2 · Identitäts-Archäologie"
-            subtitle="Was hattest du, bevor sie dein Leben besetzt hat? Klick alles an, was du in der Beziehung verloren oder geopfert hast — auch wenn es klein erscheint."
-            meta="🔎 Bestandsaufnahme · ~5 Min · Mehrfachauswahl"
+            storageKey="cue_audit"
+            title="Übung 1 · Cue-Audit · Was triggert dein Suchtzentrum?"
+            subtitle="Klick alles an, was dein Gehirn mit ihr verknotet hat. Jeder erkannte Cue ist ein gelöster Knoten — und ein zukünftiger Rückfall verhindert."
+            meta="🧲 Inventur · ~10 Min · Mehrfachauswahl"
             accent="mauve"
             pills={[
-              { id: "hobby", label: "Ein konkretes Hobby" },
-              { id: "freunde", label: "Freundschaften" },
-              { id: "sport", label: "Sport / Bewegung" },
-              { id: "kreativ", label: "Kreatives Projekt" },
-              { id: "musik", label: "Eine Musikrichtung / Band" },
-              { id: "sprache", label: "Sprache / Lernen" },
-              { id: "meinung", label: "Politische Meinung" },
-              { id: "queer", label: "Queere Räume / Community" },
-              { id: "reisen", label: "Reisen / Spontaneität" },
-              { id: "ruhe", label: "Zeit allein, ohne schlechtes Gewissen" },
-              { id: "berufung", label: "Berufliches Ziel" },
-              { id: "essen", label: "Eigener Geschmack / Essen" },
-              { id: "stil", label: "Eigener Stil / Aussehen" },
-              { id: "stimme", label: "Eigene Stimme / Lautstärke" },
+              { id: "musik", label: "Bestimmte Lieder / Playlists" },
+              { id: "uhrzeit", label: "Eine bestimmte Uhrzeit (z.B. 22 Uhr)" },
+              { id: "ort", label: "Orte, an denen ihr wart" },
+              { id: "duft", label: "Ein Parfum / Geruch" },
+              { id: "instagram", label: "Social-Media-Apps" },
+              { id: "wochentag", label: "Ein bestimmter Wochentag" },
+              { id: "wetter", label: "Wetter (Regen, erster Schnee …)" },
+              { id: "essen", label: "Ein gemeinsames Essen / Restaurant" },
+              { id: "kleidung", label: "Etwas, das sie dir geschenkt hat" },
+              { id: "alkohol", label: "Alkohol / spätes Wachsein" },
+              { id: "freunde", label: "Gemeinsame Freund:innen" },
+              { id: "jahrestag", label: "Jahres- oder Geburtstag" },
+              { id: "einsamkeit", label: "Stille / Alleinsein am Abend" },
+              { id: "mueder", label: "Müdigkeit / Hunger" },
             ]}
           />
 
+          {/* Übung 2 · Plan pro Cue */}
           <Reflection3Step
             slug={SLUG}
-            title="Übung 2b · Eines davon zurückholen"
-            subtitle="Wähle EIN Element von oben — das, das am leisesten ruft, aber nicht aufhört. Hier holen wir es zurück."
-            meta="🌱 Re-Activation · ~5 Min"
-            accent="sage"
-            steps={[
-              {
-                key: "arch_was",
-                label: "Was hole ich zurück?",
-                placeholder: 'z.B. „Mein Skizzenbuch" / „Meinen Chor" / „Meine Sonntagsspaziergänge"',
-                rows: 2,
-              },
-              {
-                key: "arch_warum",
-                label: "Warum war es mir wichtig — bevor sie kam?",
-                placeholder: 'z.B. „Weil ich da still und ganz war." …',
-                rows: 3,
-              },
-              {
-                key: "arch_naechster",
-                label: "Was ist der allerkleinste Schritt diese Woche?",
-                placeholder: 'z.B. „Skizzenbuch aus dem Schrank holen und auf den Tisch legen."',
-                rows: 2,
-              },
-            ]}
-          />
-
-          {/* Übung 3 · Brief ans alte Ich */}
-          <Reflection3Step
-            slug={SLUG}
-            title="Übung 3 · Brief an mein altes Ich"
-            subtitle="Schreibe an die Person, die du warst, bevor sie kam. Nicht romantisch — ehrlich. Was würdest du ihr heute sagen?"
-            meta="✉️ Tiefenarbeit · ~15 Min · privat, nur für dich"
+            title="Übung 2 · Mein Anti-Cue-Plan"
+            subtitle="Wähle die DREI gefährlichsten Cues von oben aus. Schreib für jeden eine konkrete Alternative auf — bevor die Krise eintritt, nicht danach."
+            meta="🛡 Plan-B · ~10 Min"
             accent="bordeaux"
             steps={[
               {
-                key: "letter_jung",
-                label: "Liebe Ich-von-damals, das musst du wissen über das, was kommt:",
+                key: "plan_cue1",
+                label: "Cue 1 (mein gefährlichster) — und mein Notfallplan dafür",
                 placeholder:
-                  "Schreib frei. Was hättest du dir gewünscht zu hören, bevor diese Beziehung begann?",
-                rows: 6,
+                  'z.B. „Sonntag 22 Uhr Stille → Anruf bei Lara einplanen + neue Audiobook-Playlist."',
+                rows: 3,
               },
               {
-                key: "letter_dank",
-                label: "Wofür möchte ich dir danken — auch für die Wunden?",
+                key: "plan_cue2",
+                label: "Cue 2 — und mein Notfallplan dafür",
                 placeholder:
-                  'z.B. „Dass du nicht aufgegeben hast." / „Dass du irgendwann ‚nein gesagt hast." …',
-                rows: 4,
+                  'z.B. „Unser altes Café → für 90 Tage komplett meiden, neue Route zur Arbeit."',
+                rows: 3,
               },
               {
-                key: "letter_versprechen",
-                label: "Was verspreche ich dir für die nächsten 12 Monate?",
+                key: "plan_cue3",
+                label: "Cue 3 — und mein Notfallplan dafür",
                 placeholder:
-                  'z.B. „Ich werde dich nie wieder zum Schweigen bringen, um geliebt zu werden."',
-                rows: 4,
+                  'z.B. „Instagram → App-Limit 10 Min/Tag + ihr Profil blockiert, nicht nur entfolgt."',
+                rows: 3,
               },
             ]}
           />
 
-          {/* Vibe-Check · Wer bist du HEUTE? */}
-          <LikertScale
+          {/* Übung 3 · Reward Replacement */}
+          <PillCloud
             slug={SLUG}
-            storageKey="identity_vibe"
-            title="Vibe-Check · Wer bist du heute?"
-            subtitle="Kein Test, kein Richtig oder Falsch. Eine Standortbestimmung — du darfst sie in 3 Wochen wiederholen und sehen, was sich bewegt hat."
-            meta="🌸 Standortbestimmung · 5 Sätze · ~3 Min"
-            accent="mauve"
-            items={[
-              {
-                id: "v1",
-                text: "Ich kann sagen, was ich mag, ohne erst zu prüfen, ob es ihr gefallen würde.",
-              },
-              {
-                id: "v2",
-                text: "Ich verbringe Zeit mit Dingen, die ICH gewählt habe — nicht sie.",
-              },
-              {
-                id: "v3",
-                text: "Ich kenne mindestens 3 meiner Kernwerte und kann sie benennen.",
-              },
-              {
-                id: "v4",
-                text: "Ich treffe kleine Entscheidungen (Essen, Musik, Kleidung) wieder spontan.",
-              },
-              {
-                id: "v5",
-                text: "Wenn ich allein bin, fühle ich mich öfter ‚bei mir' als ‚verlassen'.",
-              },
+            storageKey="reward_replacement"
+            title="Übung 3 · Reward Replacement · Neues Dopamin auftanken"
+            subtitle="Welche kleinen, gesunden Belohnungen kannst du diese Woche dreimal in deinen Tag einbauen? Jede neue Quelle ersetzt einen Tropfen toxisches Dopamin durch einen eigenen."
+            meta="💎 Belohnungssystem neu verdrahten · ~5 Min"
+            accent="sage"
+            pills={[
+              { id: "spaziergang", label: "Spaziergang in der Sonne" },
+              { id: "kaltdusche", label: "Kalte Dusche / Wechseldusche" },
+              { id: "sport", label: "20 Min Sport / Yoga" },
+              { id: "freund", label: "Anruf bei einer Freundin" },
+              { id: "neue_playlist", label: "Neue Playlist (nicht eure)" },
+              { id: "buch", label: "30 Min Buch / Audiobook" },
+              { id: "kreativ", label: "Kreatives Tun (Malen, Schreiben …)" },
+              { id: "kochen", label: "Etwas Neues kochen" },
+              { id: "lernen", label: "Neue Skill üben (Sprache, Tool …)" },
+              { id: "natur", label: "Wald / Park / Wasser" },
+              { id: "cafe", label: "Neues Café entdecken" },
+              { id: "haustier", label: "Zeit mit Tier(en)" },
+              { id: "tanz", label: "Tanzen (allein, in der Küche)" },
+              { id: "warm", label: "Warmes Bad mit Salz" },
             ]}
           />
+
+          {/* Vibe-Check · Rückfall-Ampel */}
+          <RelapseTrafficLight slug={SLUG} />
         </div>
       </Section>
 
       {/* ── Deep Dive ── */}
       <Section
         icon={<Microscope className="h-4 w-4" />}
-        label="Deep Dive · Warum Werte stärker sind als Willenskraft"
+        label="Deep Dive · Warum Cues stärker sind als Vorsätze"
       >
         <CalloutBold
           kind="deepdive"
-          title="Aron & Aron · Hayes · Sapolsky · Tedeschi"
-          source="Self-Expansion Model (1986) · ACT (2006) · Behave (2017) · Posttraumatic Growth (2004)"
+          title="O'Brien · Marlatt & Gordon · Bouton · Witkiewitz"
+          source="Cue-Reaktivität (1992) · Relapse Prevention (1985) · Bouton (2002) · Urge Surfing (2004)"
         >
           <p>
-            Das <strong>Self-Expansion Model</strong> von Aron &amp; Aron (1986)
-            zeigt: Identität wächst kontinuierlich. Eine toxische Verbindung
-            erzwingt einen Identitätsverlust (Constriction). Echtes Wachstum
-            nach dem Bruch entsteht, wenn du beginnst, Hobbys, Menschen und
-            Leidenschaften in dein Ich zu integrieren, die rein aus deiner
-            eigenen Motivation entspringen. Du baust nicht das alte Haus auf —
-            du erschaffst etwas, das nie zuvor existierte.
+            O&rsquo;Brien et al. (1992) zeigten in wegweisenden Studien:
+            Konditionierte Umgebungsreize lösen bei suchtähnlichen Bindungen
+            dieselben physiologischen Reaktionen aus wie bei
+            Substanzabhängigkeit. Ein Lied, eine Uhrzeit, ein Ort — das Gehirn
+            hat Hunderte unsichtbarer Verknüpfungen gespeichert, die
+            automatisch das Suchtzentrum aktivieren.
           </p>
           <p>
-            Hayes et al. (ACT, 2006) verschoben die Frage von „Wie reduziere
-            ich Schmerz?" zu „Wofür leide ich gerne?". Werte werden nicht
-            <em>gefunden</em>, sondern in Aktion sichtbar. Sapolsky (2017)
-            ergänzt: Das Dopaminsystem belohnt schon die <em>Antizipation</em>{" "}
-            wertegeleiteten Handelns — nicht erst das Ergebnis. Deshalb wirken
-            Mikro-Schritte so disproportional gut.
+            Marlatt &amp; Gordon (1985) identifizierten in ihrer
+            Rückfallforschung drei Hochrisiko-Kategorien: negative emotionale
+            Zustände, sozialer Druck und direkter Cue-Kontakt. Die konsequente
+            Reduktion von Umgebungs-Cues erwies sich als{" "}
+            <strong>stärkerer Prädiktor</strong> für erfolgreiche Remission als
+            Motivation oder Willenskraft allein.
           </p>
           <p>
-            Tedeschi &amp; Calhoun (2004) dokumentierten{" "}
-            <GlossarTerm termKey="ptg">posttraumatisches Wachstum</GlossarTerm>:
-            Menschen kehren nach Krisen nicht nur zum Ausgangszustand zurück —
-            viele wachsen <em>darüber hinaus</em>. Mit klareren Werten,
-            tieferer Empathie und einer Identität, die nichts mehr zu
-            verteidigen hat.
+            Bouton (2002) ergänzte: Konditionierte Reaktionen löschen sich nie
+            vollständig — sie werden durch neue, konkurrierende Assoziationen
+            überlagert. Witkiewitz &amp; Marlatt (2004) zeigten in klinischen
+            Studien, dass{" "}
+            <GlossarTerm termKey="urge-surfing">Urge Surfing</GlossarTerm> die
+            Rückfallrate signifikant senkt: Das bloße Aushalten des Cravings
+            ohne Handeln schwächt die neuronale Verknüpfung zwischen Cue und
+            Verhalten ab. Das Gehirn lernt: Drang bedeutet keine Verpflichtung.
           </p>
         </CalloutBold>
 
@@ -383,11 +334,10 @@ export function Modul06() {
           <div className="flex items-start gap-3">
             <Quote className="mt-0.5 h-4 w-4 flex-shrink-0 text-mauve" />
             <p className="text-sm italic leading-relaxed text-graphite/85">
-              „Mary öffnet zum ersten Mal seit Monaten ihren alten
-              Skizzenblock. Die Skizzen darin sind drei Jahre alt — aus der
-              Zeit, bevor Sandra entschied, dass das ‚Kinderkram' sei. Mary
-              malt nichts Großes. Sie kritzelt einen Vogel an den Rand. Es
-              fühlt sich an wie nach Hause kommen."
+              „Mary legt das Handy zitternd auf den Tisch. Sie atmet. Sie ruft
+              Lara an statt Sandra. Sie schwitzt, sie weint, aber sie überlebt
+              die Nacht. Am nächsten Morgen ist der Drang verflogen. Das Feuer
+              brennt ab. Sie ist stärker als der Reflex."
             </p>
           </div>
         </aside>
@@ -396,54 +346,62 @@ export function Modul06() {
       {/* ── Reflexion ── */}
       <Reflection3Step
         slug={SLUG}
-        title="Reflexion · Wofür stehst du auf, wenn niemand zuschaut?"
-        subtitle="Eine Frage, die unter alle Selbstoptimierung greift. Antworte mit dem ersten, das kommt — nicht mit dem ‚richtigen'."
-        meta="🌸 Tiefenfrage · ~10 Min"
+        title="Reflexion · Welcher Drang bist du heute geworden?"
+        subtitle="Eine ehrliche Standortbestimmung — kein Richtig, kein Falsch."
+        meta="🌸 Tiefenfrage · ~5 Min"
         accent="bordeaux"
         steps={[
           {
-            key: "core_was",
-            label: "Wofür stehst du morgens auf, wenn niemand schaut, niemand applaudiert, niemand verlangt es?",
-            placeholder: 'z.B. „Für meinen Hund." / „Für eine ruhige Tasse Tee." / „Für meine Patientinnen." …',
+            key: "drang_letzter",
+            label: "Wann war dein letzter Extinction Burst — und was hast du getan?",
+            placeholder: 'z.B. „Vorgestern Nacht. Ich habe geweint und meiner Schwester geschrieben statt ihr."',
             rows: 4,
           },
           {
-            key: "core_warum",
-            label: "Was sagt diese Antwort über deinen wahren Wert-Kern?",
-            placeholder: 'z.B. „Dass mir Fürsorge wichtig ist — aber für mich, nicht für sie." …',
-            rows: 4,
-          },
-          {
-            key: "core_naechstes_jahr",
-            label: "Wenn du in einem Jahr in den Spiegel schaust — was möchtest du dort sehen?",
-            placeholder: "Schreib es auf. Konkret. Du formst dein zukünftiges Ich gerade jetzt.",
+            key: "drang_lehre",
+            label: "Was hast du daraus über dich gelernt?",
+            placeholder: 'z.B. „Dass ich nicht mehr glaube, dass der Drang Wahrheit bedeutet."',
             rows: 4,
           },
         ]}
       />
 
-      {/* ── Brief in die Zukunft (kleines Extra) ── */}
-      <FutureLetter />
+      {/* ── Mikro-Botschaft ── */}
+      <div
+        className="rounded-2xl border-2 border-bordeaux/15 bg-gradient-to-br from-bordeaux/5 via-cream/60 to-sage/8 p-5 sm:p-6"
+        style={{ borderLeft: "5px solid var(--color-bordeaux)" }}
+      >
+        <div className="flex items-center gap-2">
+          <Flame className="h-4 w-4 text-bordeaux" />
+          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-bordeaux">
+            Mikro-Botschaft an dich
+          </p>
+        </div>
+        <p className="mt-2 font-display text-base leading-relaxed text-bordeaux sm:text-lg">
+          Wenn das Feuer am stärksten brennt — bist du am nächsten daran,
+          dass es verlischt.
+        </p>
+      </div>
 
       {/* ── Meditation ── */}
       <MeditationCard
-        title="Wer bist du, wenn du nichts mehr sein musst — geführte Identitätsmeditation"
-        duration="14 Min"
-        source="Tara Brach · RAIN-Meditation für Selbstmitgefühl"
-        youtubeId="ScUWE4f49eM"
+        title="Geführte Mindfulness · Den Drang aushalten"
+        duration="5 Min"
+        source="Great Meditation · Mindfulness Practice"
+        youtubeId="ssss7V1_eyA"
       />
 
       {/* ── Transformationsziele ── */}
       <TransformationGoals
         slug={SLUG}
-        diagnosisLabel="Self-Expansion & Identitätsrekonstruktion"
+        diagnosisLabel="Suchtmuster brechen · Reward Replacement"
         goals={[
-          { id: "g1", text: "Ich kenne mindestens 3 meiner Kernwerte und habe sie im Werte-Kompass benannt." },
-          { id: "g2", text: "Ich habe konkret aufgeschrieben, was ich in der Beziehung verloren oder geopfert habe." },
-          { id: "g3", text: "Ich habe EIN altes Hobby / Stück Identität wieder aktiviert — und sei es im Mikro-Schritt." },
-          { id: "g4", text: "Ich habe meinem alten Ich einen Brief geschrieben — ehrlich, ohne Beschönigung." },
-          { id: "g5", text: "Ich verstehe, dass das Vakuum nach der Trennung kein Versagen ist, sondern Self-Constriction, die rückwärts läuft." },
-          { id: "g6", text: "Ich treffe diese Woche mindestens eine kleine Entscheidung allein aus mir heraus — Essen, Kleidung, Plan, egal." },
+          { id: "g1", text: "Ich verstehe, dass ein massiver Drang nach Wochen No Contact ein Extinction Burst ist — kein Rückfall." },
+          { id: "g2", text: "Ich habe meine persönlichen Cues kartiert und kenne meine Top-3-Risiken." },
+          { id: "g3", text: "Ich habe für jeden Top-Cue einen konkreten Anti-Cue-Plan formuliert." },
+          { id: "g4", text: "Ich habe mindestens 3 neue, gesunde Belohnungen ausgewählt und diese Woche eingebaut." },
+          { id: "g5", text: "Ich kenne die Rückfall-Ampel und kann ehrlich sagen, wo ich heute stehe." },
+          { id: "g6", text: "Ich weiß: Drang ≠ Wahrheit. Ich muss nicht alles tun, was mein Gehirn verlangt." },
         ]}
       />
     </article>
@@ -499,52 +457,6 @@ function DiagnosisCard({
         {heading}
       </p>
       <p className="mt-1.5 text-xs leading-snug text-graphite/80">{text}</p>
-    </div>
-  );
-}
-
-/**
- * FutureLetter · Inline-Mini-Übung: Brief in 12 Monate.
- * Persistiert direkt über das gleiche exerciseState wie alle anderen Übungen,
- * verzichtet aber auf einen großen Frame, damit es als Extra wirkt.
- */
-function FutureLetter() {
-  return (
-    <div
-      className="rounded-2xl border-2 border-bordeaux/15 bg-gradient-to-br from-bordeaux/5 via-mauve/5 to-sage/5 p-5 sm:p-6"
-      style={{ borderLeft: "5px solid var(--color-bordeaux)" }}
-    >
-      <div className="flex items-center gap-2">
-        <Send className="h-4 w-4 text-bordeaux" />
-        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-bordeaux">
-          Mikro-Ritual · Optional
-        </p>
-      </div>
-      <h3 className="mt-2 font-display text-lg font-bold text-bordeaux sm:text-xl">
-        Ein Brief, den du nicht abschickst
-      </h3>
-      <p className="mt-2 text-sm leading-relaxed text-graphite/80">
-        Wie Mary darfst du den ultimativen Abschiedsbrief an die toxische
-        Person schreiben — <strong>ohne ihn jemals abzuschicken</strong>. Nicht
-        weil sie es nicht hören dürfte. Sondern weil sie es verdrehen würde.
-        Der Brief ist nicht für sie. Er ist die Beerdigung der Illusion.
-      </p>
-      <ul className="mt-3 space-y-1.5 text-sm text-graphite/80">
-        <li className="flex items-start gap-2">
-          <Pencil className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-mauve" />
-          Schreib ihn analog, mit Stift auf Papier — der Körper braucht das.
-        </li>
-        <li className="flex items-start gap-2">
-          <Pencil className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-mauve" />
-          Keine Anklage. Keine Erklärung. Nur die schlichte Wahrheit, wie sie
-          heute aussieht.
-        </li>
-        <li className="flex items-start gap-2">
-          <Pencil className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-mauve" />
-          Falte ihn. Leg ihn weg. Oder verbrenne ihn — wenn das ein sicheres
-          Ritual für dich ist.
-        </li>
-      </ul>
     </div>
   );
 }
