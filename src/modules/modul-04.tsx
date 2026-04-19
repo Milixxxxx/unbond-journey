@@ -16,6 +16,8 @@ import {
   TransformationGoals,
 } from "@/components/exercise";
 import { UrgeSurfWave } from "@/components/exercise/urge-surf-wave";
+import { TriggerStreakLog } from "@/components/exercise/trigger-streak-log";
+import { IfThenTriggerPlan } from "@/components/exercise/if-then-trigger-plan";
 
 const SLUG = "modul-04";
 
@@ -259,6 +261,12 @@ export function Modul04() {
 
           {/* Vibe-Check · Animierte Welle */}
           <UrgeSurfWave totalSeconds={90} accent="mauve" />
+
+          {/* Vibe-Check · Trigger-Logbuch-Streak */}
+          <TriggerStreakLog slug={SLUG} />
+
+          {/* Vibe-Check · If-Then-Notfallplan */}
+          <IfThenTriggerPlan slug={SLUG} accent="terracotta" />
         </div>
       </Section>
 
