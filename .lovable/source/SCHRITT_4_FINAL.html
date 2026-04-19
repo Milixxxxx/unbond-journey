@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNBOND – Breaking Chains | Schritt 4: No-Contact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* ===== CSS VARIABLES – DESIGN SYSTEM ===== */
+        :root {
+            --sage-green:  #7A9E8A;
+            --mauve:       #9B7FA4;
+            --cream:       #F4EDE4;
+            --graphite:    #4A4E52;
+            --terracotta:  #C4836E;
+            --bordeaux:    #6B3E44;
+            --dark-green:  #2D4F3C;
+            --warning:     #D4A574;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663288589356/gfQHNvzdBfebIjsi.png') fixed center/cover;
+            color: var(--graphite);
+            line-height: 1.8;
+            font-size: 16px;
+            min-height: 100vh;
+        }
+
+        /* ===== HAMBURGER NAVIGATION ===== */
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(107, 62, 68, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .nav-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--cream);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .nav-step-label {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.85rem;
+            color: rgba(244,237,228,0.7);
+            font-style: italic;
+        }
+
+        .hamburger-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            padding: 8px;
+        }
+
+        .hamburger-btn span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background: var(--cream);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger-btn.open span:nth-child(2) { opacity: 0; }
+        .hamburger-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        .nav-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 280px;
+            background: rgba(45, 35, 37, 0.97);
+            backdrop-filter: blur(16px);
+            border-radius: 0 0 0 16px;
+            padding: 20px 0;
+            box-shadow: -4px 8px 30px rgba(0,0,0,0.4);
+            z-index: 999;
+        }
+
+        .nav-menu.open { display: block; }
+
+        .nav-menu a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 25px;
+            color: var(--cream);
+            text-decoration: none;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+
+        .nav-menu a:hover { background: rgba(122,158,138,0.25); }
+
+        .nav-menu a.active {
+            background: rgba(122,158,138,0.35);
+            border-left: 3px solid var(--sage-green);
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .nav-menu .nav-divider {
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+            margin: 10px 25px;
+        }
+
+        .nav-step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: rgba(122,158,138,0.4);
+            font-size: 0.8rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* ===== LAYOUT ===== */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 50px 40px 80px;
+        }
+
+        .content-box {
+            background-color: rgba(255, 255, 255, 0.60);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            margin: 30px 0;
+            border-radius: 12px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.15);
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: var(--bordeaux);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--bordeaux);
+            font-size: 2.2rem;
+            margin-top: 40px;
+            margin-bottom: 30px;
+            border-bottom: 4px solid var(--sage-green);
+            padding-bottom: 15px;
+        }
+
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--graphite);
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        h4 {
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            color: var(--bordeaux);
+            font-size: 1.2rem;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        ul, ol { margin: 15px 0 20px 20px; }
+        li { margin-bottom: 8px; line-height: 1.7; }
+
+        /* ===== SPECIAL COMPONENTS ===== */
+        .letter-opening {
+            font-size: 1.25rem;
+            color: var(--mauve);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .quote-block {
+            font-style: italic;
+            border-left: 4px solid var(--sage-green);
+            padding-left: 1.5rem;
+            margin: 2.5rem 0;
+            color: var(--dark-green);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* Mary & Sandra Box */
+        .case-study-box {
+            background: linear-gradient(135deg, rgba(45,79,60,0.88), rgba(122,158,138,0.88));
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            margin: 30px 0;
+            border-radius: 12px;
+            border-left: 6px solid var(--sage-green);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+        }
+
+        .case-study-box h4 { color: var(--cream); font-size: 1.4rem; margin-bottom: 20px; margin-top: 0; }
+        .case-study-box p { color: var(--cream); line-height: 1.8; text-align: left; }
+
+        .mary-photo {
+            width: 100%;
+            max-width: 580px;
+            display: block;
+            margin: 30px auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Science Box */
+        .science-box {
+            background: linear-gradient(135deg, rgba(122,158,138,0.90), rgba(122,158,138,0.70));
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            margin: 40px 0;
+            border-radius: 12px;
+            border-left: 6px solid var(--dark-green);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+        }
+
+        .science-box h3 { color: var(--dark-green); margin-top: 0; margin-bottom: 25px; }
+        .science-box p { margin-bottom: 20px; line-height: 1.4; color: #1a2e22; }
+        .science-box p strong { color: var(--bordeaux); display: block; margin-top: 15px; margin-bottom: 6px; }
+
+        /* Intro Items */
+        .intro-item {
+            display: flex;
+            align-items: flex-start;
+            margin: 25px 0;
+            gap: 20px;
+        }
+
+        .intro-icon { width: 50px; height: 50px; flex-shrink: 0; }
+
+        .intro-text strong {
+            color: var(--bordeaux);
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1.05rem;
+        }
+
+        /* Exercise Box */
+        .exercise-box {
+            background: rgba(255, 250, 230, 0.88);
+            backdrop-filter: blur(10px);
+            padding: 35px;
+            margin: 40px 0;
+            border-radius: 12px;
+            border-left: 6px solid var(--warning);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+        }
+
+        .exercise-box h4 { color: var(--bordeaux); font-size: 1.3rem; margin-top: 0; margin-bottom: 15px; }
+        .exercise-box label { display: block; font-weight: 700; color: var(--graphite); margin-top: 18px; margin-bottom: 8px; }
+
+        .exercise-box input[type="text"],
+        .exercise-box textarea,
+        .exercise-box select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.92);
+            color: var(--graphite);
+            transition: border-color 0.2s;
+        }
+
+        .exercise-box input[type="text"]:focus,
+        .exercise-box textarea:focus { outline: none; border-color: var(--bordeaux); }
+
+        .exercise-box textarea { min-height: 140px; resize: vertical; }
+
+        .exercise-meta {
+            margin-top: 18px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(122,158,138,0.4);
+            font-size: 0.95rem;
+        }
+
+        .exercise-meta span { display: block; margin-bottom: 6px; }
+
+        /* Channel Grid */
+        .channel-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 15px 0;
+        }
+
+        .channel-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.7);
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(122,158,138,0.4);
+        }
+
+        .channel-item label { font-weight: 400; margin: 0; cursor: pointer; color: var(--graphite); }
+        .channel-item input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; flex-shrink: 0; accent-color: var(--bordeaux); }
+
+        /* Detox Counter */
+        .detox-counter {
+            background: linear-gradient(135deg, var(--bordeaux), #8B4A52);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .detox-counter h4 { color: white; margin-top: 0; font-size: 1.1rem; }
+        .detox-counter .big-number { font-size: 4rem; font-weight: 800; font-family: 'Montserrat', sans-serif; line-height: 1; }
+        .detox-counter .unit { font-size: 1rem; opacity: 0.8; }
+        .detox-counter input[type="date"] {
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: none;
+            font-size: 1rem;
+            margin-top: 10px;
+            background: rgba(255,255,255,0.15);
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Reflection Box */
+        .reflection-box {
+            background: rgba(255,250,205,0.88);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 12px;
+            border-left: 6px solid var(--warning);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+        }
+
+        .reflection-box h4 { color: var(--bordeaux); margin-top: 0; margin-bottom: 14px; }
+
+        .reflection-box textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 14px;
+            border: 2px solid var(--warning);
+            border-radius: 8px;
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.92);
+            resize: vertical;
+            color: var(--graphite);
+        }
+
+        /* Goals Box */
+        .goals-box {
+            background: linear-gradient(135deg, rgba(155,127,164,0.88), rgba(155,127,164,0.68));
+            backdrop-filter: blur(10px);
+            padding: 35px;
+            margin: 40px 0;
+            border-radius: 12px;
+            border-left: 6px solid var(--mauve);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+        }
+
+        .goals-box h3 { color: white; margin-top: 0; margin-bottom: 10px; }
+        .goals-box > p { color: rgba(255,255,255,0.85); font-style: italic; margin-bottom: 20px; text-align: left; }
+
+        .goals-box label {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            color: white;
+            font-size: 1.05rem;
+            margin: 14px 0;
+            cursor: pointer;
+            line-height: 1.5;
+        }
+
+        .goals-box input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            flex-shrink: 0;
+            margin-top: 2px;
+            accent-color: var(--sage-green);
+        }
+
+        .goal-counter {
+            background: rgba(255,255,255,0.2);
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-top: 20px;
+            color: white;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Storage Notice */
+        .storage-notice {
+            background: rgba(212,165,116,0.20);
+            border-left: 6px solid var(--warning);
+            padding: 22px 25px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+
+        .storage-notice h4 { color: var(--bordeaux); margin-bottom: 12px; margin-top: 0; font-size: 1rem; }
+        .storage-notice p { margin-bottom: 8px; font-size: 0.9rem; text-align: left; }
+
+        /* Infographic */
+        .infographic-box { margin: 40px 0; text-align: center; }
+        .infographic-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 30px; margin: 40px 0; }
+        .infographic-item { flex: 1; text-align: center; }
+        .infographic-img { max-width: 100%; height: auto; border-radius: 10px; margin-bottom: 16px; box-shadow: 0 3px 15px rgba(0,0,0,0.15); }
+        .infographic-img-small { max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 16px; box-shadow: 0 3px 15px rgba(0,0,0,0.12); }
+
+        .infographic-caption { font-size: 0.93rem; color: var(--graphite); line-height: 1.6; font-style: italic; }
+        .infographic-caption strong { color: var(--bordeaux); font-style: normal; display: block; margin-bottom: 8px; font-size: 1rem; }
+
+        /* Progress Header */
+        .step-progress {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .step-dot {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(122,158,138,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--graphite);
+            border: 2px solid rgba(122,158,138,0.5);
+        }
+
+        .step-dot.completed { background: var(--sage-green); color: white; border-color: var(--sage-green); }
+        .step-dot.active { background: var(--bordeaux); color: white; border-color: var(--bordeaux); transform: scale(1.15); }
+
+        /* Next Step Button */
+        .next-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--bordeaux), #8B4A52);
+            color: white;
+            padding: 16px 36px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            margin-top: 30px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 6px 20px rgba(107,62,68,0.4);
+        }
+
+        .next-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(107,62,68,0.5); }
+
+        /* Inline SVG Infografik */
+        .svg-infographic {
+            width: 100%;
+            max-width: 700px;
+            display: block;
+            margin: 0 auto 16px;
+            border-radius: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { padding: 30px 20px 60px; }
+            .content-box { padding: 30px 25px; }
+            h1 { font-size: 2.2rem; letter-spacing: 2px; }
+            h2 { font-size: 1.7rem; }
+            .infographic-row { flex-direction: column; }
+            .channel-grid { grid-template-columns: 1fr; }
+            .nav-bar { padding: 0 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HAMBURGER NAVIGATION ===== -->
+    <nav class="nav-bar">
+        <a href="index.html" class="nav-logo">UNBOND</a>
+        <span class="nav-step-label">Schritt 4 von 10</span>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menü öffnen">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu" id="navMenu">
+            <a href="index.html">🏠 Start – Willkommen</a>
+            <div class="nav-divider"></div>
+            <a href="SCHRITT_1_KORRIGIERT.html"><span class="nav-step-num">1</span> SOS – Akute Stabilisierung</a>
+            <a href="SCHRITT_2_COMPLETE_FINAL.html"><span class="nav-step-num">2</span> Entzauberung & Toxikometer</a>
+            <a href="SCHRITT_3_COMPLETE.html"><span class="nav-step-num">3</span> Rosa-Brille abnehmen</a>
+            <a href="SCHRITT_4_FINAL.html" class="active"><span class="nav-step-num">4</span> No-Contact – 90 Tage</a>
+            <a href="SCHRITT_5_FINAL.html"><span class="nav-step-num">5</span> Trigger-Management</a>
+            <a href="SCHRITT_6_FINAL.html"><span class="nav-step-num">6</span> Fenster der Toleranz</a>
+            <a href="SCHRITT_7_FINAL.html"><span class="nav-step-num">7</span> Lesbischer Kontext & Fusion</a>
+            <a href="SCHRITT_8_FINAL.html"><span class="nav-step-num">8</span> Bindungsmuster & Inneres Kind</a>
+            <a href="SCHRITT_9_FINAL.html"><span class="nav-step-num">9</span> Identität neu aufbauen</a>
+            <a href="SCHRITT_10_FINAL.html"><span class="nav-step-num">10</span> Zukunftsvision & Abschluss</a>
+        </div>
+    </nav>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="container">
+
+        <!-- HEADER -->
+        <div class="content-box" style="text-align:center;">
+            <h1>UNBOND<br>Breaking Chains</h1>
+            <div class="step-progress">
+                <div class="step-dot completed">1</div>
+                <div class="step-dot completed">2</div>
+                <div class="step-dot completed">3</div>
+                <div class="step-dot active">4</div>
+                <div class="step-dot">5</div>
+                <div class="step-dot">6</div>
+                <div class="step-dot">7</div>
+                <div class="step-dot">8</div>
+                <div class="step-dot">9</div>
+                <div class="step-dot">10</div>
+            </div>
+            <p style="color:var(--mauve); font-weight:700; font-size:1.1rem; margin-top:18px; margin-bottom:0; text-align:center;">
+                SCHRITT 4 VON 10
+            </p>
+        </div>
+
+        <!-- INTRO / STORY BOX -->
+        <div class="content-box">
+            <h2>SCHRITT 4: No-Contact – Die neurobiologische Notwendigkeit</h2>
+
+            <!-- Mary Foto -->
+            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663288589356/FZYqfpKGfvBxRXvg.png"
+                 alt="Mary – Schritt 4: No Contact"
+                 class="mary-photo">
+
+            <!-- Mary & Sandra Geschichte -->
+            <div class="case-study-box">
+                <h4>🌿 Mary & Sandra – Beispielgeschichte</h4>
+                <p>Es war ein Dienstagabend, als Marys Handy vibrierte. Fünf Tage Funkstille. Dann, aus dem Nichts: <em>„Hey. Ich weiß, ich war Scheiße. Können wir telefonieren?"</em> Marys Herz machte einen Satz – dieser vertraute Dopamin-Hit, den sie schon tausendmal gespürt hatte. Ihre Finger bewegten sich automatisch zur Anruftaste. Sie stoppte. Schnappte nach Luft. Und sperrte Sandras Nummer.</p>
+                <p>Die nächste Stunde war körperlich schmerzhaft. Ihr Magen zog sich zusammen. Sie weinte, ohne genau zu wissen warum. Dann stand Mary auf, holte die Schuhschachtel unter dem Bett hervor und legte Sandras Armband, zwei gemeinsame Fotos und den handgeschriebenen Brief von letztem Herbst hinein. Sie schloss den Deckel und schrieb mit dickem Filzstift ein Datum drauf: 90 Tage von heute. „Nicht vernichten. Nur verwahren." Das war kein emotionaler Akt. Das war Medizin.</p>
+                <p>In den folgenden Wochen fiel Mary mehrfach in den Drang, nur kurz nachzuschauen, wie es Sandra geht. Jedes Mal aktivierte sie ihr Wenn-Dann-Script: <em>„Wenn ich auf ihr Profil schauen will, stelle ich einen 10-Minuten-Timer."</em> Jedes Mal, wenn der Timer ablief, war der Drang von einem 9er auf einen 3er gesunken. Das Nervensystem lernte langsam, dass es auch ohne Sandras Bestätigung existieren konnte.</p>
+            </div>
+
+            <!-- Storage Notice -->
+            <div class="storage-notice">
+                <h4>💾 Deine Eingaben werden automatisch gespeichert</h4>
+                <p>Alle Formulare, Übungen und Reflexionen werden lokal in deinem Browser gespeichert. Deine Daten bleiben privat und verlassen niemals deinen Computer.</p>
+                <p><strong>Wichtig:</strong> Wenn du den Browser-Cache löschst oder den privaten Modus verwendest, gehen deine Eingaben verloren. Sichere wichtige Texte extern.</p>
+            </div>
+
+            <!-- Intro Text mit Icons -->
+            <p class="letter-opening">No Contact ist kein Liebesentzug. Es ist Neurobiologie.</p>
+
+            <div class="intro-item">
+                <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663288589356/TqWOxkZGjvMlDXVy.png" alt="Icon" class="intro-icon">
+                <div class="intro-text">
+                    <strong>Die medizinische Notwendigkeit</strong>
+                    <p>No Contact ist keine Bestrafung für sie und keine Taktik, um sie zurückzugewinnen. Es ist die einzige neurobiologisch wirksame Methode, den <strong>Dopamin-Loop zu durchbrechen</strong>. Jeder Kontakt – jede Nachricht, jeder Blick auf ihr Profil, jedes Hören ihres Namens – reaktiviert den Loop und setzt die Entzugsuhr auf null zurück.</p>
+                </div>
+            </div>
+
+            <div class="intro-item">
+                <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663288589356/rvZdYjTcCBPxpYqy.png" alt="Icon" class="intro-icon">
+                <div class="intro-text">
+                    <strong>Die 90-Tage-Regel</strong>
+                    <p>Der Hippocampus braucht mindestens <strong>90 Tage ohne Kontaktreize</strong>, um neue neuronale Bahnen ohne sie aufzubauen. Nicht 30 Tage. Nicht 60. Neunzig. Das ist keine willkürliche Zahl – das ist die Zeitspanne, die die Neuroplastizität des Gehirns braucht, um tiefgreifende Veränderungen zu verankern.</p>
+                </div>
+            </div>
+
+            <div class="intro-item">
+                <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663288589356/FqSZVrLXpYCOkKAj.png" alt="Icon" class="intro-icon">
+                <div class="intro-text">
+                    <strong>Der Gipsverband-Vergleich</strong>
+                    <p>Stell dir vor, dein Arm ist gebrochen. Du legst keinen Gips an – und dann versuchst du trotzdem, täglich mit dem Arm zu arbeiten, weil es sich manchmal gar nicht so schlimm anfühlt. Das ist Kontakt nach einer Trennung von einer toxischen Bindung. No Contact ist der <strong>Gipsverband für gebrochene Synapsen</strong>.</p>
+                </div>
+            </div>
+
+            <div class="intro-item">
+                <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663288589356/pLRqGdXdxBJxRQVT.png" alt="Icon" class="intro-icon">
+                <div class="intro-text">
+                    <strong>Warum „kein harter Kontakt" nicht reicht</strong>
+                    <p>Viele Frauen in deiner Situation denken: <em>„Ich schreibe nicht, aber nachschauen ist okay."</em> Neurobiologisch ist es das nicht. <strong>Passiver Konsum</strong> (Stories ansehen, Profil besuchen, gemeinsame Fotos anschauen) aktiviert dieselben Dopaminareale wie direkter Kontakt. Das Gehirn unterscheidet nicht zwischen „ich schreibe ihr" und „ich sehe ihr Foto".</p>
+                </div>
+            </div>
+
+            <div class="intro-item">
+                <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663288589356/PoZKPBYVCxkYLZrz.png" alt="Icon" class="intro-icon">
+                <div class="intro-text">
+                    <strong>Urge Surfing: Die Welle reiten</strong>
+                    <p>Ein Kontaktimpuls dauert physiologisch <strong>maximal 10–15 Minuten</strong>, wenn du ihm nicht nachgibst. Er steigt, er erreicht einen Peak – und dann fällt er. Das Problem: Die meisten Menschen geben im Peak nach. Wer die Welle beobachtet, statt sich von ihr mitreißen zu lassen, stärkt jedes Mal die neuronale Bahn der Selbstwirksamkeit.</p>
+                </div>
+            </div>
+
+            <div class="intro-item">
+                <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663288589356/nzRxXDYlMQPLcqDT.png" alt="Icon" class="intro-icon">
+                <div class="intro-text">
+                    <strong>Was No Contact NICHT ist</strong>
+                    <p>No Contact ist kein Beweis, dass du sie nicht liebst. Es ist kein Zeichen von Kälte oder Gleichgültigkeit. Es ist kein Versprechen, dass du sie für immer aus deinem Gedächtnis löschst. Es ist die <strong>bewusste Entscheidung, deinem Nervensystem Zeit zu geben</strong>, sich ohne externen Kontaktstimulus zu regulieren.</p>
+                </div>
+            </div>
+
+            <div class="quote-block">
+                „Jeder Tag No Contact ist kein Tag, an dem du sie verlierst. Es ist ein Tag, an dem du dich zurückgewinnst."
+            </div>
+
+            <p>Das Schwierigste an No Contact ist nicht der erste Tag. Es ist der 12., wenn sie sich plötzlich meldet und sagt, sie habe sich verändert. Es ist der 23., wenn du an eurem Lieblingscafé vorbeiläufst. Es ist der 47., wenn eine gemeinsame Freundin erwähnt, wie gut es ihr geht. Diese Momente sind keine Zeichen, dass No Contact nicht funktioniert – sie sind Zeichen, dass dein Nervensystem noch heilt.</p>
+
+            <p>Dieser Schritt gibt dir ein konkretes System: einen vollständigen Kontakt-Inventur-Check, einen persönlichen Detox-Kontrakt, eine Kiste-packen-Übung und eine Urge-Surfing-Strategie. Kein Willpower-Wettbewerb. Ein strukturierter Heilungsplan.</p>
+        </div>
+
+        <!-- WISSENSCHAFTLICHE GRUNDLAGE -->
+        <div class="science-box">
+            <h3>🧠 Wissenschaftliche Grundlage</h3>
+
+            <p><strong>Fisher et al. (2010) – Kontaktreiz = Dopamin-Reset:</strong>
+            In fMRI-Studien an Personen, die sich in romantischer Ablehnung befanden, zeigte sich: Jeder Kontaktreiz – auch passives Betrachten des Fotos der Ex-Partnerin – aktiviert dieselben Areale wie der ursprüngliche Kontakt (Ventrales Tegmentum, Nucleus Accumbens). Das bedeutet neurobiologisch: Die Entzugsuhr startet bei null. Ein „kurzer Blick auf ihr Profil" ist keine harmlose Ausnahme – es ist ein vollständiger Rückfall.</p>
+
+            <p><strong>Hebb (1949) – Neurons that fire together, wire together:</strong>
+            Das Hebbsche Gesetz der neuronalen Plastizität besagt: Neuronale Verbindungen, die gemeinsam aktiviert werden, verstärken sich. Umgekehrt gilt: <em>„Neurons that fire apart, wire apart."</em> Jeder Tag No Contact schwächt die konditionierte Verbindung „Gedanke an sie → Dopaminausschüttung → Sehnsucht → Kontaktimpuls". Nach 90 Tagen konsequenter Nicht-Aktivierung ist diese Bahn messbar schwächer.</p>
+
+            <p><strong>Starcevic (2012) – Behavioral Addiction & Abstinenz:</strong>
+            Bei Verhaltenssucht (wozu intensives romantisches Trauma-Bonding neurobiologisch zählt) ist Abstinenz die einzige wirksame Unterbrechung der Suchtschleife. Kontrollierter Konsum – „nur manchmal nachschauen" – funktioniert bei Verhaltenssucht nicht. Das Gehirn kann die Grenze nicht selbst ziehen, wenn der Konditionierungsreiz noch aktiv ist.</p>
+
+            <p><strong>Marlatt & Gordon (1985) – Urge Surfing & Rückfallprävention:</strong>
+            Urge Surfing, ursprünglich in der Suchttherapie entwickelt, basiert auf der Beobachtung: Jeder Drang hat eine Kurve. Sie steigt, erreicht einen Peak zwischen Minute 4 und 7, und fällt dann ohne Nachgeben auf unter 3/10 ab. Bowen et al. (2009) konnten zeigen, dass regelmäßiges Urge Surfing die Rückfallrate um bis zu 54 % reduziert.</p>
+        </div>
+
+        <!-- INFOGRAFIKEN -->
+        <div class="infographic-box">
+            <!-- SVG Infografik 1: Was passiert bei jedem Kontakt -->
+            <svg class="svg-infographic" viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Was passiert bei jedem Kontakt – Dopamin-Reset-Diagramm">
+                <rect width="700" height="220" rx="12" fill="rgba(244,237,228,0.95)"/>
+                <text x="350" y="30" font-family="Montserrat,sans-serif" font-weight="700" font-size="15" text-anchor="middle" fill="#6B3E44">Was passiert bei JEDEM Kontakt – Der Dopamin-Reset</text>
+
+                <!-- Boxes -->
+                <rect x="20" y="55" width="130" height="60" rx="8" fill="#7A9E8A"/>
+                <text x="85" y="82" font-family="Lato,sans-serif" font-size="11" text-anchor="middle" fill="white" font-weight="700">Kontaktreiz</text>
+                <text x="85" y="98" font-family="Lato,sans-serif" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.9)">Nachricht / Foto / Name</text>
+
+                <text x="170" y="90" font-family="Montserrat,sans-serif" font-size="20" fill="#6B3E44" font-weight="700">→</text>
+
+                <rect x="195" y="55" width="130" height="60" rx="8" fill="#C4836E"/>
+                <text x="260" y="82" font-family="Lato,sans-serif" font-size="11" text-anchor="middle" fill="white" font-weight="700">Dopamin-Ausschüttung</text>
+                <text x="260" y="98" font-family="Lato,sans-serif" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.9)">VTA + Nucleus Accumbens</text>
+
+                <text x="345" y="90" font-family="Montserrat,sans-serif" font-size="20" fill="#6B3E44" font-weight="700">→</text>
+
+                <rect x="370" y="55" width="130" height="60" rx="8" fill="#9B7FA4"/>
+                <text x="435" y="82" font-family="Lato,sans-serif" font-size="11" text-anchor="middle" fill="white" font-weight="700">Entzugsuhr = 0</text>
+                <text x="435" y="98" font-family="Lato,sans-serif" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.9)">Heilung startet neu</text>
+
+                <text x="520" y="90" font-family="Montserrat,sans-serif" font-size="20" fill="#6B3E44" font-weight="700">→</text>
+
+                <rect x="545" y="55" width="130" height="60" rx="8" fill="#6B3E44"/>
+                <text x="610" y="82" font-family="Lato,sans-serif" font-size="11" text-anchor="middle" fill="white" font-weight="700">Neuer Entzug</text>
+                <text x="610" y="98" font-family="Lato,sans-serif" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.9)">beginnt von vorne</text>
+
+                <!-- Arrow back -->
+                <path d="M610 115 L610 175 L85 175 L85 115" stroke="#6B3E44" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
+                <text x="350" y="165" font-family="Lato,sans-serif" font-size="10" text-anchor="middle" fill="#6B3E44" font-style="italic">Jeder „nur kurze" Kontakt = vollständiger Reset der 90 Tage</text>
+                <polygon points="85,115 80,128 90,128" fill="#6B3E44"/>
+
+                <text x="350" y="205" font-family="Lato,sans-serif" font-size="10" text-anchor="middle" fill="#4A4E52" font-style="italic">Quelle: Fisher et al. (2010), Starcevic (2012)</text>
+            </svg>
+            <p class="infographic-caption">
+                <strong>Abb. 4.1: Der Dopamin-Reset-Kreislauf</strong>
+                Jeder Kontaktreiz – auch passives Profil-Ansehen – startet den Entzugsprozess von vorne. Das Gehirn unterscheidet nicht zwischen direktem Kontakt und passivem Konsum. Die einzige Unterbrechung: vollständiges No Contact für 90 Tage.
+            </p>
+        </div>
+
+        <div class="infographic-row">
+            <div class="infographic-item">
+                <!-- SVG Infografik 2: 90-Tage-Heilungskurve -->
+                <svg viewBox="0 0 310 250" xmlns="http://www.w3.org/2000/svg" class="infographic-img-small" role="img" aria-label="90-Tage-Heilungskurve">
+                    <rect width="310" height="250" rx="10" fill="rgba(244,237,228,0.95)"/>
+                    <text x="155" y="22" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="#6B3E44">90-Tage-Heilungskurve</text>
+                    <!-- Axes -->
+                    <line x1="40" y1="200" x2="290" y2="200" stroke="#4A4E52" stroke-width="1.5"/>
+                    <line x1="40" y1="40" x2="40" y2="200" stroke="#4A4E52" stroke-width="1.5"/>
+                    <!-- Y labels -->
+                    <text x="35" y="45" font-size="9" text-anchor="end" fill="#4A4E52">10</text>
+                    <text x="35" y="90" font-size="9" text-anchor="end" fill="#4A4E52">7</text>
+                    <text x="35" y="135" font-size="9" text-anchor="end" fill="#4A4E52">5</text>
+                    <text x="35" y="170" font-size="9" text-anchor="end" fill="#4A4E52">2</text>
+                    <text x="35" y="200" font-size="9" text-anchor="end" fill="#4A4E52">0</text>
+                    <!-- X labels -->
+                    <text x="40" y="215" font-size="9" text-anchor="middle" fill="#4A4E52">0</text>
+                    <text x="95" y="215" font-size="9" text-anchor="middle" fill="#4A4E52">21</text>
+                    <text x="150" y="215" font-size="9" text-anchor="middle" fill="#4A4E52">45</text>
+                    <text x="215" y="215" font-size="9" text-anchor="middle" fill="#4A4E52">70</text>
+                    <text x="285" y="215" font-size="9" text-anchor="middle" fill="#4A4E52">90</text>
+                    <text x="165" y="228" font-size="9" text-anchor="middle" fill="#4A4E52">Tage</text>
+                    <!-- Curve - wavy descent -->
+                    <polyline points="40,45 55,70 70,52 95,80 115,100 130,85 150,120 165,140 185,125 215,155 250,170 285,185"
+                              fill="none" stroke="#C4836E" stroke-width="2.5" stroke-linejoin="round"/>
+                    <!-- Marker circles at peaks -->
+                    <circle cx="70" cy="52" r="4" fill="#6B3E44" opacity="0.7"/>
+                    <circle cx="130" cy="85" r="4" fill="#6B3E44" opacity="0.7"/>
+                    <circle cx="185" cy="125" r="4" fill="#6B3E44" opacity="0.7"/>
+                    <!-- Peak labels -->
+                    <text x="75" y="48" font-size="8" fill="#6B3E44">Tag 7</text>
+                    <text x="135" y="82" font-size="8" fill="#6B3E44">Tag 30</text>
+                    <text x="190" y="121" font-size="8" fill="#6B3E44">Tag 60</text>
+                    <text x="155" y="238" font-size="9" text-anchor="middle" fill="#4A4E52" font-style="italic">Schmerz sinkt nicht linear – Wellen sind normal</text>
+                </svg>
+                <p class="infographic-caption">
+                    <strong>Abb. 4.2: Heilung in Wellen</strong>
+                    Der Schmerz sinkt nicht gleichmäßig. An den Tagen 7, 21 und 30 gibt es typische Hochpunkte. Das ist normal – nicht ein Rückfall, sondern Teil des Heilungsprozesses.
+                </p>
+            </div>
+
+            <div class="infographic-item">
+                <!-- SVG Infografik 3: Urge Surfing Kurve -->
+                <svg viewBox="0 0 310 250" xmlns="http://www.w3.org/2000/svg" class="infographic-img-small" role="img" aria-label="Urge Surfing – Die Kurve des Kontaktimpulses">
+                    <rect width="310" height="250" rx="10" fill="rgba(244,237,228,0.95)"/>
+                    <text x="155" y="22" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="#6B3E44">Urge Surfing – Die Welle</text>
+                    <!-- Axes -->
+                    <line x1="40" y1="190" x2="290" y2="190" stroke="#4A4E52" stroke-width="1.5"/>
+                    <line x1="40" y1="40" x2="40" y2="190" stroke="#4A4E52" stroke-width="1.5"/>
+                    <!-- Y labels -->
+                    <text x="35" y="45" font-size="9" text-anchor="end" fill="#4A4E52">10</text>
+                    <text x="35" y="115" font-size="9" text-anchor="end" fill="#4A4E52">5</text>
+                    <text x="35" y="190" font-size="9" text-anchor="end" fill="#4A4E52">0</text>
+                    <!-- X labels min -->
+                    <text x="40" y="204" font-size="9" text-anchor="middle" fill="#4A4E52">0</text>
+                    <text x="90" y="204" font-size="9" text-anchor="middle" fill="#4A4E52">3</text>
+                    <text x="140" y="204" font-size="9" text-anchor="middle" fill="#4A4E52">5</text>
+                    <text x="190" y="204" font-size="9" text-anchor="middle" fill="#4A4E52">7</text>
+                    <text x="285" y="204" font-size="9" text-anchor="middle" fill="#4A4E52">10 min</text>
+                    <!-- Curve: rises then falls -->
+                    <path d="M40,170 Q80,50 140,45 Q200,50 240,130 Q265,165 285,180" fill="none" stroke="#7A9E8A" stroke-width="2.5"/>
+                    <!-- Peak marker -->
+                    <circle cx="140" cy="45" r="5" fill="#6B3E44"/>
+                    <text x="148" y="42" font-size="9" fill="#6B3E44" font-weight="700">Peak ≈ Min. 5</text>
+                    <!-- Endpoint marker -->
+                    <circle cx="285" cy="180" r="5" fill="#7A9E8A"/>
+                    <text x="250" y="175" font-size="8" fill="#2D4F3C" font-weight="700">Drang ≈ 2/10</text>
+                    <!-- Timer indicator -->
+                    <rect x="40" y="210" width="250" height="18" rx="4" fill="rgba(122,158,138,0.2)"/>
+                    <text x="165" y="222" font-size="9" text-anchor="middle" fill="#2D4F3C" font-style="italic">Starte Timer → beobachte nur → übergib dich nicht</text>
+                </svg>
+                <p class="infographic-caption">
+                    <strong>Abb. 4.3: Die Urge-Kurve</strong>
+                    Jeder Kontaktdrang steigt, peaked bei Minute 4–5 und fällt danach ohne Nachgeben. Wer 10 Minuten hält, erlebt am eigenen Körper: Du bist stärker als der Impuls.
+                </p>
+            </div>
+        </div>
+
+        <!-- ===== ÜBUNG 1: KONTAKT-INVENTUR ===== -->
+        <div class="exercise-box">
+            <h4>🔎 ÜBUNG 1: Kontakt-Inventur – Alle Kanäle schließen</h4>
+
+            <p><strong>Was:</strong> Eine vollständige Bestandsaufnahme aller Kanäle, über die sie noch Zugang zu dir hat – oder du zu ihr.</p>
+            <p><strong>Wie:</strong> Gehe jeden Kanal durch und setze einen Haken, sobald er vollständig gesperrt ist. Lass keinen offen – auch nicht „nur für Notfälle".</p>
+
+            <h4 style="color:var(--dark-green); margin-top:20px;">📱 Direkte Kommunikation</h4>
+            <div class="channel-grid">
+                <div class="channel-item">
+                    <input type="checkbox" id="s4_ch_whatsapp">
+                    <label for="s4_ch_whatsapp">WhatsApp – blockiert</label>
+                </div>
+                <div class="channel-item">
+                    <input type="checkbox" id="s4_ch_telegram">
+                    <label for="s4_ch_telegram">Telegram – blockiert</label>
+                </div>
+                <div class="channel-item">
+                    <input type="checkbox" id="s4_ch_sms">
+                    <label for="s4_ch_sms">SMS / iMessage – blockiert</label>
+                </div>
+                <div class="channel-item">
+                    <input type="checkbox" id="s4_ch_phone">
+                    <label for="s4_ch_phone">Telefon – Nummer blockiert</label>
+                </div>
+                <div class="channel-item">
+                    <input type="checkbox" id="s4_ch_email">
+                    <label for="s4_ch_email">E-Mail – Adresse blockiert</label>
+                </div>
+                <div class="channel-item">
+                    <input type="checkbox" id="s4_ch_signal">
+                    <label for="s4_ch_signal">Signal / andere Apps</label>
+                </div>
+            </div>
+
+            <h4 style="color:var(--dark-green); margin-top:20px;">📸 Soziale Medien</h4>
+            <div class="channel-grid">
+                <div class="channel-item">
+                    <input type="checkbox" id="s4_ch_instagram">
+                    <label for="s4_ch_instagram">Instagram – blockiert</label>
+                </div>
+                <div class="channel-item">
+                    <input type="checkbox" id="s4_ch_tiktok">
+                    <label for="s4_ch_tiktok">TikTok – blockiert</label>
+                </div>
+                <div class="channel-item">
+                    <input type="checkbox" id="s4_ch_facebook">
+                    <label for="s4_ch_facebook">Facebook – blockiert</label>
+                </div>
+                <div class="channel-item">
+                    <input type="checkbox" id="s4_ch_linkedin">
+                    <label for="s4_ch_linkedin">LinkedIn – blockiert</label>
+                </div>
+                <div class="channel-item">
+                    <input type="checkbox" id="s4_ch_snapchat">
+                    <label for="s4_ch_snapchat">Snapchat – blockiert</label>
+                </div>
+                <div class="channel-item">
+                    <input type="checkbox" id="s4_ch_twitter">
+                    <label for="s4_ch_twitter">X / Twitter – blockiert</label>
+                </div>
+            </div>
+
+            <h4 style="color:var(--dark-green); margin-top:20px;">🎵 Digital Passiv</h4>
+            <div class="channel-grid">
+                <div class="channel-item">
+                    <input type="checkbox" id="s4_ch_spotify">
+                    <label for="s4_ch_spotify">Gemeinsame Spotify-Playlists entfernt</label>
+                </div>
+                <div class="channel-item">
+                    <input type="checkbox" id="s4_ch_fotos">
+                    <label for="s4_ch_fotos">Fotos aus Fotomediathek versteckt</label>
+                </div>
+                <div class="channel-item">
+                    <input type="checkbox" id="s4_ch_apps">
+                    <label for="s4_ch_apps">Gemeinsame Apps / Spiele getrennt</label>
+                </div>
+                <div class="channel-item">
+                    <input type="checkbox" id="s4_ch_freundinnen">
+                    <label for="s4_ch_freundinnen">Gemeinsame Freundinnen informiert (optional)</label>
+                </div>
+            </div>
+
+            <label style="margin-top:25px;">Welche anderen Kanäle existieren noch? (notiere & hake ab):</label>
+            <textarea id="s4_uebung1_weitere" placeholder="z.B. gemeinsamer Newsletter, geteilter Kalender, bestimmte Dating-Apps…"></textarea>
+
+            <label style="margin-top:15px;">Was war der schwerste Kanal zu schließen – und warum?</label>
+            <textarea id="s4_uebung1_schwer" placeholder="Schreibe ehrlich, welcher Kanal sich am schwersten anfühlte und was der Gedanke dahinter war…"></textarea>
+
+            <div class="exercise-meta">
+                <span>⏱ <strong>Dauer:</strong> 20–30 Minuten (erledige es in einem Durchgang)</span>
+                <span>📋 <strong>Format:</strong> Digital + physisch (Telefon-Einstellungen wirklich ausführen)</span>
+                <span>💡 <strong>Warum das wichtig ist:</strong> Lücken in der Schleuse sind Einfalltore für den Dopamin-Reset. Jeder nicht blockierte Kanal ist eine potenzielle Rückfallquelle – nicht wegen ihr, sondern wegen deinem konditionierten Nervensystem.</span>
+            </div>
+        </div>
+
+        <!-- ===== ÜBUNG 2: DETOX-KONTRAKT ===== -->
+        <div class="exercise-box">
+            <h4>📜 ÜBUNG 2: Mein persönlicher Detox-Kontrakt</h4>
+
+            <p><strong>Was:</strong> Ein schriftlicher, persönlicher Vertrag mit dir selbst – datiert, unterschrieben, mit konkreten Ersatzhandlungen.</p>
+            <p><strong>Wie:</strong> Fülle alle Felder aus. Der Akt des Schreibens aktiviert das Commitment-Prinzip: Schriftliche Verpflichtungen halten länger als innere Entschlüsse.</p>
+
+            <!-- Detox Counter -->
+            <div class="detox-counter">
+                <h4>⏳ Mein 90-Tage-Detox startet am:</h4>
+                <input type="date" id="s4_startdatum" style="font-size:1.1rem; text-align:center;">
+                <div style="margin-top:16px;">
+                    <div class="big-number" id="s4_countdown">90</div>
+                    <div class="unit">Tage bis zur Freiheit (aktueller Endzeitpunkt)</div>
+                </div>
+                <div id="s4_enddate_display" style="margin-top:10px; font-size:0.9rem; opacity:0.8;"></div>
+            </div>
+
+            <label>Ich verpflichte mich, für 90 Tage keinen Kontakt aufzunehmen über:</label>
+            <textarea id="s4_kontrakt_kanaele" placeholder="Liste hier alle Kanäle auf, die du gesperrt hast (aus Übung 1)…" style="min-height:100px;"></textarea>
+
+            <label>Wenn ich den Impuls spüre, Kontakt aufzunehmen, werde ich stattdessen:</label>
+            <textarea id="s4_kontrakt_alternativ" placeholder="1. … z.B. den 10-Minuten-Timer starten
+2. … z.B. Jana anrufen
+3. … z.B. eine Runde spazieren gehen"></textarea>
+
+            <label>Was ich mir verspreche, wenn ich 90 Tage durchhalte:</label>
+            <textarea id="s4_kontrakt_versprechen" placeholder="Schreib dir selbst ein Versprechen – was wird sich verändert haben? Wie wirst du dich fühlen?"></textarea>
+
+            <label>Mein Notfall-Kontakt, den ich anrufen kann, wenn es schwer wird:</label>
+            <input type="text" id="s4_kontrakt_notfall" placeholder="Name + Telefonnummer">
+
+            <label>Meine Unterschrift (tippe deinen Namen):</label>
+            <input type="text" id="s4_kontrakt_unterschrift" placeholder="Dein vollständiger Name">
+
+            <p style="font-style:italic; color:var(--dark-green); margin-top:15px; text-align:center;">
+                📅 Datum heute: <span id="s4_datum_heute"></span>
+            </p>
+
+            <div class="exercise-meta">
+                <span>⏱ <strong>Dauer:</strong> 15–20 Minuten</span>
+                <span>📋 <strong>Format:</strong> Digital (hier) + optional ausgedruckt und sichtbar aufgehängt</span>
+                <span>💡 <strong>Warum das wichtig ist:</strong> Cialdinis Commitment-Prinzip: Das Gehirn hält sich stärker an schriftliche Verpflichtungen als an innere Entschlüsse. Ein Kontrakt mit dir selbst ist nicht weniger bindend als einer mit jemand anderem.</span>
+            </div>
+        </div>
+
+        <!-- ===== ÜBUNG 3: KISTE PACKEN + URGE SURFING ===== -->
+        <div class="exercise-box">
+            <h4>📦 ÜBUNG 3: Die Kiste – Verwahren statt Vernichten + Urge-Script</h4>
+
+            <p><strong>Was:</strong> Physische Erinnerungsstücke verwahren UND ein schriftliches Urge-Surfing-Script für den Moment des Kontaktimpulses.</p>
+            <p><strong>Wie:</strong> Zwei Teile. Zuerst: notiere, was in die Kiste kommt. Dann: schreibe deine Wenn-Dann-Scripts.</p>
+
+            <h4 style="color:var(--dark-green); margin-top:20px;">TEIL A: Die Kiste</h4>
+            <p>Sammle alle physischen Erinnerungsstücke (Fotos, Geschenke, Briefe, Kleidungsstücke). Verpacke sie in eine Kiste. Beschrifte die Kiste mit dem Datum in 90 Tagen. <em>Nicht vernichten – verwahren.</em> Das Gehirn braucht zu wissen, dass es nicht für immer weg ist.</p>
+
+            <label>Was habe ich in die Kiste gepackt?</label>
+            <textarea id="s4_kiste_inhalt" placeholder="Liste alle Gegenstände auf, die du verpackt hast…"></textarea>
+
+            <label>Wo ist die Kiste jetzt? (Abstellkammer, Keller, bei einer Freundin…)</label>
+            <input type="text" id="s4_kiste_ort" placeholder="z.B. Abstellkammer, Keller, bei Jana">
+
+            <label>Wann darf ich die Kiste öffnen? (Datum in 90 Tagen)</label>
+            <input type="text" id="s4_kiste_datum" placeholder="Datum + ggf. Bedingung: z.B. 'Erst wenn ich 90 Tage NC gehalten habe'">
+
+            <h4 style="color:var(--dark-green); margin-top:30px;">TEIL B: Meine Wenn-Dann-Scripts für den Kontaktimpuls</h4>
+            <p>Schreibe jetzt – nicht in der Krise – klare Wenn-Dann-Sätze. Sie reduzieren die kognitive Last auf null, wenn der Impuls kommt.</p>
+
+            <label>WENN ich den Impuls spüre, ihr zu schreiben, DANN…</label>
+            <input type="text" id="s4_script1" placeholder="z.B. stelle ich den 10-Minuten-Timer und beobachte den Drang">
+
+            <label>WENN ich auf ihr Profil schauen will, DANN…</label>
+            <input type="text" id="s4_script2" placeholder="z.B. lege ich das Handy weg und mache 10 Hampelmänner">
+
+            <label>WENN eine gemeinsame Freundin über sie spricht, DANN…</label>
+            <input type="text" id="s4_script3" placeholder="z.B. sage ich höflich: 'Ich möchte gerade nichts über sie hören'">
+
+            <label>WENN ich zufällig an unserem Lieblingsort vorbeifahre, DANN…</label>
+            <input type="text" id="s4_script4" placeholder="z.B. benenne ich den Trigger laut: 'Das ist ein Trigger. Ich bin sicher. Das geht vorbei.'">
+
+            <label>WENN der Drang nach 10 Minuten noch über 6/10 liegt, DANN…</label>
+            <input type="text" id="s4_script5" placeholder="z.B. rufe ich [Name] an oder öffne mein Reflexionsheft">
+
+            <label>Mein Urge-Protokoll – Notiere hier nach jedem Drang-Moment (optional täglich):</label>
+            <textarea id="s4_urge_protokoll" placeholder="Datum | Auslöser | Intensität vorher | Was ich getan habe | Intensität nachher
+z.B. 12.04. | Ihr Lied im Radio | 8/10 | 10-Min-Timer | 3/10"></textarea>
+
+            <div class="exercise-meta">
+                <span>⏱ <strong>Dauer Teil A:</strong> 20–30 Minuten (physisch) | <strong>Teil B:</strong> 15 Minuten</span>
+                <span>📋 <strong>Format:</strong> Physisch (Kiste) + Digital (Scripts hier gespeichert)</span>
+                <span>💡 <strong>Warum das wichtig ist:</strong> Implementation Intentions (Gollwitzer, 1999) sind doppelt so wirksam wie Vorsätze. Wer jetzt schreibt, was sie im Krisenmoment tut, braucht keine Willenskraft – nur die Erinnerung an das Script. Das Gehirn läuft auf Autopilot, wenn die Emotion groß ist: gib ihm den richtigen Autopiloten.</span>
+            </div>
+        </div>
+
+        <!-- REFLEXIONSFRAGE -->
+        <div class="reflection-box">
+            <h4>🌸 Reflexionsfrage für Schritt 4</h4>
+            <p><em>„Welcher Kontaktkanal fühlt sich am schwersten zu blockieren an – und was sagt das über die Funktion aus, die er für dich erfüllt?"</em></p>
+            <p style="font-size:0.9rem; color:var(--graphite); text-align:left;">Nimm dir Zeit mit dieser Frage. Sie ist nicht vorwurfsvoll. Sie ist eine Einladung zu Selbsterkenntnis.</p>
+            <textarea id="s4_reflexion" placeholder="Deine Gedanken, Gefühle, Beobachtungen…"></textarea>
+        </div>
+
+        <!-- TRANSFORMATIONSZIELE -->
+        <div class="goals-box">
+            <h3>🎯 Transformationsziele – Schritt 4</h3>
+            <p>Wähle mindestens 3 von 5 Zielen aus. Diese Ziele zeigen dir, was du in diesem Schritt erreicht hast.</p>
+
+            <label>
+                <input type="checkbox" id="s4_goal1">
+                Ich habe alle Kontaktkanäle vollständig inventarisiert und gesperrt – keine Ausnahmen, keine „Notfall-Kanäle".
+            </label>
+
+            <label>
+                <input type="checkbox" id="s4_goal2">
+                Ich habe meinen persönlichen Detox-Kontrakt ausgefüllt und unterschrieben – mit Startdatum, gesperrten Kanälen und Ersatzhandlungen.
+            </label>
+
+            <label>
+                <input type="checkbox" id="s4_goal3">
+                Ich habe die Kiste gepackt – physische Erinnerungsstücke sind verwahrt, mit Öffnungsdatum beschriftet.
+            </label>
+
+            <label>
+                <input type="checkbox" id="s4_goal4">
+                Ich habe mindestens 5 Wenn-Dann-Scripts für den Kontaktimpuls-Moment formuliert und gespeichert.
+            </label>
+
+            <label>
+                <input type="checkbox" id="s4_goal5">
+                Ich verstehe neurobiologisch, warum No Contact kein emotionaler Entschluss ist, sondern ein medizinischer Heilungsschritt – und kann das erklären.
+            </label>
+
+            <div class="goal-counter">
+                Du hast <span id="s4_goalCount">0</span> von 5 Zielen erreicht.
+                <span id="s4_goalMessage" style="display:block; font-weight:400; font-size:0.9rem; margin-top:6px; opacity:0.9;"></span>
+            </div>
+        </div>
+
+        <!-- NEXT STEP -->
+        <div class="content-box" style="text-align:center;">
+            <h3 style="color:var(--bordeaux);">→ Weiter zu Schritt 5</h3>
+            <p>Im nächsten Schritt lernst du, die Auslöser zu entmachten, die den Kontaktimpuls überhaupt erst erzeugen: das Trigger-Management.</p>
+            <a href="SCHRITT_5_FINAL.html" class="next-btn">Schritt 5: Trigger-Management →</a>
+        </div>
+
+    </div><!-- /container -->
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ===== HAMBURGER MENU =====
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburgerBtn.addEventListener('click', () => {
+            hamburgerBtn.classList.toggle('open');
+            navMenu.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!hamburgerBtn.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburgerBtn.classList.remove('open');
+                navMenu.classList.remove('open');
+            }
+        });
+
+        // ===== DATUM HEUTE =====
+        document.getElementById('s4_datum_heute').textContent = new Date().toLocaleDateString('de-DE', {
+            day: '2-digit', month: '2-digit', year: 'numeric'
+        });
+
+        // ===== DETOX COUNTDOWN =====
+        const startdatumInput = document.getElementById('s4_startdatum');
+        const countdownDisplay = document.getElementById('s4_countdown');
+        const enddateDisplay = document.getElementById('s4_enddate_display');
+
+        function updateCountdown(startDate) {
+            if (!startDate) return;
+            const start = new Date(startDate);
+            const end = new Date(start);
+            end.setDate(end.getDate() + 90);
+            const today = new Date();
+            today.setHours(0,0,0,0);
+            const diffTime = end - today;
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            countdownDisplay.textContent = Math.max(0, diffDays);
+            enddateDisplay.textContent = '90-Tage-Zieldatum: ' + end.toLocaleDateString('de-DE', {
+                day: '2-digit', month: 'long', year: 'numeric'
+            });
+        }
+
+        startdatumInput.addEventListener('input', function() {
+            localStorage.setItem('s4_startdatum', this.value);
+            updateCountdown(this.value);
+        });
+
+        // ===== LOCALSTORAGE – TEXTFELDER & SELECTS =====
+        document.querySelectorAll('input[type="text"], input[type="date"], textarea, select').forEach(el => {
+            // Laden
+            const saved = localStorage.getItem(el.id);
+            if (saved !== null) el.value = saved;
+
+            // Speichern
+            el.addEventListener('input', function() {
+                localStorage.setItem(this.id, this.value);
+                if (this.id === 's4_startdatum') updateCountdown(this.value);
+            });
+        });
+
+        // Init countdown on load
+        updateCountdown(startdatumInput.value);
+
+        // ===== LOCALSTORAGE – CHECKBOXEN =====
+        document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+            // Laden
+            const saved = localStorage.getItem(cb.id);
+            if (saved === 'true') cb.checked = true;
+
+            // Speichern
+            cb.addEventListener('change', function() {
+                localStorage.setItem(this.id, this.checked);
+                updateGoalCounter();
+            });
+        });
+
+        // ===== GOAL COUNTER =====
+        function updateGoalCounter() {
+            const goals = ['s4_goal1','s4_goal2','s4_goal3','s4_goal4','s4_goal5'];
+            const count = goals.filter(id => document.getElementById(id) && document.getElementById(id).checked).length;
+            document.getElementById('s4_goalCount').textContent = count;
+            const msg = document.getElementById('s4_goalMessage');
+            if (count >= 5) {
+                msg.textContent = '🌟 Alle 5 Ziele erreicht! Schritt 4 abgeschlossen.';
+            } else if (count >= 3) {
+                msg.textContent = '✅ Mindestens 3 von 5 erreicht – du kannst mit Schritt 5 beginnen.';
+            } else {
+                msg.textContent = `Noch ${3 - count} Ziel${3 - count === 1 ? '' : 'e'} bis zum Minimum.`;
+            }
+        }
+
+        updateGoalCounter();
+    </script>
+
+</body>
+</html>
