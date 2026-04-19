@@ -40,7 +40,7 @@ export function MeditationCard({
 
       <div className="mt-3 grid gap-4 sm:grid-cols-[88px_1fr] sm:items-start">
         {/* Atem-Pulse-Icon */}
-        <div className="relative mx-auto h-16 w-16 sm:mx-0 sm:h-22 sm:w-22">
+        <div className="relative mx-auto h-16 w-16 sm:mx-0 sm:h-20 sm:w-20">
           <span
             aria-hidden
             className="absolute inset-0 rounded-full bg-sage/25"
