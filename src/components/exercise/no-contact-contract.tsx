@@ -141,9 +141,11 @@ export function NoContactContract({
 
   const sign = () => {
     if (!canSign) return;
-    setExercise("nc_kontrakt_start", draft.startDate);
-    setExercise("nc_kontrakt_kanaele", draft.kanaele);
-    setExercise("nc_kontrakt_motivation", draft.motivation);
+    setExerciseBulk({
+      nc_kontrakt_start: draft.startDate,
+      nc_kontrakt_kanaele: draft.kanaele,
+      nc_kontrakt_motivation: draft.motivation,
+    });
   };
 
   return (
