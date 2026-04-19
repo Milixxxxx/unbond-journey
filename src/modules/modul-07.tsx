@@ -13,6 +13,8 @@ import {
   TransformationGoals,
   MeditationCard,
   FlipCard,
+  SceneMap,
+  ReplaceabilityMyth,
 } from "@/components/exercise";
 
 const SLUG = "modul-07";
