@@ -86,7 +86,7 @@ export const GLOSSAR: Record<string, GlossarEntry> = {
   "hoovering": {
     term: "Hoovering",
     short:
-      "„Aufsaugen": Manipulationsversuch, dich nach Trennung wieder in den Bindungs-Zyklus zu ziehen — von freundlichen Nachrichten bis zu False-Self-Tränen (Durvasula).",
+      "„Aufsaugen“: Manipulationsversuch, dich nach Trennung wieder in den Bindungs-Zyklus zu ziehen — von freundlichen Nachrichten bis zu False-Self-Tränen (Durvasula).",
   },
 };
 
