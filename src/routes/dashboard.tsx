@@ -64,7 +64,6 @@ function Dashboard() {
   const progressPct = totalAvailable ? Math.round((completedCount / totalAvailable) * 100) : 0;
 
   const phases: Phase[] = [1, 2, 3, 4];
-  
   const firstName: string | undefined = undefined;
 
   return (
