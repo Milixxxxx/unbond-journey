@@ -123,5 +123,20 @@ export const GLOSSAR: Record<string, GlossarEntry> = {
     short:
       "„Aufsaugen“: Manipulationsversuch, dich nach Trennung wieder in den Bindungs-Zyklus zu ziehen — von freundlichen Nachrichten bis zu False-Self-Tränen (Durvasula).",
   },
+  "grey-rock": {
+    term: "Grey Rock",
+    short:
+      "Schutztechnik für unvermeidbare Begegnungen: emotional flach, monoton, sachlich reagieren — der toxischen Person keine emotionale Nahrung liefern.",
+  },
+  "u-hauling": {
+    term: "U-Hauling",
+    short:
+      "Begriff aus der lesbischen Community: extrem schnelles Zusammenziehen oder Verschmelzen — kann echte Verbundenheit sein, oft aber beschleunigtes Love Bombing und ungesunde Fusion.",
+  },
+  "late-bloomer": {
+    term: "Late Bloomer",
+    short:
+      "Spätes Coming-out im queeren Kontext. Die emotionale Reizüberflutung dieser „zweiten Pubertät“ kann dazu führen, toxische Intensität fälschlich für die ersehnte queere Lebenserfahrung zu halten.",
+  },
 };
 
