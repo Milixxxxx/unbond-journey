@@ -96,17 +96,9 @@ export const MODULES: ModuleMeta[] = [
     slug: "modul-07",
     number: "07",
     title: "WLW-Realität & Community",
-    subtitle: "Fusion, kleine Pools, Re-Integration",
+    subtitle: "Small-Pool, Fusion, Grey Rock — wenn totaler No Contact unmöglich ist und die Szene zu klein bleibt",
     phase: 4,
-    available: false,
-    stubBlurb:
-      "Lesbische und queere Communities sind klein und verflochten. Wir bauen Strategien für emotionale Sicherheit und gesunde Verbindungen.",
-    stubTopics: [
-      "Minority-Stress verstehen",
-      "Boundaries in kleinen Szenen",
-      "Re-Integration ohne Re-Trauma",
-      "Übung: Mein queer Support-Net",
-    ],
+    available: true,
   },
   {
     slug: "modul-08",
