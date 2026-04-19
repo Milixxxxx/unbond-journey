@@ -248,15 +248,6 @@ export function SosSoforthilfe() {
   );
 }
 
-/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-function _useExports() {
-  // Keep useEffect/useRef/useState referenced for future inline tools
-  void useEffect;
-  void useRef;
-  void useState;
-  void useModuleProgress;
-}
-
 function Section({
   icon,
   label,
