@@ -55,18 +55,10 @@ export const MODULES: ModuleMeta[] = [
   {
     slug: "modul-02",
     number: "02",
-    title: "Toxikometer & Realitäts-Check",
-    subtitle: "Idealisierung systematisch dekonstruieren",
+    title: "Die Rosa-Brille abnehmen",
+    subtitle: "Kognitive Dissonanz auflösen, Gaslighting dokumentieren, Hoovering entlarven",
     phase: 2,
-    available: false,
-    stubBlurb:
-      "Dein Gedächtnis hat ein selektives Highlight-Reel gespeichert. Wir bauen daneben ein realistisches Reel – Szene für Szene.",
-    stubTopics: [
-      "Negative Reappraisal",
-      "Faktencheck-Tagebuch",
-      "Idealisierung vs. Realität",
-      "Übung: Die zehn schwersten Momente",
-    ],
+    available: true,
   },
   {
     slug: "modul-03",
