@@ -56,7 +56,6 @@ export function ValueCompass({
   areas?: ValueArea[];
 }) {
   const { exerciseState, setExercise, loaded } = useModuleProgress(slug);
-  if (!loaded) return null;
 
   const saved: Saved = exerciseState[storageKey] ?? {};
   const values: Record<string, number> = saved.values ?? {};
@@ -93,6 +92,8 @@ export function ValueCompass({
       };
     });
   }, [areas]);
+
+  if (!loaded) return null;
 
   const avg =
     areas.reduce((acc, a) => acc + (values[a.id] ?? 5), 0) / areas.length;
