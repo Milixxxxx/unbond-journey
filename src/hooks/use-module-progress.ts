@@ -90,9 +90,19 @@ export function useModuleProgress(slug: string) {
   };
 
   const setExercise = (key: string, value: any) => {
-    const next = { ...exerciseState, [key]: value };
-    setExerciseState(next);
-    persist(next, checklistState, badgeEarned);
+    setExerciseState((prev) => {
+      const next = { ...prev, [key]: value };
+      persist(next, checklistState, badgeEarned);
+      return next;
+    });
+  };
+
+  const setExerciseBulk = (updates: Record<string, any>) => {
+    setExerciseState((prev) => {
+      const next = { ...prev, ...updates };
+      persist(next, checklistState, badgeEarned);
+      return next;
+    });
   };
 
   const toggleChecklist = (key: string) => {
@@ -112,6 +122,7 @@ export function useModuleProgress(slug: string) {
     badgeEarned,
     checkedCount,
     setExercise,
+    setExerciseBulk,
     toggleChecklist,
     loaded,
   };
