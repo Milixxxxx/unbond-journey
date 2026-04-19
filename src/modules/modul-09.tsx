@@ -18,6 +18,7 @@ import {
   MeditationCard,
   LikertScale,
   ValueCompass,
+  FlipCard,
 } from "@/components/exercise";
 
 const SLUG = "modul-09";
@@ -154,19 +155,21 @@ export function Modul09() {
         </CalloutBold>
 
         <div className="grid gap-3 sm:grid-cols-2">
-          <DiagnosisCard
+          <FlipCard
             emoji="🌑"
             color="var(--color-bordeaux)"
             label="Self-Constriction"
             heading="Was dir die Bindung genommen hat"
-            text="Hobbys, Freunde, Meinungen, Träume, Schlafrhythmus, Stimme. Alles wurde kleiner gemacht, um zu überleben."
+            front="Hobbys, Freunde, Träume, deine Stimme."
+            back="Über die Jahre wurde alles kleiner gemacht, um zu überleben: Schlafrhythmus, Meinungen, Lieblingslieder, Freundinnen, die sie nicht mochte. Du hast dich selbst gefaltet, bis du in ihre Welt passtest."
           />
-          <DiagnosisCard
+          <FlipCard
             emoji="🌱"
             color="var(--color-sage)"
             label="Self-Expansion"
             heading="Was jetzt dran ist"
-            text="Werte reaktivieren, Mikro-Schritte, Reward Replacement. Identität als Verb, nicht als Zustand."
+            front="Werte reaktivieren. Mikro-Schritte. Du."
+            back="Aron & Aron (1986): Identität wächst, wenn wir Neues integrieren. Werte klären, kleine Handlungen, Reward Replacement. Identität ist ein Verb — kein Zustand, der eintritt, sondern etwas, das du jeden Tag tust."
           />
         </div>
       </Section>
@@ -461,38 +464,6 @@ function Section({
   );
 }
 
-function DiagnosisCard({
-  emoji,
-  color,
-  label,
-  heading,
-  text,
-}: {
-  emoji: string;
-  color: string;
-  label: string;
-  heading: string;
-  text: string;
-}) {
-  return (
-    <div
-      className="rounded-2xl bg-white/75 p-4 shadow-soft"
-      style={{ borderTop: `5px solid ${color}` }}
-    >
-      <div className="text-2xl">{emoji}</div>
-      <p
-        className="mt-1 font-display text-xs font-bold uppercase tracking-wider"
-        style={{ color }}
-      >
-        {label}
-      </p>
-      <p className="mt-1 font-display text-sm font-bold text-bordeaux">
-        {heading}
-      </p>
-      <p className="mt-1.5 text-xs leading-snug text-graphite/80">{text}</p>
-    </div>
-  );
-}
 
 /**
  * FutureLetter · Inline-Mini-Ritual: Brief, der nicht abgeschickt wird.

@@ -260,5 +260,33 @@
 .animate-wave { animation: wave-rise 4s ease-in-out infinite; }
 .animate-pulse-soft { animation: pulse-soft 2.4s ease-out infinite; }
 
+/* ── FlipCard (Diagnose-Karten, einheitlich) ── */
+.flip-card-wrap { perspective: 1200px; }
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(.2,.8,.2,1);
+}
+.flip-card-inner.is-flipped { transform: rotateY(180deg); }
+.flip-card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.flip-card-back { transform: rotateY(180deg); }
+
+@keyframes flip-tap-bob {
+  0%, 100% { transform: translateY(0) rotate(-6deg); }
+  50%      { transform: translateY(-3px) rotate(6deg); }
+}
+.flip-tap-hint { animation: flip-tap-bob 1.6s ease-in-out infinite; transform-origin: center; }
+.group:hover .flip-tap-hint { animation-duration: 0.9s; }
+
 /* Safe-area for fixed bottom-bar on mobile */
 .pb-safe { padding-bottom: calc(env(safe-area-inset-bottom, 0) + 5.25rem); }

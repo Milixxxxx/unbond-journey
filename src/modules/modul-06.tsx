@@ -14,6 +14,7 @@ import {
   TransformationGoals,
   MeditationCard,
   RelapseTrafficLight,
+  FlipCard,
 } from "@/components/exercise";
 
 const SLUG = "modul-06";
@@ -152,19 +153,21 @@ export function Modul06() {
         </CalloutBold>
 
         <div className="grid gap-3 sm:grid-cols-2">
-          <DiagnosisCard
+          <FlipCard
             emoji="🔥"
             color="var(--color-bordeaux)"
             label="Extinction Burst"
             heading="Das Feuer vor dem Erlöschen"
-            text="Tag 14, 21, 30 · plötzlicher Drang. Nicht Liebe. Nicht das Universum. Es ist die Sucht, die stirbt."
+            front="Tag 14, 21, 30 — der plötzliche Drang."
+            back="Wenn das Suchtsystem stirbt, flammt es nochmal hell auf. Das ist nicht Liebe und nicht das Universum, das ein Zeichen sendet. Es ist die Sucht, die ein letztes Mal nach ihrem Stoff schreit. Wer das versteht, hält durch."
           />
-          <DiagnosisCard
+          <FlipCard
             emoji="🧲"
             color="var(--color-mauve)"
             label="Cue-Reaktivität"
             heading="Die unsichtbaren Auslöser"
-            text="Lieder, Orte, Uhrzeiten, Düfte — dein Gehirn hat sie alle mit ihr verknotet. Erkennen ist der erste Knoten lösen."
+            front="Lieder, Orte, Uhrzeiten, Düfte."
+            back="Dein Gehirn hat hunderte Alltagsreize mit ihr verknotet. Jeder Cue feuert einen Mini-Drang. Erkennen ist der erste Knoten lösen — was du benennst, verliert seine Magie."
           />
         </div>
       </Section>
@@ -399,35 +402,3 @@ function Section({
   );
 }
 
-function DiagnosisCard({
-  emoji,
-  color,
-  label,
-  heading,
-  text,
-}: {
-  emoji: string;
-  color: string;
-  label: string;
-  heading: string;
-  text: string;
-}) {
-  return (
-    <div
-      className="rounded-2xl bg-white/75 p-4 shadow-soft"
-      style={{ borderTop: `5px solid ${color}` }}
-    >
-      <div className="text-2xl">{emoji}</div>
-      <p
-        className="mt-1 font-display text-xs font-bold uppercase tracking-wider"
-        style={{ color }}
-      >
-        {label}
-      </p>
-      <p className="mt-1 font-display text-sm font-bold text-bordeaux">
-        {heading}
-      </p>
-      <p className="mt-1.5 text-xs leading-snug text-graphite/80">{text}</p>
-    </div>
-  );
-}
