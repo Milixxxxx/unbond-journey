@@ -360,8 +360,52 @@ export function Modul03() {
             <em>„Gedanke an sie → Dopaminausschüttung → Sehnsucht → Kontaktimpuls"</em>. Nach 90
             Tagen konsequenter Nicht-Aktivierung ist diese Bahn messbar schwächer.
           </p>
+          <p>
+            <strong>Starcevic (2012) · Behavioral Addiction:</strong> Bei Verhaltenssucht — wozu
+            intensives romantisches Trauma-Bonding neurobiologisch zählt — ist Abstinenz die
+            einzige wirksame Unterbrechung der Suchtschleife. Kontrollierter Konsum („nur
+            manchmal nachschauen") funktioniert hier nicht. Das Gehirn kann die Grenze nicht
+            selbst ziehen, solange der Konditionierungsreiz noch aktiv ist.
+          </p>
         </CalloutBold>
       </Section>
+
+      {/* ── Reflexionsfrage (NEU aus SCHRITT_4_FINAL) ── */}
+      <Reflection3Step
+        slug={SLUG}
+        title="Reflexion · Welcher Kanal sitzt am tiefsten?"
+        subtitle="Eine Einladung zu Selbsterkenntnis. Nicht vorwurfsvoll — neugierig."
+        meta="🌸 Tiefenfrage · ~10 Min"
+        accent="mauve"
+        steps={[
+          {
+            key: "refl_kanal",
+            label: "Welcher Kontaktkanal fühlt sich am schwersten zu blockieren an?",
+            placeholder: "z.B. Instagram-Stories, weil ich dort zufällig immer wieder hineingerate …",
+            rows: 3,
+          },
+          {
+            key: "refl_funktion",
+            label: "Was sagt das über die Funktion, die er für mich erfüllt?",
+            placeholder: "z.B. Er gibt mir die Illusion, ich hätte noch Zugang zu ihrem Leben …",
+            rows: 3,
+          },
+          {
+            key: "refl_ersatz",
+            label: "Womit könnte ich diese Funktion gesund ersetzen?",
+            placeholder: "z.B. Ich rufe abends Lisa an statt ihr Profil zu öffnen …",
+            rows: 3,
+          },
+        ]}
+      />
+
+      {/* ── Begleitende Meditation ── */}
+      <MeditationCard
+        title="Grenzen ziehen & Nein sagen — Self-Love Meditation"
+        duration="Self-Love"
+        source="Franziska Behlert"
+        youtubeId="9SpjxxYsDm8"
+      />
 
       {/* ── Transformationsziele (1:1 aus Leitdatei, alle 7) ── */}
       <TransformationGoals
