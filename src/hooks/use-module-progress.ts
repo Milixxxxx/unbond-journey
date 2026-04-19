@@ -122,6 +122,7 @@ export function useModuleProgress(slug: string) {
     badgeEarned,
     checkedCount,
     setExercise,
+    setExerciseBulk,
     toggleChecklist,
     loaded,
   };
