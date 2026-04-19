@@ -18,6 +18,7 @@ import {
   MeditationCard,
   LikertScale,
   ValueCompass,
+  FlipCard,
 } from "@/components/exercise";
 
 const SLUG = "modul-09";
@@ -461,38 +462,6 @@ function Section({
   );
 }
 
-function DiagnosisCard({
-  emoji,
-  color,
-  label,
-  heading,
-  text,
-}: {
-  emoji: string;
-  color: string;
-  label: string;
-  heading: string;
-  text: string;
-}) {
-  return (
-    <div
-      className="rounded-2xl bg-white/75 p-4 shadow-soft"
-      style={{ borderTop: `5px solid ${color}` }}
-    >
-      <div className="text-2xl">{emoji}</div>
-      <p
-        className="mt-1 font-display text-xs font-bold uppercase tracking-wider"
-        style={{ color }}
-      >
-        {label}
-      </p>
-      <p className="mt-1 font-display text-sm font-bold text-bordeaux">
-        {heading}
-      </p>
-      <p className="mt-1.5 text-xs leading-snug text-graphite/80">{text}</p>
-    </div>
-  );
-}
 
 /**
  * FutureLetter · Inline-Mini-Ritual: Brief, der nicht abgeschickt wird.
