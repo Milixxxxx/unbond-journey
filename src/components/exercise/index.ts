@@ -11,6 +11,8 @@ export { StackedCards } from "./stacked-cards";
 export type { StackedRow } from "./stacked-cards";
 export { UrgeRingTimer } from "./urge-ring-timer";
 export { DayGridTracker } from "./day-grid-tracker";
+export { DailyTracker } from "./daily-tracker";
+export type { DailyEntry } from "./daily-tracker";
 export { CalloutBold } from "./callout-bold";
 export type { CalloutKind } from "./callout-bold";
 export { TransformationGoals } from "./transformation-goals";

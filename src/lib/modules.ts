@@ -14,24 +14,24 @@ export type ModuleMeta = {
 
 export const PHASES: Record<Phase, { title: string; description: string; range: string }> = {
   1: {
-    title: "Phase 1 · Akutstabilisierung & Entzug",
-    description: "Physiologische Regulation vor psychologischer Analyse.",
-    range: "SOS – Modul 02",
+    title: "Phase 1 · Akutstabilisierung & Verstehen",
+    description: "Physiologische Regulation und neurobiologisches Verständnis vor allem anderen.",
+    range: "SOS – Modul 01",
   },
   2: {
     title: "Phase 2 · Kognitive Entzauberung",
-    description: "Systematische Dekonstruktion der Idealisierung.",
-    range: "Module 03 – 04",
+    description: "Systematische Dekonstruktion der Idealisierung & Kontaktabbruch als Entzug.",
+    range: "Module 02 – 03",
   },
   3: {
     title: "Phase 3 · Emotionsregulation",
-    description: "Trigger-Landkarten und ACT-Techniken.",
-    range: "Module 05 – 06",
+    description: "Trigger-Landkarten, Polyvagal-Theorie & ACT-Techniken.",
+    range: "Module 04 – 05",
   },
   4: {
     title: "Phase 4 · Identitätsrekonstruktion",
     description: "Wertearbeit, Self-Expansion, posttraumatisches Wachstum.",
-    range: "Module 07 – 10",
+    range: "Module 06 – 09",
   },
 };
 
@@ -39,38 +39,22 @@ export const MODULES: ModuleMeta[] = [
   {
     slug: "sos-soforthilfe",
     number: "0",
-    title: "SOS · Soforthilfe",
-    subtitle: "Werkzeuge für den akuten Moment – auch ohne Trennung nutzbar",
+    title: "SOS · Notfallkoffer",
+    subtitle: "Selbst-Monitoring, Notfallkontakte & Quick-Tools – aus jedem Kapitel über den SOS-Button erreichbar",
     phase: 1,
     available: true,
   },
   {
     slug: "modul-01",
     number: "01",
-    title: "SOS · Akute Stabilisierung",
-    subtitle: "TIPP, Urge Surfing, STOPP – wenn der Verstand offline ist",
+    title: "Trauma-Bonding verstehen",
+    subtitle: "Die neurobiologische Fessel: intermittierende Verstärkung, Dopamin-Achterbahn, Cycle of Abuse",
     phase: 1,
     available: true,
   },
   {
     slug: "modul-02",
     number: "02",
-    title: "Trauma-Bonding · Anatomie der Fessel",
-    subtitle: "Warum dein Körper nicht loslassen will",
-    phase: 1,
-    available: true,
-    stubBlurb:
-      "Du verstehst rational, dass es schädlich war – und sehnst dich trotzdem zurück. Dieses Modul erklärt warum: Trauma-Bonding ist eine neurobiologische Konditionierung, keine Liebe.",
-    stubTopics: [
-      "Intermittierende Verstärkung",
-      "Dopamin-Achterbahn",
-      "Cycle of Abuse erkennen",
-      "Reflexion: Mein Bindungs-Fingerabdruck",
-    ],
-  },
-  {
-    slug: "modul-03",
-    number: "03",
     title: "Toxikometer & Realitäts-Check",
     subtitle: "Idealisierung systematisch dekonstruieren",
     phase: 2,
@@ -85,14 +69,14 @@ export const MODULES: ModuleMeta[] = [
     ],
   },
   {
-    slug: "modul-04",
-    number: "04",
+    slug: "modul-03",
+    number: "03",
     title: "Suchtmuster brechen · No-Contact als Entzug",
     subtitle: "Strikter Kontaktabbruch als neurobiologische Notwendigkeit",
     phase: 2,
     available: false,
     stubBlurb:
-      "No-Contact ist kein Liebesentzug – es ist Entgiftung. Dein dopaminerges System braucht 60–90 Tage, um zu resetten. Hier landet auch die Sucht-Vertiefung aus dem ursprünglichen Fundament-Kapitel.",
+      "No-Contact ist kein Liebesentzug – es ist Entgiftung. Dein dopaminerges System braucht 60–90 Tage, um zu resetten. Hier landet auch die Sucht-Vertiefung (Love Addiction) aus dem ursprünglichen Fundament-Kapitel.",
     stubTopics: [
       "Sucht-Anatomie der Liebe",
       "Trigger-Inventar",
@@ -102,8 +86,8 @@ export const MODULES: ModuleMeta[] = [
     ],
   },
   {
-    slug: "modul-05",
-    number: "05",
+    slug: "modul-04",
+    number: "04",
     title: "Trigger entmachten",
     subtitle: "Trigger-Landkarte und Urge Surfing in der Tiefe",
     phase: 3,
@@ -118,8 +102,8 @@ export const MODULES: ModuleMeta[] = [
     ],
   },
   {
-    slug: "modul-06",
-    number: "06",
+    slug: "modul-05",
+    number: "05",
     title: "Der Körper zuerst",
     subtitle: "Polyvagal-Theorie, Vagus-Reset, somatische Regulation",
     phase: 3,
@@ -134,8 +118,8 @@ export const MODULES: ModuleMeta[] = [
     ],
   },
   {
-    slug: "modul-07",
-    number: "07",
+    slug: "modul-06",
+    number: "06",
     title: "Identität jenseits der Bindung",
     subtitle: "Wer bist du, ohne sie?",
     phase: 4,
@@ -150,8 +134,8 @@ export const MODULES: ModuleMeta[] = [
     ],
   },
   {
-    slug: "modul-08",
-    number: "08",
+    slug: "modul-07",
+    number: "07",
     title: "Self-Expansion",
     subtitle: "Neue dopaminerge Belohnungssysteme aufbauen",
     phase: 4,
@@ -166,8 +150,8 @@ export const MODULES: ModuleMeta[] = [
     ],
   },
   {
-    slug: "modul-09",
-    number: "09",
+    slug: "modul-08",
+    number: "08",
     title: "WLW-Realität & Community",
     subtitle: "Fusion, kleine Pools, Re-Integration",
     phase: 4,
@@ -182,8 +166,8 @@ export const MODULES: ModuleMeta[] = [
     ],
   },
   {
-    slug: "modul-10",
-    number: "10",
+    slug: "modul-09",
+    number: "09",
     title: "Kintsugi · Posttraumatisches Wachstum",
     subtitle: "Narben als Teil deiner Stärke",
     phase: 4,

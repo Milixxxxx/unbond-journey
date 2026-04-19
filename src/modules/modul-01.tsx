@@ -1,214 +1,341 @@
-import { useEffect, useRef, useState } from "react";
-import { CollapsibleBox } from "@/components/collapsible-box";
-import { GlossarTerm } from "@/components/glossar-term";
-import { ZoomableImage } from "@/components/zoomable-image";
-import { ChecklistGoals } from "@/components/checklist-goals";
-import { ReflectionField, ReflectionInput } from "@/components/exercise-fields";
-import { useModuleProgress } from "@/hooks/use-module-progress";
 import {
+  ScrollText,
   Brain,
   Lightbulb,
-  ScrollText,
   Pencil,
   Microscope,
-  Thermometer,
-  Activity,
-  Wind,
   Sparkles,
-  Play,
-  Pause,
-  RotateCcw,
-  Plus,
-  Trash2,
+  AlertTriangle,
 } from "lucide-react";
+import { GlossarTerm } from "@/components/glossar-term";
+import {
+  PillCloud,
+  Reflection3Step,
+  StackedCards,
+  CalloutBold,
+  TransformationGoals,
+} from "@/components/exercise";
 
 const SLUG = "modul-01";
 
+/**
+ * MODUL 01 · Trauma-Bonding verstehen
+ * Fusion aus ehemaligem Modul 02 + Dopamin/Neurobiologie-Theorie
+ * (vorher in Kapitel 0 / SOS angesiedelt). Mary/Sandra-Story bleibt
+ * im SOS-Notfallkoffer; hier liegt die theoretische Heimat.
+ */
 export function Modul01() {
   return (
     <article className="space-y-7">
-      {/* Story */}
-      <Section icon={<ScrollText className="h-4 w-4" />} label="Story · Auf dem Küchenboden">
+      {/* ── Story · Mary & der Spielautomat ── */}
+      <Section icon={<ScrollText className="h-4 w-4" />} label="Story · Der neurologische Spielautomat">
         <div className="glass-card-strong p-5">
-          <div className="grid gap-5 sm:grid-cols-[200px_1fr]">
-            <ZoomableImage alt="Mary auf dem Küchenboden" caption="Mary · Schritt 01" />
-            <div className="space-y-3 text-sm leading-relaxed animate-fade-in-stagger">
-              <h3 className="font-display text-base font-bold text-bordeaux">SOS · Die erste Nacht</h3>
-              <p>
-                Mary sitzt um 3 Uhr nachts auf dem Küchenboden. Ihr Herz rast, sie bekommt kaum Luft.
-                Vor dem endgültigen Abbruch hatte Sandra sie mit ihrer Ambivalenz in den Wahnsinn
-                getrieben: Morgens innig ein Liebeskettchen entgegengenommen, abends Schluss gemacht.
-              </p>
-              <p>
-                Der Auslöser für die Eskalation: ein intimer, harmonischer Vormittag. Als Mary erst am
-                nächsten Tag anrief, blockte Sandra sofort ab. Auf die Frage nach dem Verhalten – einfach
-                aufgelegt. Überall blockiert.
-              </p>
-              <p>
-                Statt Sandra anzuflehen, stoppt Mary. Sie nutzt das{" "}
-                <GlossarTerm termKey="tipp">TIPP-Protokoll</GlossarTerm>, taucht ihr Gesicht in eiskaltes
-                Wasser und zwingt ihr Nervensystem durch tiefe Bauchatmung aus der Panik. <strong>Sie
-                schreibt nicht. Sie atmet.</strong>
-              </p>
-            </div>
+          <div className="space-y-3 text-sm leading-relaxed animate-fade-in-stagger">
+            <h3 className="font-display text-base font-bold text-bordeaux">
+              Mary &amp; Sandra – getrennt und doch gebunden
+            </h3>
+            <p>
+              Mary sitzt nachts am Küchentisch und rechnet die nackte Wahrheit zusammen:{" "}
+              <strong>sechs bis acht Stunden im Monat</strong> – das war alles, was Sandra ihr an
+              echter, präsenter Beziehungszeit gönnte. Der Rest: Ausreden, vorgeschobener Stress,
+              unsichtbare Mauern. Rational ergibt das keinen Sinn. Warum also fühlte Mary, als würde
+              sie ohne diese Frau buchstäblich nicht atmen können?
+            </p>
+            <p>
+              Die Antwort trifft sie wie ein Schlag, als sie zum ersten Mal über{" "}
+              <GlossarTerm termKey="intermittierende-verstaerkung">
+                intermittierende Verstärkung
+              </GlossarTerm>{" "}
+              stolpert. Sandra war kein sicherer Hafen – sie war ein kaputter Spielautomat. Nach
+              wochenlangem emotionalem Verhungern warf er plötzlich den Jackpot aus: ein Blick
+              absoluter Liebe, ein intimes Versprechen, ein Abend leidenschaftlicher Nähe.
+            </p>
+            <p>
+              Genau dieser sadistische Wechsel aus eiskaltem Entzug und massiver Belohnung hatte
+              Marys Gehirn biochemisch umprogrammiert. Keine Seelenverwandtschaft – das Zittern in
+              ihren Händen, ihre verzweifelte Hörigkeit:{" "}
+              <strong>klassischer Junkie-Entzug</strong> vor dem Automaten. Es war schlicht{" "}
+              <GlossarTerm termKey="trauma-bonding">Trauma-Bonding</GlossarTerm>.
+            </p>
           </div>
         </div>
       </Section>
 
-      {/* Diagnose */}
-      <Section icon={<Brain className="h-4 w-4" />} label="Diagnose · Amygdala-Hijacking">
+      {/* ── Diagnose · Trauma-Bonding ── */}
+      <Section icon={<Brain className="h-4 w-4" />} label="Diagnose · Was Trauma-Bonding wirklich ist">
         <div className="diagnose-box space-y-3 text-sm">
           <p>
-            Was Mary erlebt – und du vielleicht gerade erlebst – hat einen Namen:{" "}
-            <GlossarTerm termKey="amygdala-hijacking">Amygdala-Hijacking</GlossarTerm>. Das Alarmsystem
-            deines Gehirns hat das Schweigen als lebensbedrohlich registriert. Dein präfrontaler Kortex
-            ist buchstäblich offline.
+            Trauma-Bonding ist <strong>keine Schwäche</strong> und kein Zeichen mangelnder
+            Intelligenz. Es ist ein neurobiologischer Prozess, der durch intermittierende Verstärkung
+            entsteht – den unvorhersehbaren Wechsel aus Nähe und Rückzug. Skinner (1938) zeigte:
+            Belohnungen, die unregelmäßig kommen, erzeugen die <strong>stärkste und hartnäckigste
+            Konditionierung</strong> überhaupt.
           </p>
           <p>
-            Das ist keine Schwäche, sondern Biologie. Dein Nervensystem hat gelernt, dass Entzug von
-            Aufmerksamkeit existenziell bedrohlich ist – weil er es in dieser Beziehung immer wieder war.
-          </p>
-          <p>
-            Die gute Nachricht: Das Nervensystem lässt sich regulieren. Nicht durch Willenskraft, sondern
-            durch gezielte körperliche Interventionen, die direkt aufs autonome Nervensystem wirken –
-            bevor der Verstand überhaupt eingeschaltet ist.
+            Dutton und Painter (1993) beschrieben Trauma-Bonding als Bindung, die{" "}
+            <strong>nicht trotz, sondern wegen des Schmerzes</strong> entsteht. Der Wechsel zwischen
+            Missbrauch und Zuneigung schafft eine pathologische Bindung, die stärker ist als gesunde
+            Liebe.
           </p>
         </div>
       </Section>
 
-      {/* Lösung: TIPP-Karte interaktiv */}
-      <Section icon={<Lightbulb className="h-4 w-4" />} label="Lösung · Das TIPP-Protokoll (DBT)">
-        <div className="loesung-box space-y-4">
-          <p className="text-sm">
-            Vier Sofortmaßnahmen, die deine Physiologie regulieren – bevor Kognition möglich ist. Jill
-            Bolte Taylor (2006): Eine reine biochemische Emotionswelle dauert <strong>nur 90 Sekunden</strong>.
-            Du musst sie nur überstehen, ohne zu handeln.
+      {/* ── Diagnose · Dopamin & Liebe als Sucht (NEU integriert aus altem Kapitel 0) ── */}
+      <Section icon={<Brain className="h-4 w-4" />} label="Diagnose · Liebe ist Neurochemie">
+        <div className="diagnose-box space-y-3 text-sm">
+          <p>
+            Fisher et al. (2005) zeigten mittels fMRT, dass romantische Liebe dieselben Hirnareale
+            aktiviert wie Kokainkonsum: das ventrale tegmentale Areal (VTA), den Nucleus accumbens,
+            das gesamte mesolimbische Belohnungssystem.{" "}
+            <GlossarTerm termKey="dopamin">Dopamin</GlossarTerm> ist hier die Hauptwährung – und es
+            wird nicht durch <em>Belohnung</em> ausgeschüttet, sondern durch die{" "}
+            <strong>Erwartung der Belohnung</strong>.
           </p>
-          <div className="grid gap-2 sm:grid-cols-2">
-            <TippCard
-              letter="T"
-              title="Temperature"
-              text="Eiskaltes Wasser ins Gesicht (30 Sek.) – aktiviert den Tauchreflex und senkt Herzfrequenz."
-              icon={<Thermometer className="h-4 w-4" />}
-            />
-            <TippCard
-              letter="I"
-              title="Intense Exercise"
-              text="60 Sek. Sprint, Hampelmänner, Liegestütze – metabolisiert Cortisol und Adrenalin."
-              icon={<Activity className="h-4 w-4" />}
-            />
-            <TippCard
-              letter="P"
-              title="Paced Breathing"
-              text="4 ein, 7 halten, 8 aus. Aktiviert den Vagusnerv – aus Kampf in Ruhe."
-              icon={<Wind className="h-4 w-4" />}
-            />
-            <TippCard
-              letter="P"
-              title="Progressive Relaxation"
-              text="Muskelgruppen 5 Sek. anspannen, 10 Sek. lösen. Von den Füßen bis zum Kopf."
-              icon={<Sparkles className="h-4 w-4" />}
-            />
+          <p>
+            Bei Trauma-Bonding wird dieses System besonders stark konditioniert: Das Gehirn lernt,
+            dass auf Schmerz Erleichterung folgt – und beginnt, den Schmerz selbst als Teil des
+            Belohnungszyklus zu antizipieren. Ein Like, ein Emoji, ein gemeinsames Lied lösen dann
+            unverhältnismäßig starke Cravings aus (Nestler, 2005 · Dopamin-Sensitivierung).
+          </p>
+          <p className="rounded-lg bg-mauve/8 p-3 text-xs text-graphite/85">
+            💡 <strong>Love Addiction</strong> ist kein moralisches Versagen, sondern ein Suchtbild:
+            Toleranzentwicklung, Entzugssymptome, Kontrollverlust, Weiterführung trotz Schaden. Das
+            <strong> tiefere Suchtmodell</strong> (Sucht-Anatomie der Liebe, Trigger-Inventar,
+            digitale Hygiene) bekommst du in <em>Modul 03 · No-Contact als Entzug</em>.
+          </p>
+        </div>
+      </Section>
+
+      {/* ── Die 10 Warnsignale ── */}
+      <Section icon={<AlertTriangle className="h-4 w-4" />} label="Die 10 Warnsignale toxischer Bindung">
+        <div className="grid gap-2 sm:grid-cols-2">
+          {WARNSIGNALE.map((w, i) => (
+            <div key={w.id} className="rounded-lg bg-white/75 p-3">
+              <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-bordeaux">
+                <span className="grid h-6 w-6 place-items-center rounded-full bg-bordeaux text-[11px] text-white">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                {w.label}
+              </p>
+              <p className="mt-1.5 text-xs leading-snug text-graphite/85">{w.desc}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* ── Lösung: ACT Defusion + Dopamin-Reset ── */}
+      <Section icon={<Lightbulb className="h-4 w-4" />} label="Lösung · ACT-Defusion & Dopamin-Reset">
+        <div className="loesung-box space-y-3 text-sm">
+          <p>
+            Trauma-Bonding ist neurobiologisch eine Sucht – und jede wirksame Suchtbehandlung beginnt
+            damit, den <strong>Konditionierungskreislauf zu unterbrechen</strong>.
+          </p>
+          <p>
+            Die <em>Acceptance and Commitment Therapy</em> (ACT, Hayes, Strosahl &amp; Wilson, 2006)
+            bietet dafür die{" "}
+            <GlossarTerm termKey="defusion">Defusions-Technik</GlossarTerm>: Du lernst, Gedanken und
+            Cravings als mentale Ereignisse zu beobachten – als <em>Züge, die durch den Bahnhof
+            fahren</em> – ohne ihnen zu folgen oder gegen sie zu kämpfen.
+          </p>
+          <div className="rounded-lg bg-white/65 p-3">
+            <p className="mb-1.5 text-xs font-bold uppercase tracking-wider text-bordeaux">
+              Der Dopamin-Reset bedeutet konsequente Null-Exposition:
+            </p>
+            <ul className="ml-4 list-disc space-y-1 text-sm marker:text-bordeaux">
+              <li>Kein Profilschauen.</li>
+              <li>Keine geteilten Playlists.</li>
+              <li>Keine gegenseitigen Kontakte.</li>
+            </ul>
+            <p className="mt-2 text-xs text-graphite/70">
+              Nicht aus Hass – sondern weil jeder Blick auf ihr Profil den Konditionierungskreislauf
+              neu aktiviert und den Heilungsprozess um Wochen zurückwirft.
+            </p>
           </div>
         </div>
       </Section>
 
-      {/* Übung 1: TIPP-Notfallplan */}
-      <Section icon={<Pencil className="h-4 w-4" />} label="Übung 1 · Mein TIPP-Notfallplan">
-        <div className="uebung-box space-y-3">
-          <p className="text-sm">
-            Schreibe jetzt – nicht in der Krise – auf, wie du jede Phase konkret umsetzt.
-          </p>
-          <ReflectionInput slug={SLUG} exerciseKey="tipp_t" label="T · Wo ist bei mir kaltes Wasser verfügbar?" />
-          <ReflectionInput slug={SLUG} exerciseKey="tipp_i" label="I · Welche Bewegung kann ich sofort machen?" />
-          <ReflectionInput slug={SLUG} exerciseKey="tipp_p1" label="P · Mein Atemrhythmus" placeholder="z.B. 4-7-8" />
-          <ReflectionInput slug={SLUG} exerciseKey="tipp_p2" label="P · Wann und wo übe ich Muskelentspannung?" />
-        </div>
+      {/* ── ACT-Callout ── */}
+      <CalloutBold
+        kind="act"
+        title="Defusion: Gedanken als Züge im Bahnhof"
+        source="Hayes, S. C., Strosahl, K. D. & Wilson, K. G. (2006). Acceptance and Commitment Therapy."
+      >
+        <p>
+          Wenn der Gedanke kommt <em>„Sie war doch meine große Liebe"</em>, ist das ein Zug, der in
+          deinen Bahnhof einfährt. Du musst weder mitfahren noch versuchen, ihn zu stoppen. Du
+          beobachtest ihn, sagst innerlich:{" "}
+          <strong>„Da ist der Gedanke, dass sie meine große Liebe war."</strong> – und lässt ihn
+          weiterfahren.
+        </p>
+        <p>
+          Das ist Defusion: Du fusionierst nicht mehr <em>mit</em> dem Gedanken, du beobachtest ihn.
+          Damit verliert er die Kraft, dich zur Kontaktaufnahme zu bewegen.
+        </p>
+      </CalloutBold>
+
+      {/* ── ÜBUNG 1 · Pill-Cloud Warnsignale ── */}
+      <Section icon={<Pencil className="h-4 w-4" />} label="Übung 1 · Meine klarsten Warnsignale">
+        <PillCloud
+          slug={SLUG}
+          storageKey="warnsignale"
+          title="Meine 3 klarsten Warnsignale"
+          subtitle="Klicke alle Warnsignale an, die du in deiner Beziehung erlebt hast. Was du einmal klar benennen kannst, kann dein Verstand nicht mehr so leicht wegrationalisieren."
+          meta="🧠 Name it to tame it · ⏱ 15 Min"
+          accent="terracotta"
+          pills={WARNSIGNALE.map((w) => ({ id: w.id, label: w.label }))}
+          counterLabel="Warnsignale erkannt"
+          emptyHint="Tippe an, was du wiedererkennst."
+        />
+        <Reflection3Step
+          slug={SLUG}
+          title="Meine 3 klarsten Warnsignale in eigenen Worten"
+          subtitle="Vertiefe drei davon – in deiner Sprache, mit deinem Körpergedächtnis."
+          accent="terracotta"
+          steps={[
+            {
+              key: "warn_1",
+              label: "Warnsignal 1 — das klarste Zeichen, das ich lange nicht sehen wollte:",
+              placeholder: "Ich habe immer gespürt, dass…",
+            },
+            {
+              key: "warn_2",
+              label: "Warnsignal 2 — ein Muster, das sich immer wiederholte:",
+              placeholder: "Jedes Mal wenn ich…, dann…",
+            },
+            {
+              key: "warn_3",
+              label: "Warnsignal 3 — das Zeichen, das mein Körper kannte, bevor mein Verstand es zugab:",
+              placeholder: "Mein Körper hat reagiert mit…",
+            },
+          ]}
+        />
       </Section>
 
-      {/* Übung 2: Urge Surfing */}
-      <Section icon={<Pencil className="h-4 w-4" />} label="Übung 2 · Urge Surfing">
-        <div className="uebung-box space-y-4">
-          <UrgeSurfingWave />
-          <p className="text-sm">
-            Wenn der Drang kommt, ihr zu schreiben: Beobachte ihn wie eine Welle. Er steigt, erreicht
-            seinen Höhepunkt – und fällt wieder ab. Du musst nicht handeln. Du musst nur warten.
-          </p>
-          <ReflectionField
-            slug={SLUG}
-            exerciseKey="urge_body"
-            label="Wie fühlt sich der Impuls in meinem Körper an?"
-            placeholder="z.B. Kribbeln in den Fingern, Druck in der Brust…"
-          />
-          <ReflectionField
-            slug={SLUG}
-            exerciseKey="urge_alt"
-            label="Was tue ich stattdessen, wenn die Welle kommt?"
-            placeholder="z.B. duschen, spazieren, Freundin anrufen…"
-          />
-        </div>
+      {/* ── ÜBUNG 2 · Innere Anwältinnen der Sucht ── */}
+      <Section
+        icon={<Pencil className="h-4 w-4" />}
+        label="Übung 2 · Meine inneren Anwältinnen der Sucht"
+      >
+        <PillCloud
+          slug={SLUG}
+          storageKey="rationalisierungen"
+          title="Welche Rationalisierungen kennst du bei dir?"
+          subtitle="Dein Verstand hatte gute Gründe, dich in der Beziehung zu halten. Klicke alle an, die du wiedererkennst – und sieh dabei, dass es Muster sind, nicht die Wahrheit."
+          meta="🧠 ACT · Kognitive Defusion · ⏱ 20 Min"
+          accent="mauve"
+          pills={RATIONALISIERUNGEN}
+          counterLabel="Rationalisierungen erkannt"
+        />
+        <Reflection3Step
+          slug={SLUG}
+          title="Eigene Rationalisierungen sichtbar machen"
+          subtitle="Welche Sätze hast DU dir innerlich gesagt, um zu bleiben? Schreib sie auf – ohne Selbstkritik."
+          accent="mauve"
+          steps={[
+            {
+              key: "rat_eigene_1",
+              label: "Dieser Satz hat mich am längsten gehalten:",
+              placeholder: "z.B. „Ohne mich überlebt sie nicht.“",
+            },
+            {
+              key: "rat_eigene_2",
+              label: "Diesen Satz hat ein Teil von mir wirklich geglaubt:",
+            },
+            {
+              key: "rat_eigene_3",
+              label: "Wenn ich diesen Satz mit ACT-Defusion ansehe, höre ich:",
+              placeholder: "„Da ist der Gedanke, dass …“",
+            },
+          ]}
+        />
       </Section>
 
-      {/* Übung 3: STOPP - Ersatzhandlungen-Liste */}
-      <Section icon={<Pencil className="h-4 w-4" />} label="Übung 3 · STOPP-Technik">
-        <div className="uebung-box space-y-3">
-          <p className="text-sm">
-            Setze dich hin. Stell dir vor, du willst gerade schreiben. Heb die Hand wie ein Stoppschild.
-            Sag laut <strong>„STOPP!"</strong>. Zähl bis 5. Wähl dann eine Ersatzhandlung. 3× am Stück.
-          </p>
-          <ErsatzhandlungenListe />
-          <p className="rounded-lg bg-warning/15 p-3 text-xs text-graphite/80">
-            ⚠️ Übe diese Technik zuerst in ruhigen Momenten, wenn du nicht akut betroffen bist.
-          </p>
-        </div>
+      {/* ── ÜBUNG 3 · Jackpot-Protokoll ── */}
+      <Section
+        icon={<Pencil className="h-4 w-4" />}
+        label="Übung 3 · Jackpot-Protokoll · Mein Spielautomaten-Zyklus"
+      >
+        <StackedCards
+          slug={SLUG}
+          storageKey="jackpot_protokoll"
+          title="Drei konkrete Jackpot-Momente aus meiner Beziehung"
+          subtitle="Dein Gehirn hat gelernt: Nach der Kälte kommt manchmal Wärme. Das ist mächtiger als dauerhafte Liebe. Beschreibe drei Momente – und erkenne dein persönliches Suchtmuster."
+          meta="🎰 Suchtmuster sichtbar machen · ⏱ 25 Min"
+          accent="terracotta"
+          rows={[1, 2, 3].map((n) => ({
+            id: `jp${n}`,
+            title: `Jackpot-Moment ${n}`,
+            fields: [
+              {
+                key: "kaelte",
+                label: "🧊 Kälte davor",
+                placeholder: "Wie lange? Welche Form? (Schweigen, Distanz, Strafe…)",
+                rows: 3,
+              },
+              {
+                key: "jackpot",
+                label: "🎰 Der Jackpot",
+                placeholder: "Was genau hat sie getan / gesagt? Wie kam die Wärme?",
+                rows: 3,
+              },
+              {
+                key: "wirkung",
+                label: "💊 Wirkung in mir",
+                placeholder: "Was hat das in deinem Körper / Kopf ausgelöst?",
+                rows: 3,
+              },
+            ],
+          }))}
+        />
+        <Reflection3Step
+          slug={SLUG}
+          title="Mein persönliches Muster"
+          subtitle="Wenn du diese drei Momente nebeneinanderlegst – was siehst du?"
+          accent="terracotta"
+          steps={[
+            {
+              key: "muster_zyklus",
+              label: "So sah mein Zyklus aus (Kälte → Sehnsucht → Jackpot → Endlosschleife):",
+              rows: 3,
+            },
+            {
+              key: "muster_koerper",
+              label: "So hat mein Körper auf den Jackpot reagiert:",
+            },
+            {
+              key: "muster_erkenntnis",
+              label: "Was ich heute weiß und damals nicht sehen konnte:",
+            },
+          ]}
+        />
       </Section>
 
-      {/* Übung 4: High-Load Distraction */}
-      <Section icon={<Pencil className="h-4 w-4" />} label="Übung 4 · High-Load Distraction">
-        <div className="uebung-box space-y-4">
-          <p className="text-sm">
-            Drei kognitive Aufgaben gleichzeitig – dein Arbeitsgedächtnis hat dann keine Kapazität mehr
-            für obsessive Gedanken. Klinisch validierte DBT-Technik (Linehan, 1993).
-          </p>
-          <DistractionTimer />
-          <ol className="space-y-2 text-sm">
-            <li className="flex gap-3 rounded-lg bg-white/60 p-3">
-              <span className="font-display font-bold text-bordeaux">1️⃣</span>
-              <span>Buchstabiere deine Lieblingseissorte rückwärts.</span>
-            </li>
-            <li className="flex gap-3 rounded-lg bg-white/60 p-3">
-              <span className="font-display font-bold text-bordeaux">2️⃣</span>
-              <span>Geh gedanklich durch deinen Lieblingssupermarkt und zähl alle Regale auf.</span>
-            </li>
-            <li className="flex gap-3 rounded-lg bg-white/60 p-3">
-              <span className="font-display font-bold text-bordeaux">3️⃣</span>
-              <span>Zähl rückwärts von 200 in 7er-Schritten – gleichzeitig.</span>
-            </li>
-          </ol>
-        </div>
-      </Section>
-
-      {/* Deep Dive */}
-      <Section icon={<Microscope className="h-4 w-4" />} label="Deep Dive · Die 90-Sekunden-Regel">
-        <CollapsibleBox title="Die Neurobiologie der Emotion (Jill Bolte Taylor, 2006)">
+      {/* ── Deep Dive ── */}
+      <Section icon={<Microscope className="h-4 w-4" />} label="Deep Dive · Die Forschung dahinter">
+        <CalloutBold
+          kind="science"
+          title="Drei Studien, die alles erklären"
+          source="Skinner (1938) · Fisher et al. (2005) · Dutton & Painter (1993)"
+        >
           <p>
-            Neuroanatomin Jill Bolte Taylor beschrieb, dass eine reine biochemische Emotionswelle nur
-            <strong> 90 Sekunden</strong> dauert. Was danach kommt, ist kein Gefühl mehr, sondern ein
-            Gedanke, der die Emotion neu aktiviert. Wenn du 90 Sekunden lang nicht auf den Impuls
-            reagierst, ist die ursprüngliche Welle vorbei.
+            <strong>Skinner (1938)</strong> – Operante Konditionierung: Variable Verstärkungspläne
+            erzeugen die widerstandsfähigste Konditionierung. Eine Taube, die unregelmäßig Futter
+            bekommt, pickt länger als eine, die jedes Mal belohnt wird.
           </p>
           <p>
-            Das TIPP-Protokoll nutzt genau dieses Fenster. Kaltes Wasser aktiviert den Tauchreflex und
-            senkt die Herzfrequenz innerhalb von Sekunden. Intensive Bewegung metabolisiert Cortisol und
-            Adrenalin.
+            <strong>Fisher et al. (2005)</strong> – fMRT-Studien zeigen: Romantische Liebe aktiviert
+            das ventrale tegmentale Areal (VTA) – dasselbe System, das auch bei Kokain feuert.
+            Trennungsschmerz ist neurochemisch identisch mit Drogen-Entzug.
           </p>
-          <p className="text-xs italic text-graphite/65">
-            Quellen: Linehan (1993), DBT Skills Training Manual · Taylor (2006), My Stroke of Insight.
+          <p>
+            <strong>Dutton &amp; Painter (1993)</strong> – Bei Trauma-Bonding entsteht die Bindung{" "}
+            <em>wegen</em> des Schmerzes, nicht trotz. Die Erleichterung nach der Bestrafung wirkt
+            stärker als jede konstante Zuneigung.
           </p>
-        </CollapsibleBox>
+        </CalloutBold>
       </Section>
 
-      {/* Begleitende Meditation */}
+      {/* ── Begleit-Meditation ── */}
       <Section icon={<Sparkles className="h-4 w-4" />} label="Begleitende Meditation">
         <a
           href="https://www.youtube.com"
@@ -221,23 +348,39 @@ export function Modul01() {
           </div>
           <div>
             <p className="font-display text-sm font-bold text-bordeaux">
-              Nervensystem beruhigen &amp; Cortisol senken
+              Defusion-Meditation: Gedanken als Wolken
             </p>
-            <p className="text-xs text-graphite/70">2 Std · ChakraTunes / Raphael Kempermann</p>
+            <p className="text-xs text-graphite/70">12 Min · ACT geleitet</p>
             <p className="mt-0.5 text-[11px] text-mauve underline">▹ Auf YouTube anhören</p>
           </div>
         </a>
       </Section>
 
-      {/* Checkliste */}
-      <ChecklistGoals
+      {/* ── Transformationsziele ── */}
+      <TransformationGoals
         slug={SLUG}
+        diagnosisLabel="Trauma-Bonding · die neurobiologische Fessel der intermittierenden Verstärkung"
         goals={[
-          { id: "g1", text: "Ich kenne das TIPP-Protokoll und kann es im Notfall anwenden." },
-          { id: "g2", text: "Ich verstehe, dass Amygdala-Hijacking biologisch ist – kein Charakterfehler." },
-          { id: "g3", text: "Ich habe meinen persönlichen TIPP-Notfallplan ausgefüllt." },
-          { id: "g4", text: "Ich habe Urge Surfing oder STOPP mindestens einmal ausprobiert." },
-          { id: "g5", text: "Ich weiß: Eine Emotionswelle klingt nach 90 Sekunden ab – ich muss sie nur überstehen." },
+          {
+            id: "g1",
+            text: "Ich verstehe, dass meine Hörigkeit Neurobiologie ist – kein Charakterfehler.",
+          },
+          {
+            id: "g2",
+            text: "Ich kann mindestens 3 der 10 Warnsignale in meiner Beziehung klar benennen.",
+          },
+          {
+            id: "g3",
+            text: "Ich erkenne mindestens eine Rationalisierung, die mich gehalten hat – und sehe sie heute als Gedanken, nicht als Wahrheit.",
+          },
+          {
+            id: "g4",
+            text: "Ich habe meinen persönlichen Jackpot-Zyklus benannt: Kälte → Sehnsucht → Jackpot → Dopamin-Flut.",
+          },
+          {
+            id: "g5",
+            text: "Ich verpflichte mich auf konsequente Null-Exposition (kein Profilschauen, keine geteilten Playlists, keine Mittlerinnen).",
+          },
         ]}
       />
     </article>
@@ -264,179 +407,28 @@ function Section({
   );
 }
 
-function TippCard({
-  letter,
-  title,
-  text,
-  icon,
-}: {
-  letter: string;
-  title: string;
-  text: string;
-  icon: React.ReactNode;
-}) {
-  return (
-    <div className="flex gap-3 rounded-lg bg-white/75 p-3">
-      <div className="grid h-12 w-12 flex-shrink-0 place-items-center rounded-lg bg-gradient-to-br from-bordeaux to-mauve font-display text-xl font-extrabold text-white">
-        {letter}
-      </div>
-      <div>
-        <p className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide text-bordeaux">
-          {icon} {title}
-        </p>
-        <p className="mt-0.5 text-xs leading-snug text-graphite/85">{text}</p>
-      </div>
-    </div>
-  );
-}
+const WARNSIGNALE: { id: string; label: string; desc: string }[] = [
+  { id: "lovebombing", label: "Lovebombing", desc: "Überschwängliche Zuneigung zu Beginn, die emotionale Abhängigkeit erzeugt, bevor das wahre Muster sichtbar wird." },
+  { id: "hotcold", label: "Hot/Cold-Muster", desc: "Abwechselnd liebevoll und abweisend – ohne erkennbaren Anlass. Das Unvorhersehbare ist das Suchterzeugende." },
+  { id: "gaslighting", label: "Gaslighting", desc: "Deine Wahrnehmung wird systematisch in Frage gestellt. Du beginnst, deiner eigenen Realität zu misstrauen." },
+  { id: "schweigen", label: "Schweigen als Strafe", desc: "Funkstille, Blockieren, Ignorieren als Reaktion auf Grenzen oder Konflikte. Bestrafung ohne Worte." },
+  { id: "weaponized", label: "Weaponized Virtue", desc: "Progressive Werte werden als Kontrollwerkzeug eingesetzt. Macht Gaslighting besonders wirksam." },
+  { id: "isolation", label: "Isolation", desc: "Dein Freundes- und Familienkreis wird kleiner. Du ziehst dich zurück oder wirst isoliert." },
+  { id: "schuld", label: "Schuldzuweisung", desc: "Du wirst für Dinge verantwortlich gemacht, die du nicht kontrollieren kannst. Deine Emotionen sind das Problem." },
+  { id: "hoovering", label: "Hoovering", desc: "Sobald du loslässt, kommt die nächste Welle der Wärme – gerade dann, wenn du gehen wolltest." },
+  { id: "selbstwert", label: "Selbstwert-Erosion", desc: "Du siehst dich selbst schlechter als davor. Du glaubst, du seist zu viel, zu wenig, zu anstrengend." },
+  { id: "hoffnung", label: "Hoffnungssucht", desc: "Du glaubst tief im Inneren, dass sich alles noch wenden könnte – wenn du nur anders wärst." },
+];
 
-function UrgeSurfingWave() {
-  return (
-    <div className="relative h-28 overflow-hidden rounded-lg bg-gradient-to-b from-sage/10 to-mauve/15">
-      <svg viewBox="0 0 400 120" className="h-full w-full">
-        <path
-          d="M0,80 Q50,30 100,60 T200,55 T300,65 T400,50 L400,120 L0,120 Z"
-          fill="url(#wave)"
-          className="animate-wave"
-          style={{ transformOrigin: "center" }}
-        />
-        <defs>
-          <linearGradient id="wave" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="oklch(0.6 0.075 320)" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="oklch(0.66 0.045 155)" stopOpacity="0.4" />
-          </linearGradient>
-        </defs>
-      </svg>
-      <div className="absolute inset-0 grid place-items-center">
-        <p className="font-display text-sm font-bold text-bordeaux">🏄‍♀️ Reite die Welle</p>
-      </div>
-    </div>
-  );
-}
-
-function ErsatzhandlungenListe() {
-  const { exerciseState, setExercise, loaded } = useModuleProgress(SLUG);
-  const [draft, setDraft] = useState("");
-  if (!loaded) return null;
-  const items: string[] = exerciseState.ersatzhandlungen ?? [];
-
-  const add = () => {
-    if (!draft.trim()) return;
-    setExercise("ersatzhandlungen", [...items, draft.trim()]);
-    setDraft("");
-  };
-  const remove = (idx: number) => {
-    setExercise(
-      "ersatzhandlungen",
-      items.filter((_, i) => i !== idx),
-    );
-  };
-
-  return (
-    <div className="space-y-2">
-      <p className="text-sm font-semibold text-bordeaux">Meine Ersatzhandlungen ({items.length}/10)</p>
-      <div className="flex gap-2">
-        <input
-          value={draft}
-          onChange={(e) => setDraft(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && add()}
-          placeholder="z.B. Hund streicheln, Lied singen…"
-          className="flex-1 rounded-lg border-2 border-sage/40 bg-white/85 p-2.5 text-sm outline-none focus:border-sage"
-        />
-        <button
-          onClick={add}
-          disabled={items.length >= 10}
-          className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-lg bg-bordeaux text-white disabled:opacity-40"
-          aria-label="Hinzufügen"
-        >
-          <Plus className="h-4 w-4" />
-        </button>
-      </div>
-      {items.length > 0 && (
-        <ul className="space-y-1.5">
-          {items.map((it, i) => (
-            <li key={i} className="flex items-center justify-between gap-2 rounded-lg bg-white/65 px-3 py-2 text-sm">
-              <span>
-                <span className="mr-2 font-display font-bold text-mauve">{i + 1}.</span>
-                {it}
-              </span>
-              <button
-                onClick={() => remove(i)}
-                aria-label="Löschen"
-                className="text-graphite/40 hover:text-bordeaux"
-              >
-                <Trash2 className="h-3.5 w-3.5" />
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
-}
-
-function DistractionTimer() {
-  const TARGET = 20 * 60; // 20 Min
-  const [seconds, setSeconds] = useState(TARGET);
-  const [running, setRunning] = useState(false);
-  const ref = useRef<ReturnType<typeof setInterval> | null>(null);
-
-  useEffect(() => {
-    if (running) {
-      ref.current = setInterval(() => {
-        setSeconds((s) => {
-          if (s <= 1) {
-            setRunning(false);
-            return 0;
-          }
-          return s - 1;
-        });
-      }, 1000);
-    }
-    return () => {
-      if (ref.current) clearInterval(ref.current);
-    };
-  }, [running]);
-
-  const m = Math.floor(seconds / 60);
-  const s = seconds % 60;
-  const pct = ((TARGET - seconds) / TARGET) * 100;
-
-  return (
-    <div className="rounded-lg bg-white/75 p-4">
-      <div className="flex items-center justify-between">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-wider text-mauve">Timer</p>
-          <p className="font-display text-3xl font-extrabold text-bordeaux tabular-nums">
-            {String(m).padStart(2, "0")}:{String(s).padStart(2, "0")}
-          </p>
-        </div>
-        <div className="flex gap-2">
-          <button
-            onClick={() => setRunning((r) => !r)}
-            className="grid h-11 w-11 place-items-center rounded-full bg-bordeaux text-white"
-            aria-label={running ? "Pause" : "Start"}
-          >
-            {running ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
-          </button>
-          <button
-            onClick={() => {
-              setRunning(false);
-              setSeconds(TARGET);
-            }}
-            className="grid h-11 w-11 place-items-center rounded-full bg-white text-bordeaux border border-bordeaux/20"
-            aria-label="Zurücksetzen"
-          >
-            <RotateCcw className="h-4 w-4" />
-          </button>
-        </div>
-      </div>
-      <div className="mt-3 h-2 overflow-hidden rounded-full bg-sage/15">
-        <div
-          className="h-full rounded-full bg-gradient-to-r from-sage to-mauve transition-all"
-          style={{ width: `${pct}%` }}
-        />
-      </div>
-    </div>
-  );
-}
+const RATIONALISIERUNGEN = [
+  { id: "kindheit", label: "Sie hatte eine schwere Kindheit" },
+  { id: "guteph", label: "In guten Phasen war sie perfekt" },
+  { id: "ichauch", label: "Ich war auch nicht immer einfach" },
+  { id: "meintenicht", label: "Sie meinte es nicht so" },
+  { id: "aufgeben", label: "Wer gibt so eine Liebe einfach auf?" },
+  { id: "geduld", label: "Ich hätte mehr Geduld haben sollen" },
+  { id: "aendern", label: "Sie ändert sich noch" },
+  { id: "ohnemich", label: "Ohne mich bricht sie zusammen" },
+  { id: "allebez", label: "Alle Beziehungen sind manchmal so" },
+  { id: "liebenicht", label: "Liebe ist nicht immer einfach" },
+];
