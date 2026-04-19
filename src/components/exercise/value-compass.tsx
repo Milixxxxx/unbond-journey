@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Compass, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { useModuleProgress } from "@/hooks/use-module-progress";
 import { ExerciseFrame, type ExerciseAccent } from "./exercise-frame";
 
@@ -104,7 +104,6 @@ export function ValueCompass({
       subtitle={subtitle}
       meta={meta}
       accent={accent}
-      icon={<Compass className="h-4 w-4" />}
     >
       {/* Live-Radar */}
       <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] sm:items-center">
