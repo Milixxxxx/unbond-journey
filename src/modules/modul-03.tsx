@@ -22,6 +22,9 @@ import {
   TransformationGoals,
   NoContactSchleusen,
   NoContactContract,
+  MeditationCard,
+  WhatIsNoContact,
+  DetoxKiste,
 } from "@/components/exercise";
 
 const SLUG = "modul-03";
@@ -65,6 +68,9 @@ export function Modul03() {
         </p>
       </ChapterIntro>
 
+      {/* ── Was No Contact ist · 6-Karten-Karussell ── */}
+      <WhatIsNoContact />
+
       {/* ── Story · Der kalte Entzug ── */}
       <Section icon={<ScrollText className="h-4 w-4" />} label="Story · Der kalte Entzug">
         <div className="glass-card-strong p-5">
@@ -96,6 +102,14 @@ export function Modul03() {
             <p>
               Mary legt das Handy weg und atmet dreimal lang aus. Der Drang ebbt ab.{" "}
               <strong>Nicht, weil er nicht real war – sondern weil sie ihn durchschaut hat.</strong>
+            </p>
+            <p className="border-l-2 border-bordeaux/30 pl-3 italic text-graphite/80">
+              Wochen zuvor hatte Mary etwas anderes getan, das jetzt trägt: Sie holte die
+              Schuhschachtel unter dem Bett hervor und legte Sandras Armband, zwei gemeinsame
+              Fotos und den Brief vom Herbst hinein. Sie schloss den Deckel und schrieb mit
+              dickem Filzstift ein Datum drauf: <strong>90 Tage von heute. „Nicht vernichten.
+              Nur verwahren."</strong> Kein emotionaler Akt. Medizin. Genau diese Kiste hilft
+              ihr heute, das Emoji als Ping zu lesen — nicht als Liebesbeweis.
             </p>
           </div>
         </div>
