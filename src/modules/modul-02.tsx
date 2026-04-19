@@ -357,31 +357,39 @@ export function Modul02() {
         />
       </Section>
 
-      {/* ── Übung 4 · 21-Tage-Challenge (Reflexionsfrage) ── */}
+      {/* ── Übung 4 · 21-Tage-Challenge ── */}
       <Section
         icon={<Calendar className="h-4 w-4" />}
-        label="Übung 4 · 21-Tage-Challenge & Reflexion"
+        label="Übung 4 · 21-Tage-Challenge: Negative Reappraisal"
       >
+        <TwentyOneDayChallenge
+          slug={SLUG}
+          subtitle="Schreibe an mindestens 21 Tagen je einen faktisch belegten, negativen Aspekt auf – nicht aus Hass, sondern aus Klarheit. Klicke einen Tag an, um deinen Eintrag zu schreiben. Studien (Langeslag & Sanchez 2018) zeigen: Nach 21 Tagen sinkt die emotionale Intensität um 30–40 %."
+        />
+      </Section>
+
+      {/* ── Übung 5 · Hoover-Mail Decoder (KI) ── */}
+      <Section
+        icon={<Mail className="h-4 w-4" />}
+        label="Übung 5 · Hoover-Mail Decoder – KI-gestützte Manipulationsanalyse"
+      >
+        <HooverDecoder slug={SLUG} />
+      </Section>
+
+      {/* ── Reflexionsfrage ── */}
+      <Section icon={<Lightbulb className="h-4 w-4" />} label="Reflexionsfrage zum Abschluss">
         <Reflection3Step
           slug={SLUG}
-          title="Negative Reappraisal · 21-Tage-Start"
-          subtitle="Schreibe heute den ersten faktisch belegten, negativen Aspekt auf – nicht aus Hass, sondern aus Klarheit. Studien zeigen: nach 21 Tagen sinkt die emotionale Intensität um 30–40 %."
-          meta="Tag 1 · 5 Min · täglich wiederholen"
-          accent="sage"
+          title="Welche Wahrheit hast du heute zum ersten Mal wirklich zugelassen?"
+          subtitle="Nimm dir 5 Minuten Zeit. Schreibe ohne Filter."
+          meta="1 Frage · 5 Min"
+          accent="mauve"
           steps={[
             {
-              key: "reappraisal_tag1",
-              label: "🗓️ Mein erster Eintrag (Tag 1)",
-              placeholder:
-                "Eine konkrete, faktisch belegte Erinnerung – z.B. 'Sie hat mich vor meinen Freundinnen bloßgestellt, als ich…'",
-              rows: 4,
-            },
-            {
               key: "reflexion_klarheit",
-              label: "💭 Reflexionsfrage · Welche Wahrheit hast du heute zum ersten Mal wirklich zugelassen?",
-              placeholder:
-                "Was siehst du jetzt, das du vorher nicht sehen wolltest oder konntest? Schreibe es ohne Filter auf.",
-              rows: 5,
+              label: "💭 Was siehst du jetzt, das du vorher nicht sehen wolltest oder konntest?",
+              placeholder: "Schreibe ohne Bewertung – einfach das, was sich gerade zeigt…",
+              rows: 6,
             },
           ]}
         />
