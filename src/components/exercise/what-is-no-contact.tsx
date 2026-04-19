@@ -31,8 +31,8 @@ const cards: Card[] = [
   },
   {
     emoji: "👁️",
-    title: "Warum „nur schauen" nicht reicht",
-    text: "Passiver Konsum — Stories, Profile, alte Fotos — aktiviert dieselben Dopaminareale wie direkter Kontakt. Dein Gehirn unterscheidet nicht zwischen „ich schreibe ihr" und „ich sehe ihr Foto". Beides ist ein Reset.",
+    title: "Warum „nur schauen“ nicht reicht",
+    text: "Passiver Konsum — Stories, Profile, alte Fotos — aktiviert dieselben Dopaminareale wie direkter Kontakt. Dein Gehirn unterscheidet nicht zwischen „ich schreibe ihr“ und „ich sehe ihr Foto“. Beides ist ein Reset.",
     tone: "warn",
   },
   {
