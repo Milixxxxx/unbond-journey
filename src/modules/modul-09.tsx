@@ -421,7 +421,7 @@ export function Modul09() {
         title="Geführte Meditation · Frieden mit dir selbst"
         duration="15 Min"
         source="Lavendaire · Guided Meditation for Positive Energy & Inner Peace"
-        youtubeId="86m4RC_ADEY"
+        youtubeId="d8pO3mbj-90"
       />
 
       {/* ── Transformationsziele ── */}

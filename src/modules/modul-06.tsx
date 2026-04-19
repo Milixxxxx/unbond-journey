@@ -4,8 +4,6 @@ import {
   Lightbulb,
   Microscope,
   Sparkles,
-  Quote,
-  Flame,
 } from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
@@ -200,14 +198,16 @@ export function Modul06() {
         label="Übungen · Drei Werkzeuge gegen den Sog"
       >
         <div className="space-y-5">
-          {/* Übung 1 · Cue-Audit als PillCloud */}
+          {/* Übung 1 · Cue-Audit als PillCloud — mit Custom-Eingabe */}
           <PillCloud
             slug={SLUG}
             storageKey="cue_audit"
             title="Übung 1 · Cue-Audit · Was triggert dein Suchtzentrum?"
-            subtitle="Klick alles an, was dein Gehirn mit ihr verknotet hat. Jeder erkannte Cue ist ein gelöster Knoten — und ein zukünftiger Rückfall verhindert."
+            subtitle="Klick alles an, was dein Gehirn mit ihr verknotet hat. Vermisst du etwas? Füge eigene Cues unten hinzu — du kennst deine Verknotungen am besten."
             meta="🧲 Inventur · ~10 Min · Mehrfachauswahl"
             accent="mauve"
+            allowCustom
+            customPlaceholder="Mein eigener Cue …"
             pills={[
               { id: "musik", label: "Bestimmte Lieder / Playlists" },
               { id: "uhrzeit", label: "Eine bestimmte Uhrzeit (z.B. 22 Uhr)" },
@@ -258,14 +258,16 @@ export function Modul06() {
             ]}
           />
 
-          {/* Übung 3 · Reward Replacement */}
+          {/* Übung 3 · Reward Replacement — mit Custom-Eingabe */}
           <PillCloud
             slug={SLUG}
             storageKey="reward_replacement"
             title="Übung 3 · Reward Replacement · Neues Dopamin auftanken"
-            subtitle="Welche kleinen, gesunden Belohnungen kannst du diese Woche dreimal in deinen Tag einbauen? Jede neue Quelle ersetzt einen Tropfen toxisches Dopamin durch einen eigenen."
+            subtitle="Welche kleinen, gesunden Belohnungen kannst du diese Woche dreimal in deinen Tag einbauen? Was dir gut tut, weißt nur du — füge eigene Quellen hinzu."
             meta="💎 Belohnungssystem neu verdrahten · ~5 Min"
             accent="sage"
+            allowCustom
+            customPlaceholder="Meine eigene Belohnung …"
             pills={[
               { id: "spaziergang", label: "Spaziergang in der Sonne" },
               { id: "kaltdusche", label: "Kalte Dusche / Wechseldusche" },
@@ -327,33 +329,19 @@ export function Modul06() {
           </p>
         </CalloutBold>
 
-        <aside
-          className="mt-3 rounded-2xl border-2 border-mauve/30 bg-mauve/8 p-4"
-          style={{ borderLeft: "5px solid var(--color-mauve)" }}
-        >
-          <div className="flex items-start gap-3">
-            <Quote className="mt-0.5 h-4 w-4 flex-shrink-0 text-mauve" />
-            <p className="text-sm italic leading-relaxed text-graphite/85">
-              „Mary legt das Handy zitternd auf den Tisch. Sie atmet. Sie ruft
-              Lara an statt Sandra. Sie schwitzt, sie weint, aber sie überlebt
-              die Nacht. Am nächsten Morgen ist der Drang verflogen. Das Feuer
-              brennt ab. Sie ist stärker als der Reflex."
-            </p>
-          </div>
-        </aside>
       </Section>
 
       {/* ── Reflexion ── */}
       <Reflection3Step
         slug={SLUG}
-        title="Reflexion · Welcher Drang bist du heute geworden?"
+        title="Reflexion · Dein letzter Extinction Burst"
         subtitle="Eine ehrliche Standortbestimmung — kein Richtig, kein Falsch."
         meta="🌸 Tiefenfrage · ~5 Min"
         accent="bordeaux"
         steps={[
           {
             key: "drang_letzter",
-            label: "Wann war dein letzter Extinction Burst — und was hast du getan?",
+            label: "Wann hattest du zuletzt einen massiven Drang, sie zu kontaktieren — und was hast du getan?",
             placeholder: 'z.B. „Vorgestern Nacht. Ich habe geweint und meiner Schwester geschrieben statt ihr."',
             rows: 4,
           },
@@ -366,29 +354,12 @@ export function Modul06() {
         ]}
       />
 
-      {/* ── Mikro-Botschaft ── */}
-      <div
-        className="rounded-2xl border-2 border-bordeaux/15 bg-gradient-to-br from-bordeaux/5 via-cream/60 to-sage/8 p-5 sm:p-6"
-        style={{ borderLeft: "5px solid var(--color-bordeaux)" }}
-      >
-        <div className="flex items-center gap-2">
-          <Flame className="h-4 w-4 text-bordeaux" />
-          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-bordeaux">
-            Mikro-Botschaft an dich
-          </p>
-        </div>
-        <p className="mt-2 font-display text-base leading-relaxed text-bordeaux sm:text-lg">
-          Wenn das Feuer am stärksten brennt — bist du am nächsten daran,
-          dass es verlischt.
-        </p>
-      </div>
-
-      {/* ── Meditation ── */}
+      {/* ── Meditation (verifiziert aus Leitdatei · Schritt 07) ── */}
       <MeditationCard
-        title="Geführte Mindfulness · Den Drang aushalten"
-        duration="5 Min"
-        source="Great Meditation · Mindfulness Practice"
-        youtubeId="ssss7V1_eyA"
+        title="Loslassen · Emotionale Blockaden lösen im Schlaf"
+        duration="Geführte Meditation"
+        source="YouTube · begleitende Meditation"
+        youtubeId="AEsnRt54VPY"
       />
 
       {/* ── Transformationsziele ── */}
