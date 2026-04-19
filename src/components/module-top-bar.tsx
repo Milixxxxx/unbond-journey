@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ChevronLeft } from "lucide-react";
+import { DetoxBadge } from "@/components/detox-badge";
 
 export function ModuleTopBar({
   badge,
@@ -24,6 +25,7 @@ export function ModuleTopBar({
             {title}
           </h1>
         </div>
+        <DetoxBadge />
       </div>
     </header>
   );

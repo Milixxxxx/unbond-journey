@@ -14,6 +14,7 @@ import {
   Mail,
 } from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
+import { ChapterIntro } from "@/components/chapter-intro";
 import {
   StackedCards,
   Reflection3Step,
@@ -34,6 +35,25 @@ const SLUG = "modul-02";
 export function Modul02() {
   return (
     <article className="space-y-7">
+      {/* ── Einleitungs-Block (NEU) ── */}
+      <ChapterIntro
+        title="Kapitel 02 · Die Rosa-Brille abnehmen"
+        keywords={[
+          "Kognitive Dissonanz",
+          "Idealisierung vs. Realität",
+          "Hoovering",
+          "DARVO",
+          "Negative Reappraisal",
+        ]}
+      >
+        <p>
+          Solange du sie noch durch die rosa Brille siehst, kämpft dein Verstand
+          gegen sein eigenes Wissen. In den nächsten Übungen legst du das Bild
+          auf den Tisch, das sie wirklich war — Beweis für Beweis.
+        </p>
+        <p>Nicht um zu hassen. Sondern um endlich klar zu sehen.</p>
+      </ChapterIntro>
+
       {/* ── Story · Der Hoovering-Brief ── */}
       <Section icon={<ScrollText className="h-4 w-4" />} label="Story · Der Hoovering-Brief">
         <div className="glass-card-strong p-5">

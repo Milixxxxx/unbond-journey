@@ -8,6 +8,7 @@ import {
   AlertTriangle,
 } from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
+import { ChapterIntro } from "@/components/chapter-intro";
 import {
   PillCloud,
   Reflection3Step,
@@ -27,9 +28,31 @@ const SLUG = "modul-01";
 export function Modul01() {
   return (
     <article className="space-y-7">
+      {/* ── Einleitungs-Block (NEU) ── */}
+      <ChapterIntro
+        title="Kapitel 01 · Trauma-Bonding verstehen"
+        keywords={[
+          "Intermittierende Verstärkung",
+          "Dopamin-Achterbahn",
+          "Cycle of Abuse",
+          "Spielautomaten-Effekt",
+        ]}
+      >
+        <p>
+          Was du fühlst, ist keine zu große Liebe — es ist Biochemie. Dein Gehirn
+          wurde auf einen Spielautomaten konditioniert, und Spielautomaten
+          gewinnen immer.
+        </p>
+        <p>
+          Hier verstehst du, warum du nicht schwach bist, sondern gefangen — und
+          warum dieses Wissen schon der erste Schlüssel ist.
+        </p>
+      </ChapterIntro>
+
       {/* ── Story · Mary & der Spielautomat ── */}
       <Section icon={<ScrollText className="h-4 w-4" />} label="Story · Der neurologische Spielautomat">
         <div className="glass-card-strong p-5">
+
           <div className="space-y-3 text-sm leading-relaxed animate-fade-in-stagger">
             <h3 className="font-display text-base font-bold text-bordeaux">
               Mary &amp; Sandra – getrennt und doch gebunden
