@@ -261,6 +261,12 @@ export function Modul04() {
 
           {/* Vibe-Check · Animierte Welle */}
           <UrgeSurfWave totalSeconds={90} accent="mauve" />
+
+          {/* Vibe-Check · Trigger-Logbuch-Streak */}
+          <TriggerStreakLog slug={SLUG} />
+
+          {/* Vibe-Check · If-Then-Notfallplan */}
+          <IfThenTriggerPlan slug={SLUG} accent="terracotta" />
         </div>
       </Section>
 
