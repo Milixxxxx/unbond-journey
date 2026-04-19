@@ -385,7 +385,7 @@ export function Modul01() {
         title="Nervensystem beruhigen & Cortisol senken — Stressabbau"
         duration="2 Std"
         source="ChakraTunes / Raphael Kempermann"
-        youtubeId="v9XmIgvP0Wc"
+        youtubeId="VXrIMaXIpkQ"
       />
 
       {/* ── Transformationsziele ── */}
