@@ -16,14 +16,15 @@ import {
   TransformationGoals,
 } from "@/components/exercise";
 
-const SLUG = "modul-02";
+const SLUG = "modul-01";
 
 /**
- * MODUL 02 · Trauma-Bonding: Anatomie der Fessel
- * Inhalt textgetreu aus UNBOND_Final_02-2.html (Kapitel 02).
- * Pilot-Kapitel für das neue 8-Komponenten-Designsystem.
+ * MODUL 01 · Trauma-Bonding verstehen
+ * Fusion aus ehemaligem Modul 02 + Dopamin/Neurobiologie-Theorie
+ * (vorher in Kapitel 0 / SOS angesiedelt). Mary/Sandra-Story bleibt
+ * im SOS-Notfallkoffer; hier liegt die theoretische Heimat.
  */
-export function Modul02() {
+export function Modul01() {
   return (
     <article className="space-y-7">
       {/* ── Story · Mary & der Spielautomat ── */}
@@ -35,62 +36,77 @@ export function Modul02() {
             </h3>
             <p>
               Mary sitzt nachts am Küchentisch und rechnet die nackte Wahrheit zusammen:{" "}
-              <strong>sechs bis acht Stunden im Monat</strong> – das war alles, was Sandra
-              ihr an echter, präsenter Beziehungszeit gönnte. Der Rest: Ausreden,
-              vorgeschobener Stress, unsichtbare Mauern. Rational ergibt das keinen Sinn.
-              Warum also fühlte Mary, als würde sie ohne diese Frau buchstäblich nicht
-              atmen können?
+              <strong>sechs bis acht Stunden im Monat</strong> – das war alles, was Sandra ihr an
+              echter, präsenter Beziehungszeit gönnte. Der Rest: Ausreden, vorgeschobener Stress,
+              unsichtbare Mauern. Rational ergibt das keinen Sinn. Warum also fühlte Mary, als würde
+              sie ohne diese Frau buchstäblich nicht atmen können?
             </p>
             <p>
               Die Antwort trifft sie wie ein Schlag, als sie zum ersten Mal über{" "}
               <GlossarTerm termKey="intermittierende-verstaerkung">
                 intermittierende Verstärkung
               </GlossarTerm>{" "}
-              stolpert. Sandra war kein sicherer Hafen – sie war ein kaputter Spielautomat.
-              Nach wochenlangem emotionalem Verhungern warf er plötzlich den Jackpot aus:
-              ein Blick absoluter Liebe, ein intimes Versprechen, ein Abend leidenschaftlicher
-              Nähe, bei dem Mary das Gefühl hatte, die einzige Frau auf dem Planeten zu sein.
+              stolpert. Sandra war kein sicherer Hafen – sie war ein kaputter Spielautomat. Nach
+              wochenlangem emotionalem Verhungern warf er plötzlich den Jackpot aus: ein Blick
+              absoluter Liebe, ein intimes Versprechen, ein Abend leidenschaftlicher Nähe.
             </p>
             <p>
-              Genau dieser sadistische Wechsel aus eiskaltem Entzug und massiver Belohnung
-              hatte Marys Gehirn biochemisch umprogrammiert. Keine Seelenverwandtschaft –
-              das Zittern in ihren Händen, ihre verzweifelte Hörigkeit:{" "}
-              <strong>klassischer Junkie-Entzug</strong> vor dem Automaten. Mit jeder Zeile
-              bröckelt die Illusion der großen Liebe. Es war schlicht{" "}
+              Genau dieser sadistische Wechsel aus eiskaltem Entzug und massiver Belohnung hatte
+              Marys Gehirn biochemisch umprogrammiert. Keine Seelenverwandtschaft – das Zittern in
+              ihren Händen, ihre verzweifelte Hörigkeit:{" "}
+              <strong>klassischer Junkie-Entzug</strong> vor dem Automaten. Es war schlicht{" "}
               <GlossarTerm termKey="trauma-bonding">Trauma-Bonding</GlossarTerm>.
             </p>
           </div>
         </div>
       </Section>
 
-      {/* ── Diagnose ── */}
+      {/* ── Diagnose · Trauma-Bonding ── */}
       <Section icon={<Brain className="h-4 w-4" />} label="Diagnose · Was Trauma-Bonding wirklich ist">
         <div className="diagnose-box space-y-3 text-sm">
           <p>
             Trauma-Bonding ist <strong>keine Schwäche</strong> und kein Zeichen mangelnder
-            Intelligenz. Es ist ein neurobiologischer Prozess, der durch intermittierende
-            Verstärkung entsteht – den unvorhersehbaren Wechsel aus Nähe und Rückzug.
-            Skinner (1938) zeigte: Belohnungen, die unregelmäßig und unvorhersehbar kommen,
-            erzeugen die <strong>stärkste und hartnäckigste Konditionierung</strong>{" "}
-            überhaupt.
-          </p>
-          <p>
-            Fisher et al. (2005) zeigten mittels fMRT, dass romantische Liebe dieselben
-            Hirnareale aktiviert wie Kokainkonsum. Bei Trauma-Bonding wird dieses System
-            besonders stark konditioniert: Das Gehirn lernt, dass auf Schmerz Erleichterung
-            folgt – und beginnt, den Schmerz selbst als Teil des Belohnungszyklus zu
-            antizipieren.
+            Intelligenz. Es ist ein neurobiologischer Prozess, der durch intermittierende Verstärkung
+            entsteht – den unvorhersehbaren Wechsel aus Nähe und Rückzug. Skinner (1938) zeigte:
+            Belohnungen, die unregelmäßig kommen, erzeugen die <strong>stärkste und hartnäckigste
+            Konditionierung</strong> überhaupt.
           </p>
           <p>
             Dutton und Painter (1993) beschrieben Trauma-Bonding als Bindung, die{" "}
-            <strong>nicht trotz, sondern wegen des Schmerzes</strong> entsteht. Der Wechsel
-            zwischen Missbrauch und Zuneigung schafft eine pathologische Bindung, die
-            stärker ist als gesunde Liebe.
+            <strong>nicht trotz, sondern wegen des Schmerzes</strong> entsteht. Der Wechsel zwischen
+            Missbrauch und Zuneigung schafft eine pathologische Bindung, die stärker ist als gesunde
+            Liebe.
           </p>
         </div>
       </Section>
 
-      {/* ── Die 10 Warnsignale (Lese-Karte, NICHT die Übung) ── */}
+      {/* ── Diagnose · Dopamin & Liebe als Sucht (NEU integriert aus altem Kapitel 0) ── */}
+      <Section icon={<Brain className="h-4 w-4" />} label="Diagnose · Liebe ist Neurochemie">
+        <div className="diagnose-box space-y-3 text-sm">
+          <p>
+            Fisher et al. (2005) zeigten mittels fMRT, dass romantische Liebe dieselben Hirnareale
+            aktiviert wie Kokainkonsum: das ventrale tegmentale Areal (VTA), den Nucleus accumbens,
+            das gesamte mesolimbische Belohnungssystem.{" "}
+            <GlossarTerm termKey="dopamin">Dopamin</GlossarTerm> ist hier die Hauptwährung – und es
+            wird nicht durch <em>Belohnung</em> ausgeschüttet, sondern durch die{" "}
+            <strong>Erwartung der Belohnung</strong>.
+          </p>
+          <p>
+            Bei Trauma-Bonding wird dieses System besonders stark konditioniert: Das Gehirn lernt,
+            dass auf Schmerz Erleichterung folgt – und beginnt, den Schmerz selbst als Teil des
+            Belohnungszyklus zu antizipieren. Ein Like, ein Emoji, ein gemeinsames Lied lösen dann
+            unverhältnismäßig starke Cravings aus (Nestler, 2005 · Dopamin-Sensitivierung).
+          </p>
+          <p className="rounded-lg bg-mauve/8 p-3 text-xs text-graphite/85">
+            💡 <strong>Love Addiction</strong> ist kein moralisches Versagen, sondern ein Suchtbild:
+            Toleranzentwicklung, Entzugssymptome, Kontrollverlust, Weiterführung trotz Schaden. Das
+            <strong> tiefere Suchtmodell</strong> (Sucht-Anatomie der Liebe, Trigger-Inventar,
+            digitale Hygiene) bekommst du in <em>Modul 03 · No-Contact als Entzug</em>.
+          </p>
+        </div>
+      </Section>
+
+      {/* ── Die 10 Warnsignale ── */}
       <Section icon={<AlertTriangle className="h-4 w-4" />} label="Die 10 Warnsignale toxischer Bindung">
         <div className="grid gap-2 sm:grid-cols-2">
           {WARNSIGNALE.map((w, i) => (
@@ -111,23 +127,15 @@ export function Modul02() {
       <Section icon={<Lightbulb className="h-4 w-4" />} label="Lösung · ACT-Defusion & Dopamin-Reset">
         <div className="loesung-box space-y-3 text-sm">
           <p>
-            Trauma-Bonding ist neurobiologisch eine Sucht – und jede wirksame
-            Suchtbehandlung beginnt nicht damit, die Droge zu bewerten, sondern damit, den{" "}
-            <strong>Konditionierungskreislauf selbst zu unterbrechen</strong>.
+            Trauma-Bonding ist neurobiologisch eine Sucht – und jede wirksame Suchtbehandlung beginnt
+            damit, den <strong>Konditionierungskreislauf zu unterbrechen</strong>.
           </p>
           <p>
-            Die <em>Acceptance and Commitment Therapy</em> (ACT, Hayes, Strosahl &amp;
-            Wilson, 2006) bietet dafür die <GlossarTerm termKey="defusion">Defusions-Technik</GlossarTerm>:
-            Du lernst, Gedanken und Cravings als mentale Ereignisse zu beobachten – als{" "}
-            <em>Züge, die durch den Bahnhof fahren</em> – ohne ihnen zu folgen oder gegen
-            sie zu kämpfen.
-          </p>
-          <p>
-            Parallel dazu beschreibt die Suchtforschung (Nestler, 2005) das Konzept der
-            Dopamin-Sensitivierung: Das Belohnungssystem wird durch intermittierende
-            Verstärkung hyperreaktiv und reagiert auf <strong>kleinste Hinweisreize</strong>{" "}
-            – ein Like, ein Emoji, ein gemeinsames Lied – mit unverhältnismäßig starken
-            Cravings.
+            Die <em>Acceptance and Commitment Therapy</em> (ACT, Hayes, Strosahl &amp; Wilson, 2006)
+            bietet dafür die{" "}
+            <GlossarTerm termKey="defusion">Defusions-Technik</GlossarTerm>: Du lernst, Gedanken und
+            Cravings als mentale Ereignisse zu beobachten – als <em>Züge, die durch den Bahnhof
+            fahren</em> – ohne ihnen zu folgen oder gegen sie zu kämpfen.
           </p>
           <div className="rounded-lg bg-white/65 p-3">
             <p className="mb-1.5 text-xs font-bold uppercase tracking-wider text-bordeaux">
@@ -139,9 +147,8 @@ export function Modul02() {
               <li>Keine gegenseitigen Kontakte.</li>
             </ul>
             <p className="mt-2 text-xs text-graphite/70">
-              Nicht aus Hass – sondern weil jeder Blick auf ihr Profil den
-              Konditionierungskreislauf neu aktiviert und den Heilungsprozess um Wochen
-              zurückwirft.
+              Nicht aus Hass – sondern weil jeder Blick auf ihr Profil den Konditionierungskreislauf
+              neu aktiviert und den Heilungsprozess um Wochen zurückwirft.
             </p>
           </div>
         </div>
@@ -154,16 +161,15 @@ export function Modul02() {
         source="Hayes, S. C., Strosahl, K. D. & Wilson, K. G. (2006). Acceptance and Commitment Therapy."
       >
         <p>
-          Wenn der Gedanke kommt <em>„Sie war doch meine große Liebe"</em>, ist das ein
-          Zug, der in deinen Bahnhof einfährt. Du musst weder mitfahren noch versuchen,
-          ihn zu stoppen. Du beobachtest ihn, sagst innerlich:{" "}
-          <strong>„Da ist der Gedanke, dass sie meine große Liebe war."</strong> – und
-          lässt ihn weiterfahren.
+          Wenn der Gedanke kommt <em>„Sie war doch meine große Liebe"</em>, ist das ein Zug, der in
+          deinen Bahnhof einfährt. Du musst weder mitfahren noch versuchen, ihn zu stoppen. Du
+          beobachtest ihn, sagst innerlich:{" "}
+          <strong>„Da ist der Gedanke, dass sie meine große Liebe war."</strong> – und lässt ihn
+          weiterfahren.
         </p>
         <p>
-          Das ist Defusion: Du fusionierst nicht mehr <em>mit</em> dem Gedanken, du
-          beobachtest ihn. Damit verliert er die Kraft, dich zur Kontaktaufnahme zu
-          bewegen.
+          Das ist Defusion: Du fusionierst nicht mehr <em>mit</em> dem Gedanken, du beobachtest ihn.
+          Damit verliert er die Kraft, dich zur Kontaktaufnahme zu bewegen.
         </p>
       </CalloutBold>
 
@@ -244,7 +250,7 @@ export function Modul02() {
         />
       </Section>
 
-      {/* ── ÜBUNG 3 · Jackpot-Protokoll (Stacked Cards) ── */}
+      {/* ── ÜBUNG 3 · Jackpot-Protokoll ── */}
       <Section
         icon={<Pencil className="h-4 w-4" />}
         label="Übung 3 · Jackpot-Protokoll · Mein Spielautomaten-Zyklus"
@@ -312,20 +318,19 @@ export function Modul02() {
           source="Skinner (1938) · Fisher et al. (2005) · Dutton & Painter (1993)"
         >
           <p>
-            <strong>Skinner (1938)</strong> – Operante Konditionierung: Variable
-            Verstärkungspläne erzeugen die widerstandsfähigste Konditionierung. Eine Taube,
-            die unregelmäßig Futter bekommt, pickt länger als eine, die jedes Mal
-            belohnt wird.
+            <strong>Skinner (1938)</strong> – Operante Konditionierung: Variable Verstärkungspläne
+            erzeugen die widerstandsfähigste Konditionierung. Eine Taube, die unregelmäßig Futter
+            bekommt, pickt länger als eine, die jedes Mal belohnt wird.
           </p>
           <p>
-            <strong>Fisher et al. (2005)</strong> – fMRT-Studien zeigen: Romantische Liebe
-            aktiviert das ventrale tegmentale Areal (VTA) – dasselbe System, das auch bei
-            Kokain feuert. Trennungsschmerz ist neurochemisch identisch mit Drogen-Entzug.
+            <strong>Fisher et al. (2005)</strong> – fMRT-Studien zeigen: Romantische Liebe aktiviert
+            das ventrale tegmentale Areal (VTA) – dasselbe System, das auch bei Kokain feuert.
+            Trennungsschmerz ist neurochemisch identisch mit Drogen-Entzug.
           </p>
           <p>
-            <strong>Dutton &amp; Painter (1993)</strong> – Bei Trauma-Bonding entsteht die
-            Bindung <em>wegen</em> des Schmerzes, nicht trotz. Die Erleichterung nach der
-            Bestrafung wirkt stärker als jede konstante Zuneigung.
+            <strong>Dutton &amp; Painter (1993)</strong> – Bei Trauma-Bonding entsteht die Bindung{" "}
+            <em>wegen</em> des Schmerzes, nicht trotz. Die Erleichterung nach der Bestrafung wirkt
+            stärker als jede konstante Zuneigung.
           </p>
         </CalloutBold>
       </Section>
@@ -351,7 +356,7 @@ export function Modul02() {
         </a>
       </Section>
 
-      {/* ── Transformationsziele · 3 von 5 ── */}
+      {/* ── Transformationsziele ── */}
       <TransformationGoals
         slug={SLUG}
         diagnosisLabel="Trauma-Bonding · die neurobiologische Fessel der intermittierenden Verstärkung"
@@ -382,8 +387,6 @@ export function Modul02() {
   );
 }
 
-/* ─────────── Hilfs-Komponente & Daten ─────────── */
-
 function Section({
   icon,
   label,
@@ -405,56 +408,16 @@ function Section({
 }
 
 const WARNSIGNALE: { id: string; label: string; desc: string }[] = [
-  {
-    id: "lovebombing",
-    label: "Lovebombing",
-    desc: "Überschwängliche Zuneigung zu Beginn, die emotionale Abhängigkeit erzeugt, bevor das wahre Muster sichtbar wird.",
-  },
-  {
-    id: "hotcold",
-    label: "Hot/Cold-Muster",
-    desc: "Abwechselnd liebevoll und abweisend – ohne erkennbaren Anlass. Das Unvorhersehbare ist das Suchterzeugende.",
-  },
-  {
-    id: "gaslighting",
-    label: "Gaslighting",
-    desc: "Deine Wahrnehmung wird systematisch in Frage gestellt. Du beginnst, deiner eigenen Realität zu misstrauen.",
-  },
-  {
-    id: "schweigen",
-    label: "Schweigen als Strafe",
-    desc: "Funkstille, Blockieren, Ignorieren als Reaktion auf Grenzen oder Konflikte. Bestrafung ohne Worte.",
-  },
-  {
-    id: "weaponized",
-    label: "Weaponized Virtue",
-    desc: "Progressive Werte werden als Kontrollwerkzeug eingesetzt. Macht Gaslighting besonders wirksam.",
-  },
-  {
-    id: "isolation",
-    label: "Isolation",
-    desc: "Dein Freundes- und Familienkreis wird kleiner. Du ziehst dich zurück oder wirst isoliert.",
-  },
-  {
-    id: "schuld",
-    label: "Schuldzuweisung",
-    desc: "Du wirst für Dinge verantwortlich gemacht, die du nicht kontrollieren kannst. Deine Emotionen sind das Problem.",
-  },
-  {
-    id: "hoovering",
-    label: "Hoovering",
-    desc: "Sobald du loslässt, kommt die nächste Welle der Wärme – gerade dann, wenn du gehen wolltest.",
-  },
-  {
-    id: "selbstwert",
-    label: "Selbstwert-Erosion",
-    desc: "Du siehst dich selbst schlechter als davor. Du glaubst, du seist zu viel, zu wenig, zu anstrengend.",
-  },
-  {
-    id: "hoffnung",
-    label: "Hoffnungssucht",
-    desc: "Du glaubst tief im Inneren, dass sich alles noch wenden könnte – wenn du nur anders wärst.",
-  },
+  { id: "lovebombing", label: "Lovebombing", desc: "Überschwängliche Zuneigung zu Beginn, die emotionale Abhängigkeit erzeugt, bevor das wahre Muster sichtbar wird." },
+  { id: "hotcold", label: "Hot/Cold-Muster", desc: "Abwechselnd liebevoll und abweisend – ohne erkennbaren Anlass. Das Unvorhersehbare ist das Suchterzeugende." },
+  { id: "gaslighting", label: "Gaslighting", desc: "Deine Wahrnehmung wird systematisch in Frage gestellt. Du beginnst, deiner eigenen Realität zu misstrauen." },
+  { id: "schweigen", label: "Schweigen als Strafe", desc: "Funkstille, Blockieren, Ignorieren als Reaktion auf Grenzen oder Konflikte. Bestrafung ohne Worte." },
+  { id: "weaponized", label: "Weaponized Virtue", desc: "Progressive Werte werden als Kontrollwerkzeug eingesetzt. Macht Gaslighting besonders wirksam." },
+  { id: "isolation", label: "Isolation", desc: "Dein Freundes- und Familienkreis wird kleiner. Du ziehst dich zurück oder wirst isoliert." },
+  { id: "schuld", label: "Schuldzuweisung", desc: "Du wirst für Dinge verantwortlich gemacht, die du nicht kontrollieren kannst. Deine Emotionen sind das Problem." },
+  { id: "hoovering", label: "Hoovering", desc: "Sobald du loslässt, kommt die nächste Welle der Wärme – gerade dann, wenn du gehen wolltest." },
+  { id: "selbstwert", label: "Selbstwert-Erosion", desc: "Du siehst dich selbst schlechter als davor. Du glaubst, du seist zu viel, zu wenig, zu anstrengend." },
+  { id: "hoffnung", label: "Hoffnungssucht", desc: "Du glaubst tief im Inneren, dass sich alles noch wenden könnte – wenn du nur anders wärst." },
 ];
 
 const RATIONALISIERUNGEN = [
