@@ -155,19 +155,21 @@ export function Modul09() {
         </CalloutBold>
 
         <div className="grid gap-3 sm:grid-cols-2">
-          <DiagnosisCard
+          <FlipCard
             emoji="🌑"
             color="var(--color-bordeaux)"
             label="Self-Constriction"
             heading="Was dir die Bindung genommen hat"
-            text="Hobbys, Freunde, Meinungen, Träume, Schlafrhythmus, Stimme. Alles wurde kleiner gemacht, um zu überleben."
+            front="Hobbys, Freunde, Träume, deine Stimme."
+            back="Über die Jahre wurde alles kleiner gemacht, um zu überleben: Schlafrhythmus, Meinungen, Lieblingslieder, Freundinnen, die sie nicht mochte. Du hast dich selbst gefaltet, bis du in ihre Welt passtest."
           />
-          <DiagnosisCard
+          <FlipCard
             emoji="🌱"
             color="var(--color-sage)"
             label="Self-Expansion"
             heading="Was jetzt dran ist"
-            text="Werte reaktivieren, Mikro-Schritte, Reward Replacement. Identität als Verb, nicht als Zustand."
+            front="Werte reaktivieren. Mikro-Schritte. Du."
+            back="Aron & Aron (1986): Identität wächst, wenn wir Neues integrieren. Werte klären, kleine Handlungen, Reward Replacement. Identität ist ein Verb — kein Zustand, der eintritt, sondern etwas, das du jeden Tag tust."
           />
         </div>
       </Section>
