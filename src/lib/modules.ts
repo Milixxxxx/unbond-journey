@@ -104,17 +104,10 @@ export const MODULES: ModuleMeta[] = [
     slug: "modul-08",
     number: "08",
     title: "Bindungsmuster & Inneres Kind",
-    subtitle: "Bindungsstile, Anxious-Avoidant Trap, Reparenting",
+    subtitle:
+      "Anxious-Avoidant-Trap, Reactive Abuse & Reparenting — warum dein „hysterisches" Verhalten biologische Notwehr war",
     phase: 4,
-    available: false,
-    stubBlurb:
-      "Bowlby & Ainsworth zeigten: Wir lieben so, wie wir geliebt wurden. Wir entlarven dein Muster und reparenten das innere Kind, das immer noch wartet.",
-    stubTopics: [
-      "Mein Bindungsstil",
-      "Die Anxious-Avoidant-Falle",
-      "Reparenting-Übungen",
-      "Der innere sichere Hafen",
-    ],
+    available: true,
   },
   {
     slug: "modul-09",

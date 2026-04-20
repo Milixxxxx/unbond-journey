@@ -35,3 +35,7 @@ export { FlipCard } from "./flip-card";
 export { SceneMap } from "./scene-map";
 export { ReplaceabilityMyth } from "./replaceability-myth";
 export { GreyRockSimulator } from "./grey-rock-simulator";
+export { AttachmentDance } from "./attachment-dance";
+export { AttachmentStyleQuiz } from "./attachment-style-quiz";
+export { ReactiveAbuseReframe } from "./reactive-abuse-reframe";
+export { InnerChildLetter } from "./inner-child-letter";
