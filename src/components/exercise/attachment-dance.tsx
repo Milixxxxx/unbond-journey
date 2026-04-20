@@ -1,22 +1,25 @@
 import { useEffect, useRef, useState } from "react";
-import { Play, RotateCcw, Pause, Zap, Heart } from "lucide-react";
+import { Play, RotateCcw, Pause, Heart } from "lucide-react";
 
 /**
  * AttachmentDance · Didaktische Visualisierung des Anxious-Avoidant-Tanzes.
  *
- * 6-Phasen-Choreografie (korrigiert nach User-Feedback):
- *   1. Nähe         – beide eng beieinander, Herz pulsiert
- *   2. Rückzug      – Sandra weicht grundlos zurück
- *   3. Klammern     – Mary greift panisch nach, Sandra weicht weiter
- *   4. Knall        – Blitz, Sandra verschwindet, Beziehung explodiert
- *   5. Leere        – Mary allein, Wochen vergehen
- *   6. Hoover       – Sandra kommt zurück, Spiel beginnt von vorne
+ * 8-Phasen-Choreografie (nach User-Feedback v3):
+ *   0. Nähe          – beide dicht beieinander, Herz darüber
+ *   1. Sandra weicht – Sandra geht zurück, Mary bleibt stehen
+ *   2. Mary folgt    – Mary geht auf Sandra zu, kommt nah ran
+ *   3. Sandra weicht erneut zurück, Mary hinterher
+ *   4. Sandra verschwindet aus dem Bild (Beziehungsende)
+ *   5. Mary allein   – Wochen vergehen
+ *   6. Sandra taucht wieder am Rand auf
+ *   7. Sandra bewegt sich auf Mary zu (Hoover, Kreislauf neu)
  *
  * Auto-Pause nach 2 vollen Loops. Replay-Button setzt zurück.
- * Reines CSS / SVG, keine externe Animations-Lib.
  */
+type Phase = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7;
+
 export function AttachmentDance() {
-  const [phase, setPhase] = useState<0 | 1 | 2 | 3 | 4 | 5>(0);
+  const [phase, setPhase] = useState<Phase>(0);
   const [playing, setPlaying] = useState(true);
   const [loops, setLoops] = useState(0);
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -25,7 +28,7 @@ export function AttachmentDance() {
     if (!playing) return;
     timer.current = setInterval(() => {
       setPhase((p) => {
-        const next = ((p + 1) % 6) as 0 | 1 | 2 | 3 | 4 | 5;
+        const next = ((p + 1) % 8) as Phase;
         if (next === 0) {
           setLoops((l) => {
             const nl = l + 1;
@@ -35,7 +38,7 @@ export function AttachmentDance() {
         }
         return next;
       });
-    }, 2400);
+    }, 2600);
     return () => {
       if (timer.current) clearInterval(timer.current);
     };
@@ -49,24 +52,26 @@ export function AttachmentDance() {
 
   const phaseLabel = [
     "1 · Nähe · Honeymoon. Beide ganz dicht.",
-    "2 · Sandra weicht zurück · grundlos, kalt",
-    "3 · Mary klammert · Panik flutet, sie greift nach",
-    "4 · Knall · Sandra verschwindet · Beziehung aus",
-    "5 · Leere · Wochen vergehen · Mary allein",
-    "6 · Hoover · Sandra kommt zurück · von vorn",
+    "2 · Sandra weicht zurück · grundlos. Mary bleibt stehen.",
+    "3 · Mary geht auf Sandra zu · sucht Nähe",
+    "4 · Sandra weicht erneut · Mary hinterher",
+    "5 · Sandra verschwindet · Beziehung aus",
+    "6 · Mary allein · Wochen vergehen",
+    "7 · Sandra taucht wieder auf · am Rand",
+    "8 · Hoover · Sandra kommt zurück · Kreislauf neu",
   ][phase];
 
-  // Positions per phase (percentage from left)
-  // Phase: 0=Nähe  1=Rückzug  2=Klammern  3=Knall  4=Leere  5=Hoover
-  const maryPos = [45, 38, 32, 30, 50, 42][phase];
-  const sandraPos = [55, 70, 80, 95, 110, 60][phase];
-  const sandraOpacity = [1, 0.85, 0.6, 0.2, 0, 0.9][phase];
-  const maryPulse = phase === 2;
-  const showLightning = phase === 3;
+  // Positionen in % (left). 50% = Mitte. <0 oder >100 = außerhalb.
+  //                phase:     0    1    2    3    4    5    6    7
+  const maryPositions =     [44,  44,  55,  68,  68,  50,  50,  45];
+  const sandraPositions =   [56,  72,  72,  85, 115, 115, 105,  60];
+  const sandraOpacityArr =  [ 1,   1,   1,   1,   0,   0,   1,   1];
+  const maryPos = maryPositions[phase];
+  const sandraPos = sandraPositions[phase];
+  const sandraOpacity = sandraOpacityArr[phase];
+
   const showHeart = phase === 0;
-  const showHoover = phase === 5;
-  const maryScale = phase === 4 ? 0.85 : 1;
-  const maryOpacity = phase === 4 ? 0.55 : 1;
+  const maryAlone = phase === 5;
 
   return (
     <div
@@ -104,26 +109,30 @@ export function AttachmentDance() {
       </div>
 
       {/* Bühne */}
-      <div className="relative mt-5 h-44 overflow-hidden rounded-xl bg-gradient-to-r from-bordeaux/8 via-cream/60 to-mauve/8">
-        {/* Herz bei Phase 0 (Nähe) */}
+      <div className="relative mt-5 h-48 overflow-hidden rounded-xl bg-gradient-to-r from-bordeaux/8 via-cream/60 to-mauve/8">
+        {/* Herz bei Phase 0 (Nähe) — über den beiden Kreisen */}
         {showHeart && (
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[200%] animate-pulse text-bordeaux/70">
-            <Heart className="h-5 w-5 fill-current" />
-          </div>
-        )}
-
-        {/* Blitz bei Phase 3 (Knall) */}
-        {showLightning && (
           <div
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-bordeaux"
-            style={{ animation: "pulse 0.4s ease-in-out infinite" }}
+            className="absolute z-10 -translate-x-1/2 text-bordeaux"
+            style={{
+              left: `${(maryPos + sandraPos) / 2}%`,
+              top: "12%",
+              animation: "pulse 1.2s ease-in-out infinite",
+            }}
           >
-            <Zap className="h-14 w-14 fill-current drop-shadow-[0_0_12px_rgba(122,47,68,0.6)]" />
+            <Heart className="h-7 w-7 fill-current drop-shadow-[0_0_10px_rgba(122,47,68,0.4)]" />
           </div>
         )}
 
-        {/* Hoover-Pfeil bei Phase 5 */}
-        {showHoover && (
+        {/* "allein" Hinweis bei Phase 5 */}
+        {maryAlone && (
+          <div className="absolute right-4 top-3 text-[10px] font-semibold uppercase tracking-wider text-graphite/60">
+            Wochen vergehen…
+          </div>
+        )}
+
+        {/* Hoover-Hinweis bei Phase 6 */}
+        {phase === 6 && (
           <div className="absolute right-4 top-3 text-[10px] font-semibold uppercase tracking-wider text-mauve/80">
             ← „Ich vermisse dich"
           </div>
@@ -131,23 +140,10 @@ export function AttachmentDance() {
 
         {/* Mary */}
         <div
-          className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-[2000ms] ease-in-out"
-          style={{
-            left: `${maryPos}%`,
-            opacity: maryOpacity,
-            transform: `translate(-50%, -50%) scale(${maryScale})`,
-          }}
+          className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-[2200ms] ease-in-out"
+          style={{ left: `${maryPos}%` }}
         >
-          <div
-            className={`grid h-20 w-20 place-items-center rounded-full bg-gradient-to-br from-bordeaux to-mauve text-white shadow-elegant ${
-              maryPulse ? "animate-pulse" : ""
-            }`}
-            style={{
-              boxShadow: maryPulse
-                ? "0 0 0 0 rgba(122,47,68,0.5), 0 0 30px 10px rgba(122,47,68,0.35)"
-                : undefined,
-            }}
-          >
+          <div className="grid h-20 w-20 place-items-center rounded-full bg-gradient-to-br from-bordeaux to-mauve text-white shadow-elegant">
             <div className="text-center">
               <div className="font-display text-base font-bold leading-none">M</div>
               <div className="mt-1 text-[8px] font-semibold uppercase tracking-wider opacity-90">
@@ -159,7 +155,7 @@ export function AttachmentDance() {
 
         {/* Sandra */}
         <div
-          className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-[2000ms] ease-in-out"
+          className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-[2200ms] ease-in-out"
           style={{ left: `${sandraPos}%`, opacity: sandraOpacity }}
         >
           <div className="grid h-20 w-20 place-items-center rounded-full border-2 border-graphite/40 bg-white/70 text-graphite shadow-soft backdrop-blur">
@@ -175,10 +171,10 @@ export function AttachmentDance() {
         {/* Phasen-Indikator */}
         <div className="absolute bottom-2 left-1/2 -translate-x-1/2">
           <div className="flex gap-1.5">
-            {[0, 1, 2, 3, 4, 5].map((i) => (
+            {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
               <span
                 key={i}
-                className={`h-1.5 w-5 rounded-full transition-colors ${
+                className={`h-1.5 w-4 rounded-full transition-colors ${
                   i === phase ? "bg-bordeaux" : "bg-bordeaux/15"
                 }`}
               />
