@@ -416,7 +416,7 @@ export function Modul10() {
           },
           {
             id: "g4",
-            text: "Ich verstehe, dass ich nicht „die Alte" werden muss — ich darf eine Neue werden.",
+            text: 'Ich verstehe, dass ich nicht „die Alte" werden muss — ich darf eine Neue werden.',
           },
           {
             id: "g5",
@@ -523,7 +523,7 @@ const DOMAINS: { key: string; label: string; body: string }[] = [
   {
     key: "strength",
     label: "4 · Persönliche Stärke",
-    body: "„Wenn ich DAS überlebt habe …" — du kennst jetzt deine eigene Tragfähigkeit. Das nimmt dir niemand mehr.",
+    body: '„Wenn ich DAS überlebt habe …" — du kennst jetzt deine eigene Tragfähigkeit. Das nimmt dir niemand mehr.',
   },
   {
     key: "spiritual",
