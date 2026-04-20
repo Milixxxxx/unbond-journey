@@ -402,10 +402,10 @@ export function Modul10() {
 
       {/* ── Meditation ── */}
       <MeditationCard
-        title="Geführte Meditation · Loving-Kindness für mich selbst"
-        duration="12 Min"
-        source="Tara Brach · Self-Compassion Meditation"
-        youtubeId="ssTV9hM3xRA"
+        title="Selbstheilungskräfte aktivieren — Heilung & Dankbarkeit"
+        duration="24 Min"
+        source="Inner Garden · Geführte Meditation für Gesundheit & Selbstheilung"
+        youtubeId="4sANOxLQ_7c"
       />
 
       {/* ── Transformationsziele ── */}
