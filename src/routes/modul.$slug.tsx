@@ -11,6 +11,7 @@ import { Modul04 } from "@/modules/modul-04";
 import { Modul05 } from "@/modules/modul-05";
 import { Modul06 } from "@/modules/modul-06";
 import { Modul07 } from "@/modules/modul-07";
+import { Modul08 } from "@/modules/modul-08";
 import { Modul09 } from "@/modules/modul-09";
 import { ModuleStub } from "@/modules/module-stub";
 
@@ -117,6 +118,8 @@ function ModulePage() {
             <Modul06 />
           ) : meta.slug === "modul-07" ? (
             <Modul07 />
+          ) : meta.slug === "modul-08" ? (
+            <Modul08 />
           ) : meta.slug === "modul-09" ? (
             <Modul09 />
           ) : (
