@@ -72,7 +72,7 @@ export function ReactiveAbuseReframe({
   return (
     <ExerciseFrame
       title="Übung 2 · Reactive-Abuse-Reframe"
-      subtitle="Was du in dir „hysterisch" genannt hast, war biologische Notwehr. Hier wird Scham zu Klarheit."
+      subtitle={'Was du in dir „hysterisch" genannt hast, war biologische Notwehr. Hier wird Scham zu Klarheit.'}
       meta="💔 → 💛 Perspektivwechsel · ⏱ 15 Min"
       accent="bordeaux"
     >
