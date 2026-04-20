@@ -34,3 +34,4 @@ export { RelapseTrafficLight } from "./relapse-traffic-light";
 export { FlipCard } from "./flip-card";
 export { SceneMap } from "./scene-map";
 export { ReplaceabilityMyth } from "./replaceability-myth";
+export { GreyRockSimulator } from "./grey-rock-simulator";

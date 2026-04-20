@@ -15,6 +15,7 @@ import {
   FlipCard,
   SceneMap,
   ReplaceabilityMyth,
+  GreyRockSimulator,
 } from "@/components/exercise";
 
 const SLUG = "modul-07";
@@ -239,37 +240,8 @@ export function Modul07() {
           {/* Übung 1 · Interaktive Szene-Karte (Drag&Drop, eigene Pins) */}
           <SceneMap slug={SLUG} />
 
-          {/* Übung 2 · Grey-Rock-Skript */}
-          <Reflection3Step
-            slug={SLUG}
-            title="Übung 2 · Mein Grey-Rock-Protokoll"
-            subtitle="Dein Nervensystem braucht in der Schocksituation ein vorgefertigtes Skript. Schreib es jetzt — bevor du sie das nächste Mal siehst, nicht danach."
-            meta="🗿 Wenn-Dann-Plan · ~5 Min"
-            accent="bordeaux"
-            steps={[
-              {
-                key: "greyrock_body",
-                label: "Meine Körperhaltung & mein Gesichtsausdruck werden sein:",
-                placeholder:
-                  'z.B. „Schultern entspannt, Blick ruhig und fokussiert, keine künstliche Fröhlichkeit, kein angestrengtes Wegsehen."',
-                rows: 2,
-              },
-              {
-                key: "greyrock_response",
-                label: "Wenn sie mich direkt anspricht, lautet meine Standardantwort:",
-                placeholder:
-                  '„Hallo. Ich bin gerade im Gespräch." · oder ein schlichtes Nicken ohne Worte.',
-                rows: 2,
-              },
-              {
-                key: "greyrock_exit",
-                label: "Mein klarer, höflicher Exit-Satz (max. 5 Sekunden):",
-                placeholder:
-                  '„Ich muss jetzt weiter. Einen schönen Abend." · und dann direkt drehen und gehen.',
-                rows: 2,
-              },
-            ]}
-          />
+          {/* Übung 2 · Grey-Rock-Rollenspiel-Simulator */}
+          <GreyRockSimulator slug={SLUG} />
 
           {/* Übung 3 · Lüge↔Wahrheit-FlipKarten + Selbstwert-Anker-Ritual */}
           <ReplaceabilityMyth slug={SLUG} />
