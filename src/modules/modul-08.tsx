@@ -87,7 +87,7 @@ export function Modul08() {
             </p>
             <p>
               Doch dann legt sie zitternd das Kapitel über{" "}
-              <GlossarTerm term="Reactive Abuse">Reactive Abuse</GlossarTerm>{" "}
+              <strong>Reactive Abuse</strong>{" "}
               auf ihre Knie. Sie liest. Sie liest noch einmal. Langsam wechselt
               sie die Kameraperspektive. Sie betrachtet nicht ihre grünen
               Blasen — sie betrachtet das gesamte, kranke System: Sandras
@@ -123,7 +123,7 @@ export function Modul08() {
             Deine Nähe, die dein Überleben sichern soll, empfindet sie als
             existenzielle Bedrohung ihrer Kontrolle. Ihre Regulation: eiskalte
             Mauern. Ihr schweigender Rückzug triggert echte Todesangst in
-            deiner <GlossarTerm term="Amygdala">Amygdala</GlossarTerm> — du
+            deiner <GlossarTerm termKey="amygdala-hijacking">Amygdala</GlossarTerm> — du
             eskalierst in Protestverhalten, sie zieht sich noch weiter zurück
             und stellt dich als „die Verrückte" dar.
           </p>
@@ -192,7 +192,7 @@ export function Modul08() {
           <p>
             Um dieses festgefahrene neuronale Muster aufzubrechen, musst du
             gegen dein stärkstes Gefühl handeln. In der{" "}
-            <GlossarTerm term="DBT">DBT</GlossarTerm> nennt man das{" "}
+            <strong>DBT</strong> nennt man das{" "}
             <strong>Opposite Action</strong>: Wenn die Panik schreit{" "}
             <em>„Ruf sie an! Schreib ihr!"</em> heißt es: Handy weglegen,
             spazieren gehen, die Spannung körperlich aushalten.
@@ -274,7 +274,7 @@ export function Modul08() {
           </p>
           <p>
             <strong>Porges (2011)</strong> erklärt mit der{" "}
-            <GlossarTerm term="Polyvagal-Theorie">Polyvagal-Theorie</GlossarTerm>
+            <GlossarTerm termKey="polyvagal-theorie">Polyvagal-Theorie</GlossarTerm>
             , warum ängstliche Bindungstypen bei Kontaktverlust so extrem
             reagieren: Der Rückzug versetzt das autonome Nervensystem in
             ventral-vagalen Kollaps oder sympathisches Hyperarousal.{" "}
@@ -285,7 +285,7 @@ export function Modul08() {
             <strong>Levine (2010)</strong> ergänzt mit Somatic Experiencing:
             Wenn du dem Impuls zu klammern nicht nachgibst, durchlebst du erst
             einen{" "}
-            <GlossarTerm term="Extinction Burst">Extinction Burst</GlossarTerm>
+            <GlossarTerm termKey="extinction-burst">Extinction Burst</GlossarTerm>
             , bevor der Körper die Energie abbaut und echte Entspannung
             einsetzt.
           </p>
