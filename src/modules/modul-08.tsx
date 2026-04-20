@@ -311,7 +311,7 @@ export function Modul08() {
           {
             key: "m8_reflect_child_moment",
             label:
-              "Welcher kindliche Moment taucht in dir hoch, wenn du an dein Protestverhalten denkst?",
+              "Welcher kindliche Moment taucht in dir hoch, wenn du an dein Protestverhalten denkst? (Damit ist gemeint: Klammern, Hinterherrennen, Anrufen, Nachrichten-Fluten, lautes Streiten, Vorwürfe oder Drohungen — alles, was dein System tut, um die drohende Verlassenheit nicht spüren zu müssen.)",
             placeholder:
               'z.B. „Mit 6 stand ich vor der verschlossenen Schlafzimmertür meiner Mutter und habe so lange geklopft, bis ich keine Stimme mehr hatte."',
             rows: 4,

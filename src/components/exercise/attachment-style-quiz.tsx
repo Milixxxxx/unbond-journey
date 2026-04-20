@@ -144,6 +144,13 @@ export function AttachmentStyleQuiz({
       meta="🧭 Self-Assessment · ⏱ 5 Min"
       accent="mauve"
     >
+      <div className="rounded-lg border border-mauve/25 bg-mauve/5 px-3 py-2 text-[11.5px] leading-relaxed text-graphite/75">
+        <strong className="text-mauve">Hinweis:</strong> Dies ist <em>kein</em> psychologischer
+        oder diagnostischer Test. Die Auswertung dient ausschließlich der
+        Selbstreflexion und ist <strong>unverbindlich</strong>. Eine echte
+        Bindungsdiagnostik gehört in die Hände einer Fachperson (z.B. AAI,
+        ECR-R unter therapeutischer Begleitung).
+      </div>
       <ol className="space-y-3">
         {ITEMS.map((it, i) => {
           const cur = answers[it.id];
