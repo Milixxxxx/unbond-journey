@@ -205,51 +205,26 @@ export function Modul10() {
                 </p>
               </li>
             ))}
-          </ul>
-        </div>
-
-        {/* 6. Domäne · Queere Klarheit — visuell abgesetzt als eigene Kachel */}
-        <div
-          className="relative mt-3 overflow-hidden rounded-2xl p-4 shadow-glass sm:p-5"
-          style={{
-            background:
-              "linear-gradient(135deg, color-mix(in oklab, var(--color-bordeaux) 14%, white) 0%, color-mix(in oklab, var(--color-mauve) 18%, white) 55%, color-mix(in oklab, var(--color-sage) 14%, white) 100%)",
-            border: "1.5px solid color-mix(in oklab, var(--color-bordeaux) 35%, transparent)",
-          }}
-        >
-          {/* Dekorativer Schimmer */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full opacity-30"
-            style={{
-              background:
-                "radial-gradient(circle, var(--color-bordeaux) 0%, transparent 70%)",
-            }}
-          />
-          <div className="relative">
-            <div className="flex items-center gap-2">
-              <span
-                className="inline-flex h-7 w-7 items-center justify-center rounded-full text-sm font-bold text-white shadow-soft"
-                style={{ background: "var(--color-bordeaux)" }}
-              >
-                6
-              </span>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-bordeaux">
-                Die sechste Domäne · nur für dich
+            {/* 6. Domäne · Queere Klarheit — gleiche Größe, farblich abgehoben */}
+            <li
+              className="rounded-xl p-3"
+              style={{
+                background:
+                  "linear-gradient(135deg, color-mix(in oklab, var(--color-bordeaux) 12%, white) 0%, color-mix(in oklab, var(--color-mauve) 16%, white) 100%)",
+                border: "2px solid color-mix(in oklab, var(--color-bordeaux) 35%, transparent)",
+              }}
+            >
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-bordeaux">
+                ✦ Queere Klarheit · nur für dich
               </p>
-            </div>
-            <h3 className="mt-2 font-display text-lg font-bold text-bordeaux sm:text-xl">
-              Queere Klarheit ✦
-            </h3>
-            <p className="mt-2 text-sm leading-relaxed text-graphite/90 sm:text-[15px]">
-              Für lesbische Frauen kommt eine sechste, ganz konkrete Schicht
-              dazu, die in keinem Standard-Lehrbuch steht. Du weißt jetzt, wie
-              sich ungesunde Fusion in einem identifikatorischen Raum anfühlt —
-              und was sie von echter Nähe unterscheidet. Das ist eine
-              Unterscheidungsfähigkeit, die viele nie lernen müssen. Du
-              musstest sie lernen. Und du <em>hast</em> sie gelernt.
-            </p>
-          </div>
+              <p className="mt-1 text-xs leading-snug text-graphite/90">
+                Du weißt jetzt, wie sich ungesunde Fusion in einem
+                identifikatorischen Raum anfühlt — und was sie von echter Nähe
+                unterscheidet. Eine Unterscheidungsfähigkeit, die viele nie
+                lernen müssen. Du <em>hast</em> sie gelernt.
+              </p>
+            </li>
+          </ul>
         </div>
       </Section>
 
