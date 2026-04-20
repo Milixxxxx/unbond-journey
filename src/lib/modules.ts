@@ -105,7 +105,7 @@ export const MODULES: ModuleMeta[] = [
     number: "08",
     title: "Bindungsmuster & Inneres Kind",
     subtitle:
-      "Anxious-Avoidant-Trap, Reactive Abuse & Reparenting — warum dein „hysterisches" Verhalten biologische Notwehr war",
+      'Anxious-Avoidant-Trap, Reactive Abuse & Reparenting — warum dein „hysterisches" Verhalten biologische Notwehr war',
     phase: 4,
     available: true,
   },
