@@ -121,17 +121,10 @@ export const MODULES: ModuleMeta[] = [
     slug: "modul-10",
     number: "10",
     title: "Kintsugi · Posttraumatisches Wachstum",
-    subtitle: "Narben als Teil deiner Stärke",
+    subtitle:
+      "Bruchstellen vergolden, Wachstum benennen, dein Manifest schreiben — du bist nicht kaputt, du bist erfahren",
     phase: 4,
-    available: false,
-    stubBlurb:
-      "Tedeschi & Calhoun (2004): Posttraumatisches Wachstum ist real. Nicht trotz, sondern durch die Erfahrung. Wir vergolden die Bruchstellen.",
-    stubTopics: [
-      "Meine 5 Stärken",
-      "Sinn-Konstruktion",
-      "Narrative Reframing",
-      "Abschluss: Mein Kintsugi-Manifest",
-    ],
+    available: true,
   },
 ];
 

@@ -39,3 +39,5 @@ export { AttachmentDance } from "./attachment-dance";
 export { AttachmentStyleQuiz } from "./attachment-style-quiz";
 export { ReactiveAbuseReframe } from "./reactive-abuse-reframe";
 export { InnerChildLetter } from "./inner-child-letter";
+export { KintsugiVase } from "./kintsugi-vase";
+export { KintsugiManifest } from "./kintsugi-manifest";
