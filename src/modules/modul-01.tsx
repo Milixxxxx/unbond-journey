@@ -5,6 +5,14 @@ import { SectionBlock } from "@/components/section-block";
 import { TextCollapse } from "@/components/text-collapse";
 import { ButtonChoice } from "@/components/button-choice";
 import { ChecklistGoals } from "@/components/checklist-goals";
+import { DeepDiveIntro } from "@/components/deep-dive-intro";
+import { Reveal } from "@/components/reveal";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
 import {
   PillCloud,
