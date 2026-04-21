@@ -1,8 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { MODULES, PHASES, type Phase } from "@/lib/modules";
-import { CheckCircle2, BookHeart, Settings, Construction, Star } from "lucide-react";
+import { MODULES, PHASES, isBonus, type Phase } from "@/lib/modules";
+import { CheckCircle2, BookHeart, Settings, Construction, Star, Lock, KeyRound, Sparkles } from "lucide-react";
 import butterflyPattern from "@/assets/butterfly-pattern.png";
+
+const STORAGE_KEY = "unbond-bonus-unlocks";
+function readBonusUnlocks(): string[] {
+  if (typeof window === "undefined") return [];
+  try {
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
 
 export const Route = createFileRoute("/dashboard")({
   component: Dashboard,
