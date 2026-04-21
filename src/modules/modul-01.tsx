@@ -481,7 +481,7 @@ const WARNSIGNALE: {
     nr: "07",
     emoji: "🪞",
     label: "Schuldzuweisung",
-    teaser: 'Deine Emotionen sind „das Problem".',
+    teaser: "Deine Emotionen sind „das Problem“.",
     desc: "Du wirst für Dinge verantwortlich gemacht, die du nicht kontrollieren kannst. Deine Emotionen sind das Problem.",
   },
   {
