@@ -49,6 +49,17 @@ export function ButtonChoice<V extends string | number = string>(
   const stored = exerciseState[storageKey];
   const isMulti = props.multi === true;
 
+  // Letzter "Touch": triggert Confirm-Pulse + sanften Bestätigungstext (Apple-like Feedback)
+  const [lastTouched, setLastTouched] = useState<V | null>(null);
+  const [confirmVisible, setConfirmVisible] = useState(false);
+
+  useEffect(() => {
+    if (lastTouched === null) return;
+    setConfirmVisible(true);
+    const t = setTimeout(() => setConfirmVisible(false), 1600);
+    return () => clearTimeout(t);
+  }, [lastTouched]);
+
   const current = useMemo(() => {
     if (isMulti) {
       if (Array.isArray(stored)) return stored as V[];
@@ -76,6 +87,7 @@ export function ButtonChoice<V extends string | number = string>(
       setExercise(storageKey, next);
       (props as SingleProps<V>).onChange?.(next);
     }
+    setLastTouched(val);
   };
 
   return (
@@ -93,21 +105,40 @@ export function ButtonChoice<V extends string | number = string>(
         className="flex flex-wrap gap-2"
         aria-disabled={!loaded}
       >
-        {options.map((opt) => (
-          <button
-            key={String(opt.value)}
-            type="button"
-            role={isMulti ? "checkbox" : "radio"}
-            aria-checked={isActive(opt.value)}
-            data-active={isActive(opt.value)}
-            onClick={() => handleClick(opt.value)}
-            className="choice-btn text-sm"
-            title={opt.description}
-          >
-            {opt.label}
-          </button>
-        ))}
+        {options.map((opt) => {
+          const active = isActive(opt.value);
+          return (
+            <button
+              key={String(opt.value)}
+              type="button"
+              role={isMulti ? "checkbox" : "radio"}
+              aria-checked={active}
+              data-active={active}
+              onClick={() => handleClick(opt.value)}
+              className="choice-btn text-sm"
+              title={opt.description}
+            >
+              <span className="inline-flex items-center gap-1.5">
+                {active && (
+                  <Check className="h-3.5 w-3.5 animate-fade-in" aria-hidden="true" />
+                )}
+                {opt.label}
+              </span>
+            </button>
+          );
+        })}
       </div>
+      {/* Sanfter Bestätigungstext — fadet nach 1.6s */}
+      <p
+        className={cn(
+          "text-xs italic text-[color:var(--color-terracotta)] transition-opacity duration-500",
+          confirmVisible ? "opacity-100" : "opacity-0",
+        )}
+        aria-live="polite"
+        role="status"
+      >
+        {confirmVisible ? "✦ Gespeichert. Ich sehe dich." : "\u00A0"}
+      </p>
     </div>
   );
 }

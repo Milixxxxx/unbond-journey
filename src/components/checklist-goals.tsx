@@ -1,5 +1,6 @@
 import { Trophy } from "lucide-react";
 import { useModuleProgress } from "@/hooks/use-module-progress";
+import { cn } from "@/lib/utils";
 
 type Goal = { id: string; text: string };
 
@@ -28,15 +29,27 @@ export function ChecklistGoals({
           const checked = !!checklistState[g.id];
           return (
             <li key={g.id}>
-              <label className="flex cursor-pointer items-start gap-3 rounded-lg bg-white/65 p-3 transition hover:bg-white">
+              <label
+                className={cn(
+                  "check-item flex cursor-pointer items-start gap-3 rounded-lg p-3",
+                  checked
+                    ? "bg-[color-mix(in_oklab,var(--color-mauve)_10%,white)]"
+                    : "bg-white/65 hover:bg-white",
+                )}
+              >
                 <input
                   type="checkbox"
                   checked={checked}
                   onChange={() => toggleChecklist(g.id)}
-                  className="mt-0.5 h-5 w-5 cursor-pointer accent-[var(--color-bordeaux)]"
+                  className="mt-0.5 h-5 w-5 cursor-pointer accent-[var(--color-mauve)]"
                 />
                 <span
-                  className={`text-sm ${checked ? "text-graphite/60 line-through" : "text-graphite"}`}
+                  className={cn(
+                    "check-item__label text-sm",
+                    checked
+                      ? "text-graphite/55 line-through decoration-[color:var(--color-mauve)]/60"
+                      : "text-graphite",
+                  )}
                 >
                   {g.text}
                 </span>
