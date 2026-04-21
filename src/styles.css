@@ -180,39 +180,83 @@
     border-radius: var(--radius-xl);
   }
 
+  /* === STORY (Bordeaux, dark glassmorphism, immersiv) === */
+  .story-box {
+    position: relative;
+    background:
+      linear-gradient(135deg,
+        color-mix(in oklab, var(--color-bordeaux) 86%, transparent),
+        color-mix(in oklab, var(--color-graphite) 78%, transparent));
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid color-mix(in oklab, var(--color-bordeaux) 40%, transparent);
+    border-left: 4px solid var(--color-terracotta);
+    border-radius: var(--radius-xl);
+    padding: 1.5rem 1.5rem;
+    color: var(--color-cream);
+    box-shadow: var(--shadow-elegant);
+    animation: fade-in 0.7s ease-out both;
+  }
+  .story-box h1, .story-box h2, .story-box h3, .story-box h4, .story-box h5 {
+    color: color-mix(in oklab, var(--color-cream) 92%, var(--color-terracotta));
+  }
+  .story-box em { color: color-mix(in oklab, var(--color-cream) 85%, var(--color-terracotta)); }
+
+  /* === DIAGNOSE (Sage, neurobiologisch, ruhig) === */
   .diagnose-box {
     background: linear-gradient(135deg,
       color-mix(in oklab, var(--color-sage) 22%, white),
-      color-mix(in oklab, var(--color-sage) 12%, white));
+      color-mix(in oklab, var(--color-sage) 10%, white));
     border-left: 4px solid var(--color-sage);
     border-radius: var(--radius-lg);
     padding: 1.25rem 1.5rem;
   }
 
+  /* === DEEP DIVE / SCIENCE (Sage, dezent) === */
   .science-box {
-    background: color-mix(in oklab, white 70%, transparent);
-    border-left: 4px solid var(--color-mauve);
+    background: color-mix(in oklab, var(--color-sage) 8%, white);
+    border-left: 4px solid var(--color-sage);
     border-radius: var(--radius-lg);
     padding: 1.25rem 1.5rem;
     line-height: 1.5;
   }
 
+  /* === LÖSUNG (Terracotta, praktischer Shift) === */
   .loesung-box {
     background: linear-gradient(135deg,
-      color-mix(in oklab, var(--color-bordeaux) 18%, white),
-      color-mix(in oklab, var(--color-bordeaux) 8%, white));
-    border-left: 4px solid var(--color-bordeaux);
+      color-mix(in oklab, var(--color-terracotta) 18%, white),
+      color-mix(in oklab, var(--color-terracotta) 8%, white));
+    border-left: 4px solid var(--color-terracotta);
     border-radius: var(--radius-lg);
     padding: 1.25rem 1.5rem;
   }
 
+  /* === ÜBUNG (Terracotta, Interaktion) === */
   .uebung-box {
     background: linear-gradient(135deg,
-      color-mix(in oklab, var(--color-terracotta) 16%, white),
-      color-mix(in oklab, var(--color-terracotta) 6%, white));
+      color-mix(in oklab, var(--color-terracotta) 14%, white),
+      color-mix(in oklab, var(--color-terracotta) 5%, white));
     border-left: 4px solid var(--color-terracotta);
     border-radius: var(--radius-lg);
     padding: 1.25rem 1.5rem;
+  }
+
+  /* === FORTSCHRITT / CHECKLISTE (Mauve) === */
+  .progress-box {
+    background: linear-gradient(135deg,
+      color-mix(in oklab, var(--color-mauve) 16%, white),
+      color-mix(in oklab, var(--color-mauve) 6%, white));
+    border-left: 4px solid var(--color-mauve);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 1.5rem;
+  }
+
+  /* === SOS / WARNUNG (Helles Orange) === */
+  .sos-box {
+    background: color-mix(in oklab, var(--color-warning) 22%, white);
+    border-left: 4px solid var(--color-warning);
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.25rem;
   }
 
   .crisis-banner {
@@ -221,6 +265,28 @@
     border-radius: var(--radius-md);
     padding: 0.875rem 1.125rem;
     font-size: 0.875rem;
+  }
+
+  /* === Interaktiver Button-Choice (Terracotta-Akzent) === */
+  .choice-btn {
+    border: 1.5px solid color-mix(in oklab, var(--color-terracotta) 35%, transparent);
+    background: color-mix(in oklab, white 75%, transparent);
+    color: var(--color-graphite);
+    border-radius: var(--radius-md);
+    padding: 0.625rem 1rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  .choice-btn:hover {
+    border-color: var(--color-terracotta);
+    background: color-mix(in oklab, var(--color-terracotta) 8%, white);
+  }
+  .choice-btn[data-active="true"] {
+    background: var(--color-terracotta);
+    color: var(--color-cream);
+    border-color: var(--color-terracotta);
+    box-shadow: 0 4px 14px color-mix(in oklab, var(--color-terracotta) 35%, transparent);
   }
 }
 
