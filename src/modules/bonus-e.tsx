@@ -480,7 +480,7 @@ const SCHEMATA = [
     key: "verlassenheit",
     title: "Verlassenheit",
     color: "var(--color-bordeaux)",
-    belief: "„Alle, die ich liebe, gehen am Ende. Es ist nur eine Frage der Zeit."",
+    belief: `„Alle, die ich liebe, gehen am Ende. Es ist nur eine Frage der Zeit."`,
     exploit:
       "Erst überschwängliche Nähe (Love-Bombing), dann strategischer Rückzug — du gibst alles, um sie zu halten.",
   },
@@ -488,15 +488,15 @@ const SCHEMATA = [
     key: "unzulaenglichkeit",
     title: "Unzulänglichkeit / Scham",
     color: "var(--color-terracotta)",
-    belief: "„Wenn man mich wirklich kennt, lehnt man mich ab. Ich bin im Kern falsch."",
+    belief: `„Wenn man mich wirklich kennt, lehnt man mich ab. Ich bin im Kern falsch."`,
     exploit:
-      "Subtile Kritik („so meine ich das doch nicht"), Vergleiche, Demütigungen vor anderen — du wirst dankbar, dass sie dich erträgt.",
+      `Subtile Kritik („so meine ich das doch nicht"), Vergleiche, Demütigungen vor anderen — du wirst dankbar, dass sie dich erträgt.`,
   },
   {
     key: "unterwerfung",
     title: "Unterwerfung",
     color: "var(--color-mauve)",
-    belief: "„Meine Bedürfnisse sind nicht wichtig. Konflikt führt zu Strafe."",
+    belief: `„Meine Bedürfnisse sind nicht wichtig. Konflikt führt zu Strafe."`,
     exploit:
       "Sie eskaliert, wenn du widersprichst — du lernst, deine Wünsche zu schlucken, um Frieden zu haben.",
   },
@@ -504,8 +504,7 @@ const SCHEMATA = [
     key: "entbehrung",
     title: "Emotionale Entbehrung",
     color: "var(--color-sage)",
-    belief:
-      "„Niemand wird je wirklich verstehen, was ich brauche. Ich bin allein, auch zu zweit."",
+    belief: `„Niemand wird je wirklich verstehen, was ich brauche. Ich bin allein, auch zu zweit."`,
     exploit:
       "Intermittierende emotionale Verfügbarkeit — die seltenen Momente echten Verstanden-Werdens machen alles andere erträglich.",
   },
@@ -513,7 +512,7 @@ const SCHEMATA = [
     key: "misstrauen",
     title: "Misstrauen / Missbrauch",
     color: "var(--color-graphite)",
-    belief: "„Menschen werden mich verletzen, sobald ich verletzlich bin."",
+    belief: `„Menschen werden mich verletzen, sobald ich verletzlich bin."`,
     exploit:
       "Sie bricht Vertrauen wiederholt — und bestätigt damit dein Schema. Es fühlt sich vertraut an, fast wie zu Hause.",
   },
@@ -525,7 +524,7 @@ const PARTS = [
     title: "Manager",
     role: "Proaktive Beschützer",
     color: "var(--color-mauve)",
-    desc: "Halten dich funktionsfähig. Sie planen, kontrollieren, kritisieren, gefallen — alles, damit der Schmerz der Exiles nicht hochkommt. Sie wirken oft wie deine „Persönlichkeit".",
+    desc: `Halten dich funktionsfähig. Sie planen, kontrollieren, kritisieren, gefallen — alles, damit der Schmerz der Exiles nicht hochkommt. Sie wirken oft wie deine „Persönlichkeit".`,
     mary: "Der Stimmungs-Scanner, der jahrelang Sandras Mikro-Mimik gelesen hat, um Konflikte vorwegzunehmen.",
   },
   {
@@ -533,7 +532,7 @@ const PARTS = [
     title: "Firefighter",
     role: "Reaktive Löscher",
     color: "var(--color-terracotta)",
-    desc: "Springen ein, wenn der Manager versagt und der Schmerz eines Exiles durchbricht. Sie löschen mit allem, was schnell wirkt: Stalking, Alkohol, Sex, Rebound, Wut, Bingen. Nicht „böse" — verzweifelt.",
+    desc: `Springen ein, wenn der Manager versagt und der Schmerz eines Exiles durchbricht. Sie löschen mit allem, was schnell wirkt: Stalking, Alkohol, Sex, Rebound, Wut, Bingen. Nicht „böse" — verzweifelt.`,
     mary: "Der obsessive Teil, der nachts Sandras Stories gecheckt hat. Er schützte das ungeliebte Kind vor dem freien Fall.",
   },
   {
@@ -549,11 +548,11 @@ const PARTS = [
 const SOLUTIONS = [
   {
     title: "Erkennen ohne Verurteilen",
-    text: "Ein Schema ist keine Schwäche. Es war einmal die einzig sinnvolle Antwort auf das, was war. Wenn du es benennen kannst, verliert es seine unsichtbare Macht. Das Gespräch verschiebt sich von „Was stimmt nicht mit mir?" zu „Was hat mein System gelernt, um zu überleben?"",
+    text: `Ein Schema ist keine Schwäche. Es war einmal die einzig sinnvolle Antwort auf das, was war. Wenn du es benennen kannst, verliert es seine unsichtbare Macht. Das Gespräch verschiebt sich von „Was stimmt nicht mit mir?" zu „Was hat mein System gelernt, um zu überleben?".`,
   },
   {
     title: "Teile trennen, nicht verurteilen (IFS-Sprache)",
-    text: "Statt „Ich bin so obsessiv" lernst du zu sagen: „Ein Teil von mir ist obsessiv — und er versucht, etwas zu schützen, das jünger ist als ich denke." Diese kleine sprachliche Verschiebung macht enorm viel auf. Du bist nicht mehr deckungsgleich mit dem Symptom.",
+    text: `Statt „Ich bin so obsessiv" lernst du zu sagen: „Ein Teil von mir ist obsessiv — und er versucht, etwas zu schützen, das jünger ist als ich denke." Diese kleine sprachliche Verschiebung macht enorm viel auf. Du bist nicht mehr deckungsgleich mit dem Symptom.`,
   },
   {
     title: "Zuhören statt wegmachen",
@@ -706,7 +705,7 @@ function SchemaTriggerLog() {
               <textarea
                 value={entry.trigger}
                 onChange={(e) => update(d, { trigger: e.target.value })}
-                placeholder="Was hat heute getriggert? (z. B. „Sie hat eine Story mit der Neuen gepostet")"
+                placeholder='Was hat heute getriggert? (z. B. "Sie hat eine Story mit der Neuen gepostet")'
                 rows={2}
                 className="w-full resize-y rounded-md border border-terracotta/25 bg-white/90 p-2 text-sm leading-snug text-graphite outline-none transition focus:border-terracotta focus:ring-2 focus:ring-terracotta/15"
               />
