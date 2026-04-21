@@ -335,3 +335,104 @@ function Station({
     </Link>
   );
 }
+
+/**
+ * BonusSection · Hebt die Bonus-Kapitel D/E/F optisch von den Hauptkapiteln ab.
+ * Zeigt Schloss-Icon bei gesperrt, Sparkles bei freigeschaltet.
+ */
+function BonusSection({
+  modules,
+  unlocks,
+}: {
+  modules: typeof MODULES;
+  unlocks: string[];
+}) {
+  if (modules.length === 0) return null;
+  const allUnlocked = modules.every((m) => unlocks.includes(m.slug));
+
+  return (
+    <section className="relative mt-10 mb-7">
+      {/* Visuelle Trennung von den Hauptphasen */}
+      <div className="mb-5 flex items-center gap-3">
+        <span className="h-px flex-1 bg-bordeaux/20" />
+        <span className="text-[10px] font-semibold uppercase tracking-[0.32em] text-bordeaux">
+          · Bonus-Kapitel ·
+        </span>
+        <span className="h-px flex-1 bg-bordeaux/20" />
+      </div>
+
+      <div className="rounded-2xl border-2 border-bordeaux/20 bg-gradient-to-br from-bordeaux/5 via-mauve/5 to-transparent p-5">
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <h2 className="font-display text-base font-semibold tracking-tight text-bordeaux">
+              Vertiefung · D · E · F
+            </h2>
+            <p className="mt-1 text-xs text-graphite/70">
+              {allUnlocked
+                ? "Alle drei Bonus-Kapitel sind für dich freigeschaltet."
+                : "Vorschau frei zugänglich · Übungen mit dem UNBOND-Complete-Code."}
+            </p>
+          </div>
+          {!allUnlocked && (
+            <Link
+              to="/unlock"
+              className="inline-flex flex-shrink-0 items-center gap-1.5 rounded-full bg-bordeaux px-3 py-1.5 text-[11px] font-semibold text-white transition hover:opacity-90"
+            >
+              <KeyRound className="h-3.5 w-3.5" />
+              Code
+            </Link>
+          )}
+        </div>
+
+        <ul className="mt-4 space-y-2">
+          {modules.map((m) => {
+            const isUnlocked = unlocks.includes(m.slug);
+            return (
+              <li key={m.slug}>
+                <Link
+                  to="/modul/$slug"
+                  params={{ slug: m.slug }}
+                  className="group flex items-center gap-3 rounded-xl border border-bordeaux/15 bg-white/80 p-3 transition hover:bg-white hover:shadow-soft"
+                >
+                  <div
+                    className={`grid h-12 w-12 flex-shrink-0 place-items-center rounded-full font-display text-base font-bold ${
+                      isUnlocked
+                        ? "bg-sage text-white"
+                        : "border-2 border-bordeaux/30 bg-white text-bordeaux"
+                    }`}
+                  >
+                    {isUnlocked ? <Sparkles className="h-5 w-5" /> : m.number}
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between gap-2">
+                      <h3 className="font-display text-sm font-semibold leading-tight text-bordeaux">
+                        {m.title}
+                      </h3>
+                      <span
+                        className={`flex flex-shrink-0 items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${
+                          isUnlocked
+                            ? "bg-sage/20 text-sage"
+                            : "bg-bordeaux/10 text-bordeaux"
+                        }`}
+                      >
+                        {isUnlocked ? (
+                          "frei"
+                        ) : (
+                          <>
+                            <Lock className="h-2.5 w-2.5" />
+                            Vorschau
+                          </>
+                        )}
+                      </span>
+                    </div>
+                    <p className="mt-0.5 line-clamp-2 text-xs text-graphite/70">{m.subtitle}</p>
+                  </div>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </section>
+  );
+}
