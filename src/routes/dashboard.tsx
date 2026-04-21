@@ -185,7 +185,8 @@ function Dashboard() {
           <div className="absolute left-7 top-3 bottom-3 w-0.5 bg-gradient-to-b from-bordeaux/30 via-sage/30 to-mauve/30" />
 
           {phases.map((p) => {
-            const phaseModules = MODULES.filter((m) => m.phase === p);
+            const phaseModules = MODULES.filter((m) => m.phase === p && !isBonus(m.slug));
+            if (phaseModules.length === 0) return null;
             return (
               <section key={p} className="relative mb-7">
                 <div className="mb-3 ml-16">
@@ -217,6 +218,9 @@ function Dashboard() {
             );
           })}
         </div>
+
+        {/* ===================== BONUS-SEKTION ===================== */}
+        <BonusSection modules={bonusModules} unlocks={bonusUnlocks} />
       </div>
     </main>
   );
