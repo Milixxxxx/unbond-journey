@@ -12,58 +12,58 @@ type Card = {
 
 const CARDS: Card[] = [
   {
-    vorwurf: "„Du bist psychisch instabil."",
+    vorwurf: '„Du bist psychisch instabil."',
     emoji: "🎭",
     taktik: "Pathologisierung",
     gegen:
       "Keine Diagnose ohne Befund. Verweise auf bestehende ärztliche/therapeutische Atteste, falls vorhanden — oder schweige zu dieser Behauptung und lass deine Anwältin antworten.",
     formulierung:
-      "„Die Einschätzung der psychischen Verfassung obliegt approbierten Fachpersonen. Eine entsprechende fachärztliche Stellungnahme kann auf Anforderung vorgelegt werden."",
+      '„Die Einschätzung der psychischen Verfassung obliegt approbierten Fachpersonen. Eine entsprechende fachärztliche Stellungnahme kann auf Anforderung vorgelegt werden."',
   },
   {
-    vorwurf: "„Du entfremdest die Kinder."",
+    vorwurf: '„Du entfremdest die Kinder."',
     emoji: "👶",
     taktik: "PAS-Vorwurf (Parental Alienation)",
     gegen:
       "Dokumentiere alle Übergaben, Kontaktversuche, Ablehnungen DURCH die Kinder. Lass die Kinder nicht instrumentalisieren. Anwältin einschalten — der PAS-Vorwurf ist juristisch hoch problematisch.",
     formulierung:
-      "„Die Kontaktgestaltung erfolgt im Einvernehmen mit dem Kindeswohl. Eine lückenlose Übergabe-Dokumentation liegt vor und kann auf Anforderung vorgelegt werden."",
+      '„Die Kontaktgestaltung erfolgt im Einvernehmen mit dem Kindeswohl. Eine lückenlose Übergabe-Dokumentation liegt vor und kann auf Anforderung vorgelegt werden."',
   },
   {
-    vorwurf: "„Du hast mich angegriffen / geschlagen."",
+    vorwurf: '„Du hast mich angegriffen / geschlagen."',
     emoji: "⚠️",
     taktik: "Reactive-Abuse-Vorwurf",
     gegen:
       "Nie zugeben, nie verharmlosen, nie ausweichen. Verweise auf das laufende Verfahren und schweige inhaltlich. KEINE direkte Antwort an die Person — alles über die Anwältin.",
     formulierung:
-      "„Ich werde mich zu den erhobenen Vorwürfen ausschließlich über meine anwaltliche Vertretung äußern. Direkte Kontaktaufnahmen werden nicht beantwortet."",
+      '„Ich werde mich zu den erhobenen Vorwürfen ausschließlich über meine anwaltliche Vertretung äußern. Direkte Kontaktaufnahmen werden nicht beantwortet."',
   },
   {
-    vorwurf: "„Du bist eine schlechte Mutter."",
+    vorwurf: '„Du bist eine schlechte Mutter."',
     emoji: "💔",
     taktik: "Charakter-Angriff",
     gegen:
       "Nicht verteidigen — das ist die Falle. Sammle Beweise für deine Mutterschaft (Schule, Kinderarzt, Vereine) und übergib sie nur an Behörden, nie an die Ex.",
     formulierung:
-      "„Bezugsperson-Beziehungen zu den Kindern sind durch Schule, Kinderarzt und Freizeitkontakte dokumentiert. Entsprechende Belege werden im Verfahren vorgelegt."",
+      '„Bezugsperson-Beziehungen zu den Kindern sind durch Schule, Kinderarzt und Freizeitkontakte dokumentiert. Entsprechende Belege werden im Verfahren vorgelegt."',
   },
   {
-    vorwurf: "„Du trinkst / nimmst Drogen."",
+    vorwurf: '„Du trinkst / nimmst Drogen."',
     emoji: "🍷",
     taktik: "Sucht-Verleumdung",
     gegen:
       "Bei haltlosen Behauptungen: ein freiwilliger negativer Test (Hausarzt, ca. 50 €) entwaffnet sofort. Falls wahr: Sofort therapeutische Hilfe + Anwältin.",
     formulierung:
-      "„Ein aktueller, freiwillig veranlasster Drogen-/Alkoholbefund kann auf Anforderung vorgelegt werden. Weitere Stellungnahmen erfolgen ausschließlich über meine anwaltliche Vertretung."",
+      '„Ein aktueller, freiwillig veranlasster Drogen-/Alkoholbefund kann auf Anforderung vorgelegt werden. Weitere Stellungnahmen erfolgen ausschließlich über meine anwaltliche Vertretung."',
   },
   {
-    vorwurf: "„Du verheimlichst Geld / Vermögen."",
+    vorwurf: '„Du verheimlichst Geld / Vermögen."',
     emoji: "💰",
     taktik: "Finanz-Verleumdung",
     gegen:
       "Lückenlose Konto-Dokumentation der letzten 12 Monate bereithalten. Steuererklärungen ordnen. Niemals an die Ex direkt — nur an Anwältin/Gericht.",
     formulierung:
-      "„Eine vollständige Vermögensaufstellung samt Belegen wird auf gerichtliche Anforderung vorgelegt. Außergerichtliche Herausgabe erfolgt nicht."",
+      '„Eine vollständige Vermögensaufstellung samt Belegen wird auf gerichtliche Anforderung vorgelegt. Außergerichtliche Herausgabe erfolgt nicht."',
   },
 ];
 
