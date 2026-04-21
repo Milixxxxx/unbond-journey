@@ -52,39 +52,12 @@ export function BonusD() {
         ]}
       >
         <p>
-          Manche toxischen Beziehungen enden nicht mit der Trennung — sie
-          eskalieren in den institutionellen Raum. Polizeimeldungen,
-          Jugendamt-Anzeigen, Sorgerechtsstreitigkeiten, falsche Anschuldigungen.
-          Das ist <strong>kein Zeichen berechtigter Sorge</strong>, sondern die
-          letzte Eskalationsstufe eines Kontrollsystems, das seine direkte Macht
-          über dich verloren hat.
-        </p>
-        <p>
-          In WLW-Beziehungen ist das besonders gefährlich, weil Behörden die
-          Dynamik selten kennen. „Zwei Frauen — da kann doch keine Gewalt
-          sein" ist ein Vorurteil, das deine Ex strategisch ausnutzen kann.
-          Während sie nach außen wie die besorgte Partnerin wirkt, stehst du
-          plötzlich da als die vermeintlich Instabile.
-        </p>
-        <p>
-          Dieses Kapitel ist anders als die vorherigen. Es geht nicht primär um
-          dein inneres Erleben — es geht um <strong>dein Schutznetz nach außen</strong>.
-          Um Dokumentation, anwaltliche Vorsorge, Zeug*innen, vorbereitete
-          Briefe. Um die nüchterne Werkzeugkiste, die du brauchst, falls aus
-          einem privaten Konflikt ein behördliches Verfahren wird.
-        </p>
-        <p>
-          Wir setzen voraus, was du in den Kapiteln 01–10 gelernt hast: Wie
-          Trauma-Bonding funktioniert, warum DARVO eine systematische Strategie
-          ist, wie Manipulation aussieht. Hier vertiefen wir nur den
-          institutionellen Aspekt — denn dort verändert sich das Spiel
-          grundlegend.
-        </p>
-        <p>
-          Dieses Kapitel ersetzt keine Rechtsberatung. Es bereitet dich aber
-          darauf vor, im Ernstfall handlungsfähig zu bleiben — statt erstarrt
-          oder panisch zu reagieren. Du wirst nicht jeden Schritt brauchen.
-          Aber wenn du ihn brauchst, willst du ihn vorbereitet haben.
+          Wenn deine Ex Polizei, Jugendamt oder Anwält*innen einschaltet, ist das
+          meist <strong>keine berechtigte Sorge — sondern die letzte Eskalationsstufe</strong>{" "}
+          eines Kontrollsystems. In WLW-Beziehungen besonders gefährlich, weil
+          Behörden die Dynamik selten kennen. Dieses Kapitel gibt dir die nüchterne
+          Werkzeugkiste — Dokumentation, anwaltliche Vorsorge, Zeug*innen, vorbereitete
+          Briefe — damit du im Ernstfall handlungsfähig bleibst statt erstarrt.
         </p>
       </ChapterIntro>
 
