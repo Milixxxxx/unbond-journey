@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WillkommenRouteImport } from './routes/willkommen'
+import { Route as UnlockRouteImport } from './routes/unlock'
 import { Route as JournalRouteImport } from './routes/journal'
 import { Route as GlossarRouteImport } from './routes/glossar'
 import { Route as EinstellungenRouteImport } from './routes/einstellungen'
@@ -22,6 +23,11 @@ import { Route as ModulSlugRouteImport } from './routes/modul.$slug'
 const WillkommenRoute = WillkommenRouteImport.update({
   id: '/willkommen',
   path: '/willkommen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UnlockRoute = UnlockRouteImport.update({
+  id: '/unlock',
+  path: '/unlock',
   getParentRoute: () => rootRouteImport,
 } as any)
 const JournalRoute = JournalRouteImport.update({
@@ -73,6 +79,7 @@ export interface FileRoutesByFullPath {
   '/einstellungen': typeof EinstellungenRoute
   '/glossar': typeof GlossarRoute
   '/journal': typeof JournalRoute
+  '/unlock': typeof UnlockRoute
   '/willkommen': typeof WillkommenRoute
   '/modul/$slug': typeof ModulSlugRoute
 }
@@ -84,6 +91,7 @@ export interface FileRoutesByTo {
   '/einstellungen': typeof EinstellungenRoute
   '/glossar': typeof GlossarRoute
   '/journal': typeof JournalRoute
+  '/unlock': typeof UnlockRoute
   '/willkommen': typeof WillkommenRoute
   '/modul/$slug': typeof ModulSlugRoute
 }
@@ -96,6 +104,7 @@ export interface FileRoutesById {
   '/einstellungen': typeof EinstellungenRoute
   '/glossar': typeof GlossarRoute
   '/journal': typeof JournalRoute
+  '/unlock': typeof UnlockRoute
   '/willkommen': typeof WillkommenRoute
   '/modul/$slug': typeof ModulSlugRoute
 }
@@ -109,6 +118,7 @@ export interface FileRouteTypes {
     | '/einstellungen'
     | '/glossar'
     | '/journal'
+    | '/unlock'
     | '/willkommen'
     | '/modul/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -120,6 +130,7 @@ export interface FileRouteTypes {
     | '/einstellungen'
     | '/glossar'
     | '/journal'
+    | '/unlock'
     | '/willkommen'
     | '/modul/$slug'
   id:
@@ -131,6 +142,7 @@ export interface FileRouteTypes {
     | '/einstellungen'
     | '/glossar'
     | '/journal'
+    | '/unlock'
     | '/willkommen'
     | '/modul/$slug'
   fileRoutesById: FileRoutesById
@@ -143,6 +155,7 @@ export interface RootRouteChildren {
   EinstellungenRoute: typeof EinstellungenRoute
   GlossarRoute: typeof GlossarRoute
   JournalRoute: typeof JournalRoute
+  UnlockRoute: typeof UnlockRoute
   WillkommenRoute: typeof WillkommenRoute
   ModulSlugRoute: typeof ModulSlugRoute
 }
@@ -154,6 +167,13 @@ declare module '@tanstack/react-router' {
       path: '/willkommen'
       fullPath: '/willkommen'
       preLoaderRoute: typeof WillkommenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/unlock': {
+      id: '/unlock'
+      path: '/unlock'
+      fullPath: '/unlock'
+      preLoaderRoute: typeof UnlockRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/journal': {
@@ -223,6 +243,7 @@ const rootRouteChildren: RootRouteChildren = {
   EinstellungenRoute: EinstellungenRoute,
   GlossarRoute: GlossarRoute,
   JournalRoute: JournalRoute,
+  UnlockRoute: UnlockRoute,
   WillkommenRoute: WillkommenRoute,
   ModulSlugRoute: ModulSlugRoute,
 }

@@ -439,6 +439,9 @@ export function Modul10() {
           },
         ]}
       />
+
+      {/* ── Bonus-Gateway · Brücke ins Complete-Paket ── */}
+      <BonusGateway />
     </article>
   );
 }
