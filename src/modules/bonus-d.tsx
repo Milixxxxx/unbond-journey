@@ -12,6 +12,8 @@ import { ChecklistGoals } from "@/components/checklist-goals";
 import { BonusLock } from "@/components/bonus-lock";
 import { WitnessCircle } from "@/components/exercise/witness-circle";
 import { LetterToAuthority } from "@/components/exercise/letter-to-authority";
+import { BehoerdenBriefCoach } from "@/components/exercise/behoerden-brief-coach";
+import { BehoerdenBingo } from "@/components/exercise/behoerden-bingo";
 import { Reflection3Step } from "@/components/exercise";
 import { useModuleProgress } from "@/hooks/use-module-progress";
 import { ExerciseFrame } from "@/components/exercise/exercise-frame";
@@ -437,6 +439,12 @@ export function BonusD() {
 
           {/* Übung 4 — Brief an Behörde */}
           <LetterToAuthority slug={SLUG} storageKey="bd-letter" />
+
+          {/* Übung 5 — KI Brief-Coach */}
+          <BehoerdenBriefCoach slug={SLUG} />
+
+          {/* Übung 6 — Behörden-Bingo (interaktiv) */}
+          <BehoerdenBingo />
 
           {/* Transformationsziele */}
           <ChecklistGoals
