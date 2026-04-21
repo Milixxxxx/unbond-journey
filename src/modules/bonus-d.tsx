@@ -464,6 +464,36 @@ export function BonusD() {
               },
             ]}
           />
+
+          {/* Story-Auflösung · Cliffhänger schließt sich */}
+          <div
+            className="rounded-2xl bg-white/80 p-5 shadow-soft sm:p-6"
+            style={{ borderLeft: "5px solid var(--color-sage)" }}
+          >
+            <p className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-sage">
+              <ScrollText className="h-3.5 w-3.5" />
+              Auflösung · Wer war Marys Zeugin?
+            </p>
+            <div className="mt-3 space-y-3 text-sm leading-relaxed text-graphite/90">
+              <p>
+                Marys Zeugin war ihre <strong>Ex-Frau aus der Zeit vor
+                Sandra</strong> — die Frau, mit der sie jahrelang eine gesunde
+                Beziehung geführt hatte. Trotz eigener Trennungs­geschichte
+                zögert sie im Termin keine Sekunde. Sie bestätigt Marys
+                Integrität und sagt einen Satz, der die Sachbearbeiterin
+                aufhorchen lässt: Sie habe Sandra <em>jahrelang als
+                Außenstehende</em> beobachten können und Mary mehrfach gewarnt,
+                dass Sandra starke narzisstische Züge zeige — auch wenn sie
+                nach außen die Unschuld in Person spiele.
+              </p>
+              <p>
+                Das Verfahren wird wenige Wochen später eingestellt. Mary
+                versteht in diesem Moment, was die Werkzeuge dieses Kapitels
+                wirklich bedeuten:{" "}
+                <em>Vorbereitung schlägt Reaktion. Immer.</em>
+              </p>
+            </div>
+          </div>
         </section>
       </BonusLock>
     </article>
