@@ -10,7 +10,6 @@ import {
 import { ChapterIntro } from "@/components/chapter-intro";
 import { ChecklistGoals } from "@/components/checklist-goals";
 import { BonusLock } from "@/components/bonus-lock";
-import { GlossarTerm } from "@/components/glossar-term";
 import { WitnessCircle } from "@/components/exercise/witness-circle";
 import { LetterToAuthority } from "@/components/exercise/letter-to-authority";
 import { Reflection3Step } from "@/components/exercise";
@@ -107,9 +106,8 @@ export function BonusD() {
               häusliches Umfeld" und „psychische Belastung der Mutter". Mary
               weiß sofort, wer hinter der Meldung steckt. Sandra hat nie
               akzeptiert, dass Mary gegangen ist. Und jetzt, wo digitales
-              Blockieren und{" "}
-              <GlossarTerm term="Breadcrumbing">Breadcrumbing</GlossarTerm>{" "}
-              nicht mehr wirken, greift sie zum schwersten Hebel, den sie
+              Blockieren und <em>Breadcrumbing</em> nicht mehr wirken, greift
+              sie zum schwersten Hebel, den sie
               hat: den Staat.
             </p>
             <p>
@@ -416,24 +414,25 @@ export function BonusD() {
           {/* Übung 1 — Reflexion / Chronik */}
           <Reflection3Step
             slug={SLUG}
-            storageKey="bd-chronik"
             title="Übung 1 · Meine Chronik beginnen"
             subtitle="Schreibe deine Geschichte in deinen Worten — sachlich, chronologisch. Diese Chronik ist nur für dich (und ggf. deine Anwältin)."
+            meta="📋 Chronik · ⏱ 25 Min"
+            accent="bordeaux"
             steps={[
               {
-                key: "what-happened",
+                key: "bd-chronik-what",
                 label: "Was in der Beziehung passierte (sachlich, in deinen Worten)",
                 placeholder:
                   "Beschreibe Schlüssel-Vorfälle mit Datum, Ort, was konkret gesagt/getan wurde. Keine Bewertung — nur Fakten.",
               },
               {
-                key: "separation",
+                key: "bd-chronik-sep",
                 label: "Wie die Trennung verlief",
                 placeholder:
                   "Wann hast du dich getrennt? Wie hat sie reagiert? Welche Drohungen / Manipulationsversuche gab es?",
               },
               {
-                key: "after",
+                key: "bd-chronik-after",
                 label: "Welches Verhalten nach der Trennung folgte (und warum du es als Kontrolle erkennst)",
                 placeholder:
                   "Nachrichten, Anrufe, Dritte einschalten, Rufschädigung, Behördenkontakt … und warum du sicher bist, dass es Kontrolle ist und keine berechtigte Sorge.",
