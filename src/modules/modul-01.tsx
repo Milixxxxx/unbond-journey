@@ -420,17 +420,94 @@ export function Modul01() {
   );
 }
 
-const WARNSIGNALE: { id: string; label: string; desc: string }[] = [
-  { id: "lovebombing", label: "Lovebombing", desc: "Überschwängliche Zuneigung zu Beginn, die emotionale Abhängigkeit erzeugt." },
-  { id: "hotcold", label: "Hot/Cold-Muster", desc: "Abwechselnd liebevoll und abweisend — ohne erkennbaren Anlass." },
-  { id: "gaslighting", label: "Gaslighting", desc: "Deine Wahrnehmung wird systematisch in Frage gestellt." },
-  { id: "schweigen", label: "Schweigen als Strafe", desc: "Funkstille, Blockieren, Ignorieren als Bestrafung." },
-  { id: "weaponized", label: "Weaponized Virtue", desc: "Progressive Werte werden als Kontrollwerkzeug eingesetzt." },
-  { id: "isolation", label: "Isolation", desc: "Dein Freundes- und Familienkreis wird kleiner." },
-  { id: "schuld", label: "Schuldzuweisung", desc: "Du wirst für Dinge verantwortlich gemacht, die du nicht kontrollieren kannst." },
-  { id: "hoovering", label: "Hoovering", desc: "Sobald du loslässt, kommt die nächste Welle der Wärme." },
-  { id: "selbstwert", label: "Selbstwert-Erosion", desc: "Du siehst dich selbst schlechter als davor." },
-  { id: "hoffnung", label: "Hoffnungssucht", desc: "Du glaubst, alles könnte sich noch wenden — wenn du nur anders wärst." },
+const WARNSIGNALE: {
+  id: string;
+  nr: string;
+  emoji: string;
+  label: string;
+  teaser: string;
+  desc: string;
+}[] = [
+  {
+    id: "lovebombing",
+    nr: "01",
+    emoji: "💣",
+    label: "Lovebombing",
+    teaser: "Überschwängliche Zuneigung zu Beginn.",
+    desc: "Überschwängliche Zuneigung zu Beginn, die eine emotionale Abhängigkeit erzeugt, bevor das wahre Muster sichtbar wird.",
+  },
+  {
+    id: "hotcold",
+    nr: "02",
+    emoji: "🌡️",
+    label: "Hot/Cold-Muster",
+    teaser: "Abwechselnd liebevoll und abweisend — ohne Anlass.",
+    desc: "Abwechselnd liebevoll und abweisend — ohne erkennbaren Anlass. Das Unvorhersehbare ist das Suchterzeugende.",
+  },
+  {
+    id: "gaslighting",
+    nr: "03",
+    emoji: "🌀",
+    label: "Gaslighting",
+    teaser: "Deine Wahrnehmung wird in Frage gestellt.",
+    desc: "Deine Wahrnehmung wird systematisch in Frage gestellt. Du beginnst, deiner eigenen Realität zu misstrauen.",
+  },
+  {
+    id: "schweigen",
+    nr: "04",
+    emoji: "🤐",
+    label: "Schweigen als Strafe",
+    teaser: "Funkstille als emotionale Bestrafung.",
+    desc: "Funkstille, Blockieren, Ignorieren als Reaktion auf Grenzen oder Konflikte. Emotionale Bestrafung ohne Worte.",
+  },
+  {
+    id: "weaponized",
+    nr: "05",
+    emoji: "⚔️",
+    label: "Weaponized Virtue",
+    teaser: "Progressive Werte als Kontrollwerkzeug.",
+    desc: "Progressive Werte werden als Kontrollwerkzeug eingesetzt. Macht Gaslighting besonders wirksam.",
+  },
+  {
+    id: "isolation",
+    nr: "06",
+    emoji: "🏝️",
+    label: "Isolation",
+    teaser: "Dein Kreis wird kleiner.",
+    desc: "Dein Freundes- und Familienkreis wird kleiner. Du ziehst dich zurück oder wirst von ihr isoliert.",
+  },
+  {
+    id: "schuld",
+    nr: "07",
+    emoji: "🪞",
+    label: "Schuldzuweisung",
+    teaser: "Deine Emotionen sind „das Problem".",
+    desc: "Du wirst für Dinge verantwortlich gemacht, die du nicht kontrollieren kannst. Deine Emotionen sind das Problem.",
+  },
+  {
+    id: "hoovering",
+    nr: "08",
+    emoji: "🧲",
+    label: "Hoovering",
+    teaser: "Wärme genau dann, wenn du gehen willst.",
+    desc: "Sobald du anfängst loszulassen, kommt die nächste Welle der Wärme — gerade dann, wenn du kurz davor warst, wirklich zu gehen.",
+  },
+  {
+    id: "selbstwert",
+    nr: "09",
+    emoji: "🪫",
+    label: "Selbstwert-Erosion",
+    teaser: "Du siehst dich schlechter als davor.",
+    desc: "Du siehst dich selbst schlechter als davor. Du glaubst, du seist zu viel, zu wenig, zu anstrengend.",
+  },
+  {
+    id: "hoffnung",
+    nr: "10",
+    emoji: "🕯️",
+    label: "Hoffnungssucht",
+    teaser: "Du glaubst, es könnte sich noch wenden.",
+    desc: "Du glaubst tief im Inneren, dass sich alles noch wenden könnte — wenn du nur anders wärst oder anders gehandelt hättest.",
+  },
 ];
 
 const RATIONALISIERUNGEN = [
