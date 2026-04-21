@@ -168,36 +168,28 @@ export function Modul01() {
       >
         <div className="grid gap-3 sm:grid-cols-3">
           <FlipCard
-            front={<span>Skinner (1938)</span>}
-            back={
-              <span>
-                Operante Konditionierung: Variable Verstärkungspläne erzeugen
-                die widerstandsfähigste Konditionierung. Eine Taube, die
-                unregelmäßig Futter bekommt, pickt länger als eine, die jedes
-                Mal belohnt wird.
-              </span>
-            }
+            emoji="🐦"
+            color="var(--color-sage)"
+            label="Skinner · 1938"
+            heading="Operante Konditionierung"
+            front="Warum unregelmäßige Belohnung süchtig macht."
+            back="Variable Verstärkungspläne erzeugen die widerstandsfähigste Konditionierung. Eine Taube, die unregelmäßig Futter bekommt, pickt länger als eine, die jedes Mal belohnt wird."
           />
           <FlipCard
-            front={<span>Fisher et al. (2005)</span>}
-            back={
-              <span>
-                fMRT zeigt: Romantische Liebe aktiviert das ventrale
-                tegmentale Areal — dasselbe System wie bei Kokain.
-                Trennungsschmerz ist neurochemisch identisch mit
-                Drogen-Entzug.
-              </span>
-            }
+            emoji="🧠"
+            color="var(--color-sage)"
+            label="Fisher et al. · 2005"
+            heading="Liebe = Kokain im fMRT"
+            front="Romantische Liebe aktiviert dasselbe Areal wie Kokain."
+            back="fMRT zeigt: Romantische Liebe aktiviert das ventrale tegmentale Areal — dasselbe System wie bei Kokain. Trennungsschmerz ist neurochemisch identisch mit Drogen-Entzug."
           />
           <FlipCard
-            front={<span>Dutton &amp; Painter (1993)</span>}
-            back={
-              <span>
-                Trauma-Bonding entsteht <em>wegen</em> des Schmerzes, nicht
-                trotz. Erleichterung nach Bestrafung wirkt stärker als jede
-                konstante Zuneigung.
-              </span>
-            }
+            emoji="🔗"
+            color="var(--color-sage)"
+            label="Dutton & Painter · 1993"
+            heading="Bindung wegen Schmerz"
+            front="Trauma-Bonding entsteht wegen, nicht trotz des Schmerzes."
+            back="Erleichterung nach Bestrafung wirkt stärker als jede konstante Zuneigung. Das ist der Kern jeder pathologischen Bindung."
           />
         </div>
       </SectionBlock>
