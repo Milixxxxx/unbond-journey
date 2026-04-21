@@ -1,5 +1,7 @@
-import { useMemo } from "react";
-import { useModuleProgress } from "@/hooks/use-module-progress";
+import { useEffect, useMemo, useState } from "react";
+import { Check } from "lucide-react";
+import { useModuleProgress } from "@/lib/auth-context" /* placeholder removed */;
+import { useModuleProgress as _useModuleProgress } from "@/hooks/use-module-progress";
 import { cn } from "@/lib/utils";
 
 export interface ChoiceOption<V extends string | number = string> {
