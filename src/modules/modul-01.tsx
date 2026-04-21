@@ -25,6 +25,12 @@ const SLUG = "modul-01";
  * Single-Select via ButtonChoice (kein Slider).
  */
 export function Modul01() {
+  const [perspektive, setPerspektive] = useState<"mary" | "sandra" | "beide">("beide");
+  const dim = (who: "mary" | "sandra") =>
+    perspektive !== "beide" && perspektive !== who
+      ? "opacity-30 transition-opacity duration-500"
+      : "opacity-100 transition-opacity duration-500";
+
   return (
     <article className="space-y-7">
       {/* ── Einleitung (3 Sätze max) ── */}
