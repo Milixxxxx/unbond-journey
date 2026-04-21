@@ -144,7 +144,22 @@ export const MODULES: ModuleMeta[] = [
     phase: 4,
     available: true,
   },
+  {
+    slug: "bonus-f",
+    number: "F",
+    title: "Bonus F · Ankommen in der Trauer",
+    subtitle:
+      "Disenfranchised Grief, 5 Verlustebenen & finale Kintsugi-Apotheose — der letzte Schritt im Complete-Pfad",
+    phase: 4,
+    available: true,
+  },
 ];
+
+export const BONUS_SLUGS = ["bonus-d", "bonus-e", "bonus-f"];
+
+export function isBonus(slug: string) {
+  return BONUS_SLUGS.includes(slug);
+}
 
 export function getModule(slug: string): ModuleMeta | undefined {
   return MODULES.find((m) => m.slug === slug);

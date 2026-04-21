@@ -1,8 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { MODULES, PHASES, type Phase } from "@/lib/modules";
-import { CheckCircle2, BookHeart, Settings, Construction, Star } from "lucide-react";
+import { MODULES, PHASES, isBonus, type Phase } from "@/lib/modules";
+import { CheckCircle2, BookHeart, Settings, Construction, Star, Lock, KeyRound, Sparkles } from "lucide-react";
 import butterflyPattern from "@/assets/butterfly-pattern.png";
+
+const STORAGE_KEY = "unbond-bonus-unlocks";
+function readBonusUnlocks(): string[] {
+  if (typeof window === "undefined") return [];
+  try {
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
 
 export const Route = createFileRoute("/dashboard")({
   component: Dashboard,
@@ -25,12 +38,24 @@ function computeGreeting() {
 
 function Dashboard() {
   const [earnedSlugs, setEarnedSlugs] = useState<string[]>([]);
+  const [bonusUnlocks, setBonusUnlocks] = useState<string[]>([]);
   const [greeting, setGreeting] = useState<string>(NEUTRAL_GREETING);
   useEffect(() => {
     setGreeting(computeGreeting());
+    setBonusUnlocks(readBonusUnlocks());
+    const onUnlock = () => setBonusUnlocks(readBonusUnlocks());
+    window.addEventListener("unbond-bonus-unlocked", onUnlock);
+    window.addEventListener("storage", onUnlock);
+    return () => {
+      window.removeEventListener("unbond-bonus-unlocked", onUnlock);
+      window.removeEventListener("storage", onUnlock);
+    };
   }, []);
-  const totalAvailable = MODULES.filter((m) => m.available).length;
-  const availableModules = useMemo(() => MODULES.filter((m) => m.available), []);
+  // Hauptkapitel = alle Nicht-Bonus-Module · Bonus separat behandelt
+  const mainModules = useMemo(() => MODULES.filter((m) => m.available && !isBonus(m.slug)), []);
+  const bonusModules = useMemo(() => MODULES.filter((m) => m.available && isBonus(m.slug)), []);
+  const totalAvailable = mainModules.length;
+  const availableModules = mainModules;
 
   useEffect(() => {
     const readProgress = () => {
@@ -160,7 +185,8 @@ function Dashboard() {
           <div className="absolute left-7 top-3 bottom-3 w-0.5 bg-gradient-to-b from-bordeaux/30 via-sage/30 to-mauve/30" />
 
           {phases.map((p) => {
-            const phaseModules = MODULES.filter((m) => m.phase === p);
+            const phaseModules = MODULES.filter((m) => m.phase === p && !isBonus(m.slug));
+            if (phaseModules.length === 0) return null;
             return (
               <section key={p} className="relative mb-7">
                 <div className="mb-3 ml-16">
@@ -192,6 +218,9 @@ function Dashboard() {
             );
           })}
         </div>
+
+        {/* ===================== BONUS-SEKTION ===================== */}
+        <BonusSection modules={bonusModules} unlocks={bonusUnlocks} />
       </div>
     </main>
   );
@@ -304,5 +333,106 @@ function Station({
         <p className="mt-0.5 line-clamp-2 text-xs text-graphite/70">{subtitle}</p>
       </div>
     </Link>
+  );
+}
+
+/**
+ * BonusSection · Hebt die Bonus-Kapitel D/E/F optisch von den Hauptkapiteln ab.
+ * Zeigt Schloss-Icon bei gesperrt, Sparkles bei freigeschaltet.
+ */
+function BonusSection({
+  modules,
+  unlocks,
+}: {
+  modules: typeof MODULES;
+  unlocks: string[];
+}) {
+  if (modules.length === 0) return null;
+  const allUnlocked = modules.every((m) => unlocks.includes(m.slug));
+
+  return (
+    <section className="relative mt-10 mb-7">
+      {/* Visuelle Trennung von den Hauptphasen */}
+      <div className="mb-5 flex items-center gap-3">
+        <span className="h-px flex-1 bg-bordeaux/20" />
+        <span className="text-[10px] font-semibold uppercase tracking-[0.32em] text-bordeaux">
+          · Bonus-Kapitel ·
+        </span>
+        <span className="h-px flex-1 bg-bordeaux/20" />
+      </div>
+
+      <div className="rounded-2xl border-2 border-bordeaux/20 bg-gradient-to-br from-bordeaux/5 via-mauve/5 to-transparent p-5">
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <h2 className="font-display text-base font-semibold tracking-tight text-bordeaux">
+              Vertiefung · D · E · F
+            </h2>
+            <p className="mt-1 text-xs text-graphite/70">
+              {allUnlocked
+                ? "Alle drei Bonus-Kapitel sind für dich freigeschaltet."
+                : "Vorschau frei zugänglich · Übungen mit dem UNBOND-Complete-Code."}
+            </p>
+          </div>
+          {!allUnlocked && (
+            <Link
+              to="/unlock"
+              className="inline-flex flex-shrink-0 items-center gap-1.5 rounded-full bg-bordeaux px-3 py-1.5 text-[11px] font-semibold text-white transition hover:opacity-90"
+            >
+              <KeyRound className="h-3.5 w-3.5" />
+              Code
+            </Link>
+          )}
+        </div>
+
+        <ul className="mt-4 space-y-2">
+          {modules.map((m) => {
+            const isUnlocked = unlocks.includes(m.slug);
+            return (
+              <li key={m.slug}>
+                <Link
+                  to="/modul/$slug"
+                  params={{ slug: m.slug }}
+                  className="group flex items-center gap-3 rounded-xl border border-bordeaux/15 bg-white/80 p-3 transition hover:bg-white hover:shadow-soft"
+                >
+                  <div
+                    className={`grid h-12 w-12 flex-shrink-0 place-items-center rounded-full font-display text-base font-bold ${
+                      isUnlocked
+                        ? "bg-sage text-white"
+                        : "border-2 border-bordeaux/30 bg-white text-bordeaux"
+                    }`}
+                  >
+                    {isUnlocked ? <Sparkles className="h-5 w-5" /> : m.number}
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between gap-2">
+                      <h3 className="font-display text-sm font-semibold leading-tight text-bordeaux">
+                        {m.title}
+                      </h3>
+                      <span
+                        className={`flex flex-shrink-0 items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${
+                          isUnlocked
+                            ? "bg-sage/20 text-sage"
+                            : "bg-bordeaux/10 text-bordeaux"
+                        }`}
+                      >
+                        {isUnlocked ? (
+                          "frei"
+                        ) : (
+                          <>
+                            <Lock className="h-2.5 w-2.5" />
+                            Vorschau
+                          </>
+                        )}
+                      </span>
+                    </div>
+                    <p className="mt-0.5 line-clamp-2 text-xs text-graphite/70">{m.subtitle}</p>
+                  </div>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </section>
   );
 }
