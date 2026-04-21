@@ -220,7 +220,8 @@ export function Modul01() {
           Vorderseite: Name. Rückseite: was wirklich dahintersteckt. Was du
           benennen kannst, kann dein Verstand nicht mehr wegrationalisieren.
         </p>
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Grid: 2 Spalten Mobile (5 Reihen × 2) · 5 Spalten ab md (2 Reihen × 5) — keine einzelne Karte */}
+        <div className="grid grid-cols-2 gap-2 sm:gap-2.5 md:grid-cols-5">
           {WARNSIGNALE.map((w) => (
             <FlipCard
               key={w.id}
