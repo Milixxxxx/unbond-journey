@@ -183,6 +183,8 @@
   /* === STORY (silbriges Glass-Grau, neutral für SW-Fotos der Hauptdarstellerinnen) === */
   .story-box {
     position: relative;
+    overflow: hidden;
+    isolation: isolate;
     background:
       linear-gradient(135deg,
         oklch(0.42 0.008 250 / 0.78),
@@ -199,11 +201,36 @@
       inset 0 1px 0 oklch(1 0 0 / 0.08);
     animation: fade-in 0.7s ease-out both;
   }
+  /* Atmosphärischer Puls — sehr dezent, 9s, hinter dem Inhalt */
+  .story-box::before {
+    content: "";
+    position: absolute;
+    inset: -30%;
+    z-index: -1;
+    background:
+      radial-gradient(40% 35% at 22% 28%, oklch(0.78 0.04 250 / 0.18), transparent 70%),
+      radial-gradient(45% 40% at 78% 75%, oklch(0.72 0.05 280 / 0.14), transparent 70%);
+    animation: story-breath 9s ease-in-out infinite;
+    pointer-events: none;
+  }
   .story-box h1, .story-box h2, .story-box h3, .story-box h4, .story-box h5 {
     color: oklch(0.96 0.005 250);
   }
   .story-box em { color: oklch(0.92 0.008 250); font-style: italic; }
   .story-box strong { color: oklch(0.98 0.003 250); font-weight: 600; }
+
+  /* Story Perspektiv-Stile — visuelle Tiefe Mary vs Sandra */
+  .story-box [data-voice="mary"] {
+    font-weight: 400;
+    padding-left: 0;
+  }
+  .story-box [data-voice="sandra"] {
+    font-weight: 300;
+    padding-left: 0.75rem;
+    border-left: 1px solid oklch(0.78 0.005 250 / 0.35);
+    line-height: 1.85;
+    color: oklch(0.88 0.005 250);
+  }
 
   /* === DIAGNOSE (Sage, neurobiologisch, ruhig) === */
   .diagnose-box {
@@ -270,26 +297,66 @@
     font-size: 0.875rem;
   }
 
-  /* === Interaktiver Button-Choice (Terracotta-Akzent) === */
+  /* === Interaktiver Button-Choice (Terracotta-Akzent) — Apple-like Feedback === */
   .choice-btn {
+    position: relative;
     border: 1.5px solid color-mix(in oklab, var(--color-terracotta) 35%, transparent);
     background: color-mix(in oklab, white 75%, transparent);
     color: var(--color-graphite);
     border-radius: var(--radius-md);
     padding: 0.625rem 1rem;
     font-weight: 500;
-    transition: all 0.2s ease;
+    transition:
+      background-color 0.35s cubic-bezier(.2,.8,.2,1),
+      color 0.35s cubic-bezier(.2,.8,.2,1),
+      border-color 0.35s cubic-bezier(.2,.8,.2,1),
+      box-shadow 0.45s cubic-bezier(.2,.8,.2,1),
+      transform 0.2s cubic-bezier(.2,.8,.2,1);
     cursor: pointer;
+    will-change: transform, box-shadow;
   }
   .choice-btn:hover {
     border-color: var(--color-terracotta);
     background: color-mix(in oklab, var(--color-terracotta) 8%, white);
+    transform: translateY(-1px);
   }
+  .choice-btn:active { transform: translateY(0) scale(0.985); }
   .choice-btn[data-active="true"] {
     background: var(--color-terracotta);
     color: var(--color-cream);
     border-color: var(--color-terracotta);
-    box-shadow: 0 4px 14px color-mix(in oklab, var(--color-terracotta) 35%, transparent);
+    box-shadow:
+      0 6px 18px color-mix(in oklab, var(--color-terracotta) 38%, transparent),
+      0 0 0 4px color-mix(in oklab, var(--color-terracotta) 18%, transparent);
+    animation: choice-confirm 0.55s cubic-bezier(.2,.8,.2,1);
+  }
+
+  /* === Checkbox Premium Feedback (Mauve Glow on check) === */
+  .check-item {
+    transition: background-color 0.4s ease, transform 0.25s ease;
+  }
+  .check-item:hover { transform: translateX(2px); }
+  .check-item input[type="checkbox"] {
+    transition: box-shadow 0.45s cubic-bezier(.2,.8,.2,1), transform 0.25s ease;
+    border-radius: 0.35rem;
+  }
+  .check-item input[type="checkbox"]:checked {
+    animation: check-glow 0.7s ease-out;
+  }
+  .check-item__label {
+    transition: color 0.45s ease, opacity 0.45s ease, text-decoration-color 0.45s ease;
+  }
+
+  /* === Reveal-on-Scroll (Apple-like Calm Reveal) === */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.85s cubic-bezier(.2,.8,.2,1), transform 0.85s cubic-bezier(.2,.8,.2,1);
+    will-change: opacity, transform;
+  }
+  .reveal[data-reveal="true"] {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -315,6 +382,23 @@
 @keyframes pulse-soft {
   0%, 100% { box-shadow: 0 0 0 0 oklch(0.6 0.075 320 / 0.5); }
   50% { box-shadow: 0 0 0 12px oklch(0.6 0.075 320 / 0); }
+}
+@keyframes choice-confirm {
+  0%   { box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-terracotta) 55%, transparent),
+                     0 6px 18px color-mix(in oklab, var(--color-terracotta) 38%, transparent); }
+  60%  { box-shadow: 0 0 0 10px color-mix(in oklab, var(--color-terracotta) 0%, transparent),
+                     0 6px 18px color-mix(in oklab, var(--color-terracotta) 38%, transparent); }
+  100% { box-shadow: 0 0 0 4px color-mix(in oklab, var(--color-terracotta) 18%, transparent),
+                     0 6px 18px color-mix(in oklab, var(--color-terracotta) 38%, transparent); }
+}
+@keyframes check-glow {
+  0%   { box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-mauve) 60%, transparent); transform: scale(1); }
+  40%  { box-shadow: 0 0 0 8px color-mix(in oklab, var(--color-mauve) 0%, transparent); transform: scale(1.12); }
+  100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-mauve) 0%, transparent); transform: scale(1); }
+}
+@keyframes story-breath {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%      { opacity: 0.95; transform: scale(1.04); }
 }
 
 .animate-fade-in { animation: fade-in 0.55s ease-out both; }
