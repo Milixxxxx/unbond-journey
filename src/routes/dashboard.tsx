@@ -38,12 +38,24 @@ function computeGreeting() {
 
 function Dashboard() {
   const [earnedSlugs, setEarnedSlugs] = useState<string[]>([]);
+  const [bonusUnlocks, setBonusUnlocks] = useState<string[]>([]);
   const [greeting, setGreeting] = useState<string>(NEUTRAL_GREETING);
   useEffect(() => {
     setGreeting(computeGreeting());
+    setBonusUnlocks(readBonusUnlocks());
+    const onUnlock = () => setBonusUnlocks(readBonusUnlocks());
+    window.addEventListener("unbond-bonus-unlocked", onUnlock);
+    window.addEventListener("storage", onUnlock);
+    return () => {
+      window.removeEventListener("unbond-bonus-unlocked", onUnlock);
+      window.removeEventListener("storage", onUnlock);
+    };
   }, []);
-  const totalAvailable = MODULES.filter((m) => m.available).length;
-  const availableModules = useMemo(() => MODULES.filter((m) => m.available), []);
+  // Hauptkapitel = alle Nicht-Bonus-Module · Bonus separat behandelt
+  const mainModules = useMemo(() => MODULES.filter((m) => m.available && !isBonus(m.slug)), []);
+  const bonusModules = useMemo(() => MODULES.filter((m) => m.available && isBonus(m.slug)), []);
+  const totalAvailable = mainModules.length;
+  const availableModules = mainModules;
 
   useEffect(() => {
     const readProgress = () => {
