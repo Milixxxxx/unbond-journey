@@ -14,6 +14,7 @@ import { Modul07 } from "@/modules/modul-07";
 import { Modul08 } from "@/modules/modul-08";
 import { Modul09 } from "@/modules/modul-09";
 import { Modul10 } from "@/modules/modul-10";
+import { BonusD } from "@/modules/bonus-d";
 import { ModuleStub } from "@/modules/module-stub";
 
 export const Route = createFileRoute("/modul/$slug")({
@@ -125,6 +126,8 @@ function ModulePage() {
             <Modul09 />
           ) : meta.slug === "modul-10" ? (
             <Modul10 />
+          ) : meta.slug === "bonus-d" ? (
+            <BonusD />
           ) : (
             <ModuleStub meta={meta} />
           )}

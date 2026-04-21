@@ -1,0 +1,544 @@
+import {
+  ScrollText,
+  Brain,
+  Lightbulb,
+  Microscope,
+  ShieldAlert,
+  Phone,
+  ExternalLink,
+} from "lucide-react";
+import { ChapterIntro } from "@/components/chapter-intro";
+import { ChecklistGoals } from "@/components/checklist-goals";
+import { BonusLock } from "@/components/bonus-lock";
+import { WitnessCircle } from "@/components/exercise/witness-circle";
+import { LetterToAuthority } from "@/components/exercise/letter-to-authority";
+import { Reflection3Step } from "@/components/exercise";
+
+const SLUG = "bonus-d";
+
+/**
+ * BONUS D · Wenn Behörden zur Waffe werden
+ *
+ * Quelle: UNBOND_Final_v5.html (Zeilen 4263–6520) + Phase-2-Briefing.
+ *
+ * Pflicht-Elemente laut Briefing:
+ *   ✓ Einführungstext ≥5 Abschnitte
+ *   ✓ Mary&Sandra Story 3 Absätze (Polizei · Marys Reaktion · Anhörung mit Ex-Frau als Zeugin)
+ *   ✓ ≥3 wiss. Konzepte mit Quellen (Litigation Abuse, DARVO, Institutional Betrayal, Badenes-Ribera)
+ *   ✓ ≥3 Übungen (Reflexion-Chronik, Zeug*innen-Kreis, Brief an Behörde)
+ *   ✓ 1 Reflexionsfeld (in Übung 1 — Reflection3Step)
+ *   ✓ 5 Transformationsziele
+ *   ✓ Vorlagen + queere Ressourcen + Krisen-Hotlines
+ *
+ * Sperre: Story + Diagnose offen, Übungen + Transformationsziele hinter BonusLock
+ *         (Code: UNBOND-COMPLETE-2025 oder UNBOND-BONUS-D-2025).
+ */
+export function BonusD() {
+  return (
+    <article className="space-y-7">
+      {/* ── Einleitung ── */}
+      <ChapterIntro
+        title="Bonus D · Wenn Behörden zur Waffe werden"
+        keywords={[
+          "Litigation Abuse",
+          "DARVO",
+          "Institutional Betrayal",
+          "Dokumentation",
+          "Vorsorge",
+        ]}
+      >
+        <p>
+          Manche toxischen Beziehungen enden nicht mit der Trennung — sie
+          eskalieren in den institutionellen Raum. Polizeimeldungen,
+          Jugendamt-Anzeigen, Sorgerechtsstreitigkeiten, falsche Anschuldigungen.
+          Das ist <strong>kein Zeichen berechtigter Sorge</strong>, sondern die
+          letzte Eskalationsstufe eines Kontrollsystems, das seine direkte Macht
+          über dich verloren hat.
+        </p>
+        <p>
+          In WLW-Beziehungen ist das besonders gefährlich, weil Behörden die
+          Dynamik selten kennen. „Zwei Frauen — da kann doch keine Gewalt
+          sein" ist ein Vorurteil, das deine Ex strategisch ausnutzen kann.
+          Während sie nach außen wie die besorgte Partnerin wirkt, stehst du
+          plötzlich da als die vermeintlich Instabile.
+        </p>
+        <p>
+          Dieses Kapitel ist anders als die vorherigen. Es geht nicht primär um
+          dein inneres Erleben — es geht um <strong>dein Schutznetz nach außen</strong>.
+          Um Dokumentation, anwaltliche Vorsorge, Zeug*innen, vorbereitete
+          Briefe. Um die nüchterne Werkzeugkiste, die du brauchst, falls aus
+          einem privaten Konflikt ein behördliches Verfahren wird.
+        </p>
+        <p>
+          Wir setzen voraus, was du in den Kapiteln 01–10 gelernt hast: Wie
+          Trauma-Bonding funktioniert, warum DARVO eine systematische Strategie
+          ist, wie Manipulation aussieht. Hier vertiefen wir nur den
+          institutionellen Aspekt — denn dort verändert sich das Spiel
+          grundlegend.
+        </p>
+        <p>
+          Dieses Kapitel ersetzt keine Rechtsberatung. Es bereitet dich aber
+          darauf vor, im Ernstfall handlungsfähig zu bleiben — statt erstarrt
+          oder panisch zu reagieren. Du wirst nicht jeden Schritt brauchen.
+          Aber wenn du ihn brauchst, willst du ihn vorbereitet haben.
+        </p>
+      </ChapterIntro>
+
+      {/* ── STORY · Polizei vor der Tür ── */}
+      <section className="space-y-3">
+        <p className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-sage">
+          <ScrollText className="h-3.5 w-3.5" />
+          Story · Polizei vor der Tür
+        </p>
+        <div className="rounded-2xl bg-white/75 p-5 shadow-soft sm:p-6"
+          style={{ borderLeft: "5px solid var(--color-sage)" }}>
+          <h3 className="font-display text-base font-bold text-bordeaux">
+            Dienstag, 9:47 Uhr
+          </h3>
+          <div className="mt-3 space-y-3 text-sm leading-relaxed text-graphite/90">
+            <p>
+              Es klingelt energisch an der Haustür. Als Mary öffnet, stehen
+              dort mehrere Polizeibeamte und fragen, ob sie bei der Polizei
+              angerufen hätte — hier seien Kinder in Gefahr. Marys Hände
+              werden sofort kalt. Die Beamten teilen mit, dass eine
+              „besorgte Bürgerin" eine Meldung über Marys Erziehungsfähigkeit
+              eingereicht hat. Details: vage Andeutungen über „instabiles
+              häusliches Umfeld" und „psychische Belastung der Mutter". Mary
+              weiß sofort, wer hinter der Meldung steckt. Sandra hat nie
+              akzeptiert, dass Mary gegangen ist. Und jetzt, wo digitales
+              Blockieren und <em>Breadcrumbing</em> nicht mehr wirken, greift
+              sie zum schwersten Hebel, den sie
+              hat: den Staat.
+            </p>
+            <p>
+              In Marys Kopf explodieren gleichzeitig Panik, Wut und Scham.
+              Bin ich eine schlechte Mutter? Was, wenn sie mir die Kinder
+              wegnehmen? Was, wenn alle glauben, was Sandra behauptet? Der
+              vertraute Nebel der Selbstzweifel kriecht zurück — genau so,
+              wie er es während der Beziehung getan hat. Doch diesmal greift
+              Mary nicht zum Telefon, um Sandra anzuflehen. Sie greift zu
+              ihrem Dokumentations-Ordner, den sie seit Wochen pflegt, und
+              ruft ihre Anwältin an. Denn Mary hat in Schritt 04 etwas
+              Entscheidendes verstanden: Wer die Narration kontrolliert,
+              kontrolliert das Ergebnis. Und diesmal wird sie nicht Sandras
+              Erzählung überlassen, wie die Geschichte ausgeht.
+            </p>
+            <p>
+              Drei Wochen später sitzt Mary im Anhörungstermin beim Jugendamt.
+              Verdacht auf Kindeswohlgefährdung. Mary hat ihre Akte sortiert:
+              Chronologie, Screenshots, Zeug*innen-Liste. Über ihre Anwältin
+              hat sie zudem Strafanzeige wegen Rufschädigung gestellt. Im
+              Termin geladen ist auch Marys Ex-Frau aus der Zeit{" "}
+              <em>vor</em> Sandra — die Frau, mit der sie jahrelang eine
+              gesunde, harmonische Beziehung geführt hatte, ohne jede toxische
+              Dynamik. Die Trennung damals war nicht einfach, und genau in
+              dieser verletzlichen Phase war Mary leichte Beute für Sandra
+              gewesen, die unmittelbar danach in ihr Leben kam. Und doch —
+              trotz aller Schwierigkeiten der eigenen Trennung — zögert die
+              Ex-Frau im Termin keine Sekunde. Sie bestätigt Marys Integrität,
+              sagt klar, dass die erhobenen Vorwürfe nicht zu Mary passen, und
+              fügt etwas hinzu, das die Sachbearbeiterin aufhorchen lässt:
+              Sie habe Sandra über Jahre als Außenstehende beobachten können
+              und Mary mehrfach gesagt, dass Sandra ihrer Einschätzung nach
+              starke narzisstische Züge zeige — auch wenn sie nach außen
+              die Unschuld in Person spiele. Das Verfahren wird wenige Wochen
+              später eingestellt. Mary versteht in diesem Moment, was Schritt
+              04 wirklich meinte: <em>Vorbereitung schlägt Reaktion. Immer.</em>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── DIAGNOSE ── */}
+      <section className="space-y-3">
+        <p className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-bordeaux">
+          <Brain className="h-3.5 w-3.5" />
+          Diagnose · Litigation Abuse & DARVO
+        </p>
+        <div className="rounded-2xl bg-white/80 p-5 shadow-soft sm:p-6"
+          style={{ borderLeft: "5px solid var(--color-bordeaux)" }}>
+          <h3 className="font-display text-base font-bold text-bordeaux">
+            Wenn das System zur Verlängerung der Kontrolle wird
+          </h3>
+          <div className="mt-3 space-y-3 text-sm leading-relaxed text-graphite/90">
+            <p>
+              <strong>Litigation Abuse</strong> — der Missbrauch des
+              Rechtssystems als Verlängerung häuslicher Gewalt — ist ein
+              dokumentiertes Phänomen. Elizabeth M. Schneider beschrieb bereits
+              2000, wie Täter*innen das Rechtssystem strategisch nutzen, um
+              Kontrolle über ihre ehemaligen Partner*innen aufrechtzuerhalten:
+              durch falsche Anschuldigungen, Sorgerechtsstreitigkeiten oder das
+              Einschalten von Behörden als Druckmittel.
+            </p>
+            <p>
+              In WLW-Beziehungen verschärft sich die Lage durch die
+              gesellschaftliche Unsichtbarkeit queerer häuslicher Gewalt.
+              Behörden erkennen die Dynamik oft nicht. Wenn deine Ex eine
+              Meldung beim Jugendamt macht oder die Polizei ruft, wirkt sie
+              nach außen wie die „besorgte Partnerin" — während du als die
+              vermeintlich Instabile dastehst.
+            </p>
+          </div>
+
+          {/* DARVO-Schema */}
+          <div className="mt-4 space-y-2.5">
+            <div
+              className="rounded-lg p-3"
+              style={{
+                background: "color-mix(in oklab, var(--color-bordeaux) 8%, transparent)",
+                borderLeft: "4px solid var(--color-bordeaux)",
+              }}
+            >
+              <strong className="text-bordeaux">D — Deny (Leugnen):</strong>{" "}
+              <span className="text-sm text-graphite/90">
+                „Das habe ich nie gesagt. Du interpretierst alles falsch."
+              </span>
+            </div>
+            <div
+              className="rounded-lg p-3"
+              style={{
+                background: "color-mix(in oklab, var(--color-terracotta) 12%, transparent)",
+                borderLeft: "4px solid var(--color-terracotta)",
+              }}
+            >
+              <strong className="text-terracotta">A — Attack (Angreifen):</strong>{" "}
+              <span className="text-sm text-graphite/90">
+                „Du bist instabil. Du brauchst Hilfe. Deine Medikamente funktionieren nicht."
+              </span>
+            </div>
+            <div
+              className="rounded-lg p-3"
+              style={{
+                background: "color-mix(in oklab, var(--color-graphite) 8%, transparent)",
+                borderLeft: "4px solid var(--color-graphite)",
+              }}
+            >
+              <strong className="text-graphite">RVO — Reverse Victim & Offender:</strong>{" "}
+              <span className="text-sm text-graphite/90">
+                Sie wird zum Opfer, du zur Täterin. Behörden sehen nur ihre Darstellung.
+              </span>
+            </div>
+          </div>
+
+          <p className="mt-3 text-sm leading-relaxed text-graphite/90">
+            Jennifer Freyd identifizierte DARVO als eine der effektivsten
+            Strategien zur Aufrechterhaltung von Macht nach einer Trennung. Das
+            Muster ist besonders wirksam, wenn Behörden die Dynamik queerer
+            Beziehungen nicht kennen.
+          </p>
+        </div>
+      </section>
+
+      {/* ── DEEP DIVE · Institutional Betrayal ── */}
+      <section className="space-y-3">
+        <p className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-mauve">
+          <Microscope className="h-3.5 w-3.5" />
+          Deep Dive · Institutional Betrayal in queeren Kontexten
+        </p>
+        <div className="rounded-2xl bg-mauve/5 p-5 shadow-soft sm:p-6"
+          style={{ borderLeft: "5px solid var(--color-mauve)" }}>
+          <h3 className="font-display text-base font-bold text-bordeaux">
+            Wenn Institutionen versagen
+          </h3>
+          <div className="mt-3 space-y-3 text-sm leading-relaxed text-graphite/90">
+            <p>
+              Carly P. Smith und Jennifer Freyd prägten den Begriff{" "}
+              <em>Institutional Betrayal</em> (2013, 2014): den Verrat durch
+              Institutionen, denen man vertrauen sollte. Wenn Polizei,
+              Jugendamt oder Gerichte die Manipulation einer Täterin nicht
+              erkennen — oder schlimmer, ihr Glauben schenken —, wird das
+              Trauma nicht nur aufrechterhalten, sondern institutionell
+              verstärkt. Betroffene erleben einen <strong>doppelten Verrat</strong>:
+              zuerst durch die Partnerin, dann durch das System.
+            </p>
+            <p>
+              In queeren Kontexten verschärft sich dieses Problem deutlich.
+              Badenes-Ribera et al. (2019) zeigten in einer Meta-Analyse, dass
+              häusliche Gewalt in gleichgeschlechtlichen Beziehungen von
+              Behörden systematisch unterschätzt wird. Die Annahme, dass
+              „zwischen zwei Frauen keine Gewalt stattfinden kann", macht es
+              Täterinnen leicht, sich als besorgte Partnerin darzustellen —
+              während die tatsächlich Betroffene als die Instabile wahrgenommen
+              wird.
+            </p>
+            <p>
+              DARVO ist dabei die Kernstrategie: Die Täterin leugnet ihr
+              Verhalten, greift die Betroffene an und kehrt die Rollen um.
+              Freyd (1997) dokumentierte, dass DARVO besonders wirksam ist,
+              wenn ein Machtgefälle besteht — und Behördenkontakt erzeugt
+              genau dieses Gefälle: Die Täterin steht auf der Seite des
+              Systems, die Betroffene muss sich verteidigen.
+            </p>
+            <p className="text-xs italic text-graphite/65">
+              Quellen: Smith, C. P. & Freyd, J. J. (2013). Institutional
+              betrayal. <em>American Psychologist</em>, 68(8); Freyd, J. J.
+              (1997). <em>Violations of power, adaptive blindness, and betrayal
+              trauma theory</em>; Badenes-Ribera, L. et al. (2019). Intimate
+              partner violence in LGBTQ+ relationships. <em>Trauma, Violence
+              & Abuse</em>, 20(2); Schneider, E. M. (2000).{" "}
+              <em>Battered Women & Feminist Lawmaking</em>. Yale University Press.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Krisen-Hinweis & queere Ressourcen ── */}
+      <section className="space-y-3">
+        <div
+          className="rounded-2xl border border-bordeaux/30 bg-bordeaux/5 p-5"
+          style={{ borderLeft: "5px solid var(--color-bordeaux)" }}
+        >
+          <p className="inline-flex items-center gap-1.5 font-semibold text-bordeaux">
+            <ShieldAlert className="h-4 w-4" />
+            Wichtiger Hinweis
+          </p>
+          <p className="mt-2 text-sm leading-relaxed text-graphite/90">
+            Dieses Kapitel ersetzt keine Rechtsberatung. Bei laufenden
+            Verfahren, Sorgerechtsstreitigkeiten oder behördlichen
+            Untersuchungen: Nimm sofort anwaltlichen Beistand in Anspruch.
+          </p>
+
+          <ul className="mt-4 space-y-2 text-sm">
+            <li className="flex items-start gap-2">
+              <Phone className="mt-0.5 h-4 w-4 flex-shrink-0 text-bordeaux" />
+              <span>
+                <strong>Hilfetelefon Gewalt gegen Frauen:</strong>{" "}
+                <a href="tel:08000116016" className="font-semibold text-bordeaux underline">
+                  08000 116 016
+                </a>{" "}
+                — kostenlos, anonym, 24/7. Berät auch queere Frauen.
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <Phone className="mt-0.5 h-4 w-4 flex-shrink-0 text-bordeaux" />
+              <span>
+                <strong>Frauenhauskoordinierung:</strong>{" "}
+                <a href="tel:08000116016" className="font-semibold text-bordeaux underline">
+                  08000 116 016
+                </a>{" "}
+                — vermittelt Schutzplätze deutschlandweit.
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <ExternalLink className="mt-0.5 h-4 w-4 flex-shrink-0 text-bordeaux" />
+              <span>
+                <strong>LSVD (Lesben- und Schwulenverband):</strong>{" "}
+                <a
+                  href="https://www.lsvd.de/de/ct/19-Beratung-zu-haeuslicher-Gewalt"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-semibold text-bordeaux underline"
+                >
+                  lsvd.de
+                </a>{" "}
+                — Beratung speziell zu häuslicher Gewalt in queeren Beziehungen.
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <ExternalLink className="mt-0.5 h-4 w-4 flex-shrink-0 text-bordeaux" />
+              <span>
+                <strong>Antidiskriminierungsstelle des Bundes:</strong>{" "}
+                <a
+                  href="https://www.antidiskriminierungsstelle.de"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-semibold text-bordeaux underline"
+                >
+                  antidiskriminierungsstelle.de
+                </a>{" "}
+                — kostenlose Erstberatung.
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <ExternalLink className="mt-0.5 h-4 w-4 flex-shrink-0 text-bordeaux" />
+              <span>
+                <strong>Lesbenberatung Berlin (LesMigraS):</strong>{" "}
+                <a
+                  href="https://www.lesmigras.de"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-semibold text-bordeaux underline"
+                >
+                  lesmigras.de
+                </a>{" "}
+                — Antigewaltberatung für lesbische, bisexuelle Frauen und Trans*-Personen.
+              </span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      {/* ── LÖSUNG · drei Säulen ── */}
+      <section className="space-y-3">
+        <p className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-sage">
+          <Lightbulb className="h-3.5 w-3.5" />
+          Lösung · Dokumentation · Vorsorge · Netzwerk
+        </p>
+
+        <div className="space-y-3">
+          {[
+            {
+              title: "Dokumentation ist Selbstschutz",
+              text: "In Behördenverfahren zählt nicht, wer die Wahrheit sagt — es zählt, wer die Wahrheit belegen kann. Eine lückenlose, chronologische Dokumentation aller Vorfälle, Kontakte und Manipulationsversuche ist dein wichtigstes Werkzeug. Nicht für Konfrontation, nicht für Rache — sondern für deinen Schutz und den deiner Kinder.",
+            },
+            {
+              title: "Rechtliche Vorsorge VOR der Eskalation",
+              text: "Warte nicht, bis die Polizei vor der Tür steht. Wenn du weißt, dass deine Ex zu institutioneller Eskalation fähig ist, kläre den Kontakt zu einer Anwältin vorab. Viele Beratungsstellen bieten kostenlose Erstgespräche. Du brauchst keine laufende Bedrohung, um dich beraten zu lassen — nur die realistische Einschätzung, dass eine Bedrohung möglich ist.",
+            },
+            {
+              title: "Vertrauenspersonen als Zeug*innen deiner Realität",
+              text: "Informiere mindestens zwei bis drei Vertrauenspersonen vollständig über die Situation — bevor eine Eskalation eintritt. Diese Menschen dienen als Zeug*innen deiner Realität: Sie kennen den Kontext, können Behörden gegenüber bestätigen, was du durchgemacht hast, und verhindern, dass deine Ex allein die Narration kontrolliert. Das ist keine Paranoia — das ist Vorsorge.",
+            },
+          ].map((p) => (
+            <div
+              key={p.title}
+              className="rounded-xl bg-white/80 p-4 shadow-soft"
+              style={{ borderLeft: "4px solid var(--color-sage)" }}
+            >
+              <strong className="text-bordeaux">{p.title}</strong>
+              <p className="mt-1.5 text-sm leading-relaxed text-graphite/90">
+                {p.text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── ÜBUNGEN + ZIELE — hinter Lock ── */}
+      <BonusLock slug={SLUG} bonusLabel="Bonus D">
+        <section className="space-y-5">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-terracotta">
+            ✏️ Übungen · 5 Transformationsziele
+          </p>
+
+          {/* Übung 1 — Reflexion / Chronik */}
+          <Reflection3Step
+            slug={SLUG}
+            title="Übung 1 · Meine Chronik beginnen"
+            subtitle="Schreibe deine Geschichte in deinen Worten — sachlich, chronologisch. Diese Chronik ist nur für dich (und ggf. deine Anwältin)."
+            meta="📋 Chronik · ⏱ 25 Min"
+            accent="bordeaux"
+            steps={[
+              {
+                key: "bd-chronik-what",
+                label: "Was in der Beziehung passierte (sachlich, in deinen Worten)",
+                placeholder:
+                  "Beschreibe Schlüssel-Vorfälle mit Datum, Ort, was konkret gesagt/getan wurde. Keine Bewertung — nur Fakten.",
+              },
+              {
+                key: "bd-chronik-sep",
+                label: "Wie die Trennung verlief",
+                placeholder:
+                  "Wann hast du dich getrennt? Wie hat sie reagiert? Welche Drohungen / Manipulationsversuche gab es?",
+              },
+              {
+                key: "bd-chronik-after",
+                label: "Welches Verhalten nach der Trennung folgte (und warum du es als Kontrolle erkennst)",
+                placeholder:
+                  "Nachrichten, Anrufe, Dritte einschalten, Rufschädigung, Behördenkontakt … und warum du sicher bist, dass es Kontrolle ist und keine berechtigte Sorge.",
+              },
+            ]}
+          />
+
+          {/* Übung 2 — Notfall-Netzwerk */}
+          <NotfallNetzwerk />
+
+          {/* Übung 3 — Zeug*innen-Kreis */}
+          <WitnessCircle slug={SLUG} storageKey="bd-witnesses" />
+
+          {/* Übung 4 — Brief an Behörde */}
+          <LetterToAuthority slug={SLUG} storageKey="bd-letter" />
+
+          {/* Transformationsziele */}
+          <ChecklistGoals
+            slug={SLUG}
+            goals={[
+              {
+                id: "g1",
+                text: "Ich verstehe Behördeneinsatz als Eskalationstaktik, nicht als berechtigte Sorge.",
+              },
+              {
+                id: "g2",
+                text: "Ich habe meine Chronik begonnen — meine Version der Geschichte ist gesichert.",
+              },
+              {
+                id: "g3",
+                text: "Ich habe den Kontakt zu einer Anwältin oder Beratungsstelle hergestellt (oder vorbereitet).",
+              },
+              {
+                id: "g4",
+                text: "Ich habe mindestens zwei Zeug*innen vollständig informiert.",
+              },
+              {
+                id: "g5",
+                text: "Ich habe meinen Brief-Vorlage angepasst und weiß, was ich im Ernstfall sende.",
+              },
+            ]}
+          />
+        </section>
+      </BonusLock>
+    </article>
+  );
+}
+
+/**
+ * Übung 2 · Notfall-Netzwerk-Felder (3 Textareas)
+ * Inline-Komponente, weil sehr spezifisch zu Bonus D.
+ */
+import { useModuleProgress } from "@/hooks/use-module-progress";
+import { ExerciseFrame } from "@/components/exercise/exercise-frame";
+
+type NetState = { anwalt: string; vertrauen: string; plan: string };
+const NET_EMPTY: NetState = { anwalt: "", vertrauen: "", plan: "" };
+
+function NotfallNetzwerk() {
+  const { exerciseState, setExercise, loaded } = useModuleProgress(SLUG);
+  if (!loaded) return null;
+  const state: NetState = exerciseState["bd-netzwerk"] ?? NET_EMPTY;
+  const update = (patch: Partial<NetState>) =>
+    setExercise("bd-netzwerk", { ...state, ...patch });
+
+  const fields: { key: keyof NetState; label: string; placeholder: string }[] = [
+    {
+      key: "anwalt",
+      label: "Meine Anwältin / Rechtsberatung (Name, Kontakt)",
+      placeholder:
+        "Falls noch nicht vorhanden: Frauenberatungsstelle in deiner Stadt für Erstberatung kontaktieren.",
+    },
+    {
+      key: "vertrauen",
+      label: "Meine Vertrauensperson (vollständig informiert)",
+      placeholder: "Name, Telefon, was sie weiß",
+    },
+    {
+      key: "plan",
+      label: "Mein Plan bei behördlichem Kontakt",
+      placeholder:
+        "1. Nicht in Panik geraten\n2. Anwältin anrufen BEVOR ich reagiere\n3. Kein Geständnis, kein Drama — nur formale Kanäle\n4. Dokumentation bereithalten",
+    },
+  ];
+
+  return (
+    <ExerciseFrame
+      title="Übung 2 · Mein Notfall-Netzwerk aufbauen"
+      subtitle="Plane dein Schutznetz bewusst — bevor du es brauchst."
+      meta="🛡️ Vorsorge · ⏱ 10 Min"
+      accent="mauve"
+    >
+      {fields.map((f) => (
+        <div key={f.key}>
+          <label className="text-[11px] font-semibold uppercase tracking-wider text-bordeaux">
+            {f.label}
+          </label>
+          <textarea
+            value={state[f.key]}
+            onChange={(e) => update({ [f.key]: e.target.value } as Partial<NetState>)}
+            placeholder={f.placeholder}
+            rows={3}
+            className="mt-1 w-full resize-y rounded-md border border-mauve/25 bg-white/85 p-2.5 text-sm leading-snug text-graphite outline-none transition focus:border-mauve focus:ring-2 focus:ring-mauve/15"
+          />
+        </div>
+      ))}
+    </ExerciseFrame>
+  );
+}
