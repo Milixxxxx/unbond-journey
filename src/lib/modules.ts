@@ -126,6 +126,24 @@ export const MODULES: ModuleMeta[] = [
     phase: 4,
     available: true,
   },
+  {
+    slug: "bonus-d",
+    number: "D",
+    title: "Bonus D · Wenn Behörden zur Waffe werden",
+    subtitle:
+      "Litigation Abuse, DARVO, Institutional Betrayal — Dokumentation, Vorsorge & queere Rechtsressourcen",
+    phase: 4,
+    available: true,
+  },
+  {
+    slug: "bonus-e",
+    number: "E",
+    title: "Bonus E · Das Warum hinter dem Warum",
+    subtitle:
+      "Schema-Therapie (Young) & IFS-Parts (Schwartz) — die Tiefenschichten, die deine Bindungswahl produzieren",
+    phase: 4,
+    available: true,
+  },
 ];
 
 export function getModule(slug: string): ModuleMeta | undefined {
