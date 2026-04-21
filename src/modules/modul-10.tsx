@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
+import { BonusGateway } from "@/components/bonus-gateway";
 import {
   Reflection3Step,
   CalloutBold,
