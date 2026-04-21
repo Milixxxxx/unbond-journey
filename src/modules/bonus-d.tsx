@@ -410,13 +410,53 @@ export function BonusD() {
           {/* Übung 3 — Zeug*innen-Kreis */}
           <WitnessCircle slug={SLUG} storageKey="bd-witnesses" />
 
-          {/* Übung 4 — Brief an Behörde */}
-          <LetterToAuthority slug={SLUG} storageKey="bd-letter" />
+          {/* Übung 4 — Brief an Behörde (Coach + Brief-Editor zusammen) */}
+          <section className="space-y-3">
+            <div
+              className="rounded-2xl border-2 border-bordeaux/20 bg-cream/50 p-4 sm:p-5"
+              style={{ borderLeft: "5px solid var(--color-bordeaux)" }}
+            >
+              <p className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-bordeaux">
+                <Lightbulb className="h-3.5 w-3.5" />
+                Übung 4 · Dein Brief an die Behörde — mit KI-Coach
+              </p>
+              <h3 className="mt-2 font-display text-lg font-bold text-bordeaux">
+                So gehst du vor
+              </h3>
+              <ol className="mt-3 space-y-2 text-sm leading-relaxed text-graphite/90">
+                <li>
+                  <strong>1. Brief-Coach öffnen (unten).</strong> Schreib ihm,
+                  worum es geht — z.&nbsp;B. „Ich muss eine Stellungnahme ans
+                  Jugendamt schreiben." Du kannst auch deinen rohen,
+                  emotionalen Entwurf reinkopieren — der Coach übersetzt
+                  Wut und Ohnmacht in behördentaugliche Sprache.
+                </li>
+                <li>
+                  <strong>2. Vorschläge übernehmen.</strong> Der Coach
+                  liefert dir konkrete Formulierungen, markiert Trigger-Wörter
+                  und schlägt neutrale Alternativen vor. Frag so oft nach,
+                  bis es sich richtig anfühlt.
+                </li>
+                <li>
+                  <strong>3. Brief-Editor (darunter) füllen.</strong> Übertrag
+                  die finalen Sätze in deine Vorlage. Speichern, ausdrucken,
+                  von deiner Anwältin prüfen lassen — fertig.
+                </li>
+              </ol>
+              <p className="mt-3 text-xs italic text-graphite/65">
+                Tipp: Verwende Platzhalter („meine Ex", „die Stadt") statt
+                echter Namen. Der Coach ersetzt keine Rechtsberatung.
+              </p>
+            </div>
 
-          {/* Übung 5 — KI Brief-Coach */}
-          <BehoerdenBriefCoach slug={SLUG} />
+            {/* Coach zuerst */}
+            <BehoerdenBriefCoach slug={SLUG} />
 
-          {/* Übung 6 — Behörden-Bingo (interaktiv) */}
+            {/* Dann der Brief-Editor */}
+            <LetterToAuthority slug={SLUG} storageKey="bd-letter" />
+          </section>
+
+          {/* Übung 5 — Behörden-Bingo (interaktiv) */}
           <BehoerdenBingo />
 
           {/* Transformationsziele */}
