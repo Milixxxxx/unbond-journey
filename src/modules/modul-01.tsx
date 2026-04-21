@@ -55,20 +55,47 @@ export function Modul01() {
         eyebrow="Story · Der neurologische Spielautomat"
         title="Mary &amp; Sandra — getrennt und doch gebunden"
       >
+        {/* Perspektiv-Switch (Micro-Interaction · kein Persistence) */}
+        <div className="mb-4 flex flex-wrap items-center gap-2">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-cream/70">
+            Perspektive
+          </span>
+          {([
+            { v: "beide", l: "Beide" },
+            { v: "mary", l: "Mary" },
+            { v: "sandra", l: "Sandra" },
+          ] as const).map((opt) => (
+            <button
+              key={opt.v}
+              type="button"
+              onClick={() => setPerspektive(opt.v)}
+              aria-pressed={perspektive === opt.v}
+              className={cn(
+                "rounded-full border px-3 py-1 text-xs font-medium transition-all",
+                perspektive === opt.v
+                  ? "border-cream/80 bg-cream/15 text-cream"
+                  : "border-cream/25 bg-transparent text-cream/65 hover:border-cream/50 hover:text-cream/85",
+              )}
+            >
+              {opt.l}
+            </button>
+          ))}
+        </div>
+
         <div className="animate-fade-in-stagger space-y-3">
-          <p>
+          <p className={dim("mary")}>
             Mary sitzt nachts am Küchentisch und rechnet die nackte Wahrheit
             zusammen: <strong>sechs bis acht Stunden im Monat</strong> — das
             war alles, was Sandra ihr an echter, präsenter Beziehungszeit
             gönnte.
           </p>
-          <p>
+          <p className={dim("sandra")}>
             Der Rest: Ausreden, vorgeschobener Stress, unsichtbare Mauern.
             Rational ergibt das keinen Sinn. Warum also fühlte Mary, als würde
             sie ohne diese Frau buchstäblich nicht atmen können?
           </p>
           <TextCollapse preview={1} threshold={3}>
-            <p>
+            <p className={dim("mary")}>
               Die Antwort trifft sie wie ein Schlag, als sie zum ersten Mal
               über{" "}
               <GlossarTerm termKey="intermittierende-verstaerkung">
@@ -79,7 +106,7 @@ export function Modul01() {
               plötzlich den Jackpot aus: ein Blick absoluter Liebe, ein
               intimes Versprechen, ein Abend leidenschaftlicher Nähe.
             </p>
-            <p>
+            <p className={dim("sandra")}>
               Genau dieser sadistische Wechsel aus eiskaltem Entzug und
               massiver Belohnung hatte Marys Gehirn biochemisch
               umprogrammiert. Keine Seelenverwandtschaft — das Zittern in
