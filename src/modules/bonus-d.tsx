@@ -13,6 +13,8 @@ import { BonusLock } from "@/components/bonus-lock";
 import { WitnessCircle } from "@/components/exercise/witness-circle";
 import { LetterToAuthority } from "@/components/exercise/letter-to-authority";
 import { Reflection3Step } from "@/components/exercise";
+import { useModuleProgress } from "@/hooks/use-module-progress";
+import { ExerciseFrame } from "@/components/exercise/exercise-frame";
 
 const SLUG = "bonus-d";
 
@@ -84,66 +86,53 @@ export function BonusD() {
         </p>
       </ChapterIntro>
 
-      {/* ── STORY · Polizei vor der Tür ── */}
+      {/* ── STORY · Polizei vor der Tür (kompakt mit Cliffhänger) ── */}
       <section className="space-y-3">
         <p className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-sage">
           <ScrollText className="h-3.5 w-3.5" />
-          Story · Polizei vor der Tür
+          Story · Dienstag, 9:47 Uhr
         </p>
-        <div className="rounded-2xl bg-white/75 p-5 shadow-soft sm:p-6"
-          style={{ borderLeft: "5px solid var(--color-sage)" }}>
-          <h3 className="font-display text-base font-bold text-bordeaux">
-            Dienstag, 9:47 Uhr
-          </h3>
-          <div className="mt-3 space-y-3 text-sm leading-relaxed text-graphite/90">
+        <div
+          className="rounded-2xl bg-white/75 p-5 shadow-soft sm:p-6"
+          style={{ borderLeft: "5px solid var(--color-sage)" }}
+        >
+          <div className="space-y-3 text-sm leading-relaxed text-graphite/90">
             <p>
-              Es klingelt energisch an der Haustür. Als Mary öffnet, stehen
-              dort mehrere Polizeibeamte und fragen, ob sie bei der Polizei
-              angerufen hätte — hier seien Kinder in Gefahr. Marys Hände
-              werden sofort kalt. Die Beamten teilen mit, dass eine
-              „besorgte Bürgerin" eine Meldung über Marys Erziehungsfähigkeit
-              eingereicht hat. Details: vage Andeutungen über „instabiles
-              häusliches Umfeld" und „psychische Belastung der Mutter". Mary
-              weiß sofort, wer hinter der Meldung steckt. Sandra hat nie
-              akzeptiert, dass Mary gegangen ist. Und jetzt, wo digitales
-              Blockieren und <em>Breadcrumbing</em> nicht mehr wirken, greift
-              sie zum schwersten Hebel, den sie
-              hat: den Staat.
+              Es klingelt. Mary öffnet — <strong>drei Polizist*innen</strong>.
+              Eine „besorgte Bürgerin" habe gemeldet: instabiles häusliches
+              Umfeld, psychische Belastung der Mutter, Kinder in Gefahr. Marys
+              Hände werden kalt. Sie weiß sofort, wer dahintersteckt. Sandra
+              hat nie akzeptiert, dass Mary gegangen ist — und jetzt, wo
+              Blockieren und Breadcrumbing nicht mehr greifen, zieht sie den
+              schwersten Hebel: <em>den Staat</em>.
             </p>
             <p>
-              In Marys Kopf explodieren gleichzeitig Panik, Wut und Scham.
-              Bin ich eine schlechte Mutter? Was, wenn sie mir die Kinder
-              wegnehmen? Was, wenn alle glauben, was Sandra behauptet? Der
-              vertraute Nebel der Selbstzweifel kriecht zurück — genau so,
-              wie er es während der Beziehung getan hat. Doch diesmal greift
+              In Marys Kopf: Panik, Wut, Scham. <em>Bin ich eine schlechte
+              Mutter? Was, wenn sie mir die Kinder wegnehmen?</em> Der
+              vertraute Selbstzweifel-Nebel kriecht zurück. Aber diesmal greift
               Mary nicht zum Telefon, um Sandra anzuflehen. Sie greift zu
-              ihrem Dokumentations-Ordner, den sie seit Wochen pflegt, und
-              ruft ihre Anwältin an. Denn Mary hat in Schritt 04 etwas
-              Entscheidendes verstanden: Wer die Narration kontrolliert,
-              kontrolliert das Ergebnis. Und diesmal wird sie nicht Sandras
-              Erzählung überlassen, wie die Geschichte ausgeht.
+              ihrem Dokumentations-Ordner — und ruft ihre Anwältin an.
             </p>
-            <p>
-              Drei Wochen später sitzt Mary im Anhörungstermin beim Jugendamt.
-              Verdacht auf Kindeswohlgefährdung. Mary hat ihre Akte sortiert:
-              Chronologie, Screenshots, Zeug*innen-Liste. Über ihre Anwältin
-              hat sie zudem Strafanzeige wegen Rufschädigung gestellt. Im
-              Termin geladen ist auch Marys Ex-Frau aus der Zeit{" "}
-              <em>vor</em> Sandra — die Frau, mit der sie jahrelang eine
-              gesunde, harmonische Beziehung geführt hatte, ohne jede toxische
-              Dynamik. Die Trennung damals war nicht einfach, und genau in
-              dieser verletzlichen Phase war Mary leichte Beute für Sandra
-              gewesen, die unmittelbar danach in ihr Leben kam. Und doch —
-              trotz aller Schwierigkeiten der eigenen Trennung — zögert die
-              Ex-Frau im Termin keine Sekunde. Sie bestätigt Marys Integrität,
-              sagt klar, dass die erhobenen Vorwürfe nicht zu Mary passen, und
-              fügt etwas hinzu, das die Sachbearbeiterin aufhorchen lässt:
-              Sie habe Sandra über Jahre als Außenstehende beobachten können
-              und Mary mehrfach gesagt, dass Sandra ihrer Einschätzung nach
-              starke narzisstische Züge zeige — auch wenn sie nach außen
-              die Unschuld in Person spiele. Das Verfahren wird wenige Wochen
-              später eingestellt. Mary versteht in diesem Moment, was Schritt
-              04 wirklich meinte: <em>Vorbereitung schlägt Reaktion. Immer.</em>
+            <p
+              className="rounded-lg p-3 text-sm italic"
+              style={{
+                background:
+                  "color-mix(in oklab, var(--color-bordeaux) 6%, transparent)",
+                borderLeft: "3px solid var(--color-bordeaux)",
+              }}
+            >
+              Drei Wochen später, Anhörungstermin Jugendamt. Sandra hat eine
+              Zeugin mitgebracht, die Mary „seit Jahren" als instabil
+              beschreiben soll. Mary hat <em>auch</em> jemanden mitgebracht —
+              jemanden, mit dem niemand gerechnet hat …{" "}
+              <span className="not-italic font-semibold text-bordeaux">
+                Was Mary in den nächsten 40 Minuten lernt, ist die wichtigste
+                Lektion dieses Kapitels: Vorbereitung schlägt Reaktion. Immer.
+              </span>
+            </p>
+            <p className="text-[11px] text-graphite/55">
+              → Wie der Termin ausgeht und wer Marys Zeugin war, erfährst du
+              am Ende — nach Diagnose, Lösung und deinen drei Übungen.
             </p>
           </div>
         </div>
@@ -475,6 +464,36 @@ export function BonusD() {
               },
             ]}
           />
+
+          {/* Story-Auflösung · Cliffhänger schließt sich */}
+          <div
+            className="rounded-2xl bg-white/80 p-5 shadow-soft sm:p-6"
+            style={{ borderLeft: "5px solid var(--color-sage)" }}
+          >
+            <p className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-sage">
+              <ScrollText className="h-3.5 w-3.5" />
+              Auflösung · Wer war Marys Zeugin?
+            </p>
+            <div className="mt-3 space-y-3 text-sm leading-relaxed text-graphite/90">
+              <p>
+                Marys Zeugin war ihre <strong>Ex-Frau aus der Zeit vor
+                Sandra</strong> — die Frau, mit der sie jahrelang eine gesunde
+                Beziehung geführt hatte. Trotz eigener Trennungs­geschichte
+                zögert sie im Termin keine Sekunde. Sie bestätigt Marys
+                Integrität und sagt einen Satz, der die Sachbearbeiterin
+                aufhorchen lässt: Sie habe Sandra <em>jahrelang als
+                Außenstehende</em> beobachten können und Mary mehrfach gewarnt,
+                dass Sandra starke narzisstische Züge zeige — auch wenn sie
+                nach außen die Unschuld in Person spiele.
+              </p>
+              <p>
+                Das Verfahren wird wenige Wochen später eingestellt. Mary
+                versteht in diesem Moment, was die Werkzeuge dieses Kapitels
+                wirklich bedeuten:{" "}
+                <em>Vorbereitung schlägt Reaktion. Immer.</em>
+              </p>
+            </div>
+          </div>
         </section>
       </BonusLock>
     </article>
@@ -485,9 +504,6 @@ export function BonusD() {
  * Übung 2 · Notfall-Netzwerk-Felder (3 Textareas)
  * Inline-Komponente, weil sehr spezifisch zu Bonus D.
  */
-import { useModuleProgress } from "@/hooks/use-module-progress";
-import { ExerciseFrame } from "@/components/exercise/exercise-frame";
-
 type NetState = { anwalt: string; vertrauen: string; plan: string };
 const NET_EMPTY: NetState = { anwalt: "", vertrauen: "", plan: "" };
 
