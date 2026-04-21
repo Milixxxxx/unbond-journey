@@ -88,61 +88,117 @@ export function Modul01() {
       {/* ════════════════ 2 · DIAGNOSE ════════════════ */}
       <SectionBlock
         kind="diagnose"
-        title="Was Trauma-Bonding wirklich ist"
+        eyebrow="Diagnose · Was Trauma-Bonding wirklich ist"
+        title="Neurobiologie der toxischen Bindung"
       >
         <TextCollapse preview={2} threshold={3}>
           <p>
             Trauma-Bonding ist <strong>keine Schwäche</strong> und kein
             Zeichen mangelnder Intelligenz. Es ist ein neurobiologischer
-            Prozess, der durch intermittierende Verstärkung entsteht — den
-            unvorhersehbaren Wechsel aus Nähe und Rückzug.
+            Prozess, der durch{" "}
+            <GlossarTerm termKey="intermittierende-verstaerkung">
+              intermittierende Verstärkung
+            </GlossarTerm>{" "}
+            entsteht — den unvorhersehbaren Wechsel aus Nähe und Rückzug.
+            Skinner (1938) zeigte: Belohnungen, die unregelmäßig und
+            unvorhersehbar kommen, erzeugen die <strong>stärkste und
+            hartnäckigste Konditionierung</strong> überhaupt.
           </p>
           <p>
-            Skinner (1938) zeigte: Belohnungen, die unregelmäßig kommen,
-            erzeugen die <strong>stärkste und hartnäckigste Konditionierung</strong>
-            {" "}überhaupt.
+            Fisher et al. (2005) zeigten mittels fMRT, dass romantische Liebe
+            dieselben Hirnareale aktiviert wie Kokainkonsum. Bei
+            Trauma-Bonding wird dieses System besonders stark konditioniert:
+            Das Gehirn lernt, dass auf Schmerz Erleichterung folgt — und
+            beginnt, den Schmerz selbst als Teil des Belohnungszyklus zu
+            antizipieren.
           </p>
           <p>
             Dutton und Painter (1993) beschrieben Trauma-Bonding als Bindung,
             die <strong>nicht trotz, sondern wegen des Schmerzes</strong>{" "}
             entsteht. Der Wechsel zwischen Missbrauch und Zuneigung schafft
             eine pathologische Bindung, die stärker ist als gesunde Liebe.
-          </p>
-          <p>
-            Fisher et al. (2005) ergänzten den biochemischen Beweis:
-            romantische Liebe aktiviert dieselben Hirnareale wie Kokainkonsum
-            — das ventrale tegmentale Areal, den Nucleus accumbens, das
-            gesamte mesolimbische Belohnungssystem.{" "}
-            <GlossarTerm termKey="dopamin">Dopamin</GlossarTerm> wird dabei
-            nicht durch Belohnung ausgeschüttet, sondern durch die{" "}
-            <strong>Erwartung</strong> der Belohnung.
+            Das ist der Spielautomat, an dem Mary saß — und an dem du
+            vielleicht auch sitzt.
           </p>
         </TextCollapse>
+
+        {/* TODO: Infografik „Neurobiologie der toxischen Liebe" hier einsetzen
+            (Caption: VTA als Spielautomat · Trennungsschmerz = Kokain-Entzug · Vagus-Reset & No Contact als med. Protokoll) */}
+      </SectionBlock>
+
+      {/* ── 10 Warnsignale als interaktive FlipCards ── */}
+      <SectionBlock
+        kind="diagnose"
+        eyebrow="⚠️ Die 10 Warnsignale toxischer Bindung"
+        title="Tippe eine Karte an — sieh die Definition"
+      >
+        <p className="text-sm text-graphite/75">
+          Vorderseite: Name. Rückseite: was wirklich dahintersteckt. Was du
+          benennen kannst, kann dein Verstand nicht mehr wegrationalisieren.
+        </p>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {WARNSIGNALE.map((w) => (
+            <FlipCard
+              key={w.id}
+              emoji={w.emoji}
+              color="var(--color-bordeaux)"
+              label={w.nr}
+              heading={w.label}
+              front={w.teaser}
+              back={w.desc}
+            />
+          ))}
+        </div>
       </SectionBlock>
 
       {/* ════════════════ 3 · LÖSUNG ════════════════ */}
       <SectionBlock
         kind="loesung"
-        title="ACT-Defusion &amp; Dopamin-Reset"
+        eyebrow="💡 Lösung · ACT-Defusion & Dopamin-Reset"
+        title="Den Konditionierungskreislauf unterbrechen"
       >
         <TextCollapse preview={2} threshold={3}>
           <p>
-            Trauma-Bonding ist neurobiologisch eine Sucht — und jede wirksame
-            Suchtbehandlung beginnt damit, den{" "}
-            <strong>Konditionierungskreislauf zu unterbrechen</strong>.
+            <strong>Trauma-Bonding ist neurobiologisch eine Sucht</strong> —
+            und jede wirksame Suchtbehandlung beginnt nicht damit, die Droge
+            zu bewerten, sondern damit, den Konditionierungskreislauf selbst
+            zu unterbrechen.
           </p>
           <p>
-            Die <em>Acceptance and Commitment Therapy</em> bietet dafür die{" "}
+            Die <em>Acceptance and Commitment Therapy</em> (ACT, Hayes,
+            Strosahl &amp; Wilson, 2006) bietet dafür die{" "}
             <GlossarTerm termKey="defusion">Defusions-Technik</GlossarTerm>:
             Du lernst, Gedanken und Cravings als mentale Ereignisse zu
             beobachten — als Züge, die durch den Bahnhof fahren — ohne ihnen
             zu folgen oder gegen sie zu kämpfen.
           </p>
           <p>
-            Der Dopamin-Reset bedeutet konsequente Null-Exposition: kein
-            Profilschauen, keine geteilten Playlists, keine gegenseitigen
-            Kontakte. Nicht aus Hass — sondern weil jeder Blick auf ihr Profil
-            den Konditionierungskreislauf neu aktiviert.
+            Parallel dazu beschreibt die Suchtforschung (Nestler, 2005) das
+            Konzept der <strong>Dopamin-Sensitivierung</strong>: Das
+            Belohnungssystem wird durch intermittierende Verstärkung
+            hyperreaktiv und reagiert auf kleinste Hinweisreize — ein Like,
+            ein Emoji, ein gemeinsames Lied — mit unverhältnismäßig starken
+            Cravings.
+          </p>
+          <p>
+            <strong>Der Dopamin-Reset bedeutet daher: konsequente
+            Null-Exposition gegenüber diesen Micro-Cues.</strong>
+          </p>
+          <ul className="ml-5 list-disc space-y-1">
+            <li>Kein Profilschauen</li>
+            <li>Keine geteilten Playlists</li>
+            <li>Keine gegenseitigen Kontakte</li>
+          </ul>
+          <p>
+            Nicht aus Hass — sondern weil jeder Blick auf ihr Profil den
+            Konditionierungskreislauf neu aktiviert und den Heilungsprozess
+            um Wochen zurückwirft.
+          </p>
+          <p>
+            Defusion und Dopamin-Reset zusammen erlauben dir, das Suchtmuster
+            nüchtern zu betrachten: nicht als Liebesbeweis, sondern als{" "}
+            <strong>neurobiologisches Muster, das du durch konsequentes
+            Nicht-Handeln und bewusstes Beobachten entlernen kannst.</strong>
           </p>
         </TextCollapse>
 
@@ -156,9 +212,17 @@ export function Modul01() {
             ist das ein Zug, der in deinen Bahnhof einfährt. Du beobachtest
             ihn, sagst innerlich:{" "}
             <strong>„Da ist der Gedanke, dass sie meine große Liebe war."</strong>{" "}
-            — und lässt ihn weiterfahren.
+            — und lässt ihn weiterfahren. Du steigst nicht ein. Du
+            argumentierst nicht. Du wartest auf den nächsten Zug.
           </p>
         </CalloutBold>
+
+        <p className="mt-2 text-xs italic text-graphite/65">
+          Quelle: Hayes, S. C., Strosahl, K. D., &amp; Wilson, K. G. (2006).{" "}
+          <em>Acceptance and Commitment Therapy</em>. Guilford Press; Nestler,
+          E. J. (2005). Is there a common molecular pathway for addiction?{" "}
+          <em>Nature Neuroscience</em>, 8(11), 1445–1449.
+        </p>
       </SectionBlock>
 
       {/* ════════════════ 4 · DEEP DIVE ════════════════ */}
@@ -356,17 +420,94 @@ export function Modul01() {
   );
 }
 
-const WARNSIGNALE: { id: string; label: string; desc: string }[] = [
-  { id: "lovebombing", label: "Lovebombing", desc: "Überschwängliche Zuneigung zu Beginn, die emotionale Abhängigkeit erzeugt." },
-  { id: "hotcold", label: "Hot/Cold-Muster", desc: "Abwechselnd liebevoll und abweisend — ohne erkennbaren Anlass." },
-  { id: "gaslighting", label: "Gaslighting", desc: "Deine Wahrnehmung wird systematisch in Frage gestellt." },
-  { id: "schweigen", label: "Schweigen als Strafe", desc: "Funkstille, Blockieren, Ignorieren als Bestrafung." },
-  { id: "weaponized", label: "Weaponized Virtue", desc: "Progressive Werte werden als Kontrollwerkzeug eingesetzt." },
-  { id: "isolation", label: "Isolation", desc: "Dein Freundes- und Familienkreis wird kleiner." },
-  { id: "schuld", label: "Schuldzuweisung", desc: "Du wirst für Dinge verantwortlich gemacht, die du nicht kontrollieren kannst." },
-  { id: "hoovering", label: "Hoovering", desc: "Sobald du loslässt, kommt die nächste Welle der Wärme." },
-  { id: "selbstwert", label: "Selbstwert-Erosion", desc: "Du siehst dich selbst schlechter als davor." },
-  { id: "hoffnung", label: "Hoffnungssucht", desc: "Du glaubst, alles könnte sich noch wenden — wenn du nur anders wärst." },
+const WARNSIGNALE: {
+  id: string;
+  nr: string;
+  emoji: string;
+  label: string;
+  teaser: string;
+  desc: string;
+}[] = [
+  {
+    id: "lovebombing",
+    nr: "01",
+    emoji: "💣",
+    label: "Lovebombing",
+    teaser: "Überschwängliche Zuneigung zu Beginn.",
+    desc: "Überschwängliche Zuneigung zu Beginn, die eine emotionale Abhängigkeit erzeugt, bevor das wahre Muster sichtbar wird.",
+  },
+  {
+    id: "hotcold",
+    nr: "02",
+    emoji: "🌡️",
+    label: "Hot/Cold-Muster",
+    teaser: "Abwechselnd liebevoll und abweisend — ohne Anlass.",
+    desc: "Abwechselnd liebevoll und abweisend — ohne erkennbaren Anlass. Das Unvorhersehbare ist das Suchterzeugende.",
+  },
+  {
+    id: "gaslighting",
+    nr: "03",
+    emoji: "🌀",
+    label: "Gaslighting",
+    teaser: "Deine Wahrnehmung wird in Frage gestellt.",
+    desc: "Deine Wahrnehmung wird systematisch in Frage gestellt. Du beginnst, deiner eigenen Realität zu misstrauen.",
+  },
+  {
+    id: "schweigen",
+    nr: "04",
+    emoji: "🤐",
+    label: "Schweigen als Strafe",
+    teaser: "Funkstille als emotionale Bestrafung.",
+    desc: "Funkstille, Blockieren, Ignorieren als Reaktion auf Grenzen oder Konflikte. Emotionale Bestrafung ohne Worte.",
+  },
+  {
+    id: "weaponized",
+    nr: "05",
+    emoji: "⚔️",
+    label: "Weaponized Virtue",
+    teaser: "Progressive Werte als Kontrollwerkzeug.",
+    desc: "Progressive Werte werden als Kontrollwerkzeug eingesetzt. Macht Gaslighting besonders wirksam.",
+  },
+  {
+    id: "isolation",
+    nr: "06",
+    emoji: "🏝️",
+    label: "Isolation",
+    teaser: "Dein Kreis wird kleiner.",
+    desc: "Dein Freundes- und Familienkreis wird kleiner. Du ziehst dich zurück oder wirst von ihr isoliert.",
+  },
+  {
+    id: "schuld",
+    nr: "07",
+    emoji: "🪞",
+    label: "Schuldzuweisung",
+    teaser: 'Deine Emotionen sind „das Problem".',
+    desc: "Du wirst für Dinge verantwortlich gemacht, die du nicht kontrollieren kannst. Deine Emotionen sind das Problem.",
+  },
+  {
+    id: "hoovering",
+    nr: "08",
+    emoji: "🧲",
+    label: "Hoovering",
+    teaser: "Wärme genau dann, wenn du gehen willst.",
+    desc: "Sobald du anfängst loszulassen, kommt die nächste Welle der Wärme — gerade dann, wenn du kurz davor warst, wirklich zu gehen.",
+  },
+  {
+    id: "selbstwert",
+    nr: "09",
+    emoji: "🪫",
+    label: "Selbstwert-Erosion",
+    teaser: "Du siehst dich schlechter als davor.",
+    desc: "Du siehst dich selbst schlechter als davor. Du glaubst, du seist zu viel, zu wenig, zu anstrengend.",
+  },
+  {
+    id: "hoffnung",
+    nr: "10",
+    emoji: "🕯️",
+    label: "Hoffnungssucht",
+    teaser: "Du glaubst, es könnte sich noch wenden.",
+    desc: "Du glaubst tief im Inneren, dass sich alles noch wenden könnte — wenn du nur anders wärst oder anders gehandelt hättest.",
+  },
 ];
 
 const RATIONALISIERUNGEN = [
