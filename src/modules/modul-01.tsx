@@ -79,9 +79,9 @@ export function Modul01() {
               onClick={() => setPerspektive(opt.v)}
               aria-pressed={perspektive === opt.v}
               className={cn(
-                "rounded-full border px-3 py-1 text-xs font-medium transition-all",
+                "rounded-full border px-3 py-1 text-xs font-medium transition-all duration-300",
                 perspektive === opt.v
-                  ? "border-cream/80 bg-cream/15 text-cream"
+                  ? "border-cream/80 bg-cream/15 text-cream shadow-[0_0_0_3px_oklch(0.92_0.005_250/0.18)]"
                   : "border-cream/25 bg-transparent text-cream/65 hover:border-cream/50 hover:text-cream/85",
               )}
             >
@@ -90,41 +90,49 @@ export function Modul01() {
           ))}
         </div>
 
-        <div className="animate-fade-in-stagger space-y-3">
-          <p className={dim("mary")}>
-            Mary sitzt nachts am Küchentisch und rechnet die nackte Wahrheit
-            zusammen: <strong>sechs bis acht Stunden im Monat</strong> — das
-            war alles, was Sandra ihr an echter, präsenter Beziehungszeit
-            gönnte.
-          </p>
-          <p className={dim("sandra")}>
-            Der Rest: Ausreden, vorgeschobener Stress, unsichtbare Mauern.
-            Rational ergibt das keinen Sinn. Warum also fühlte Mary, als würde
-            sie ohne diese Frau buchstäblich nicht atmen können?
-          </p>
-          <TextCollapse preview={1} threshold={3}>
-            <p className={dim("mary")}>
-              Die Antwort trifft sie wie ein Schlag, als sie zum ersten Mal
-              über{" "}
-              <GlossarTerm termKey="intermittierende-verstaerkung">
-                intermittierende Verstärkung
-              </GlossarTerm>{" "}
-              stolpert. Sandra war kein sicherer Hafen — sie war ein kaputter
-              Spielautomat. Nach wochenlangem emotionalem Verhungern warf er
-              plötzlich den Jackpot aus: ein Blick absoluter Liebe, ein
-              intimes Versprechen, ein Abend leidenschaftlicher Nähe.
+        <div className="space-y-4">
+          <Reveal>
+            <p data-voice="mary" className={dim("mary")}>
+              Mary zählt nach. <strong>Sechs bis acht Stunden im Monat.</strong>{" "}
+              Mehr war nie da. Das ist alles, was Sandra ihr je gegeben hat.
             </p>
-            <p className={dim("sandra")}>
-              Genau dieser sadistische Wechsel aus eiskaltem Entzug und
-              massiver Belohnung hatte Marys Gehirn biochemisch
-              umprogrammiert. Keine Seelenverwandtschaft — das Zittern in
-              ihren Händen, ihre verzweifelte Hörigkeit:{" "}
-              <strong>klassischer Junkie-Entzug</strong> vor dem Automaten. Es
-              war schlicht{" "}
-              <GlossarTerm termKey="trauma-bonding">Trauma-Bonding</GlossarTerm>
-              .
+          </Reveal>
+          <Reveal delay={120}>
+            <p data-voice="sandra" className={dim("sandra")}>
+              Der Rest: Ausreden. Stress. Stille. Eine Tür, die immer halb zu war.
             </p>
-          </TextCollapse>
+          </Reveal>
+          <Reveal delay={240}>
+            <p data-voice="mary" className={dim("mary")}>
+              <em>Ich warte.</em> Ich rechtfertige. Ich atme nur, wenn das Handy
+              leuchtet. Warum fühlt sich diese Frau wie Sauerstoff an?
+            </p>
+          </Reveal>
+          <Reveal delay={360}>
+            <TextCollapse preview={1} threshold={3}>
+              <p data-voice="mary" className={dim("mary")}>
+                Die Antwort trifft sie wie ein Schlag, als sie zum ersten Mal
+                über{" "}
+                <GlossarTerm termKey="intermittierende-verstaerkung">
+                  intermittierende Verstärkung
+                </GlossarTerm>{" "}
+                stolpert. Sandra war kein sicherer Hafen — sie war ein kaputter
+                Spielautomat. Nach wochenlangem emotionalem Verhungern warf er
+                plötzlich den Jackpot aus: ein Blick absoluter Liebe, ein
+                intimes Versprechen, ein Abend leidenschaftlicher Nähe.
+              </p>
+              <p data-voice="sandra" className={dim("sandra")}>
+                Genau dieser sadistische Wechsel aus eiskaltem Entzug und
+                massiver Belohnung hatte Marys Gehirn biochemisch
+                umprogrammiert. Keine Seelenverwandtschaft — das Zittern in
+                ihren Händen, ihre verzweifelte Hörigkeit:{" "}
+                <strong>klassischer Junkie-Entzug</strong> vor dem Automaten. Es
+                war schlicht{" "}
+                <GlossarTerm termKey="trauma-bonding">Trauma-Bonding</GlossarTerm>
+                .
+              </p>
+            </TextCollapse>
+          </Reveal>
         </div>
       </SectionBlock>
 
@@ -134,36 +142,69 @@ export function Modul01() {
         eyebrow="Diagnose · Was Trauma-Bonding wirklich ist"
         title="Neurobiologie der toxischen Bindung"
       >
-        <TextCollapse preview={2} threshold={3}>
-          <p>
-            Trauma-Bonding ist <strong>keine Schwäche</strong> und kein
-            Zeichen mangelnder Intelligenz. Es ist ein neurobiologischer
-            Prozess, der durch{" "}
-            <GlossarTerm termKey="intermittierende-verstaerkung">
-              intermittierende Verstärkung
-            </GlossarTerm>{" "}
-            entsteht — den unvorhersehbaren Wechsel aus Nähe und Rückzug.
-            Skinner (1938) zeigte: Belohnungen, die unregelmäßig und
-            unvorhersehbar kommen, erzeugen die <strong>stärkste und
-            hartnäckigste Konditionierung</strong> überhaupt.
-          </p>
-          <p>
-            Fisher et al. (2005) zeigten mittels fMRT, dass romantische Liebe
-            dieselben Hirnareale aktiviert wie Kokainkonsum. Bei
-            Trauma-Bonding wird dieses System besonders stark konditioniert:
-            Das Gehirn lernt, dass auf Schmerz Erleichterung folgt — und
-            beginnt, den Schmerz selbst als Teil des Belohnungszyklus zu
-            antizipieren.
-          </p>
-          <p>
-            Dutton und Painter (1993) beschrieben Trauma-Bonding als Bindung,
-            die <strong>nicht trotz, sondern wegen des Schmerzes</strong>{" "}
-            entsteht. Der Wechsel zwischen Missbrauch und Zuneigung schafft
-            eine pathologische Bindung, die stärker ist als gesunde Liebe.
-            Das ist der Spielautomat, an dem Mary saß — und an dem du
-            vielleicht auch sitzt.
-          </p>
-        </TextCollapse>
+        <p className="text-sm leading-relaxed text-graphite/85">
+          Trauma-Bonding ist <strong>keine Schwäche</strong> und kein Zeichen
+          mangelnder Intelligenz. Es ist ein neurobiologischer Prozess, der
+          durch{" "}
+          <GlossarTerm termKey="intermittierende-verstaerkung">
+            intermittierende Verstärkung
+          </GlossarTerm>{" "}
+          entsteht — den unvorhersehbaren Wechsel aus Nähe und Rückzug.
+        </p>
+
+        <Accordion
+          type="single"
+          collapsible
+          className="mt-3 divide-y divide-[color:var(--color-sage)]/20 rounded-xl border border-[color:var(--color-sage)]/25 bg-white/55"
+        >
+          <AccordionItem value="skinner" className="border-0 px-4">
+            <AccordionTrigger className="py-3 text-left text-sm font-semibold text-graphite hover:no-underline">
+              <span>
+                <span className="mr-2 text-[color:var(--color-sage)]">01 ·</span>
+                Skinner (1938) — Warum unvorhersehbare Belohnung am stärksten konditioniert
+              </span>
+            </AccordionTrigger>
+            <AccordionContent className="pb-4 text-sm leading-relaxed text-graphite/85">
+              Belohnungen, die unregelmäßig und unvorhersehbar kommen, erzeugen
+              die <strong>stärkste und hartnäckigste Konditionierung</strong>{" "}
+              überhaupt. Genau dieses Muster — ein Like heute, drei Tage Eis
+              danach — ist das Suchterzeugende. Nicht die Liebe, sondern ihre
+              Unvorhersehbarkeit.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="fisher" className="border-0 px-4">
+            <AccordionTrigger className="py-3 text-left text-sm font-semibold text-graphite hover:no-underline">
+              <span>
+                <span className="mr-2 text-[color:var(--color-sage)]">02 ·</span>
+                Fisher et al. (2005) — Romantische Liebe = Kokain im fMRT
+              </span>
+            </AccordionTrigger>
+            <AccordionContent className="pb-4 text-sm leading-relaxed text-graphite/85">
+              Romantische Liebe aktiviert dieselben Hirnareale wie Kokainkonsum.
+              Bei Trauma-Bonding wird dieses System besonders stark
+              konditioniert: Das Gehirn lernt, dass auf Schmerz Erleichterung
+              folgt — und beginnt, den Schmerz selbst als Teil des
+              Belohnungszyklus zu antizipieren.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="dutton" className="border-0 px-4">
+            <AccordionTrigger className="py-3 text-left text-sm font-semibold text-graphite hover:no-underline">
+              <span>
+                <span className="mr-2 text-[color:var(--color-sage)]">03 ·</span>
+                Dutton &amp; Painter (1993) — Bindung wegen, nicht trotz des Schmerzes
+              </span>
+            </AccordionTrigger>
+            <AccordionContent className="pb-4 text-sm leading-relaxed text-graphite/85">
+              Trauma-Bonding ist eine Bindung, die <strong>nicht trotz, sondern
+              wegen des Schmerzes</strong> entsteht. Der Wechsel zwischen
+              Missbrauch und Zuneigung schafft eine pathologische Bindung, die
+              stärker ist als gesunde Liebe. Das ist der Spielautomat, an dem
+              Mary saß — und an dem du vielleicht auch sitzt.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
 
         {/* TODO: Infografik „Neurobiologie der toxischen Liebe" hier einsetzen
             (Caption: VTA als Spielautomat · Trennungsschmerz = Kokain-Entzug · Vagus-Reset & No Contact als med. Protokoll) */}
