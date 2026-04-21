@@ -128,7 +128,7 @@ export function WitnessCircle({
             <textarea
               value={w.knows}
               onChange={(e) => updateOne(idx, { knows: e.target.value })}
-              placeholder="Was weiß diese Person? Was hat sie selbst gesehen oder gehört? (z. B. „hat Sandras Wutausbruch im Sommer miterlebt", „kennt mich seit 12 Jahren")"
+              placeholder={`Was weiß diese Person? Was hat sie selbst gesehen oder gehört? (z. B. „hat Sandras Wutausbruch im Sommer miterlebt", „kennt mich seit 12 Jahren")`}
               rows={2}
               className="mt-2 w-full resize-y rounded-md border border-sage/25 bg-white/90 p-2 text-sm leading-snug text-graphite outline-none transition focus:border-sage focus:ring-2 focus:ring-sage/15"
             />
