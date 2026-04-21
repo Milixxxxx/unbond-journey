@@ -52,39 +52,12 @@ export function BonusD() {
         ]}
       >
         <p>
-          Manche toxischen Beziehungen enden nicht mit der Trennung — sie
-          eskalieren in den institutionellen Raum. Polizeimeldungen,
-          Jugendamt-Anzeigen, Sorgerechtsstreitigkeiten, falsche Anschuldigungen.
-          Das ist <strong>kein Zeichen berechtigter Sorge</strong>, sondern die
-          letzte Eskalationsstufe eines Kontrollsystems, das seine direkte Macht
-          über dich verloren hat.
-        </p>
-        <p>
-          In WLW-Beziehungen ist das besonders gefährlich, weil Behörden die
-          Dynamik selten kennen. „Zwei Frauen — da kann doch keine Gewalt
-          sein" ist ein Vorurteil, das deine Ex strategisch ausnutzen kann.
-          Während sie nach außen wie die besorgte Partnerin wirkt, stehst du
-          plötzlich da als die vermeintlich Instabile.
-        </p>
-        <p>
-          Dieses Kapitel ist anders als die vorherigen. Es geht nicht primär um
-          dein inneres Erleben — es geht um <strong>dein Schutznetz nach außen</strong>.
-          Um Dokumentation, anwaltliche Vorsorge, Zeug*innen, vorbereitete
-          Briefe. Um die nüchterne Werkzeugkiste, die du brauchst, falls aus
-          einem privaten Konflikt ein behördliches Verfahren wird.
-        </p>
-        <p>
-          Wir setzen voraus, was du in den Kapiteln 01–10 gelernt hast: Wie
-          Trauma-Bonding funktioniert, warum DARVO eine systematische Strategie
-          ist, wie Manipulation aussieht. Hier vertiefen wir nur den
-          institutionellen Aspekt — denn dort verändert sich das Spiel
-          grundlegend.
-        </p>
-        <p>
-          Dieses Kapitel ersetzt keine Rechtsberatung. Es bereitet dich aber
-          darauf vor, im Ernstfall handlungsfähig zu bleiben — statt erstarrt
-          oder panisch zu reagieren. Du wirst nicht jeden Schritt brauchen.
-          Aber wenn du ihn brauchst, willst du ihn vorbereitet haben.
+          Wenn deine Ex Polizei, Jugendamt oder Anwält*innen einschaltet, ist das
+          meist <strong>keine berechtigte Sorge — sondern die letzte Eskalationsstufe</strong>{" "}
+          eines Kontrollsystems. In WLW-Beziehungen besonders gefährlich, weil
+          Behörden die Dynamik selten kennen. Dieses Kapitel gibt dir die nüchterne
+          Werkzeugkiste — Dokumentation, anwaltliche Vorsorge, Zeug*innen, vorbereitete
+          Briefe — damit du im Ernstfall handlungsfähig bleibst statt erstarrt.
         </p>
       </ChapterIntro>
 
@@ -217,6 +190,42 @@ export function BonusD() {
             Muster ist besonders wirksam, wenn Behörden die Dynamik queerer
             Beziehungen nicht kennen.
           </p>
+        </div>
+      </section>
+
+      {/* ── LÖSUNG · drei Säulen ── */}
+      <section className="space-y-3">
+        <p className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-sage">
+          <Lightbulb className="h-3.5 w-3.5" />
+          Lösung · Dokumentation · Vorsorge · Netzwerk
+        </p>
+
+        <div className="space-y-3">
+          {[
+            {
+              title: "Dokumentation ist Selbstschutz",
+              text: "In Behördenverfahren zählt nicht, wer die Wahrheit sagt — es zählt, wer die Wahrheit belegen kann. Eine lückenlose, chronologische Dokumentation aller Vorfälle, Kontakte und Manipulationsversuche ist dein wichtigstes Werkzeug. Nicht für Konfrontation, nicht für Rache — sondern für deinen Schutz und den deiner Kinder.",
+            },
+            {
+              title: "Rechtliche Vorsorge VOR der Eskalation",
+              text: "Warte nicht, bis die Polizei vor der Tür steht. Wenn du weißt, dass deine Ex zu institutioneller Eskalation fähig ist, kläre den Kontakt zu einer Anwältin vorab. Viele Beratungsstellen bieten kostenlose Erstgespräche. Du brauchst keine laufende Bedrohung, um dich beraten zu lassen — nur die realistische Einschätzung, dass eine Bedrohung möglich ist.",
+            },
+            {
+              title: "Vertrauenspersonen als Zeug*innen deiner Realität",
+              text: "Informiere mindestens zwei bis drei Vertrauenspersonen vollständig über die Situation — bevor eine Eskalation eintritt. Diese Menschen dienen als Zeug*innen deiner Realität: Sie kennen den Kontext, können Behörden gegenüber bestätigen, was du durchgemacht hast, und verhindern, dass deine Ex allein die Narration kontrolliert. Das ist keine Paranoia — das ist Vorsorge.",
+            },
+          ].map((p) => (
+            <div
+              key={p.title}
+              className="rounded-xl bg-white/80 p-4 shadow-soft"
+              style={{ borderLeft: "4px solid var(--color-sage)" }}
+            >
+              <strong className="text-bordeaux">{p.title}</strong>
+              <p className="mt-1.5 text-sm leading-relaxed text-graphite/90">
+                {p.text}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -359,42 +368,6 @@ export function BonusD() {
         </div>
       </section>
 
-      {/* ── LÖSUNG · drei Säulen ── */}
-      <section className="space-y-3">
-        <p className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-sage">
-          <Lightbulb className="h-3.5 w-3.5" />
-          Lösung · Dokumentation · Vorsorge · Netzwerk
-        </p>
-
-        <div className="space-y-3">
-          {[
-            {
-              title: "Dokumentation ist Selbstschutz",
-              text: "In Behördenverfahren zählt nicht, wer die Wahrheit sagt — es zählt, wer die Wahrheit belegen kann. Eine lückenlose, chronologische Dokumentation aller Vorfälle, Kontakte und Manipulationsversuche ist dein wichtigstes Werkzeug. Nicht für Konfrontation, nicht für Rache — sondern für deinen Schutz und den deiner Kinder.",
-            },
-            {
-              title: "Rechtliche Vorsorge VOR der Eskalation",
-              text: "Warte nicht, bis die Polizei vor der Tür steht. Wenn du weißt, dass deine Ex zu institutioneller Eskalation fähig ist, kläre den Kontakt zu einer Anwältin vorab. Viele Beratungsstellen bieten kostenlose Erstgespräche. Du brauchst keine laufende Bedrohung, um dich beraten zu lassen — nur die realistische Einschätzung, dass eine Bedrohung möglich ist.",
-            },
-            {
-              title: "Vertrauenspersonen als Zeug*innen deiner Realität",
-              text: "Informiere mindestens zwei bis drei Vertrauenspersonen vollständig über die Situation — bevor eine Eskalation eintritt. Diese Menschen dienen als Zeug*innen deiner Realität: Sie kennen den Kontext, können Behörden gegenüber bestätigen, was du durchgemacht hast, und verhindern, dass deine Ex allein die Narration kontrolliert. Das ist keine Paranoia — das ist Vorsorge.",
-            },
-          ].map((p) => (
-            <div
-              key={p.title}
-              className="rounded-xl bg-white/80 p-4 shadow-soft"
-              style={{ borderLeft: "4px solid var(--color-sage)" }}
-            >
-              <strong className="text-bordeaux">{p.title}</strong>
-              <p className="mt-1.5 text-sm leading-relaxed text-graphite/90">
-                {p.text}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* ── ÜBUNGEN + ZIELE — hinter Lock ── */}
       <BonusLock slug={SLUG} bonusLabel="Bonus D">
         <section className="space-y-5">
@@ -437,13 +410,53 @@ export function BonusD() {
           {/* Übung 3 — Zeug*innen-Kreis */}
           <WitnessCircle slug={SLUG} storageKey="bd-witnesses" />
 
-          {/* Übung 4 — Brief an Behörde */}
-          <LetterToAuthority slug={SLUG} storageKey="bd-letter" />
+          {/* Übung 4 — Brief an Behörde (Coach + Brief-Editor zusammen) */}
+          <section className="space-y-3">
+            <div
+              className="rounded-2xl border-2 border-bordeaux/20 bg-cream/50 p-4 sm:p-5"
+              style={{ borderLeft: "5px solid var(--color-bordeaux)" }}
+            >
+              <p className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-bordeaux">
+                <Lightbulb className="h-3.5 w-3.5" />
+                Übung 4 · Dein Brief an die Behörde — mit KI-Coach
+              </p>
+              <h3 className="mt-2 font-display text-lg font-bold text-bordeaux">
+                So gehst du vor
+              </h3>
+              <ol className="mt-3 space-y-2 text-sm leading-relaxed text-graphite/90">
+                <li>
+                  <strong>1. Brief-Coach öffnen (unten).</strong> Schreib ihm,
+                  worum es geht — z.&nbsp;B. „Ich muss eine Stellungnahme ans
+                  Jugendamt schreiben." Du kannst auch deinen rohen,
+                  emotionalen Entwurf reinkopieren — der Coach übersetzt
+                  Wut und Ohnmacht in behördentaugliche Sprache.
+                </li>
+                <li>
+                  <strong>2. Vorschläge übernehmen.</strong> Der Coach
+                  liefert dir konkrete Formulierungen, markiert Trigger-Wörter
+                  und schlägt neutrale Alternativen vor. Frag so oft nach,
+                  bis es sich richtig anfühlt.
+                </li>
+                <li>
+                  <strong>3. Brief-Editor (darunter) füllen.</strong> Übertrag
+                  die finalen Sätze in deine Vorlage. Speichern, ausdrucken,
+                  von deiner Anwältin prüfen lassen — fertig.
+                </li>
+              </ol>
+              <p className="mt-3 text-xs italic text-graphite/65">
+                Tipp: Verwende Platzhalter („meine Ex", „die Stadt") statt
+                echter Namen. Der Coach ersetzt keine Rechtsberatung.
+              </p>
+            </div>
 
-          {/* Übung 5 — KI Brief-Coach */}
-          <BehoerdenBriefCoach slug={SLUG} />
+            {/* Coach zuerst */}
+            <BehoerdenBriefCoach slug={SLUG} />
 
-          {/* Übung 6 — Behörden-Bingo (interaktiv) */}
+            {/* Dann der Brief-Editor */}
+            <LetterToAuthority slug={SLUG} storageKey="bd-letter" />
+          </section>
+
+          {/* Übung 5 — Behörden-Bingo (interaktiv) */}
           <BehoerdenBingo />
 
           {/* Transformationsziele */}
