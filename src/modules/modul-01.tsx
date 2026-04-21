@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
 import { SectionBlock } from "@/components/section-block";
 import { TextCollapse } from "@/components/text-collapse";
 import { ButtonChoice } from "@/components/button-choice";
 import { ChecklistGoals } from "@/components/checklist-goals";
+import { cn } from "@/lib/utils";
 import {
   PillCloud,
   Reflection3Step,
