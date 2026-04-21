@@ -193,6 +193,42 @@ export function BonusD() {
         </div>
       </section>
 
+      {/* ── LÖSUNG · drei Säulen ── */}
+      <section className="space-y-3">
+        <p className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-sage">
+          <Lightbulb className="h-3.5 w-3.5" />
+          Lösung · Dokumentation · Vorsorge · Netzwerk
+        </p>
+
+        <div className="space-y-3">
+          {[
+            {
+              title: "Dokumentation ist Selbstschutz",
+              text: "In Behördenverfahren zählt nicht, wer die Wahrheit sagt — es zählt, wer die Wahrheit belegen kann. Eine lückenlose, chronologische Dokumentation aller Vorfälle, Kontakte und Manipulationsversuche ist dein wichtigstes Werkzeug. Nicht für Konfrontation, nicht für Rache — sondern für deinen Schutz und den deiner Kinder.",
+            },
+            {
+              title: "Rechtliche Vorsorge VOR der Eskalation",
+              text: "Warte nicht, bis die Polizei vor der Tür steht. Wenn du weißt, dass deine Ex zu institutioneller Eskalation fähig ist, kläre den Kontakt zu einer Anwältin vorab. Viele Beratungsstellen bieten kostenlose Erstgespräche. Du brauchst keine laufende Bedrohung, um dich beraten zu lassen — nur die realistische Einschätzung, dass eine Bedrohung möglich ist.",
+            },
+            {
+              title: "Vertrauenspersonen als Zeug*innen deiner Realität",
+              text: "Informiere mindestens zwei bis drei Vertrauenspersonen vollständig über die Situation — bevor eine Eskalation eintritt. Diese Menschen dienen als Zeug*innen deiner Realität: Sie kennen den Kontext, können Behörden gegenüber bestätigen, was du durchgemacht hast, und verhindern, dass deine Ex allein die Narration kontrolliert. Das ist keine Paranoia — das ist Vorsorge.",
+            },
+          ].map((p) => (
+            <div
+              key={p.title}
+              className="rounded-xl bg-white/80 p-4 shadow-soft"
+              style={{ borderLeft: "4px solid var(--color-sage)" }}
+            >
+              <strong className="text-bordeaux">{p.title}</strong>
+              <p className="mt-1.5 text-sm leading-relaxed text-graphite/90">
+                {p.text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ── DEEP DIVE · Institutional Betrayal ── */}
       <section className="space-y-3">
         <p className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-mauve">
@@ -329,42 +365,6 @@ export function BonusD() {
               </span>
             </li>
           </ul>
-        </div>
-      </section>
-
-      {/* ── LÖSUNG · drei Säulen ── */}
-      <section className="space-y-3">
-        <p className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-sage">
-          <Lightbulb className="h-3.5 w-3.5" />
-          Lösung · Dokumentation · Vorsorge · Netzwerk
-        </p>
-
-        <div className="space-y-3">
-          {[
-            {
-              title: "Dokumentation ist Selbstschutz",
-              text: "In Behördenverfahren zählt nicht, wer die Wahrheit sagt — es zählt, wer die Wahrheit belegen kann. Eine lückenlose, chronologische Dokumentation aller Vorfälle, Kontakte und Manipulationsversuche ist dein wichtigstes Werkzeug. Nicht für Konfrontation, nicht für Rache — sondern für deinen Schutz und den deiner Kinder.",
-            },
-            {
-              title: "Rechtliche Vorsorge VOR der Eskalation",
-              text: "Warte nicht, bis die Polizei vor der Tür steht. Wenn du weißt, dass deine Ex zu institutioneller Eskalation fähig ist, kläre den Kontakt zu einer Anwältin vorab. Viele Beratungsstellen bieten kostenlose Erstgespräche. Du brauchst keine laufende Bedrohung, um dich beraten zu lassen — nur die realistische Einschätzung, dass eine Bedrohung möglich ist.",
-            },
-            {
-              title: "Vertrauenspersonen als Zeug*innen deiner Realität",
-              text: "Informiere mindestens zwei bis drei Vertrauenspersonen vollständig über die Situation — bevor eine Eskalation eintritt. Diese Menschen dienen als Zeug*innen deiner Realität: Sie kennen den Kontext, können Behörden gegenüber bestätigen, was du durchgemacht hast, und verhindern, dass deine Ex allein die Narration kontrolliert. Das ist keine Paranoia — das ist Vorsorge.",
-            },
-          ].map((p) => (
-            <div
-              key={p.title}
-              className="rounded-xl bg-white/80 p-4 shadow-soft"
-              style={{ borderLeft: "4px solid var(--color-sage)" }}
-            >
-              <strong className="text-bordeaux">{p.title}</strong>
-              <p className="mt-1.5 text-sm leading-relaxed text-graphite/90">
-                {p.text}
-              </p>
-            </div>
-          ))}
         </div>
       </section>
 
