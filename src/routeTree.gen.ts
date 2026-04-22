@@ -10,10 +10,15 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WillkommenRouteImport } from './routes/willkommen'
+import { Route as VorwortRouteImport } from './routes/vorwort'
 import { Route as UnlockRouteImport } from './routes/unlock'
+import { Route as RoutingRouteImport } from './routes/routing'
+import { Route as PoemRouteImport } from './routes/poem'
 import { Route as JournalRouteImport } from './routes/journal'
+import { Route as InhaltRouteImport } from './routes/inhalt'
 import { Route as GlossarRouteImport } from './routes/glossar'
 import { Route as EinstellungenRouteImport } from './routes/einstellungen'
+import { Route as EinleitungRouteImport } from './routes/einleitung'
 import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as AuthRouteImport } from './routes/auth'
@@ -25,14 +30,34 @@ const WillkommenRoute = WillkommenRouteImport.update({
   path: '/willkommen',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VorwortRoute = VorwortRouteImport.update({
+  id: '/vorwort',
+  path: '/vorwort',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UnlockRoute = UnlockRouteImport.update({
   id: '/unlock',
   path: '/unlock',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RoutingRoute = RoutingRouteImport.update({
+  id: '/routing',
+  path: '/routing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoemRoute = PoemRouteImport.update({
+  id: '/poem',
+  path: '/poem',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const JournalRoute = JournalRouteImport.update({
   id: '/journal',
   path: '/journal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InhaltRoute = InhaltRouteImport.update({
+  id: '/inhalt',
+  path: '/inhalt',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GlossarRoute = GlossarRouteImport.update({
@@ -43,6 +68,11 @@ const GlossarRoute = GlossarRouteImport.update({
 const EinstellungenRoute = EinstellungenRouteImport.update({
   id: '/einstellungen',
   path: '/einstellungen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EinleitungRoute = EinleitungRouteImport.update({
+  id: '/einleitung',
+  path: '/einleitung',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DatenschutzRoute = DatenschutzRouteImport.update({
@@ -76,10 +106,15 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/dashboard': typeof DashboardRoute
   '/datenschutz': typeof DatenschutzRoute
+  '/einleitung': typeof EinleitungRoute
   '/einstellungen': typeof EinstellungenRoute
   '/glossar': typeof GlossarRoute
+  '/inhalt': typeof InhaltRoute
   '/journal': typeof JournalRoute
+  '/poem': typeof PoemRoute
+  '/routing': typeof RoutingRoute
   '/unlock': typeof UnlockRoute
+  '/vorwort': typeof VorwortRoute
   '/willkommen': typeof WillkommenRoute
   '/modul/$slug': typeof ModulSlugRoute
 }
@@ -88,10 +123,15 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/dashboard': typeof DashboardRoute
   '/datenschutz': typeof DatenschutzRoute
+  '/einleitung': typeof EinleitungRoute
   '/einstellungen': typeof EinstellungenRoute
   '/glossar': typeof GlossarRoute
+  '/inhalt': typeof InhaltRoute
   '/journal': typeof JournalRoute
+  '/poem': typeof PoemRoute
+  '/routing': typeof RoutingRoute
   '/unlock': typeof UnlockRoute
+  '/vorwort': typeof VorwortRoute
   '/willkommen': typeof WillkommenRoute
   '/modul/$slug': typeof ModulSlugRoute
 }
@@ -101,10 +141,15 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/dashboard': typeof DashboardRoute
   '/datenschutz': typeof DatenschutzRoute
+  '/einleitung': typeof EinleitungRoute
   '/einstellungen': typeof EinstellungenRoute
   '/glossar': typeof GlossarRoute
+  '/inhalt': typeof InhaltRoute
   '/journal': typeof JournalRoute
+  '/poem': typeof PoemRoute
+  '/routing': typeof RoutingRoute
   '/unlock': typeof UnlockRoute
+  '/vorwort': typeof VorwortRoute
   '/willkommen': typeof WillkommenRoute
   '/modul/$slug': typeof ModulSlugRoute
 }
@@ -115,10 +160,15 @@ export interface FileRouteTypes {
     | '/auth'
     | '/dashboard'
     | '/datenschutz'
+    | '/einleitung'
     | '/einstellungen'
     | '/glossar'
+    | '/inhalt'
     | '/journal'
+    | '/poem'
+    | '/routing'
     | '/unlock'
+    | '/vorwort'
     | '/willkommen'
     | '/modul/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -127,10 +177,15 @@ export interface FileRouteTypes {
     | '/auth'
     | '/dashboard'
     | '/datenschutz'
+    | '/einleitung'
     | '/einstellungen'
     | '/glossar'
+    | '/inhalt'
     | '/journal'
+    | '/poem'
+    | '/routing'
     | '/unlock'
+    | '/vorwort'
     | '/willkommen'
     | '/modul/$slug'
   id:
@@ -139,10 +194,15 @@ export interface FileRouteTypes {
     | '/auth'
     | '/dashboard'
     | '/datenschutz'
+    | '/einleitung'
     | '/einstellungen'
     | '/glossar'
+    | '/inhalt'
     | '/journal'
+    | '/poem'
+    | '/routing'
     | '/unlock'
+    | '/vorwort'
     | '/willkommen'
     | '/modul/$slug'
   fileRoutesById: FileRoutesById
@@ -152,10 +212,15 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   DashboardRoute: typeof DashboardRoute
   DatenschutzRoute: typeof DatenschutzRoute
+  EinleitungRoute: typeof EinleitungRoute
   EinstellungenRoute: typeof EinstellungenRoute
   GlossarRoute: typeof GlossarRoute
+  InhaltRoute: typeof InhaltRoute
   JournalRoute: typeof JournalRoute
+  PoemRoute: typeof PoemRoute
+  RoutingRoute: typeof RoutingRoute
   UnlockRoute: typeof UnlockRoute
+  VorwortRoute: typeof VorwortRoute
   WillkommenRoute: typeof WillkommenRoute
   ModulSlugRoute: typeof ModulSlugRoute
 }
@@ -169,6 +234,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WillkommenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/vorwort': {
+      id: '/vorwort'
+      path: '/vorwort'
+      fullPath: '/vorwort'
+      preLoaderRoute: typeof VorwortRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/unlock': {
       id: '/unlock'
       path: '/unlock'
@@ -176,11 +248,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UnlockRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/routing': {
+      id: '/routing'
+      path: '/routing'
+      fullPath: '/routing'
+      preLoaderRoute: typeof RoutingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/poem': {
+      id: '/poem'
+      path: '/poem'
+      fullPath: '/poem'
+      preLoaderRoute: typeof PoemRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/journal': {
       id: '/journal'
       path: '/journal'
       fullPath: '/journal'
       preLoaderRoute: typeof JournalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inhalt': {
+      id: '/inhalt'
+      path: '/inhalt'
+      fullPath: '/inhalt'
+      preLoaderRoute: typeof InhaltRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/glossar': {
@@ -195,6 +288,13 @@ declare module '@tanstack/react-router' {
       path: '/einstellungen'
       fullPath: '/einstellungen'
       preLoaderRoute: typeof EinstellungenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/einleitung': {
+      id: '/einleitung'
+      path: '/einleitung'
+      fullPath: '/einleitung'
+      preLoaderRoute: typeof EinleitungRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/datenschutz': {
@@ -240,10 +340,15 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   DashboardRoute: DashboardRoute,
   DatenschutzRoute: DatenschutzRoute,
+  EinleitungRoute: EinleitungRoute,
   EinstellungenRoute: EinstellungenRoute,
   GlossarRoute: GlossarRoute,
+  InhaltRoute: InhaltRoute,
   JournalRoute: JournalRoute,
+  PoemRoute: PoemRoute,
+  RoutingRoute: RoutingRoute,
   UnlockRoute: UnlockRoute,
+  VorwortRoute: VorwortRoute,
   WillkommenRoute: WillkommenRoute,
   ModulSlugRoute: ModulSlugRoute,
 }
