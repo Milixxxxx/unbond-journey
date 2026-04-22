@@ -2,7 +2,7 @@ import { createFileRoute, useParams, Link } from "@tanstack/react-router";
 import { getModule } from "@/lib/modules";
 import { ModuleTopBar } from "@/components/module-top-bar";
 import { ModuleBottomBar } from "@/components/module-bottom-bar";
-import { CrisisBanner } from "@/components/crisis-banner";
+
 import { SosSoforthilfe } from "@/modules/sos-soforthilfe";
 import { Modul01 } from "@/modules/modul-01";
 import { Modul02 } from "@/modules/modul-02";
@@ -68,8 +68,6 @@ function ModulePage() {
         />
 
         <div className="mx-auto max-w-3xl px-4 py-6">
-          <CrisisBanner />
-
           <div className="mt-6 rounded-2xl border border-mauve/20 bg-white/80 p-6 shadow-soft">
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-mauve">
               Kapitelweise Freigabe
@@ -103,8 +101,6 @@ function ModulePage() {
       />
 
       <div className="mx-auto max-w-3xl px-4 py-6">
-        <CrisisBanner />
-
         <div className="mt-6">
           {meta.slug === "sos-soforthilfe" ? (
             <SosSoforthilfe />

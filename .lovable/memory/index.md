@@ -10,7 +10,11 @@ When asking the user a question, always offer 3 concrete options.
 Chapter structure (verified from UNBOND_Final_02-2.html): 01 SOS · 02 Trauma-Bonding · 03 Rosa-Brille abnehmen · 04 No Contact als Neurobiologie · 05 Trigger entmachten · 06 Körper zuerst · 07 Suchtmuster brechen · 08 WLW-Dynamiken · 09 Bindungsmuster & Inneres Kind · 10 Identität, Zukunft & Abschluss · Bonus D Behörden als Waffe · Bonus E Das Warum hinter dem Warum · Bonus F Ankommen in der Trauer.
 Premium / Apple-like / Calm Luxury Vibe für ALLE Module: ruhig, sanft, hochwertig — ohne Brandfarben oder Designsystem zu verändern. Micro-Feedback bei jeder Interaktion (sanfter Highlight, Glow, Bestätigungstext). Story-Container atmen dezent (Background-Glow). Lange wissenschaftliche Erklärungen → sanfte Accordions. Deep-Dive immer mit optionaler Einleitung "Wenn du tiefer verstehen willst …" (FernUSG-konform).
 Story-Box ist silbrig-grau (oklch(0.42 0.008 250 / 0.78)) für SW-Fotos der Hauptdarstellerinnen — NIE Bordeaux/Braun. Bilder werden ganz am Ende eingefügt, keine Platzhalter.
+KEIN linker Akzentstreifen mehr in ExerciseFrame/Übungs-Containern (wirkt altmodisch). Stattdessen: rounded-3xl Glas, 1px Hairline, Akzent-Pille oben links, dezente Aura. Reflection3Step-Indikatoren ohne verbindende Linien.
+KEIN CrisisBanner mehr am Anfang einzelner Kapitel — nur in /willkommen und über den SOS-Floating-Button.
+Story-Pattern: Mary-Erleben mit ACT-Defusion-Selbstgespräch ("Da ist er wieder, dieser Gedanke … ich lasse ihn weiterziehen, es ist nur ein Gedanke vom kaputten Spielautomaten"). Diesen Defusions-Reflex in alle weiteren Kapitel-Storys integrieren.
 
 ## Memories
 - [Modul 01 Fallback v1](mem://modules/modul-01-fallback) — Stabiler Stand vor Micro-Feedback-Optimierung (Stand: heute) — Rückkehrpunkt falls UX-Polish zu viel wird.
 - [Micro-Feedback System](mem://design/micro-feedback) — Apple-like Premium Polish: ButtonChoice-Highlight + Confirm-Pulse, Checkbox-Glow, Story-Atem-Glow, Deep-Dive-Einleitung, Accordion-Diagnose.
+- [ExerciseFrame Style](mem://design/exercise-frame-style) — Verbindlicher Apple-like Stil für ExerciseFrame & Reflection3Step: keine linken Balken, Aura + Hairline + Akzent-Pille.
