@@ -18,7 +18,11 @@ import {
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
 import { SectionBlock } from "@/components/section-block";
+import { StoryPortrait } from "@/components/story-portrait";
+import { InfoGraphicBlock } from "@/components/infographic-block";
 import { TextCollapse } from "@/components/text-collapse";
+import marySpielautomatImg from "@/assets/story/mary-spielautomat.png";
+import traumaBondingInfografik from "@/assets/infographics/trauma-bonding-kreislauf.png";
 import { ButtonChoice } from "@/components/button-choice";
 import { ChecklistGoals } from "@/components/checklist-goals";
 import { DeepDiveIntro } from "@/components/deep-dive-intro";
