@@ -273,7 +273,7 @@ export function Modul01() {
         eyebrow="Lösung · ACT-Defusion & Dopamin-Reset"
         title="Den Konditionierungskreislauf unterbrechen"
       >
-        <p className="font-display text-base font-semibold text-bordeaux">
+        <p className="font-display text-[15px] font-semibold leading-snug text-bordeaux sm:text-base">
           Trauma-Bonding ist neurobiologisch eine Sucht — und Sucht heilt
           nicht durch Bewerten, sondern durch Unterbrechen.
         </p>
