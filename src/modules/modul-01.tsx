@@ -273,48 +273,35 @@ export function Modul01() {
         eyebrow="Lösung · ACT-Defusion & Dopamin-Reset"
         title="Den Konditionierungskreislauf unterbrechen"
       >
-        <TextCollapse preview={2} threshold={3}>
+        <p className="font-display text-base font-semibold text-bordeaux">
+          Trauma-Bonding ist neurobiologisch eine Sucht — und Sucht heilt
+          nicht durch Bewerten, sondern durch Unterbrechen.
+        </p>
+
+        <TextCollapse preview={1} threshold={2}>
           <p>
-            <strong>Trauma-Bonding ist neurobiologisch eine Sucht</strong> —
-            und jede wirksame Suchtbehandlung beginnt nicht damit, die Droge
-            zu bewerten, sondern damit, den Konditionierungskreislauf selbst
-            zu unterbrechen.
+            Die <em>Acceptance and Commitment Therapy</em> (ACT) bietet dafür
+            die <GlossarTerm termKey="defusion">Defusions-Technik</GlossarTerm>:
+            Du beobachtest Gedanken und Cravings als mentale Ereignisse — wie
+            Züge, die durch den Bahnhof fahren — ohne ihnen zu folgen oder
+            gegen sie zu kämpfen.
           </p>
           <p>
-            Die <em>Acceptance and Commitment Therapy</em> (ACT, Hayes,
-            Strosahl &amp; Wilson, 2006) bietet dafür die{" "}
-            <GlossarTerm termKey="defusion">Defusions-Technik</GlossarTerm>:
-            Du lernst, Gedanken und Cravings als mentale Ereignisse zu
-            beobachten — als Züge, die durch den Bahnhof fahren — ohne ihnen
-            zu folgen oder gegen sie zu kämpfen.
+            Parallel beschreibt die Suchtforschung die{" "}
+            <strong>Dopamin-Sensitivierung</strong>: Das Belohnungssystem
+            wird durch intermittierende Verstärkung hyperreaktiv und reagiert
+            auf kleinste Hinweisreize — ein Like, ein Lied — mit
+            unverhältnismäßig starken Cravings.
           </p>
-          <p>
-            Parallel dazu beschreibt die Suchtforschung (Nestler, 2005) das
-            Konzept der <strong>Dopamin-Sensitivierung</strong>: Das
-            Belohnungssystem wird durch intermittierende Verstärkung
-            hyperreaktiv und reagiert auf kleinste Hinweisreize — ein Like,
-            ein Emoji, ein gemeinsames Lied — mit unverhältnismäßig starken
-            Cravings.
+          <p className="font-semibold text-bordeaux">
+            Der Dopamin-Reset bedeutet: konsequente Null-Exposition gegenüber
+            diesen Micro-Cues — kein Profilschauen, keine geteilten Playlists,
+            keine gemeinsamen Kontakte.
           </p>
-          <p>
-            <strong>Der Dopamin-Reset bedeutet daher: konsequente
-            Null-Exposition gegenüber diesen Micro-Cues.</strong>
-          </p>
-          <ul className="ml-5 list-disc space-y-1">
-            <li>Kein Profilschauen</li>
-            <li>Keine geteilten Playlists</li>
-            <li>Keine gegenseitigen Kontakte</li>
-          </ul>
           <p>
             Nicht aus Hass — sondern weil jeder Blick auf ihr Profil den
-            Konditionierungskreislauf neu aktiviert und den Heilungsprozess
-            um Wochen zurückwirft.
-          </p>
-          <p>
-            Defusion und Dopamin-Reset zusammen erlauben dir, das Suchtmuster
-            nüchtern zu betrachten: nicht als Liebesbeweis, sondern als{" "}
-            <strong>neurobiologisches Muster, das du durch konsequentes
-            Nicht-Handeln und bewusstes Beobachten entlernen kannst.</strong>
+            Kreislauf neu aktiviert und den Heilungsprozess um Wochen
+            zurückwirft.
           </p>
         </TextCollapse>
 
@@ -325,19 +312,15 @@ export function Modul01() {
         >
           <p>
             Wenn der Gedanke kommt <em>„Sie war doch meine große Liebe"</em>,
-            ist das ein Zug, der in deinen Bahnhof einfährt. Du beobachtest
-            ihn, sagst innerlich:{" "}
+            ist das ein Zug, der einfährt. Du beobachtest ihn, sagst innerlich:{" "}
             <strong>„Da ist der Gedanke, dass sie meine große Liebe war."</strong>{" "}
-            — und lässt ihn weiterfahren. Du steigst nicht ein. Du
-            argumentierst nicht. Du wartest auf den nächsten Zug.
+            — und lässt ihn weiterfahren. Du steigst nicht ein.
           </p>
         </CalloutBold>
 
-        <p className="mt-2 text-xs italic text-graphite/65">
-          Quelle: Hayes, S. C., Strosahl, K. D., &amp; Wilson, K. G. (2006).{" "}
-          <em>Acceptance and Commitment Therapy</em>. Guilford Press; Nestler,
-          E. J. (2005). Is there a common molecular pathway for addiction?{" "}
-          <em>Nature Neuroscience</em>, 8(11), 1445–1449.
+        <p className="text-xs italic text-graphite/60">
+          Quellen: Hayes, Strosahl &amp; Wilson (2006), <em>ACT</em>; Nestler
+          (2005), <em>Nature Neuroscience</em>, 8(11), 1445–1449.
         </p>
       </SectionBlock>
 
