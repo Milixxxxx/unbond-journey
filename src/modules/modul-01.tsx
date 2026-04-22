@@ -121,6 +121,17 @@ export function Modul01() {
                 plötzlich den Jackpot aus: ein Blick absoluter Liebe, ein
                 intimes Versprechen, ein Abend leidenschaftlicher Nähe.
               </p>
+              <p data-voice="mary" className={dim("mary")}>
+                Doch dann erinnert sie sich an einen Satz aus ihrem Workbuch —
+                an die <GlossarTerm termKey="defusion">ACT-Defusion</GlossarTerm>.
+                Sie atmet einmal tief und sagt innerlich:{" "}
+                <em>
+                  „Da ist er wieder, dieser Gedanke — dass unsere Liebe einzigartig
+                  gewesen sei. Schon spüre ich den Schmerz im Herzen. Aber ich
+                  lasse ihn weiterziehen. Es ist nur ein Gedanke, den der kaputte
+                  Spielautomat ausgespuckt hat."
+                </em>
+              </p>
               <p data-voice="sandra" className={dim("sandra")}>
                 Genau dieser sadistische Wechsel aus eiskaltem Entzug und
                 massiver Belohnung hatte Marys Gehirn biochemisch
