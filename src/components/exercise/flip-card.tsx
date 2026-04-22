@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Hand } from "lucide-react";
+import { Hand, type LucideIcon } from "lucide-react";
 
 /**
  * FlipCard · Einheitliches Diagnose-Karten-Design im gesamten Buch.
@@ -15,13 +15,17 @@ import { Hand } from "lucide-react";
  */
 export function FlipCard({
   emoji,
+  icon: Icon,
   color,
   label,
   heading,
   front,
   back,
 }: {
-  emoji: string;
+  /** @deprecated — bitte `icon` (Lucide-Komponente) verwenden statt Emoji. */
+  emoji?: string;
+  /** Lucide-Icon-Komponente, z. B. `Bomb`. Wird bevorzugt vor `emoji`. */
+  icon?: LucideIcon;
   /** CSS color string, z.B. "var(--color-bordeaux)" */
   color: string;
   label: string;
