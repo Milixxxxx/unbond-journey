@@ -99,11 +99,14 @@ export function SectionBlock({
   return (
     <section className={cn(meta.box, "my-6 animate-fade-in", className)}>
       {!bare && (
-        <header className="mb-3 flex items-center gap-2">
-          <Icon className={cn("h-4 w-4", meta.iconClass)} aria-hidden="true" />
+        <header className="mb-3 flex items-start gap-2">
+          <Icon
+            className={cn("mt-[3px] h-4 w-4 flex-shrink-0", meta.iconClass)}
+            aria-hidden="true"
+          />
           <span
             className={cn(
-              "text-xs font-semibold uppercase tracking-[0.18em]",
+              "min-w-0 flex-1 break-words text-[11px] font-semibold uppercase leading-snug tracking-[0.16em] sm:text-xs",
               meta.labelClass,
             )}
           >
@@ -114,17 +117,18 @@ export function SectionBlock({
       {title && (
         <h3
           className={cn(
-            "mb-3 font-display text-xl md:text-2xl",
-            isStory ? "text-cream" : "",
+            "mb-3 break-words font-display text-lg leading-tight sm:text-xl md:text-2xl",
+            isStory ? "text-cream" : "text-bordeaux",
           )}
+          style={{ hyphens: "auto" }}
         >
           {title}
         </h3>
       )}
       <div
         className={cn(
-          "space-y-3",
-          isStory ? "text-cream/95 leading-relaxed" : "text-foreground",
+          "min-w-0 space-y-3 text-sm leading-relaxed sm:text-[15px]",
+          isStory ? "text-cream/95" : "text-foreground",
         )}
       >
         {children}
