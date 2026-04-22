@@ -18,7 +18,11 @@ import {
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
 import { SectionBlock } from "@/components/section-block";
+import { StoryPortrait } from "@/components/story-portrait";
+import { InfoGraphicBlock } from "@/components/infographic-block";
 import { TextCollapse } from "@/components/text-collapse";
+import marySpielautomatImg from "@/assets/story/mary-spielautomat.png";
+import traumaBondingInfografik from "@/assets/infographics/trauma-bonding-kreislauf.png";
 import { ButtonChoice } from "@/components/button-choice";
 import { ChecklistGoals } from "@/components/checklist-goals";
 import { DeepDiveIntro } from "@/components/deep-dive-intro";
@@ -106,7 +110,15 @@ export function Modul01() {
           ))}
         </div>
 
-        <div className="space-y-4">
+        {/* Story-Container: clearfix für das float-Portrait */}
+        <div className="[&>p+p]:mt-4 [&>p]:mb-0">
+          {/* Mary-Portrait — Desktop: float-left mit Textumfluss · Mobile: oben drüber */}
+          <StoryPortrait
+            src={marySpielautomatImg}
+            alt="Mary sitzt nachts am Küchentisch und schreibt in ihr Journal"
+            caption="Mary · Die Nacht der Erkenntnis"
+            side="left"
+          />
           <Reveal>
             <p data-voice="mary" className={dim("mary")}>
               Mary sitzt nachts am Küchentisch und rechnet die nackte Wahrheit
@@ -164,6 +176,8 @@ export function Modul01() {
               </p>
             </TextCollapse>
           </Reveal>
+          {/* Clearfix: Stoppt das float-Bild, damit die Story-Box korrekt umschließt */}
+          <div className="clear-both" />
         </div>
       </SectionBlock>
 
@@ -324,7 +338,15 @@ export function Modul01() {
         </p>
       </SectionBlock>
 
-      {/* ════════════════ 4 · DEEP DIVE (optional · FernUSG-konform) ════════════════ */}
+      {/* ── Infografik nach der Lösung: Anatomie des toxischen Kreislaufs ── */}
+      <InfoGraphicBlock
+        src={traumaBondingInfografik}
+        alt="Infografik: Anatomie des toxischen Kreislaufs — fünf Phasen des Trauma-Bondings"
+        title="Infografik · Anatomie des toxischen Kreislaufs"
+        caption="Die fünf Phasen, die dein Gehirn in der Sucht halten — Tap zum Vergrößern."
+        aspect="16/9"
+      />
+
       <DeepDiveIntro
         label="Wenn du tiefer verstehen willst …"
         hint="Optional. Drei Studien, die das Muster erklären — du musst sie nicht lesen, um zu heilen."
