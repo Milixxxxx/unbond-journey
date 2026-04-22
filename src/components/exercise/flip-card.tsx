@@ -43,18 +43,18 @@ export function FlipCard({
       onClick={() => setFlipped((v) => !v)}
       aria-pressed={flipped}
       aria-label={`${heading} – ${flipped ? "Zurück" : "Mehr erfahren"}`}
-      className="flip-card-wrap group relative w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bordeaux/40 focus-visible:ring-offset-2 focus-visible:ring-offset-cream rounded-2xl"
+      className="flip-card-wrap group relative w-full text-left rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bordeaux/40 focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
       style={{ aspectRatio: "1 / 1" }}
     >
       <div className={`flip-card-inner ${flipped ? "is-flipped" : ""} h-full`}>
         {/* Front */}
         <div
-          className="flip-card-face flex h-full flex-col overflow-hidden rounded-2xl bg-white/85 p-2.5 shadow-soft"
-          style={{ borderTop: `4px solid ${color}` }}
+          className="flip-card-face flex h-full flex-col overflow-hidden rounded-2xl bg-white/85 p-3 shadow-soft"
+          style={{ borderTop: `3px solid ${color}` }}
         >
-          <div className="flex items-start justify-between gap-1">
+          <div className="flex items-start justify-between gap-1.5">
             <span
-              className="inline-flex h-6 w-6 items-center justify-center"
+              className="inline-flex h-6 w-6 flex-shrink-0 items-center justify-center"
               style={{ color }}
               aria-hidden
             >
@@ -71,11 +71,17 @@ export function FlipCard({
               {label}
             </p>
           </div>
-          <p className="mt-1 font-display text-[12px] font-bold leading-tight text-bordeaux line-clamp-2">
+          <p
+            className="mt-1.5 break-words font-display text-[12px] font-bold leading-tight text-bordeaux line-clamp-2"
+            style={{ hyphens: "auto" }}
+          >
             {heading}
           </p>
           {front ? (
-            <p className="mt-1 text-[10.5px] leading-snug text-graphite/70 line-clamp-3">
+            <p
+              className="mt-1 break-words text-[10.5px] leading-snug text-graphite/65 line-clamp-3"
+              style={{ hyphens: "auto" }}
+            >
               {front}
             </p>
           ) : null}
@@ -93,10 +99,10 @@ export function FlipCard({
 
         {/* Back */}
         <div
-          className="flip-card-face flip-card-back flex h-full flex-col overflow-hidden rounded-2xl bg-white/95 p-2.5 shadow-soft"
-          style={{ borderTop: `4px solid ${color}` }}
+          className="flip-card-face flip-card-back flex h-full flex-col overflow-hidden rounded-2xl bg-white/95 p-3 shadow-soft"
+          style={{ borderTop: `3px solid ${color}` }}
         >
-          <div className="flex items-start justify-between gap-1">
+          <div className="flex items-start justify-between gap-1.5">
             <p
               className="font-display text-[9px] font-bold uppercase tracking-wider"
               style={{ color }}
@@ -104,7 +110,7 @@ export function FlipCard({
               {label}
             </p>
             <span
-              className="inline-flex h-5 w-5 items-center justify-center opacity-60"
+              className="inline-flex h-5 w-5 flex-shrink-0 items-center justify-center opacity-60"
               style={{ color }}
               aria-hidden
             >
@@ -115,14 +121,20 @@ export function FlipCard({
               )}
             </span>
           </div>
-          <p className="mt-1 font-display text-[11px] font-bold leading-tight text-bordeaux line-clamp-2">
+          <p
+            className="mt-1.5 break-words font-display text-[11px] font-bold leading-tight text-bordeaux line-clamp-2"
+            style={{ hyphens: "auto" }}
+          >
             {heading}
           </p>
-          <p className="mt-1 text-[10.5px] leading-snug text-graphite/85 line-clamp-[7]">
+          <p
+            className="mt-1 flex-1 overflow-hidden break-words text-[10.5px] leading-snug text-graphite/85"
+            style={{ hyphens: "auto" }}
+          >
             {back}
           </p>
           <p
-            className="mt-auto pt-1 text-[8.5px] font-semibold uppercase tracking-[0.14em] opacity-60"
+            className="mt-1 pt-1 text-[8.5px] font-semibold uppercase tracking-[0.14em] opacity-60"
             style={{ color }}
           >
             ← Zurück
