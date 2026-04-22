@@ -93,19 +93,21 @@ export function Modul01() {
         <div className="space-y-4">
           <Reveal>
             <p data-voice="mary" className={dim("mary")}>
-              Mary zählt nach. <strong>Sechs bis acht Stunden im Monat.</strong>{" "}
-              Mehr war nie da. Das ist alles, was Sandra ihr je gegeben hat.
+              Mary sitzt nachts am Küchentisch und rechnet die nackte Wahrheit
+              zusammen: <strong>Sechs bis acht Stunden im Monat</strong> — das
+              war alles, was Sandra ihr an echter, präsenter Beziehungszeit
+              gönnte.
             </p>
           </Reveal>
           <Reveal delay={120}>
             <p data-voice="sandra" className={dim("sandra")}>
-              Der Rest: Ausreden. Stress. Stille. Eine Tür, die immer halb zu war.
+              Der Rest: Ausreden, vorgeschobener Stress, unsichtbare Mauern.
             </p>
           </Reveal>
           <Reveal delay={240}>
             <p data-voice="mary" className={dim("mary")}>
-              <em>Ich warte.</em> Ich rechtfertige. Ich atme nur, wenn das Handy
-              leuchtet. Warum fühlt sich diese Frau wie Sauerstoff an?
+              Rational ergibt das keinen Sinn. Warum also fühlte Mary, als würde
+              sie ohne diese Frau buchstäblich nicht atmen können?
             </p>
           </Reveal>
           <Reveal delay={360}>
@@ -119,17 +121,19 @@ export function Modul01() {
                 stolpert. Sandra war kein sicherer Hafen — sie war ein kaputter
                 Spielautomat. Nach wochenlangem emotionalem Verhungern warf er
                 plötzlich den Jackpot aus: ein Blick absoluter Liebe, ein
-                intimes Versprechen, ein Abend leidenschaftlicher Nähe.
+                intimes Versprechen, ein Abend leidenschaftlicher Nähe. Und dann
+                wieder Rückzug, gerade in dem Moment, wo die Harmonie am größten
+                war …
               </p>
               <p data-voice="mary" className={dim("mary")}>
                 Doch dann erinnert sie sich an einen Satz aus ihrem Workbuch —
                 an die <GlossarTerm termKey="defusion">ACT-Defusion</GlossarTerm>.
                 Sie atmet einmal tief und sagt innerlich:{" "}
                 <em>
-                  „Da ist er wieder, dieser Gedanke — dass unsere Liebe einzigartig
-                  gewesen sei. Schon spüre ich den Schmerz im Herzen. Aber ich
-                  lasse ihn weiterziehen. Es ist nur ein Gedanke, den der kaputte
-                  Spielautomat ausgespuckt hat."
+                  „Da ist er wieder, dieser Gedanke — dass unsere Liebe
+                  einzigartig gewesen sei. Schon spüre ich den Schmerz im
+                  Herzen. Aber ich lasse ihn weiterziehen. Es ist nur ein
+                  Gedanke, den der kaputte Spielautomat ausgespuckt hat."
                 </em>
               </p>
               <p data-voice="sandra" className={dim("sandra")}>
