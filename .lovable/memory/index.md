@@ -15,3 +15,4 @@ Chapter structure (verified from UNBOND_Final_02-2.html): 01 SOS · 02 Trauma-Bo
 ## Memories
 - [Mary&Sandra Kanon-Text](mem://content/mary-sandra-canon) — Wortlaut der Story-Passagen; nicht ändern.
 - [ExerciseFrame Style](mem://design/exercise-frame-style) — Premium/Apple-like Glass-Stil, kein linker Akzentbalken, kein CrisisBanner.
+- [Icon-Stil](mem://design/icon-style) — Lucide-Outline-Icons, KEINE bunten Emojis als UI-Akzent.
