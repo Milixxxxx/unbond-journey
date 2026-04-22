@@ -1,90 +1,88 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Heart, Lock, Shield } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/")({
-  component: Landing,
+  component: Cover,
   head: () => ({
     meta: [
-      { title: "UNBOND – Breaking Chains" },
+      { title: "UNBOND · Breaking Chains" },
       {
         name: "description",
         content:
-          "Interaktives Selbsthilfe-Programm für lesbische und queere Frauen, die sich aus toxischen Beziehungen lösen. Wissenschaftlich fundiert. EU-Hosting.",
+          "Ein wissenschaftlich fundiertes 10-Schritte-Begleitprogramm zur Heilung nach toxischen Beziehungen – speziell für lesbische und queere Frauen.",
+      },
+      { property: "og:title", content: "UNBOND · Breaking Chains" },
+      {
+        property: "og:description",
+        content:
+          "Heilung nach toxischen Beziehungen – ein 10-Schritte-Programm für lesbische und queere Frauen.",
       },
     ],
   }),
 });
 
-function Landing() {
+function Cover() {
   return (
-    <main className="min-h-screen px-4 py-10 md:py-16">
-      <div className="mx-auto max-w-3xl space-y-8">
-        <header className="text-center animate-fade-in">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-mauve">
-            UNBOND · Breaking Chains
+    <main className="min-h-screen px-4 py-12 md:py-20">
+      <div className="mx-auto max-w-3xl">
+        <div className="glass-card-strong p-8 text-center md:p-14 animate-fade-in">
+          {/* Healing-Hearts Logo Platzhalter (User liefert healing_hearts_logo.png) */}
+          <div className="mx-auto mb-8 grid h-40 w-40 place-items-center rounded-full bg-gradient-to-br from-bordeaux/15 via-mauve/10 to-sage/15 ring-1 ring-bordeaux/15 md:h-48 md:w-48">
+            <div className="font-display text-5xl text-bordeaux/80">♥</div>
+          </div>
+
+          <p className="text-[10px] font-semibold uppercase tracking-[0.4em] text-mauve">
+            · Healing Hearts ·
           </p>
-          <h1 className="mt-3 font-display text-4xl font-extrabold leading-tight text-bordeaux md:text-5xl">
-            Du bist nicht verrückt.<br />
-            <span className="text-mauve">Du bist im Entzug.</span>
+          <h1 className="mt-4 font-display text-5xl font-extrabold leading-[1.05] tracking-tight text-bordeaux md:text-6xl">
+            UNBOND
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-base text-graphite/80 md:text-lg">
-            Ein interaktives 10-Modul-Programm für lesbische und queere Frauen, die sich aus
-            emotional missbräuchlichen Beziehungen lösen wollen.
+          <p className="mt-2 font-display text-xl italic text-mauve md:text-2xl">
+            Breaking Chains
           </p>
-        </header>
 
-        <div className="glass-card-strong p-6 md:p-8 animate-fade-in">
-          <div className="grid gap-4 sm:grid-cols-3">
-            <Feature
-              icon={<Shield className="h-5 w-5" />}
-              title="Wissenschaftlich"
-              text="CBT, ACT, DBT, Polyvagal-Theorie – evidenzbasiert."
-            />
-            <Feature
-              icon={<Heart className="h-5 w-5" />}
-              title="Queer & inklusiv"
-              text="Geschrieben für WLW-Beziehungen, nicht angepasst."
-            />
-            <Feature
-              icon={<Lock className="h-5 w-5" />}
-              title="🇪🇺 EU-Hosting"
-              text="Deine Daten bleiben in Frankfurt. DSGVO-konform."
-            />
-          </div>
+          <p className="mx-auto mt-8 max-w-xl text-sm leading-relaxed text-graphite/85 md:text-base">
+            Ein wissenschaftlich fundiertes 10-Schritte-Begleitprogramm zur
+            Heilung nach toxischen Beziehungen – speziell für lesbische und
+            queere Frauen.
+          </p>
 
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+          <blockquote className="mx-auto mt-8 max-w-xl border-l-2 border-mauve/40 pl-5 text-left text-[13px] leading-relaxed text-graphite/85 md:text-sm">
+            <p className="italic">
+              „Ich kenne diesen Ort. Ich habe dort Jahre meines Lebens
+              verbracht – gefangen zwischen Lovebombing und Funkstille,
+              zwischen dem Versprechen von Nähe und der Realität des Rückzugs.
+              Dieses Programm ist das Werkzeug, das ich mir damals gewünscht
+              hätte. Es gehört dir."
+            </p>
+            <footer className="mt-3 text-[11px] font-semibold uppercase tracking-wider text-bordeaux not-italic">
+              — Milena, Autorin &amp; Betroffene
+            </footer>
+          </blockquote>
+
+          <div className="mt-10">
             <Link
-              to="/dashboard"
-              className="inline-flex flex-1 items-center justify-center gap-2 rounded-md bg-bordeaux px-6 py-3.5 text-sm font-semibold uppercase tracking-wider text-white shadow-elegant transition hover:opacity-90"
+              to="/vorwort"
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-bordeaux px-8 py-4 text-sm font-semibold uppercase tracking-wider text-white shadow-elegant transition-all duration-300 hover:opacity-90 hover:translate-y-[-1px]"
             >
-              Inhalte öffnen <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              to="/willkommen"
-              className="inline-flex flex-1 items-center justify-center gap-2 rounded-md border-2 border-bordeaux/20 bg-white/60 px-6 py-3.5 text-sm font-semibold uppercase tracking-wider text-bordeaux transition hover:bg-white"
-            >
-              Erst mehr erfahren
+              Beginne deine Reise <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
+
+          <p className="mt-8 text-[11px] leading-relaxed text-graphite/60">
+            ⚠️ Dieses Programm ersetzt keine Psychotherapie. Bei akuten Krisen
+            bitte das <strong>Krisentelefon 0800 111 0 111</strong> anrufen
+            (kostenlos, 24/7).
+          </p>
         </div>
 
-        <p className="text-center text-xs text-muted-foreground">
-          Dieses Programm ersetzt keine Psychotherapie. In akuten Krisen:{" "}
-          <strong>0800 116 016</strong> (Hilfetelefon Gewalt gegen Frauen, 24/7)
+        <p className="mt-6 text-center text-xs text-muted-foreground">
+          Schon dabei?{" "}
+          <Link to="/dashboard" className="font-semibold text-bordeaux hover:underline">
+            Direkt zum Dashboard →
+          </Link>
         </p>
       </div>
     </main>
-  );
-}
-
-function Feature({ icon, title, text }: { icon: React.ReactNode; title: string; text: string }) {
-  return (
-    <div className="rounded-xl bg-white/60 p-4">
-      <div className="mb-2 inline-grid h-9 w-9 place-items-center rounded-lg bg-sage/20 text-bordeaux">
-        {icon}
-      </div>
-      <h3 className="font-display text-sm font-bold text-bordeaux">{title}</h3>
-      <p className="mt-1 text-xs leading-snug text-graphite/75">{text}</p>
-    </div>
   );
 }
