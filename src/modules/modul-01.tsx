@@ -452,7 +452,7 @@ export function Modul01() {
           storageKey="jackpot_protokoll"
           title="Drei konkrete Jackpot-Momente"
           subtitle="Beschreibe drei Momente — und erkenne dein persönliches Suchtmuster."
-          meta="🎰 Suchtmuster sichtbar machen"
+          meta="Suchtmuster sichtbar machen"
           accent="terracotta"
           rows={[1, 2, 3].map((n) => ({
             id: `jp${n}`,
@@ -460,19 +460,19 @@ export function Modul01() {
             fields: [
               {
                 key: "kaelte",
-                label: "🧊 Kälte davor",
+                label: "Kälte davor",
                 placeholder: "Wie lange? Welche Form? (Schweigen, Distanz…)",
                 rows: 3,
               },
               {
                 key: "jackpot",
-                label: "🎰 Der Jackpot",
-                placeholder: "Was genau hat sie getan / gesagt?",
+                label: "Der Jackpot",
+                placeholder: "Was genau hat sie getan oder gesagt?",
                 rows: 3,
               },
               {
                 key: "wirkung",
-                label: "💊 Wirkung in mir",
+                label: "Wirkung in mir",
                 placeholder: "Was hat das in deinem Körper / Kopf ausgelöst?",
                 rows: 3,
               },
