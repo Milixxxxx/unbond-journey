@@ -1,4 +1,20 @@
 import { useState } from "react";
+import {
+  Bomb,
+  Thermometer,
+  Waves,
+  MessageSquareOff,
+  Swords,
+  TreePalm,
+  RefreshCw,
+  Magnet,
+  BatteryLow,
+  Flame,
+  Bird,
+  Brain,
+  Link2,
+  type LucideIcon,
+} from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
 import { SectionBlock } from "@/components/section-block";
