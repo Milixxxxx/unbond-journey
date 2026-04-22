@@ -1,4 +1,20 @@
 import { useState } from "react";
+import {
+  Bomb,
+  Thermometer,
+  Waves,
+  MessageSquareOff,
+  Swords,
+  TreePalm,
+  RefreshCw,
+  Magnet,
+  BatteryLow,
+  Flame,
+  Bird,
+  Brain,
+  Link2,
+  type LucideIcon,
+} from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
 import { SectionBlock } from "@/components/section-block";
@@ -228,7 +244,7 @@ export function Modul01() {
       {/* ── 10 Warnsignale als interaktive FlipCards ── */}
       <SectionBlock
         kind="diagnose"
-        eyebrow="⚠️ Die 10 Warnsignale toxischer Bindung"
+        eyebrow="Die 10 Warnsignale toxischer Bindung"
         title="Tippe eine Karte an — sieh die Definition"
       >
         <p className="text-sm text-graphite/75">
@@ -240,7 +256,7 @@ export function Modul01() {
           {WARNSIGNALE.map((w) => (
             <FlipCard
               key={w.id}
-              emoji={w.emoji}
+              icon={w.icon}
               color="var(--color-bordeaux)"
               label={w.nr}
               heading={w.label}
@@ -254,7 +270,7 @@ export function Modul01() {
       {/* ════════════════ 3 · LÖSUNG ════════════════ */}
       <SectionBlock
         kind="loesung"
-        eyebrow="💡 Lösung · ACT-Defusion & Dopamin-Reset"
+        eyebrow="Lösung · ACT-Defusion & Dopamin-Reset"
         title="Den Konditionierungskreislauf unterbrechen"
       >
         <TextCollapse preview={2} threshold={3}>
@@ -333,7 +349,7 @@ export function Modul01() {
         <SectionBlock kind="deep-dive" title="Drei Studien, die alles erklären">
           <div className="grid gap-3 sm:grid-cols-3">
             <FlipCard
-              emoji="🐦"
+              icon={Bird}
               color="var(--color-sage)"
               label="Skinner · 1938"
               heading="Operante Konditionierung"
@@ -341,7 +357,7 @@ export function Modul01() {
               back="Variable Verstärkungspläne erzeugen die widerstandsfähigste Konditionierung. Eine Taube, die unregelmäßig Futter bekommt, pickt länger als eine, die jedes Mal belohnt wird."
             />
             <FlipCard
-              emoji="🧠"
+              icon={Brain}
               color="var(--color-sage)"
               label="Fisher et al. · 2005"
               heading="Liebe = Kokain im fMRT"
@@ -349,7 +365,7 @@ export function Modul01() {
               back="fMRT zeigt: Romantische Liebe aktiviert das ventrale tegmentale Areal — dasselbe System wie bei Kokain. Trennungsschmerz ist neurochemisch identisch mit Drogen-Entzug."
             />
             <FlipCard
-              emoji="🔗"
+              icon={Link2}
               color="var(--color-sage)"
               label="Dutton & Painter · 1993"
               heading="Bindung wegen Schmerz"
@@ -384,7 +400,7 @@ export function Modul01() {
           storageKey="warnsignale"
           title="Alle Warnsignale, die du erlebt hast"
           subtitle="Mehrfach-Auswahl. Klicke alles an, was dir bekannt vorkommt."
-          meta="🧠 Name it to tame it"
+          meta="Name it to tame it"
           accent="terracotta"
           pills={WARNSIGNALE.map((w) => ({ id: w.id, label: w.label }))}
           counterLabel="Warnsignale erkannt"
@@ -525,7 +541,7 @@ export function Modul01() {
 const WARNSIGNALE: {
   id: string;
   nr: string;
-  emoji: string;
+  icon: LucideIcon;
   label: string;
   teaser: string;
   desc: string;
@@ -533,7 +549,7 @@ const WARNSIGNALE: {
   {
     id: "lovebombing",
     nr: "01",
-    emoji: "💣",
+    icon: Bomb,
     label: "Lovebombing",
     teaser: "Übermaß an Zuneigung — sofort.",
     desc: "Überschwängliche Zuneigung am Anfang erzeugt emotionale Abhängigkeit, bevor das wahre Muster sichtbar wird.",
@@ -541,7 +557,7 @@ const WARNSIGNALE: {
   {
     id: "hotcold",
     nr: "02",
-    emoji: "🌡️",
+    icon: Thermometer,
     label: "Hot/Cold",
     teaser: "Heiß. Kalt. Ohne Anlass.",
     desc: "Wechsel zwischen Nähe und Rückzug ohne erkennbaren Grund. Das Unvorhersehbare macht süchtig.",
@@ -549,7 +565,7 @@ const WARNSIGNALE: {
   {
     id: "gaslighting",
     nr: "03",
-    emoji: "🌀",
+    icon: Waves,
     label: "Gaslighting",
     teaser: "„Das war nicht so.“",
     desc: "Deine Wahrnehmung wird systematisch in Frage gestellt. Du beginnst, deiner eigenen Realität zu misstrauen.",
@@ -557,7 +573,7 @@ const WARNSIGNALE: {
   {
     id: "schweigen",
     nr: "04",
-    emoji: "🤐",
+    icon: MessageSquareOff,
     label: "Schweige-Strafe",
     teaser: "Funkstille als Waffe.",
     desc: "Ignorieren oder Blockieren als Reaktion auf Grenzen. Bestrafung ohne Worte.",
@@ -565,7 +581,7 @@ const WARNSIGNALE: {
   {
     id: "weaponized",
     nr: "05",
-    emoji: "⚔️",
+    icon: Swords,
     label: "Weaponized Virtue",
     teaser: "Werte werden zur Kontrolle.",
     desc: "Progressive Werte (Therapie-Sprache, Awareness) werden als Kontrollwerkzeug eingesetzt — macht Gaslighting besonders wirksam.",
@@ -573,7 +589,7 @@ const WARNSIGNALE: {
   {
     id: "isolation",
     nr: "06",
-    emoji: "🏝️",
+    icon: TreePalm,
     label: "Isolation",
     teaser: "Dein Kreis schrumpft.",
     desc: "Dein Freundes- und Familienkreis wird kleiner — du ziehst dich zurück oder wirst gezielt isoliert.",
@@ -581,7 +597,7 @@ const WARNSIGNALE: {
   {
     id: "schuld",
     nr: "07",
-    emoji: "🪞",
+    icon: RefreshCw,
     label: "Schuldumkehr",
     teaser: "Du bist „das Problem“.",
     desc: "Du wirst für Dinge verantwortlich gemacht, die du nicht kontrollierst. Deine Emotionen werden zur Ursache erklärt.",
@@ -589,7 +605,7 @@ const WARNSIGNALE: {
   {
     id: "hoovering",
     nr: "08",
-    emoji: "🧲",
+    icon: Magnet,
     label: "Hoovering",
     teaser: "Wärme beim Loslassen.",
     desc: "Sobald du gehen willst, kommt die nächste Welle Wärme — das hält dich im Kreislauf gefangen.",
@@ -597,7 +613,7 @@ const WARNSIGNALE: {
   {
     id: "selbstwert",
     nr: "09",
-    emoji: "🪫",
+    icon: BatteryLow,
     label: "Selbstwert-Erosion",
     teaser: "Du fühlst dich kleiner.",
     desc: "Du glaubst, du seist zu viel, zu wenig, zu anstrengend. Du siehst dich schlechter als vor der Beziehung.",
@@ -605,7 +621,7 @@ const WARNSIGNALE: {
   {
     id: "hoffnung",
     nr: "10",
-    emoji: "🕯️",
+    icon: Flame,
     label: "Hoffnungssucht",
     teaser: "„Es kann sich noch wenden.“",
     desc: "Du glaubst, alles wird gut — wenn du nur anders wärst oder anders gehandelt hättest.",

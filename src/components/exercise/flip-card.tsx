@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Hand } from "lucide-react";
+import { Hand, type LucideIcon } from "lucide-react";
 
 /**
  * FlipCard · Einheitliches Diagnose-Karten-Design im gesamten Buch.
@@ -15,13 +15,17 @@ import { Hand } from "lucide-react";
  */
 export function FlipCard({
   emoji,
+  icon: Icon,
   color,
   label,
   heading,
   front,
   back,
 }: {
-  emoji: string;
+  /** @deprecated — bitte `icon` (Lucide-Komponente) verwenden statt Emoji. */
+  emoji?: string;
+  /** Lucide-Icon-Komponente, z. B. `Bomb`. Wird bevorzugt vor `emoji`. */
+  icon?: LucideIcon;
   /** CSS color string, z.B. "var(--color-bordeaux)" */
   color: string;
   label: string;
@@ -49,7 +53,17 @@ export function FlipCard({
           style={{ borderTop: `4px solid ${color}` }}
         >
           <div className="flex items-start justify-between gap-1">
-            <span className="text-lg leading-none">{emoji}</span>
+            <span
+              className="inline-flex h-6 w-6 items-center justify-center"
+              style={{ color }}
+              aria-hidden
+            >
+              {Icon ? (
+                <Icon className="h-4 w-4" strokeWidth={1.75} />
+              ) : (
+                <span className="text-base leading-none">{emoji}</span>
+              )}
+            </span>
             <p
               className="font-display text-[9px] font-bold uppercase tracking-wider"
               style={{ color }}
@@ -89,7 +103,17 @@ export function FlipCard({
             >
               {label}
             </p>
-            <span className="text-sm leading-none opacity-60">{emoji}</span>
+            <span
+              className="inline-flex h-5 w-5 items-center justify-center opacity-60"
+              style={{ color }}
+              aria-hidden
+            >
+              {Icon ? (
+                <Icon className="h-3.5 w-3.5" strokeWidth={1.75} />
+              ) : (
+                <span className="text-sm leading-none">{emoji}</span>
+              )}
+            </span>
           </div>
           <p className="mt-1 font-display text-[11px] font-bold leading-tight text-bordeaux line-clamp-2">
             {heading}
