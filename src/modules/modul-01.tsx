@@ -176,6 +176,8 @@ export function Modul01() {
               </p>
             </TextCollapse>
           </Reveal>
+          {/* Clearfix: Stoppt das float-Bild, damit die Story-Box korrekt umschließt */}
+          <div className="clear-both" />
         </div>
       </SectionBlock>
 
@@ -336,7 +338,15 @@ export function Modul01() {
         </p>
       </SectionBlock>
 
-      {/* ════════════════ 4 · DEEP DIVE (optional · FernUSG-konform) ════════════════ */}
+      {/* ── Infografik nach der Lösung: Anatomie des toxischen Kreislaufs ── */}
+      <InfoGraphicBlock
+        src={traumaBondingInfografik}
+        alt="Infografik: Anatomie des toxischen Kreislaufs — fünf Phasen des Trauma-Bondings"
+        title="Infografik · Anatomie des toxischen Kreislaufs"
+        caption="Die fünf Phasen, die dein Gehirn in der Sucht halten — Tap zum Vergrößern."
+        aspect="16/9"
+      />
+
       <DeepDiveIntro
         label="Wenn du tiefer verstehen willst …"
         hint="Optional. Drei Studien, die das Muster erklären — du musst sie nicht lesen, um zu heilen."
