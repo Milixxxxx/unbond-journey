@@ -1,8 +1,23 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { MODULES, PHASES, isBonus, type Phase } from "@/lib/modules";
-import { CheckCircle2, BookHeart, Settings, Construction, Star, Lock, KeyRound, Sparkles } from "lucide-react";
-import butterflyPattern from "@/assets/butterfly-pattern.png";
+import {
+  CheckCircle2,
+  BookHeart,
+  Settings,
+  Sparkles,
+  Lock,
+  KeyRound,
+  ShieldCheck,
+  Heart,
+  AlertCircle,
+  ScrollText,
+  Feather,
+  ListTree,
+  BookOpen,
+  Compass,
+} from "lucide-react";
+import { HealingTree } from "@/components/healing-tree";
 
 const STORAGE_KEY = "unbond-bonus-unlocks";
 function readBonusUnlocks(): string[] {
@@ -20,11 +35,17 @@ function readBonusUnlocks(): string[] {
 export const Route = createFileRoute("/dashboard")({
   component: Dashboard,
   head: () => ({
-    meta: [{ title: "Deine Reise · UNBOND" }],
+    meta: [
+      { title: "Dein sicherer Hafen · UNBOND" },
+      {
+        name: "description",
+        content:
+          "Dein persönliches Dashboard – Healing-Tree, Reading-Flow und alle Module von UNBOND.",
+      },
+    ],
   }),
 });
 
-// Tageszeit-abhängige Begrüßung — clientseitig berechnet, um Hydration-Mismatch zu vermeiden
 const NEUTRAL_GREETING = "Schön, dass du da bist";
 function computeGreeting() {
   const h = new Date().getHours();
@@ -40,6 +61,7 @@ function Dashboard() {
   const [earnedSlugs, setEarnedSlugs] = useState<string[]>([]);
   const [bonusUnlocks, setBonusUnlocks] = useState<string[]>([]);
   const [greeting, setGreeting] = useState<string>(NEUTRAL_GREETING);
+
   useEffect(() => {
     setGreeting(computeGreeting());
     setBonusUnlocks(readBonusUnlocks());
@@ -51,15 +73,19 @@ function Dashboard() {
       window.removeEventListener("storage", onUnlock);
     };
   }, []);
-  // Hauptkapitel = alle Nicht-Bonus-Module · Bonus separat behandelt
-  const mainModules = useMemo(() => MODULES.filter((m) => m.available && !isBonus(m.slug)), []);
-  const bonusModules = useMemo(() => MODULES.filter((m) => m.available && isBonus(m.slug)), []);
-  const totalAvailable = mainModules.length;
-  const availableModules = mainModules;
+
+  const mainModules = useMemo(
+    () => MODULES.filter((m) => m.available && !isBonus(m.slug)),
+    [],
+  );
+  const bonusModules = useMemo(
+    () => MODULES.filter((m) => m.available && isBonus(m.slug)),
+    [],
+  );
 
   useEffect(() => {
     const readProgress = () => {
-      const earned = availableModules
+      const earned = mainModules
         .filter((module) => {
           try {
             const raw = window.localStorage.getItem(`unbond-progress:${module.slug}`);
@@ -71,7 +97,6 @@ function Dashboard() {
           }
         })
         .map((module) => module.slug);
-
       setEarnedSlugs(earned);
     };
 
@@ -82,37 +107,26 @@ function Dashboard() {
       window.removeEventListener("unbond-progress-updated", readProgress);
       window.removeEventListener("storage", readProgress);
     };
-  }, [availableModules]);
+  }, [mainModules]);
 
   const doneSlugs = new Set<string>(earnedSlugs);
-  const completedCount = earnedSlugs.length;
-  const progressPct = totalAvailable ? Math.round((completedCount / totalAvailable) * 100) : 0;
+  // Demo-State: zwei Blätter, eine Blüte (für visuelle Wirkung in Phase 1).
+  // Später wird das durch echte Progress-Daten ersetzt.
+  const leafSlugs = earnedSlugs.length > 0 ? earnedSlugs : ["modul-01", "modul-02"];
+  const bloomSlugs = earnedSlugs.length > 0 ? earnedSlugs.slice(0, 1) : ["modul-01"];
 
   const phases: Phase[] = [1, 2, 3, 4];
-  const firstName: string | undefined = undefined;
 
   return (
     <main className="min-h-screen pb-24">
-      {/* ===================== CINEMATIC HERO ===================== */}
-      <section className="relative -mt-[64px] overflow-hidden bg-graphite text-cream">
-        {/* Schmetterlings-Pattern, sehr dezent */}
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.07] mix-blend-screen"
-          style={{
-            backgroundImage: `url(${butterflyPattern})`,
-            backgroundSize: "1100px auto",
-            backgroundPosition: "center",
-          }}
-        />
-        {/* Bordeaux-Glow oben links, Sage-Glow unten rechts */}
-        <div className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full bg-bordeaux/40 blur-[120px]" />
-        <div className="pointer-events-none absolute -bottom-32 -right-24 h-80 w-80 rounded-full bg-sage/25 blur-[120px]" />
-        {/* Sanfter unterer Verlauf zur Cream-Fläche */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-background)]" />
+      {/* ─── HERO · Sicherer Hafen ─── */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-graphite via-graphite to-[var(--color-background)] text-cream">
+        <div className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full bg-bordeaux/30 blur-[120px]" />
+        <div className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-sage/20 blur-[120px]" />
 
-        <div className="relative mx-auto max-w-2xl px-4 pt-28 pb-16">
-          {/* Action-Icons oben rechts */}
-          <div className="absolute right-4 top-24 flex items-center gap-1">
+        <div className="relative mx-auto max-w-2xl px-4 pt-20 pb-12">
+          {/* Top-rechts Quick-Actions */}
+          <div className="absolute right-4 top-6 flex items-center gap-1">
             <Link
               to="/journal"
               aria-label="Mein Journal"
@@ -131,145 +145,214 @@ function Dashboard() {
 
           <div className="animate-fade-in">
             <p className="text-[10px] font-semibold uppercase tracking-[0.32em] text-sage">
-              · Deine Reise ·
+              · Dein sicherer Hafen ·
             </p>
             <h1 className="mt-3 font-display text-4xl font-light leading-[1.1] tracking-tight text-cream md:text-5xl">
               {greeting}
-              {firstName && (
-                <>
-                  ,<br />
-                  <span className="font-semibold italic text-sage-soft">{firstName}</span>
-                </>
-              )}
-              {!firstName && <span className="text-sage-soft">.</span>}
+              <span className="text-sage-soft">.</span>
             </h1>
-            <p className="mt-5 max-w-md text-sm leading-relaxed text-cream/75 md:text-base">
-              Atme. Du musst heute nichts schaffen, nur da sein. Alle Inhalte sind gerade frei zugänglich — wir kümmern uns später wieder um den Login.
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-cream/75">
+              Du musst heute nichts schaffen, nur da sein. Atme.
             </p>
           </div>
 
-          {/* Fortschritts-Ring, groß und zentriert unten */}
-          <div className="mt-10 flex items-center gap-5 animate-fade-in">
-            <ProgressRing percent={progressPct} />
-            <div>
-              <p className="text-[10px] font-semibold uppercase tracking-widest text-sage/80">Healing-Pfad</p>
-              <p className="font-display text-xl font-semibold text-cream">
-                {completedCount}<span className="text-cream/50"> / {totalAvailable}</span>
-              </p>
-              <p className="text-xs text-cream/60">Schritte gemeistert</p>
-            </div>
+          {/* Mood-Routing */}
+          <div className="mt-7 grid gap-3 sm:grid-cols-2 animate-fade-in">
+            <p className="sm:col-span-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-cream/60">
+              Wie fühlst du dich heute?
+            </p>
+            <Link
+              to="/modul/$slug"
+              params={{ slug: "sos-soforthilfe" }}
+              className="group flex items-center gap-3 rounded-xl border border-warning/30 bg-warning/10 p-4 transition-all duration-300 hover:bg-warning/15 hover:-translate-y-[1px]"
+            >
+              <span className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-full bg-warning/25 text-warning">
+                <AlertCircle className="h-5 w-5" />
+              </span>
+              <div className="text-left">
+                <p className="font-display text-sm font-semibold text-cream">Panik</p>
+                <p className="text-[12px] text-cream/65">SOS-Notfallkoffer öffnen</p>
+              </div>
+            </Link>
+            <Link
+              to="/modul/$slug"
+              params={{ slug: "modul-01" }}
+              className="group flex items-center gap-3 rounded-xl border border-sage/30 bg-sage/10 p-4 transition-all duration-300 hover:bg-sage/15 hover:-translate-y-[1px]"
+            >
+              <span className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-full bg-sage/25 text-sage-soft">
+                <Heart className="h-5 w-5" />
+              </span>
+              <div className="text-left">
+                <p className="font-display text-sm font-semibold text-cream">Sehnsucht</p>
+                <p className="text-[12px] text-cream/65">Modul 01 · Trauma-Bonding verstehen</p>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* ===================== HELLE ARBEITSFLÄCHE ===================== */}
-      <div className="mx-auto max-w-2xl px-4 pt-2">
-          <div className="mb-6 rounded-2xl border border-bordeaux/20 bg-gradient-to-r from-bordeaux/10 via-mauve/5 to-transparent p-5">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-mauve">
-            Freier Zugang
-          </p>
-          <p className="mt-1.5 font-display text-base font-semibold leading-snug text-bordeaux">
-            Du kannst jetzt direkt durch alle Kapitel gehen.
-          </p>
-          <p className="mt-1.5 text-xs text-graphite/75">
-              Gerade sind nur die freigegebenen Testkapitel offen. Weitere Kapitel folgen erst nach deiner Freigabe.
-          </p>
-            <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/70 px-3 py-1.5 text-xs font-semibold text-bordeaux">
-              <Star className="h-3.5 w-3.5 fill-current" />
-              {completedCount} Sternchen gesammelt
+      <div className="mx-auto max-w-2xl px-4">
+        {/* ─── HEALING TREE ─── */}
+        <section className="-mt-4 animate-fade-in">
+          <div className="rounded-2xl border border-border/50 bg-white/75 p-6 shadow-soft">
+            <div className="text-center">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-mauve">
+                · Dein Healing-Tree ·
+              </p>
+              <h2 className="mt-2 font-display text-xl font-semibold text-bordeaux">
+                {leafSlugs.length === 0
+                  ? "Dein Baum wartet auf das erste Blatt"
+                  : `${leafSlugs.length} ${leafSlugs.length === 1 ? "Schritt" : "Schritte"} gemeistert`}
+              </h2>
+              <p className="mx-auto mt-1.5 max-w-xs text-[12px] leading-snug text-graphite/65">
+                Jedes abgeschlossene Modul wird zu einem Blatt. Drei von fünf Zielen
+                erreichen → Blüte.
+              </p>
             </div>
-        </div>
+            <div className="mt-4">
+              <HealingTree leafSlugs={leafSlugs} bloomSlugs={bloomSlugs} />
+            </div>
+          </div>
+        </section>
 
-        {/* Vertikaler Pfad mit Phasen */}
-        <div className="relative mt-2">
-          <div className="absolute left-7 top-3 bottom-3 w-0.5 bg-gradient-to-b from-bordeaux/30 via-sage/30 to-mauve/30" />
+        {/* ─── BEVOR ES LOSGEHT · Reading-Flow ─── */}
+        <section className="mt-8 animate-fade-in">
+          <header className="mb-3 flex items-baseline justify-between">
+            <h2 className="font-display text-base font-semibold tracking-tight text-mauve">
+              Bevor es losgeht
+            </h2>
+            <p className="text-[11px] text-graphite/55">5 ruhige Texte, kein Druck</p>
+          </header>
+          <div className="grid gap-2 sm:grid-cols-2">
+            <ReadingCard
+              to="/vorwort"
+              icon={<Feather className="h-4 w-4" />}
+              title="Vorwort"
+              sub="Ein Brief von Milena"
+            />
+            <ReadingCard
+              to="/poem"
+              icon={<ScrollText className="h-4 w-4" />}
+              title="Am Anfang war das Gefühl"
+              sub="Marys Geschichte"
+            />
+            <ReadingCard
+              to="/inhalt"
+              icon={<ListTree className="h-4 w-4" />}
+              title="Inhaltsverzeichnis"
+              sub="Dein Programm im Überblick"
+            />
+            <ReadingCard
+              to="/einleitung"
+              icon={<BookOpen className="h-4 w-4" />}
+              title="Einleitung"
+              sub="Wissenschaftlicher Aufbau"
+            />
+            <ReadingCard
+              to="/routing"
+              icon={<Compass className="h-4 w-4" />}
+              title="Wo stehst du?"
+              sub="Self-Select für deinen Einstieg"
+              wide
+            />
+          </div>
+        </section>
 
-          {phases.map((p) => {
-            const phaseModules = MODULES.filter((m) => m.phase === p && !isBonus(m.slug));
-            if (phaseModules.length === 0) return null;
-            return (
-              <section key={p} className="relative mb-7">
-                <div className="mb-3 ml-16">
-                  <h2 className="font-display text-base font-semibold tracking-tight text-mauve">
-                    {PHASES[p].title}
-                  </h2>
-                  <p className="text-xs text-graphite/60">{PHASES[p].description}</p>
-                </div>
-                <ul className="space-y-3">
-                  {phaseModules.map((m) => {
-                    const done = doneSlugs.has(m.slug);
-                    const isStub = !!m.stubBlurb;
-                    return (
+        {/* ─── PHASEN-PFAD ─── */}
+        <section className="mt-10 animate-fade-in">
+          <header className="mb-3">
+            <h2 className="font-display text-base font-semibold tracking-tight text-mauve">
+              Deine 10 Schritte
+            </h2>
+            <p className="text-[11px] text-graphite/55">In vier Phasen, ruhig hintereinander.</p>
+          </header>
+
+          <div className="relative">
+            <div className="absolute left-7 top-3 bottom-3 w-0.5 bg-gradient-to-b from-bordeaux/25 via-sage/25 to-mauve/25" />
+            {phases.map((p) => {
+              const phaseModules = MODULES.filter((m) => m.phase === p && !isBonus(m.slug));
+              if (phaseModules.length === 0) return null;
+              return (
+                <section key={p} className="relative mb-6">
+                  <div className="mb-2 ml-16">
+                    <h3 className="font-display text-sm font-semibold tracking-tight text-mauve">
+                      {PHASES[p].title}
+                    </h3>
+                    <p className="text-[11px] text-graphite/55">{PHASES[p].description}</p>
+                  </div>
+                  <ul className="space-y-2.5">
+                    {phaseModules.map((m) => (
                       <li key={m.slug} className="relative">
                         <Station
                           number={m.number}
                           title={m.title}
                           subtitle={m.subtitle}
-                          done={done}
-                           isStub={isStub}
-                           available={m.available}
+                          done={doneSlugs.has(m.slug)}
                           slug={m.slug}
                         />
                       </li>
-                    );
-                  })}
-                </ul>
-              </section>
-            );
-          })}
-        </div>
+                    ))}
+                  </ul>
+                </section>
+              );
+            })}
+          </div>
+        </section>
 
-        {/* ===================== BONUS-SEKTION ===================== */}
+        {/* ─── BONUS ─── */}
         <BonusSection modules={bonusModules} unlocks={bonusUnlocks} />
+
+        {/* ─── TRUST-BADGE ─── */}
+        <section className="mt-10 rounded-2xl border border-sage/25 bg-sage/8 p-5 animate-fade-in">
+          <div className="flex items-start gap-3">
+            <span className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full bg-sage/20 text-sage">
+              <ShieldCheck className="h-4 w-4" />
+            </span>
+            <div>
+              <p className="font-display text-sm font-semibold text-bordeaux">
+                Daten-Safe · EU-Server Frankfurt
+              </p>
+              <p className="mt-1 text-[12px] leading-relaxed text-graphite/75">
+                Deine Einträge werden lokal in deinem Browser gespeichert und – nach Login –
+                verschlüsselt auf EU-Servern in Frankfurt synchronisiert. So findest du deine
+                Reise auf jedem Gerät wieder.
+              </p>
+            </div>
+          </div>
+        </section>
       </div>
     </main>
   );
 }
 
-/** Großer SVG-Fortschrittsring mit Sage→Bordeaux-Gradient und sanftem Pulse. */
-function ProgressRing({ percent }: { percent: number }) {
-  const size = 88;
-  const stroke = 6;
-  const radius = (size - stroke) / 2;
-  const circumference = 2 * Math.PI * radius;
-  const offset = circumference - (percent / 100) * circumference;
-
+function ReadingCard({
+  to,
+  icon,
+  title,
+  sub,
+  wide,
+}: {
+  to: "/vorwort" | "/poem" | "/inhalt" | "/einleitung" | "/routing";
+  icon: React.ReactNode;
+  title: string;
+  sub: string;
+  wide?: boolean;
+}) {
   return (
-    <div className="relative" style={{ width: size, height: size }}>
-      <svg width={size} height={size} className="-rotate-90">
-        <defs>
-          <linearGradient id="ring-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="oklch(0.78 0.035 155)" />
-            <stop offset="100%" stopColor="oklch(0.55 0.06 14)" />
-          </linearGradient>
-        </defs>
-        {/* Track */}
-        <circle
-          cx={size / 2}
-          cy={size / 2}
-          r={radius}
-          fill="none"
-          stroke="oklch(1 0 0 / 0.12)"
-          strokeWidth={stroke}
-        />
-        {/* Progress */}
-        <circle
-          cx={size / 2}
-          cy={size / 2}
-          r={radius}
-          fill="none"
-          stroke="url(#ring-grad)"
-          strokeWidth={stroke}
-          strokeLinecap="round"
-          strokeDasharray={circumference}
-          strokeDashoffset={offset}
-          style={{ transition: "stroke-dashoffset 1.2s cubic-bezier(0.16, 1, 0.3, 1)" }}
-        />
-      </svg>
-      <div className="absolute inset-0 grid place-items-center">
-        <span className="font-display text-base font-semibold text-cream">{percent}%</span>
+    <Link
+      to={to}
+      className={`group flex items-start gap-3 rounded-xl border border-border/50 bg-white/70 p-3.5 transition-all duration-300 hover:bg-white hover:-translate-y-[1px] hover:shadow-soft ${
+        wide ? "sm:col-span-2" : ""
+      }`}
+    >
+      <span className="mt-0.5 grid h-8 w-8 flex-shrink-0 place-items-center rounded-full bg-mauve/15 text-mauve transition group-hover:bg-mauve group-hover:text-white">
+        {icon}
+      </span>
+      <div className="min-w-0 flex-1">
+        <p className="font-display text-sm font-semibold leading-tight text-bordeaux">{title}</p>
+        <p className="mt-0.5 text-[11.5px] text-graphite/65">{sub}</p>
       </div>
-    </div>
+    </Link>
   );
 }
 
@@ -278,57 +361,35 @@ function Station({
   title,
   subtitle,
   done,
-  isStub,
-  available,
   slug,
 }: {
   number: string;
   title: string;
   subtitle: string;
   done: boolean;
-  isStub: boolean;
-  available: boolean;
   slug: string;
 }) {
   return (
-    <Link
-      to="/modul/$slug"
-      params={{ slug }}
-      className={`flex items-center gap-3 ${!available ? "opacity-80" : ""}`}
-    >
+    <Link to="/modul/$slug" params={{ slug }} className="flex items-center gap-3">
       <div
-        className={`relative z-10 grid h-14 w-14 flex-shrink-0 place-items-center rounded-full border-4 font-display font-bold ${
+        className={`relative z-10 grid h-14 w-14 flex-shrink-0 place-items-center rounded-full border-4 font-display font-bold transition-all duration-300 ${
           done
             ? "border-sage bg-sage text-white"
-            : isStub
-              ? "border-mauve/40 bg-white/80 text-mauve"
-              : "border-mauve bg-white text-bordeaux animate-pulse-soft"
+            : "border-mauve bg-white text-bordeaux"
         }`}
       >
-        {done ? (
-          <CheckCircle2 className="h-6 w-6" />
-        ) : isStub ? (
-          <Construction className="h-4 w-4" />
-        ) : (
-          number
-        )}
+        {done ? <CheckCircle2 className="h-6 w-6" /> : number}
       </div>
       <div className="flex-1 rounded-xl border border-border/60 bg-white/75 p-3 transition hover:bg-white hover:shadow-soft">
         <div className="flex items-center justify-between gap-2">
-          <h3 className="font-display text-base font-semibold leading-tight text-bordeaux">{title}</h3>
-          {done ? (
+          <h3 className="font-display text-base font-semibold leading-tight text-bordeaux">
+            {title}
+          </h3>
+          {done && (
             <span className="rounded-full bg-sage/20 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-sage">
               erledigt
             </span>
-          ) : !available ? (
-            <span className="rounded-full bg-muted px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
-              wartet auf Freigabe
-            </span>
-          ) : isStub ? (
-            <span className="rounded-full bg-mauve/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-mauve">
-              Vorschau
-            </span>
-          ) : null}
+          )}
         </div>
         <p className="mt-0.5 line-clamp-2 text-xs text-graphite/70">{subtitle}</p>
       </div>
@@ -336,10 +397,6 @@ function Station({
   );
 }
 
-/**
- * BonusSection · Hebt die Bonus-Kapitel D/E/F optisch von den Hauptkapiteln ab.
- * Zeigt Schloss-Icon bei gesperrt, Sparkles bei freigeschaltet.
- */
 function BonusSection({
   modules,
   unlocks,
@@ -351,17 +408,15 @@ function BonusSection({
   const allUnlocked = modules.every((m) => unlocks.includes(m.slug));
 
   return (
-    <section className="relative mt-10 mb-7">
-      {/* Visuelle Trennung von den Hauptphasen */}
-      <div className="mb-5 flex items-center gap-3">
-        <span className="h-px flex-1 bg-bordeaux/20" />
+    <section className="relative mt-10 mb-6 animate-fade-in">
+      <div className="mb-4 flex items-center gap-3">
+        <span className="h-px flex-1 bg-bordeaux/15" />
         <span className="text-[10px] font-semibold uppercase tracking-[0.32em] text-bordeaux">
           · Bonus-Kapitel ·
         </span>
-        <span className="h-px flex-1 bg-bordeaux/20" />
+        <span className="h-px flex-1 bg-bordeaux/15" />
       </div>
-
-      <div className="rounded-2xl border-2 border-bordeaux/20 bg-gradient-to-br from-bordeaux/5 via-mauve/5 to-transparent p-5">
+      <div className="rounded-2xl border-2 border-bordeaux/15 bg-gradient-to-br from-bordeaux/5 via-mauve/5 to-transparent p-5">
         <div className="flex items-start justify-between gap-3">
           <div>
             <h2 className="font-display text-base font-semibold tracking-tight text-bordeaux">
@@ -369,21 +424,20 @@ function BonusSection({
             </h2>
             <p className="mt-1 text-xs text-graphite/70">
               {allUnlocked
-                ? "Alle drei Bonus-Kapitel sind für dich freigeschaltet."
+                ? "Alle drei Bonus-Kapitel sind freigeschaltet."
                 : "Vorschau frei zugänglich · Übungen mit dem UNBOND-Complete-Code."}
             </p>
           </div>
           {!allUnlocked && (
             <Link
               to="/unlock"
-              className="inline-flex flex-shrink-0 items-center gap-1.5 rounded-full bg-bordeaux px-3 py-1.5 text-[11px] font-semibold text-white transition hover:opacity-90"
+              className="inline-flex items-center gap-1.5 rounded-full bg-bordeaux px-3 py-1.5 text-[11px] font-semibold text-white transition hover:opacity-90"
             >
               <KeyRound className="h-3.5 w-3.5" />
               Code
             </Link>
           )}
         </div>
-
         <ul className="mt-4 space-y-2">
           {modules.map((m) => {
             const isUnlocked = unlocks.includes(m.slug);
@@ -404,15 +458,15 @@ function BonusSection({
                     {isUnlocked ? <Sparkles className="h-5 w-5" /> : m.number}
                   </div>
                   <div className="flex-1">
-                    <div className="flex items-center justify-between gap-2">
-                      <h3 className="font-display text-sm font-semibold leading-tight text-bordeaux">
-                        {m.title}
-                      </h3>
+                    <h3 className="font-display text-sm font-semibold leading-tight text-bordeaux">
+                      {m.title}
+                    </h3>
+                    <div className="mt-0.5 flex items-center gap-2">
                       <span
-                        className={`flex flex-shrink-0 items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${
+                        className={`rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${
                           isUnlocked
                             ? "bg-sage/20 text-sage"
-                            : "bg-bordeaux/10 text-bordeaux"
+                            : "inline-flex items-center gap-1 bg-bordeaux/10 text-bordeaux"
                         }`}
                       >
                         {isUnlocked ? (
@@ -424,8 +478,8 @@ function BonusSection({
                           </>
                         )}
                       </span>
+                      <p className="line-clamp-1 text-[11px] text-graphite/65">{m.subtitle}</p>
                     </div>
-                    <p className="mt-0.5 line-clamp-2 text-xs text-graphite/70">{m.subtitle}</p>
                   </div>
                 </Link>
               </li>
