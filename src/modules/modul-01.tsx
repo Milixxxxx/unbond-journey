@@ -110,7 +110,15 @@ export function Modul01() {
           ))}
         </div>
 
-        <div className="space-y-4">
+        {/* Story-Container: clearfix für das float-Portrait */}
+        <div className="[&>p+p]:mt-4 [&>p]:mb-0">
+          {/* Mary-Portrait — Desktop: float-left mit Textumfluss · Mobile: oben drüber */}
+          <StoryPortrait
+            src={marySpielautomatImg}
+            alt="Mary sitzt nachts am Küchentisch und schreibt in ihr Journal"
+            caption="Mary · Die Nacht der Erkenntnis"
+            side="left"
+          />
           <Reveal>
             <p data-voice="mary" className={dim("mary")}>
               Mary sitzt nachts am Küchentisch und rechnet die nackte Wahrheit
