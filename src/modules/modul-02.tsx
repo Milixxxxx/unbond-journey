@@ -1,32 +1,40 @@
 import {
-  Heart,
-  CloudRain,
-  Scissors,
   Anchor,
-  Zap,
-  HeartHandshake,
-  Flame,
-  Drama,
-  RefreshCw,
-  Droplet,
   Bird,
-  Scale,
+  CloudRain,
+  Drama,
+  Droplet,
+  Flame,
+  Heart,
+  HeartCrack,
+  HeartHandshake,
+  NotebookPen,
+  Orbit,
   Phone,
+  RefreshCw,
+  Scale,
+  ScanSearch,
+  Scissors,
+  ShieldAlert,
+  TriangleAlert,
   type LucideIcon,
+  Zap,
 } from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
 import { SectionBlock } from "@/components/section-block";
-import { TextCollapse } from "@/components/text-collapse";
 import { Reveal } from "@/components/reveal";
 import { DeepDiveIntro } from "@/components/deep-dive-intro";
 import { ChecklistGoals } from "@/components/checklist-goals";
+import { InfographicHotspots } from "@/components/infographic-hotspots";
+import { InfoGraphicBlock } from "@/components/infographic-block";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   StackedCards,
   Reflection3Step,
@@ -36,23 +44,17 @@ import {
   TwentyOneDayChallenge,
   HooverDecoder,
   MeditationCard,
+  TimelineSorter,
+  ToxicometerScale,
 } from "@/components/exercise";
+import gaslightingGraphic from "@/assets/infographics/gaslighting-erkennen.png";
+import traumaBondingGraphic from "@/assets/infographics/trauma-bonding-sucht-loop.png";
 
 const SLUG = "modul-02";
 
-/**
- * MODUL 02 · Die Rosa-Brille abnehmen (Quelle: Schritt 03 · UNBOND_Final_02-3.html)
- * 1:1-Übernahme der Inhalte in das Master-Blueprint-Gerüst aus Modul 01.
- * Reihenfolge: ChapterIntro → Story → Diagnose → Lösung → Deep Dive → Übungen
- *              → Unterkapitel 3.5/3.6/3.7 (jeweils Story · Diagnose · Lösung/Übung)
- *              → Meditation → Checkliste.
- * Alle Sections via SectionBlock. Lange Diagnose-Texte via TextCollapse.
- * Persistence: useModuleProgress("modul-02") über alle Übungen.
- */
 export function Modul02() {
   return (
     <article className="space-y-7">
-      {/* ── Einleitung ── */}
       <ChapterIntro
         title="Schritt 03 · Die Rosa-Brille abnehmen"
         keywords={[
@@ -63,57 +65,49 @@ export function Modul02() {
         ]}
       >
         <p>
-          Solange dein Gehirn die Beziehung idealisiert, ist echte Heilung
-          neurobiologisch unmöglich. Die rosa Brille ist keine Schwäche – sie
-          ist ein Schutzmechanismus deines Gehirns, der jedoch genau das
-          verhindert, was du jetzt brauchst: Klarheit über die Realität.
+          Solange dein Gehirn die Beziehung idealisiert, ist echte Heilung neurobiologisch
+          unmöglich. Die rosa Brille ist keine Schwäche – sie ist ein Schutzmechanismus
+          deines Gehirns, der jedoch genau das verhindert, was du jetzt brauchst: Klarheit
+          über die Realität.
         </p>
         <p>
-          In diesem Schritt arbeitest du mit konkreten Werkzeugen wie dem
-          Gaslighting-Log, der Wolf-im-Schafspelz-Übung und der negativen
-          Neubewertung, um die systematischen Manipulationsmuster zu
-          dokumentieren, Hoovering-Versuche zu entlarven und die romantische
-          Illusion durch schriftlich festgehaltene Fakten dauerhaft zu
-          zertrümmern.
+          In diesem Schritt arbeitest du mit konkreten Werkzeugen wie dem Gaslighting-Log,
+          der Wolf-im-Schafspelz-Übung und der negativen Neubewertung, um die systematischen
+          Manipulationsmuster zu dokumentieren, Hoovering-Versuche zu entlarven und die
+          romantische Illusion durch schriftlich festgehaltene Fakten dauerhaft zu zertrümmern.
         </p>
       </ChapterIntro>
 
-      {/* ════════════════ 1 · STORY · Der Hoovering-Brief ════════════════ */}
       <SectionBlock
         kind="story"
         eyebrow="Story · Das Gaslighting-Log"
         title="Wenn die Schuppen von den Augen fallen"
+        className="story-box--pulse"
       >
         <div className="[&>p+p]:mt-4 [&>p]:mb-0">
           <Reveal>
-            <p className="font-display text-base font-semibold text-cream">
-              Der Hoovering-Brief
-            </p>
+            <p className="font-display text-base font-semibold text-cream">Der Hoovering-Brief</p>
           </Reveal>
           <Reveal delay={120}>
             <p>
-              Sechs Monate nach dem Ghosting vibriert Marys Handy. Eine
-              Nachricht von Sandra auf einer Plattform, auf der sie angeblich
-              nie aktiv sein wollte. Es ist ein klassischer{" "}
-              <GlossarTerm termKey="hoovering">„Hoovering“</GlossarTerm>
-              -Versuch:
+              Sechs Monate nach dem Ghosting vibriert Marys Handy. Eine Nachricht von Sandra
+              auf einer Plattform, auf der sie angeblich nie aktiv sein wollte. Es ist ein
+              klassischer <GlossarTerm termKey="hoovering">„Hoovering“</GlossarTerm>-Versuch:
             </p>
           </Reveal>
           <Reveal delay={240}>
             <blockquote className="border-l-2 border-cream/40 pl-4 italic text-cream/90">
-              „Unser Treffen war sehr belastend, weil du dich direkt in die
-              Opferrolle begeben hast. Ich war immer für dich da. Lass uns doch
-              wenigstens im Frieden sein. Schade, dass du die Dinge so
-              verdrehst.“
+              „Unser Treffen war sehr belastend, weil du dich direkt in die Opferrolle begeben
+              hast. Ich war immer für dich da. Lass uns doch wenigstens im Frieden sein. Schade,
+              dass du die Dinge so verdrehst.“
             </blockquote>
           </Reveal>
           <Reveal delay={360}>
             <p>
-              Sofort schnürt sich Marys Hals zu. <em>Hat Sandra recht? War ich
-              das Problem?</em> Bevor die Selbstzweifel sie verschlingen,
-              schlägt Mary ihr Workbook auf und nutzt die „Wolf im
-              Schafspelz“-Übung (Realitäts-Check). Sie zieht einen Strich in
-              die Mitte der Seite:
+              Sofort schnürt sich Marys Hals zu. <em>Hat Sandra recht? War ich das Problem?</em>
+              Bevor die Selbstzweifel sie verschlingen, schlägt Mary ihr Workbook auf und nutzt
+              die „Wolf im Schafspelz“-Übung (Realitäts-Check). Sie zieht einen Strich in die
+              Mitte der Seite:
             </p>
           </Reveal>
 
@@ -123,8 +117,8 @@ export function Modul02() {
                 Was Sandra schreibt · Die Maske
               </p>
               <p>
-                „Ich war immer für dich da, ich reiche dir die Hand zum Frieden.
-                Ich bin das Opfer.“
+                „Ich war immer für dich da, ich reiche dir die Hand zum Frieden. Ich bin das
+                Opfer.“
               </p>
             </div>
             <div className="rounded-xl bg-white/10 p-3.5 text-xs leading-relaxed text-cream/90 ring-1 ring-cream/15">
@@ -132,26 +126,24 @@ export function Modul02() {
                 Was Sandra TAT · Die Fakten
               </p>
               <p>
-                Sie hat Mary nach den intimsten Momenten tagelang geghostet. Sie
-                hat Behörden instrumentalisiert, um sie einzuschüchtern. Sie
-                hat Mary stillschweigend ersetzt, während sie ihr Liebe schwor.
+                Sie hat Mary nach den intimsten Momenten tagelang geghostet. Sie hat Behörden
+                instrumentalisiert, um sie einzuschüchtern. Sie hat Mary stillschweigend ersetzt,
+                während sie ihr Liebe schwor.
               </p>
             </div>
           </div>
 
           <Reveal delay={120}>
             <p className="mt-4">
-              Mary atmet tief aus. Die Fakten sind glasklar. Das Geschriebene
-              brennt sich in ihr Bewusstsein. Ohne noch einen einzigen Moment
-              zu zögern, drückt Mary auf <strong>„Blockieren“</strong>. Die
-              jahrzehntealte rosa Brille splittert krachend. Die Illusion ist
-              endlich gebrochen.
+              Mary atmet tief aus. Die Fakten sind glasklar. Das Geschriebene brennt sich in ihr
+              Bewusstsein. Ohne noch einen einzigen Moment zu zögern, drückt Mary auf
+              <strong> „Blockieren“</strong>. Die jahrzehntealte rosa Brille splittert krachend.
+              Die Illusion ist endlich gebrochen.
             </p>
           </Reveal>
         </div>
       </SectionBlock>
 
-      {/* ── Marys Gaslighting-Log: 3 Einträge (Story-Voice) ── */}
       <SectionBlock
         kind="story"
         eyebrow="Marys Gaslighting-Log · Drei Einträge"
@@ -166,21 +158,14 @@ export function Modul02() {
                 </p>
                 <div className="mt-2 space-y-1.5 text-xs leading-relaxed text-cream/90">
                   <p>
-                    <span className="font-semibold text-cream/95">
-                      Die Situation:
-                    </span>{" "}
-                    {e.situation}
+                    <span className="font-semibold text-cream/95">Die Situation:</span> {e.situation}
                   </p>
                   <p>
-                    <span className="font-semibold text-cream/95">
-                      Was ich gefühlt habe:
-                    </span>{" "}
+                    <span className="font-semibold text-cream/95">Was ich gefühlt habe:</span>{" "}
                     {e.gefuehl}
                   </p>
                   <p className="rounded-md bg-cream/10 p-2 ring-1 ring-cream/15">
-                    <span className="font-semibold text-cream">
-                      Was die Fakten sagen:
-                    </span>{" "}
+                    <span className="font-semibold text-cream">Was die Fakten sagen:</span>{" "}
                     {e.fakten}
                   </p>
                 </div>
@@ -189,67 +174,76 @@ export function Modul02() {
           ))}
         </div>
         <p className="mt-4 text-[11px] italic leading-snug text-cream/65">
-          Abb.: Gaslighting erkennen und entmachten – Gaslighting zerstört
-          durch systematisches Leugnen der Realität den inneren
-          Sicherheits-Anker. Die Gegenstrategie: konsequente
+          Abb.: Gaslighting erkennen und entmachten – Gaslighting zerstört durch systematisches
+          Leugnen der Realität den inneren Sicherheits-Anker. Die Gegenstrategie: konsequente
           Fakten-Dokumentation. Daten lügen nicht, Hoffnung schon.
         </p>
+        <TimelineSorter
+          slug={SLUG}
+          storageKey="timeline_sorter"
+          title="Mini-Tool · Sortiere den Manipulationsverlauf"
+          subtitle="Ordne typische Gaslighting-Sätze vom Einstieg bis zum Rückholversuch."
+          meta="Drag & Drop · 2 Min"
+          accent="mauve"
+          items={TIMELINE_ITEMS}
+          correctOrder={TIMELINE_ORDER}
+        />
       </SectionBlock>
 
-      {/* ════════════════ 2 · DIAGNOSE ════════════════ */}
       <SectionBlock
         kind="diagnose"
         eyebrow="Diagnose · Kognitive Dissonanz & Spielautomat-Effekt"
         title="Was in deinem Kopf passiert"
       >
-        <TextCollapse preview={1} threshold={2}>
-          <p>
-            <GlossarTerm termKey="kognitive-dissonanz">
-              Kognitive Dissonanz
-            </GlossarTerm>{" "}
-            (Festinger, 1957) entsteht, wenn zwei widersprüchliche
-            Überzeugungen gleichzeitig existieren: <em>„Ich weiß, dass diese
-            Beziehung mir schadet"</em> und <em>„Ich kann ohne sie nicht
-            leben."</em> Das Gehirn kann diesen Widerspruch nicht dauerhaft
-            aushalten – es löst ihn auf, indem es eine der beiden
-            Überzeugungen abschwächt. Meistens die erste.
-          </p>
-          <p>
-            B.F. Skinner entdeckte, dass{" "}
-            <GlossarTerm termKey="intermittierende-verstaerkung">
-              intermittierende Verstärkung
-            </GlossarTerm>{" "}
-            – unregelmäßige, unvorhersehbare Belohnung – die stärkste Form der
-            Konditionierung erzeugt. Ratten, die nur manchmal Futter bekamen,
-            drückten den Hebel obsessiv – weit häufiger als Ratten mit
-            konstanter Belohnung.
-          </p>
-          <p>
-            Helen Fisher zeigte per fMRT, dass romantische Ablehnung und
-            Kokain-Entzug <strong>dieselben Gehirnareale</strong> aktivieren:
-            das Ventrale Tegmentale Areal (VTA) und den Nucleus Accumbens.
-            Trennungsschmerz ist kein emotionales Drama. Er ist ein
-            biochemischer Entzug.
-          </p>
-          <p>
-            In toxischen Beziehungen wird diese Dissonanz durch{" "}
-            <strong>Weaponized Virtue</strong> verstärkt: Wenn deine Partnerin
-            öffentlich als einfühlsam und tugendhaft gilt, zweifelst du an dir
-            selbst, nicht an ihr.
-          </p>
-        </TextCollapse>
-
-        <p className="mt-3 text-[11px] italic leading-snug text-graphite/60">
-          Abb.: Der neurobiologische Sucht-Loop – die Darstellung erklärt
-          Trauma-Bonding als neurobiologischen Suchtprozess, der durch
-          intermittierende Verstärkung und wechselnde Stress- und
-          Belohnungsreize entsteht. Sie verdeutlicht, warum der Kontaktabbruch
-          („No Contact") notwendig ist, um die konditionierten
-          Reaktionsmuster zu durchbrechen und Heilung zu ermöglichen.
-        </p>
+        <Tabs defaultValue="festinger" className="w-full">
+          <TabsList className="grid h-auto w-full grid-cols-2 gap-1 rounded-2xl bg-white/70 p-1 sm:grid-cols-4">
+            {DIAGNOSE_TABS.map((tab) => (
+              <TabsTrigger
+                key={tab.id}
+                value={tab.id}
+                className="rounded-xl px-3 py-2 text-xs font-semibold text-graphite/75 data-[state=active]:text-bordeaux"
+              >
+                {tab.label}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+          {DIAGNOSE_TABS.map((tab) => {
+            const Icon = tab.icon;
+            return (
+              <TabsContent key={tab.id} value={tab.id} className="mt-3">
+                <div className="rounded-2xl bg-white/72 p-4 shadow-glass ring-1 ring-[color:var(--color-sage)]/18">
+                  <div className="flex items-start gap-3">
+                    <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[color:var(--color-sage)]/12">
+                      <Icon className="h-4 w-4 text-[color:var(--color-sage)]" strokeWidth={1.8} />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-[10.5px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-sage)]">
+                        {tab.kicker}
+                      </p>
+                      <h4 className="mt-1 font-display text-lg font-semibold text-bordeaux">
+                        {tab.title}
+                      </h4>
+                      <p className="mt-2 text-sm leading-relaxed text-graphite/82">{tab.body}</p>
+                      <div className="mt-3 rounded-xl bg-[color:var(--color-sage)]/8 p-3 text-xs leading-relaxed text-graphite/78 ring-1 ring-[color:var(--color-sage)]/12">
+                        {tab.highlight}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </TabsContent>
+            );
+          })}
+        </Tabs>
       </SectionBlock>
 
-      {/* ── Die drei Botenstoffe als FlipCards ── */}
+      <InfographicHotspots
+        src={traumaBondingGraphic}
+        alt="Infografik zum Trauma-Bonding als neurobiologischer Sucht-Loop"
+        title="Infografik · Trauma-Bonding als Sucht-Loop"
+        caption="Trauma-Bonding entsteht durch unvorhersehbare Wechsel zwischen Schmerz und Erleichterung: Genau diese intermittierende Verstärkung bindet stärker als verlässliche Liebe. Die Grafik zeigt, warum Cortisol-Stress und Dopamin-Erleichterung zusammen einen Suchtkreislauf erzeugen – und weshalb konsequenter Reizentzug durch No Contact für Heilung so wichtig ist."
+        hotspots={TRAUMA_HOTSPOTS}
+      />
+
       <SectionBlock
         kind="diagnose"
         eyebrow="Die drei Botenstoffe der Falle"
@@ -269,100 +263,94 @@ export function Modul02() {
           ))}
         </div>
         <p className="mt-3 text-[11px] italic text-graphite/60">
-          Skinner (1938): Operante Konditionierung · Fisher et al. (2005,
-          2010): fMRT-Studien romantische Ablehnung · Berridge &amp; Robinson
-          (1998): Wanting vs. Liking
+          Skinner (1938): Operante Konditionierung · Fisher et al. (2005, 2010): fMRT-Studien
+          romantische Ablehnung · Berridge &amp; Robinson (1998): Wanting vs. Liking
         </p>
       </SectionBlock>
 
-      {/* ── Der 4-Phasen-Zyklus ── */}
       <SectionBlock
         kind="diagnose"
         eyebrow="Der 4-Phasen-Zyklus der toxischen Bindung"
         title="Wie sich die Schleife immer wieder schließt"
       >
-        <div className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-4">
-          {PHASEN.map((p) => {
-            const Icon = p.icon;
-            return (
-              <div
-                key={p.id}
-                className="rounded-xl bg-white/70 p-4 shadow-glass ring-1 ring-[color:var(--color-sage)]/20"
+        <Tabs defaultValue="idealisierung" className="w-full">
+          <TabsList className="grid h-auto w-full grid-cols-2 gap-1 rounded-2xl bg-white/70 p-1 md:grid-cols-4">
+            {PHASEN.map((phase) => (
+              <TabsTrigger
+                key={phase.id}
+                value={phase.id}
+                className="rounded-xl px-3 py-2 text-xs font-semibold text-graphite/75 data-[state=active]:text-bordeaux"
               >
-                <div className="mb-2 grid h-9 w-9 place-items-center rounded-full bg-[color:var(--color-sage)]/12">
-                  <Icon
-                    className="h-4 w-4 text-[color:var(--color-sage)]"
-                    strokeWidth={1.75}
-                  />
+                {phase.label}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+          {PHASEN.map((phase) => {
+            const Icon = phase.icon;
+            return (
+              <TabsContent key={phase.id} value={phase.id}>
+                <div className="rounded-2xl bg-white/76 p-4 shadow-glass ring-1 ring-[color:var(--color-sage)]/18">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start">
+                    <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[color:var(--color-sage)]/12">
+                      <Icon className="h-5 w-5 text-[color:var(--color-sage)]" strokeWidth={1.75} />
+                    </div>
+                    <div className="min-w-0">
+                      <h4 className="font-display text-lg font-semibold text-bordeaux">{phase.label}</h4>
+                      <p className="mt-2 text-sm leading-relaxed text-graphite/82">{phase.desc}</p>
+                      <blockquote className="mt-3 rounded-xl border-l-2 border-[color:var(--color-sage)]/45 bg-[color:var(--color-sage)]/8 px-3 py-2 text-sm italic text-graphite/76">
+                        {phase.quote}
+                      </blockquote>
+                    </div>
+                  </div>
                 </div>
-                <p className="text-[10.5px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-sage)]">
-                  {p.label}
-                </p>
-                <p className="mt-1 text-xs leading-snug text-graphite/85">
-                  {p.desc}
-                </p>
-              </div>
+              </TabsContent>
             );
           })}
-        </div>
+        </Tabs>
 
         <div className="mt-4">
           <CalloutBold kind="insight" title="Das Muster erkennen">
             <p>
-              Jeder Durchlauf dieses Zyklus verstärkt die neuronale Verbindung.
-              Nicht weil die Beziehung besser wird – sondern weil dein Gehirn
-              gelernt hat: <strong>Nach dem Schmerz kommt die Erlösung.
-              Warte nur lang genug.</strong>
+              Jeder Durchlauf dieses Zyklus verstärkt die neuronale Verbindung. Nicht weil die
+              Beziehung besser wird – sondern weil dein Gehirn gelernt hat:
+              <strong> Nach dem Schmerz kommt die Erlösung. Warte nur lang genug.</strong>
             </p>
           </CalloutBold>
         </div>
-
         <p className="mt-3 text-[11px] italic leading-snug text-graphite/60">
-          Abb.: Der 4-Phasen-Zyklus der toxischen Bindung – die Grafik
-          veranschaulicht den vierphasigen Kreislauf toxischer Bindung – von
-          intensiver Idealisierung (Lovebombing) über emotionalen Entzug und
-          kognitive Dissonanz bis hin zum manipulativen Rückholversuch
-          (Hoovering). Sie zeigt, wie dieser wiederkehrende Zyklus
-          neurobiologisch verstärkt wird und die emotionale Abhängigkeit
-          zunehmend vertieft.
+          Abb.: Der 4-Phasen-Zyklus der toxischen Bindung – die Schleife zeigt, wie Idealisierung,
+          Entzug, Selbstzweifel und manipulative Rückholversuche sich gegenseitig verstärken.
+          Wer den Zyklus erkennt, kann einzelne Momente endlich als Muster lesen – nicht mehr als
+          Zufall oder Hoffnungsschimmer.
         </p>
       </SectionBlock>
 
-      {/* ════════════════ 3 · LÖSUNG · Negative Reappraisal ════════════════ */}
       <SectionBlock
         kind="loesung"
         eyebrow="Lösung · Negative Reappraisal & Realitäts-Anker"
         title="Wie bewusstes Umbewerten dein Gehirn entgiftet"
       >
         <p className="font-display text-[15px] font-semibold leading-snug text-bordeaux sm:text-base">
-          Es geht nicht darum, sie zu hassen – es geht darum, das idealisierte
-          Bild durch ein reales zu ersetzen, das Schmerz, Enttäuschung und
-          Verrat einschließt.
+          Es geht nicht darum, sie zu hassen – es geht darum, das idealisierte Bild durch ein
+          reales zu ersetzen, das Schmerz, Enttäuschung und Verrat einschließt.
         </p>
 
-        <TextCollapse preview={1} threshold={2}>
-          <p>
-            <GlossarTerm termKey="negative-reappraisal">
-              Negative Reappraisal
-            </GlossarTerm>{" "}
-            (Langeslag &amp; Sanchez, 2018) ist die wissenschaftlich am besten
-            belegte Methode, um romantische Gefühle aktiv zu reduzieren – nicht
-            durch Verdrängen, sondern durch bewusstes Ersetzen des
-            idealisierten Bildes durch ein vollständiges, reales Bild. Das
-            Prinzip nutzt die <strong>Rekonsolidierung</strong> (Nader et al.,
-            2000): Erinnerungen werden bei jedem Abruf leicht verändert. Jedes
-            Mal, wenn eine positiv besetzte Erinnerung mit einer faktischen
-            Verletzung verknüpft wird, schwächt sich die emotionale Aufladung
-            ab – nicht durch Willenskraft, sondern durch neuronale
-            Umstrukturierung.
-          </p>
-          <p>
-            fMRT-Studien zeigen, dass Negative Reappraisal die Aktivität im
-            Belohnungszentrum (Nucleus Accumbens) messbar senkt. Langeslag
-            &amp; Sanchez fanden, dass 21 Tage tägliches Reappraisal die
-            emotionale Aktivierung um <strong>30–40 %</strong> reduziert.
-          </p>
-        </TextCollapse>
+        <Accordion
+          type="single"
+          collapsible
+          className="rounded-2xl border border-[color:var(--color-terracotta)]/18 bg-white/64 px-4 divide-y divide-[color:var(--color-terracotta)]/12"
+        >
+          {REAPPRAISAL_ITEMS.map((item) => (
+            <AccordionItem key={item.id} value={item.id} className="border-0">
+              <AccordionTrigger className="py-4 text-left text-sm font-semibold text-graphite hover:no-underline">
+                {item.label}
+              </AccordionTrigger>
+              <AccordionContent className="pb-4 text-sm leading-relaxed text-graphite/82">
+                {item.body}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
 
         <CalloutBold
           kind="science"
@@ -370,25 +358,45 @@ export function Modul02() {
           source="Langeslag &amp; Sanchez (2018), J. Exp. Psychol.: General · Nader et al. (2000), Nature 406, 722–726"
         >
           <p>
-            Wenn du eine romantisierte Erinnerung mit der faktischen
-            Verletzung daneben legst, überschreibt dein Gehirn das emotionale
-            Etikett. Nicht beim ersten Mal — aber spürbar nach 21 Tagen.
+            Wenn du eine romantisierte Erinnerung mit der faktischen Verletzung daneben legst,
+            überschreibt dein Gehirn das emotionale Etikett. Nicht beim ersten Mal — aber spürbar
+            nach 21 Tagen.
           </p>
         </CalloutBold>
       </SectionBlock>
 
-      {/* ════════════════ 5 · ÜBUNGEN ════════════════ */}
+      <InfoGraphicBlock
+        src={gaslightingGraphic}
+        alt="Infografik: Gaslighting erkennen und der eigenen Wahrnehmung wieder trauen"
+        title="Infografik · Vertrau deiner Wahrnehmung"
+        caption="Gaslighting ersetzt Realität durch Deutungen anderer; die Gegenbewegung heißt: Fakten statt Diskussion. Die Grafik macht sichtbar, dass schriftliche Wahrnehmungs-Anker nicht kleinlich sind, sondern ein Schutz gegen spätere Verwirrung – besonders dann, wenn deine Reaktion im Nachhinein gegen dich verwendet wird."
+        aspect="16/9"
+      />
 
-      {/* ── Übung 1a · Gaslighting-Log ── */}
+      <SectionBlock
+        kind="uebung"
+        eyebrow="Übung 0 · Toxikometer der Idealisierung"
+        title="Wie stark überdeckt Hoffnung gerade noch die Fakten?"
+      >
+        <ToxicometerScale
+          slug={SLUG}
+          storageKey="toxikometer_idealisierung"
+          title="Toxikometer · Wie idealisiere ich noch?"
+          subtitle="Markiere spontan, wie stark sich deine Ex noch wie Hoffnung statt wie Realität anfühlt."
+          meta="1–10 · 1 Min"
+          accent="mauve"
+        />
+      </SectionBlock>
+
       <SectionBlock
         kind="uebung"
         eyebrow="Übung 1a · Dein persönliches Gaslighting-Log"
         title="Trenne, was du gefühlt hast, von dem, was passiert ist"
       >
         <p className="text-sm leading-relaxed text-graphite/85">
-          Dokumentiere Momente, in denen du an deiner eigenen Wahrnehmung
-          gezweifelt hast. Für jede Situation: Was ist passiert? Was hat sie
-          gesagt/getan? Wie hast du dich gefühlt? Was sagen die Fakten?
+          Dokumentiere Momente, in denen du an deiner eigenen Wahrnehmung gezweifelt hast. Für
+          jede Situation: Was ist passiert? Was hat sie gesagt/getan? Wie hast du dich gefühlt?
+          Was sagen die Fakten?
         </p>
         <StackedCards
           slug={SLUG}
@@ -430,16 +438,14 @@ export function Modul02() {
         />
       </SectionBlock>
 
-      {/* ── Übung 1b · 4-Spalten-Realitäts-Check ── */}
       <SectionBlock
         kind="uebung"
         eyebrow="Übung 1b · 4-Spalten-Realitäts-Check"
         title="Romantik gegen Realität – Spalte für Spalte"
       >
         <p className="text-sm leading-relaxed text-graphite/85">
-          Vergleiche deine romantisierten Erinnerungen mit der faktischen
-          Realität. Dieser strukturierte Check hilft, kognitive Dissonanz
-          aufzulösen.
+          Vergleiche deine romantisierten Erinnerungen mit der faktischen Realität. Dieser
+          strukturierte Check hilft, kognitive Dissonanz aufzulösen.
         </p>
         <StackedCards
           slug={SLUG}
@@ -481,40 +487,36 @@ export function Modul02() {
         />
         <CalloutBold kind="insight" title="Merksatz">
           <p className="italic">
-            „Negative Reappraisal bedeutet nicht, das Gute kleinzureden. Es
-            bedeutet, das Reale sichtbar zu machen – damit das idealisierte
-            Bild nicht mehr Macht hat als die Wirklichkeit.“
+            „Negative Reappraisal bedeutet nicht, das Gute kleinzureden. Es bedeutet, das Reale
+            sichtbar zu machen – damit das idealisierte Bild nicht mehr Macht hat als die
+            Wirklichkeit.“
           </p>
         </CalloutBold>
       </SectionBlock>
 
-      {/* ── Lösungs-Brücke zur 21-Tage-Challenge ── */}
       <SectionBlock
         kind="loesung"
         eyebrow="Lösung · Negative Reappraisal in der Praxis"
         title="21 Tage. Ein faktischer Satz pro Tag."
       >
         <p>
-          Schreibe täglich einen faktisch belegten, negativen Aspekt der
-          Beziehung auf – nicht um zu verurteilen, sondern um das
-          Gleichgewicht deiner Erinnerungen wiederherzustellen. Nach 21 Tagen
-          zeigen Studien eine 30–40 % Reduktion romantischer
-          Gefühlsintensität.
+          Schreibe täglich einen faktisch belegten, negativen Aspekt der Beziehung auf – nicht um
+          zu verurteilen, sondern um das Gleichgewicht deiner Erinnerungen wiederherzustellen. Nach
+          21 Tagen zeigen Studien eine 30–40 % Reduktion romantischer Gefühlsintensität.
         </p>
         <p className="text-sm font-semibold text-bordeaux">
           → Nutze dafür die 21-Tage-Challenge in Übung 2 (unten).
         </p>
       </SectionBlock>
 
-      {/* ── Übung 1c · Phasen-Mapper ── */}
       <SectionBlock
         kind="uebung"
         eyebrow="Übung 1c · Phasen-Mapper"
         title="Ordne deine Erinnerungen den 4 Phasen zu"
       >
         <p className="text-sm leading-relaxed text-graphite/85">
-          Schreibe Erinnerungen in das Eingabefeld und füge sie in die jeweils
-          passende Phase ein. So wird das Muster sichtbar.
+          Schreibe Erinnerungen in das Eingabefeld und füge sie in die jeweils passende Phase ein.
+          So wird das Muster sichtbar.
         </p>
         <div className="grid gap-3 sm:grid-cols-2">
           {PHASEN.map((p) => (
@@ -535,17 +537,15 @@ export function Modul02() {
         </div>
       </SectionBlock>
 
-      {/* ── Übung 2 · 21-Tage-Challenge ── */}
       <SectionBlock
         kind="uebung"
         eyebrow="Übung 2 · 21-Tage-Challenge: Negative Reappraisal"
         title="Ein faktischer, negativer Aspekt — jeden Tag, 21 Tage lang"
       >
         <p className="text-sm leading-relaxed text-graphite/85">
-          Schreibe jeden Tag eine negative, faktisch belegte Eigenschaft oder
-          Handlung auf – nicht aus Hass, sondern aus Klarheit. Wähle einen Tag
-          aus und trage deine Erinnerung ein. Nach 21 Tagen zeigen Studien
-          eine messbare Reduktion romantischer Gefühlsintensität um 30–40 %.
+          Schreibe jeden Tag eine negative, faktisch belegte Eigenschaft oder Handlung auf – nicht
+          aus Hass, sondern aus Klarheit. Wähle einen Tag aus und trage deine Erinnerung ein. Nach
+          21 Tagen zeigen Studien eine messbare Reduktion romantischer Gefühlsintensität um 30–40 %.
         </p>
         <TwentyOneDayChallenge
           slug={SLUG}
@@ -557,27 +557,23 @@ export function Modul02() {
         />
       </SectionBlock>
 
-      {/* ── Übung 3 · Podest-Analyse & Brief ── */}
       <SectionBlock
         kind="uebung"
         eyebrow="Übung 3 · Podest-Analyse & Brief ans idealisierte Bild"
         title="Idealisiert vs. Real — und ein Brief an die, die nie existiert hat"
       >
         <p>
-          Wir lieben selten die reale Person – wir lieben die Illusion, die wir
-          uns von ihr gemacht haben. In der Verliebtheitsphase kam deine
-          Partnerin dieser Illusion beängstigend nahe: aufmerksam, zugewandt,
-          als hätte sie dich wirklich gesehen. Doch sobald diese Phase verging,
-          zeigte sie zunehmend ihr wahres Verhalten – und wich immer weiter
-          von dem Bild ab, das du im Kopf hattest. Trotzdem hast du am
-          idealisierten Bild festgehalten, weil das Loslassen dieser Illusion
-          bedeutet hätte, den Schmerz des Verlustes wirklich zu fühlen.
+          Wir lieben selten die reale Person – wir lieben die Illusion, die wir uns von ihr gemacht
+          haben. In der Verliebtheitsphase kam deine Partnerin dieser Illusion beängstigend nahe:
+          aufmerksam, zugewandt, als hätte sie dich wirklich gesehen. Doch sobald diese Phase
+          verging, zeigte sie zunehmend ihr wahres Verhalten – und wich immer weiter von dem Bild
+          ab, das du im Kopf hattest.
         </p>
         <p>
-          Diese Übung hilft dir, das Podest sichtbar zu machen: Stelle das
-          idealisierte Bild der realen Person gegenüber. Dann schreibe einen
-          Brief – nicht an sie, sondern an die Version von ihr, die nie
-          existiert hat.
+          Trotzdem hast du am idealisierten Bild festgehalten, weil das Loslassen dieser Illusion
+          bedeutet hätte, den Schmerz des Verlustes wirklich zu fühlen. Diese Übung hilft dir, das
+          Podest sichtbar zu machen: Stelle das idealisierte Bild der realen Person gegenüber. Dann
+          schreibe einen Brief – nicht an sie, sondern an die Version von ihr, die nie existiert hat.
         </p>
         <Reflection3Step
           slug={SLUG}
@@ -603,15 +599,13 @@ export function Modul02() {
             {
               key: "podest_brief",
               label: "Brief ans idealisierte Bild",
-              placeholder:
-                "Liebes idealisiertes Bild,\n\nIch habe dich so lange festgehalten, weil…",
+              placeholder: "Liebes idealisiertes Bild,\n\nIch habe dich so lange festgehalten, weil…",
               rows: 6,
             },
           ]}
         />
       </SectionBlock>
 
-      {/* ── Übung 4 · Hoover-Mail Decoder ── */}
       <SectionBlock
         kind="uebung"
         eyebrow="Übung 4 · Hoover-Mail Decoder"
@@ -619,23 +613,18 @@ export function Modul02() {
       >
         <CalloutBold kind="insight" title="Hinweis: Selbsthilfeübung">
           <p>
-            Dies ist eine Selbsthilfeübung im Rahmen des UNBOND-Programms –
-            keine Lernzielkontrolle und keine klinische Diagnose. Das Ziel ist
-            es, dir Werkzeuge zur Verfügung zu stellen, um manipulative
-            Sprachmuster zu erkennen und deiner eigenen Wahrnehmung zu
-            vertrauen.
+            Dies ist eine Selbsthilfeübung im Rahmen des UNBOND-Programms – keine Lernzielkontrolle
+            und keine klinische Diagnose. Das Ziel ist es, dir Werkzeuge zur Verfügung zu stellen,
+            um manipulative Sprachmuster zu erkennen und deiner eigenen Wahrnehmung zu vertrauen.
           </p>
         </CalloutBold>
         <p>
-          Wenn der „Wolf" zurückschreibt, klingt es selten offensichtlich
-          böse. Hoovering-Nachrichten sind meisterhaft konstruiert: Sie
-          klingen nach Frieden, nach Reue, nach Sorge – und hinterlassen dich
-          dennoch destabilisiert. Denn das ist ihr Zweck. In dieser Übung
-          lernst du, die Maske zu durchschauen.
+          Wenn der „Wolf" zurückschreibt, klingt es selten offensichtlich böse. Hoovering-Nachrichten
+          sind meisterhaft konstruiert: Sie klingen nach Frieden, nach Reue, nach Sorge – und
+          hinterlassen dich dennoch destabilisiert. Denn das ist ihr Zweck. In dieser Übung lernst
+          du, die Maske zu durchschauen.
         </p>
         <HooverDecoder slug={SLUG} />
-
-        {/* ── Die 5 häufigsten Hoovering-Taktiken als FlipCards ── */}
         <div className="mt-2">
           <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-terracotta)]">
             Die 5 häufigsten Hoovering-Taktiken auf einen Blick
@@ -656,7 +645,6 @@ export function Modul02() {
         </div>
       </SectionBlock>
 
-      {/* ════════════════ DEEP DIVE ════════════════ */}
       <DeepDiveIntro
         label="Wenn du die Forschung dahinter sehen willst …"
         hint="Optional. Vier Studien, die das Muster erklären — du musst sie nicht lesen, um zu heilen."
@@ -666,92 +654,42 @@ export function Modul02() {
           eyebrow="Deep Dive · Wissenschaft der kognitiven Neubewertung"
           title="Die Forschung hinter den Übungen"
         >
+          <div className="grid gap-3 sm:grid-cols-3">
+            {STUDY_FLIPS.map((study) => (
+              <FlipCard
+                key={study.id}
+                icon={study.icon}
+                color="var(--color-sage)"
+                label={study.label}
+                heading={study.heading}
+                front={study.front}
+                back={study.back}
+              />
+            ))}
+          </div>
+
           <Accordion
             type="single"
             collapsible
             className="divide-y divide-[color:var(--color-sage)]/20 rounded-xl border border-[color:var(--color-sage)]/25 bg-white/55"
           >
-            <AccordionItem value="langeslag" className="border-0 px-4">
-              <AccordionTrigger className="py-3 text-left text-sm font-semibold text-graphite hover:no-underline">
-                <span>
-                  <span className="mr-2 text-[color:var(--color-sage)]">
-                    01 ·
+            {DEEP_DIVE_ITEMS.map((item, index) => (
+              <AccordionItem key={item.id} value={item.id} className="border-0 px-4">
+                <AccordionTrigger className="py-3 text-left text-sm font-semibold text-graphite hover:no-underline">
+                  <span>
+                    <span className="mr-2 text-[color:var(--color-sage)]">0{index + 1} ·</span>
+                    {item.title}
                   </span>
-                  Langeslag &amp; Sanchez (2018) — Reappraisal schlägt
-                  Verdrängen
-                </span>
-              </AccordionTrigger>
-              <AccordionContent className="pb-4 text-sm leading-relaxed text-graphite/85">
-                In kontrollierten fMRT-Studien reduzierte Negative Reappraisal
-                die Intensität romantischer Gefühle signifikant stärker als
-                die Strategien „an etwas anderes denken" oder „die Situation
-                akzeptieren". Wichtig: Der Effekt wird mit Übung stärker. Die
-                ersten Male fühlt sich Negative Reappraisal künstlich an. Das
-                ist normal.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="festinger" className="border-0 px-4">
-              <AccordionTrigger className="py-3 text-left text-sm font-semibold text-graphite hover:no-underline">
-                <span>
-                  <span className="mr-2 text-[color:var(--color-sage)]">
-                    02 ·
-                  </span>
-                  Festinger (1957) — Warum wir am idealisierten Bild
-                  festhalten
-                </span>
-              </AccordionTrigger>
-              <AccordionContent className="pb-4 text-sm leading-relaxed text-graphite/85">
-                Die Theorie der kognitiven Dissonanz erklärt, warum wir so
-                verzweifelt an idealisierten Bildern festhalten – das
-                Eingestehen der Realität würde bedeuten, dass unsere
-                Urteilsfähigkeit versagt hat. Das Ego verteidigt die
-                Investition in die Idealisierung.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="fisher" className="border-0 px-4">
-              <AccordionTrigger className="py-3 text-left text-sm font-semibold text-graphite hover:no-underline">
-                <span>
-                  <span className="mr-2 text-[color:var(--color-sage)]">
-                    03 ·
-                  </span>
-                  Fisher et al. (2010) — Liebeskummer = Drogenentzug im fMRT
-                </span>
-              </AccordionTrigger>
-              <AccordionContent className="pb-4 text-sm leading-relaxed text-graphite/85">
-                Hirnscans zeigten aktivierte Dopamin-Sucht-Areale bei
-                romantischer Ablehnung – identisch mit Kokainkonsumenten.
-                Gleichzeitig erhöhte Aktivität im anterioren cingulären
-                Kortex (physischer Schmerz). Romantischer Trennungsschmerz
-                ist real – er aktiviert dieselben Schmerzregionen wie
-                physischer Schmerz.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="ristock" className="border-0 px-4">
-              <AccordionTrigger className="py-3 text-left text-sm font-semibold text-graphite hover:no-underline">
-                <span>
-                  <span className="mr-2 text-[color:var(--color-sage)]">
-                    04 ·
-                  </span>
-                  Ristock (2002) — Warum WLW besonders stark zweifeln
-                </span>
-              </AccordionTrigger>
-              <AccordionContent className="pb-4 text-sm leading-relaxed text-graphite/85">
-                Frauen in lesbischen Beziehungen zweifeln besonders häufig an
-                ihrer eigenen Wahrnehmung – weil gesellschaftliche Narrative
-                Frauen nicht als Täterinnen konzipieren. Das macht das
-                Gaslighting-Log für WLW-Beziehungen besonders wichtig: Die
-                Fakten aufzuschreiben ist ein Akt des Widerstands gegen die
-                Unsichtbarkeit dieser Erfahrungen.
-              </AccordionContent>
-            </AccordionItem>
+                </AccordionTrigger>
+                <AccordionContent className="pb-4 text-sm leading-relaxed text-graphite/85">
+                  {item.body}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
           </Accordion>
         </SectionBlock>
       </DeepDiveIntro>
 
-      {/* ════════════════ UNTERKAPITEL 3.5 · GASLIGHTING-NOTBREMSE ════════════════ */}
       <SectionBlock
         kind="story"
         eyebrow="Story · Mary · Die Erklärungsschleife"
@@ -760,30 +698,26 @@ export function Modul02() {
         <div className="[&>p+p]:mt-4 [&>p]:mb-0">
           <Reveal>
             <p>
-              Es ist kurz nach 22 Uhr. Mary und Sandra sitzen am Küchentisch,
-              und Mary wiederholt zum dritten Mal, was Sandra noch am Vortag
-              gesagt hatte – Wort für Wort. Sie ist sicher. Sie hat es gehört.
-              Sie hat es gespürt.
+              Es ist kurz nach 22 Uhr. Mary und Sandra sitzen am Küchentisch, und Mary wiederholt
+              zum dritten Mal, was Sandra noch am Vortag gesagt hatte – Wort für Wort. Sie ist
+              sicher. Sie hat es gehört. Sie hat es gespürt.
             </p>
           </Reveal>
           <Reveal delay={120}>
             <p>
-              Sandras Reaktion: ruhig, fast mitleidig.{" "}
-              <em>„Das habe ich nie gesagt. Du bist paranoid. Ich mache mir
-              wirklich Sorgen um dich."</em> Mary öffnet den Mund, will
-              erklären, beweisen – aber mitten im Satz merkt sie:{" "}
-              <strong>Je mehr sie erklärt, desto sicherer wirkt Sandra.</strong>{" "}
-              Je verzweifelter Mary wird, desto glaubwürdiger Sandras Diagnose:
-              instabil.
+              Sandras Reaktion: ruhig, fast mitleidig. <em>„Das habe ich nie gesagt. Du bist
+              paranoid. Ich mache mir wirklich Sorgen um dich."</em> Mary öffnet den Mund, will
+              erklären, beweisen – aber mitten im Satz merkt sie:
+              <strong> Je mehr sie erklärt, desto sicherer wirkt Sandra.</strong> Je verzweifelter
+              Mary wird, desto glaubwürdiger Sandras Diagnose: instabil.
             </p>
           </Reveal>
           <Reveal delay={240}>
             <p>
-              Später schreibt Mary in ihr Notizbuch:{" "}
-              <em>22:14 Uhr. S. sagte gestern: „Du bist zu empfindlich für
-              eine Beziehung." Heute: „Das habe ich nie gesagt." Ich zweifle
-              an mir selbst – und genau das ist der Plan.</em> Allein das
-              Aufschreiben gibt ihr ihren Boden zurück.
+              Später schreibt Mary in ihr Notizbuch: <em>22:14 Uhr. S. sagte gestern: „Du bist zu
+              empfindlich für eine Beziehung." Heute: „Das habe ich nie gesagt." Ich zweifle an
+              mir selbst – und genau das ist der Plan.</em> Allein das Aufschreiben gibt ihr ihren
+              Boden zurück.
             </p>
           </Reveal>
         </div>
@@ -794,29 +728,22 @@ export function Modul02() {
         eyebrow="Diagnose · Die Erklärungsschleife"
         title="Warum Beweisen das Gaslighting verstärkt"
       >
-        <TextCollapse preview={1} threshold={2}>
-          <p>
-            Gaslighting funktioniert nicht <em>trotz</em> deiner Versuche, dich
-            zu erklären – es funktioniert <strong>durch sie</strong>. Jedes
-            Mal, wenn du versuchst, deine Wahrnehmung zu beweisen, sendest du
-            unbewusst das Signal: <em>Meine Realität steht zur
-            Disposition.</em>
-          </p>
-          <p>
-            Psychologin Robin Stern (2007) beschreibt den
-            „Gaslighting-Tanz": Die Gaslighterin braucht nicht die Wahrheit –
-            sie braucht deine Zustimmung zu ihrer Version. Je mehr du dich
-            rechtfertigst, desto mehr Energie fließt in ein System, das darauf
-            ausgelegt ist, dich zu erschöpfen und zu verwirren.
-          </p>
-          <p>
-            Der neurologische Effekt: Chronisches Gaslighting aktiviert den
-            anterioren cingulären Kortex (zuständig für Konfliktverarbeitung)
-            im Dauerbetrieb. Das Nervensystem kann nicht mehr zwischen echter
-            Bedrohung und normaler Meinungsverschiedenheit unterscheiden – du
-            bist permanent in Alarmbereitschaft.
-          </p>
-        </TextCollapse>
+        <Accordion
+          type="single"
+          collapsible
+          className="rounded-2xl border border-[color:var(--color-sage)]/18 bg-white/64 px-4 divide-y divide-[color:var(--color-sage)]/12"
+        >
+          {NOTBREMSE_DIAGNOSE_ITEMS.map((item) => (
+            <AccordionItem key={item.id} value={item.id} className="border-0">
+              <AccordionTrigger className="py-4 text-left text-sm font-semibold text-graphite hover:no-underline">
+                {item.label}
+              </AccordionTrigger>
+              <AccordionContent className="pb-4 text-sm leading-relaxed text-graphite/82">
+                {item.body}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </SectionBlock>
 
       <SectionBlock
@@ -824,10 +751,7 @@ export function Modul02() {
         eyebrow="Lösung · Die 3-Schritt-Notbremse"
         title="Wenn ein Gaslighting-Moment passiert"
       >
-        <p>
-          Stoppe die Erklärungsschleife sofort – mit drei klaren, inneren
-          Schritten.
-        </p>
+        <p>Stoppe die Erklärungsschleife sofort – mit drei klaren, inneren Schritten.</p>
         <div className="grid gap-3 sm:grid-cols-3">
           {NOTBREMSE.map((s, i) => (
             <div
@@ -837,12 +761,8 @@ export function Modul02() {
               <div className="mb-2 grid h-8 w-8 place-items-center rounded-full bg-[color:var(--color-terracotta)]/12 text-sm font-bold text-[color:var(--color-terracotta)]">
                 {i + 1}
               </div>
-              <p className="font-display text-sm font-bold text-bordeaux">
-                {s.title}
-              </p>
-              <p className="mt-1 text-xs leading-relaxed text-graphite/85">
-                {s.body}
-              </p>
+              <p className="font-display text-sm font-bold text-bordeaux">{s.title}</p>
+              <p className="mt-1 text-xs leading-relaxed text-graphite/85">{s.body}</p>
             </div>
           ))}
         </div>
@@ -854,10 +774,9 @@ export function Modul02() {
         title="Dein Gedächtnis, schriftlich gesichert"
       >
         <p>
-          Dein Gedächtnis ist dein wichtigstes Werkzeug gegen Gaslighting –
-          aber nur, wenn du es schriftlich sicherst. Wenn es sich für dich
-          sicher anfühlt, kannst du versuchen, dieses Protokoll drei Wochen
-          lang täglich zu führen.
+          Dein Gedächtnis ist dein wichtigstes Werkzeug gegen Gaslighting – aber nur, wenn du es
+          schriftlich sicherst. Wenn es sich für dich sicher anfühlt, kannst du versuchen, dieses
+          Protokoll drei Wochen lang täglich zu führen.
         </p>
         <Reflection3Step
           slug={SLUG}
@@ -868,16 +787,14 @@ export function Modul02() {
           steps={[
             {
               key: "anker_ereignisse",
-              label:
-                "Die 3 wichtigsten Ereignisse heute (Uhrzeit, konkrete Worte, Fakten)",
+              label: "Die 3 wichtigsten Ereignisse heute (Uhrzeit, konkrete Worte, Fakten)",
               placeholder:
                 "z.B. 14:20 — Sie sagte: „…“. 19:45 — sie behauptete später, das nie gesagt zu haben.",
               rows: 5,
             },
             {
               key: "anker_widerspruch",
-              label:
-                "Wenn Nachrichten von ihr Dinge anders darstellen: Was sagen meine Notizen?",
+              label: "Wenn Nachrichten von ihr Dinge anders darstellen: Was sagen meine Notizen?",
               placeholder:
                 "Vergleiche die aktuelle Behauptung mit deinem Protokoll von gestern/letzter Woche.",
               rows: 4,
@@ -885,20 +802,17 @@ export function Modul02() {
             {
               key: "anker_satz",
               label: "Mein Stopp-Satz heute",
-              placeholder:
-                "„Ich brauche ihre Zustimmung nicht, um meine Realität zu kennen.“",
+              placeholder: "„Ich brauche ihre Zustimmung nicht, um meine Realität zu kennen.“",
               rows: 2,
             },
           ]}
         />
         <CalloutBold kind="quote" title="Wichtig">
           <p>
-            Chronisches Gaslighting kann tiefe Zweifel an der eigenen
-            Wahrnehmung hinterlassen. Wenn du regelmäßig nicht weißt, was real
-            ist und was nicht, ist das kein Charakterfehler – das ist ein
-            Trauma-Symptom. Bei anhaltender Realitätsunsicherheit:
-            professionelle Unterstützung ist kein Zeichen von Schwäche,
-            sondern ein Akt der Selbstfürsorge.
+            Chronisches Gaslighting kann tiefe Zweifel an der eigenen Wahrnehmung hinterlassen.
+            Wenn du regelmäßig nicht weißt, was real ist und was nicht, ist das kein Charakterfehler
+            – das ist ein Trauma-Symptom. Bei anhaltender Realitätsunsicherheit: professionelle
+            Unterstützung ist kein Zeichen von Schwäche, sondern ein Akt der Selbstfürsorge.
           </p>
           <p className="flex items-start gap-2 font-semibold text-bordeaux">
             <Phone className="mt-[2px] h-4 w-4 shrink-0" strokeWidth={1.75} />
@@ -907,7 +821,6 @@ export function Modul02() {
         </CalloutBold>
       </SectionBlock>
 
-      {/* ════════════════ UNTERKAPITEL 3.6 · DOPPELSTANDARD ════════════════ */}
       <SectionBlock
         kind="story"
         eyebrow="Story · Mary · Der Vergleich, der brennt"
@@ -916,27 +829,23 @@ export function Modul02() {
         <div className="[&>p+p]:mt-4 [&>p]:mb-0">
           <Reveal>
             <p>
-              Mary scrollt durch Instagram – eigentlich nur, um eine Geschichte
-              einer Freundin anzusehen. Dann trifft es sie wie ein Schlag:
-              Sandra, in der Toskana. Mit ihr. Sonnenuntergang, Wein, lachend.
-              Das gleiche Lächeln, das sie Mary immer dann zeigte, wenn sie
-              etwas wollte.
+              Mary scrollt durch Instagram – eigentlich nur, um eine Geschichte einer Freundin
+              anzusehen. Dann trifft es sie wie ein Schlag: Sandra, in der Toskana. Mit ihr.
+              Sonnenuntergang, Wein, lachend. Das gleiche Lächeln, das sie Mary immer dann zeigte,
+              wenn sie etwas wollte.
             </p>
           </Reveal>
           <Reveal delay={120}>
             <p>
-              Mary erinnert sich, wie oft sie gefragt hatte:{" "}
-              <em>„Können wir mal verreisen?"</em> Sandras Antwort war immer
-              dieselbe: <em>„Ich bin nicht der Urlaubs-Typ. Das ist einfach
-              nichts für mich."</em> Fünf Jahre lang. Und jetzt ist sie es
-              offenbar doch.
+              Mary erinnert sich, wie oft sie gefragt hatte: <em>„Können wir mal verreisen?"</em>
+              Sandras Antwort war immer dieselbe: <em>„Ich bin nicht der Urlaubs-Typ. Das ist
+              einfach nichts für mich."</em> Fünf Jahre lang. Und jetzt ist sie es offenbar doch.
             </p>
           </Reveal>
           <Reveal delay={240}>
             <p>
-              Der Schmerz ist real. Aber Mary öffnet ihr Workbook und schreibt
-              drei Spalten auf. Nach zehn Minuten liest sie Spalte C laut vor.
-              Und dann nochmal. Und nochmal.
+              Der Schmerz ist real. Aber Mary öffnet ihr Workbook und schreibt drei Spalten auf.
+              Nach zehn Minuten liest sie Spalte C laut vor. Und dann nochmal. Und nochmal.
             </p>
           </Reveal>
         </div>
@@ -947,28 +856,22 @@ export function Modul02() {
         eyebrow="Diagnose · Doppelstandard als Kontrollmuster"
         title="Du warst nicht das Problem. Du warst Target."
       >
-        <TextCollapse preview={1} threshold={2}>
-          <p>
-            Der Doppelstandard – wenn die Expartnerin mit jemand anderem
-            scheinbar mühelos tut, was sie dir jahrelang verweigerte – ist
-            eines der verletzlichsten Nachtrennungs-Phänomene. Er nährt den
-            Gedanken: <em>„Es lag an mir. Mit mir war sie nicht bereit. Mit
-            ihr schon."</em>
-          </p>
-          <p>
-            Was diese Interpretation übersieht: Widerstand gegen Intimität
-            ist kein situativer Mangel – er ist ein <strong>Muster der
-            Täterinnen-Persönlichkeit</strong>. Die neue Partnerin erlebt
-            zunächst die Idealisierungsphase. Sie wird mit der Zeit dieselbe
-            Erfahrung machen. Du warst nicht das Problem. Du warst Target.
-          </p>
-          <p>
-            <strong>Forschung (Durvasula, 2019):</strong> Narzisstische
-            Täterinnen zeigen in neuen Beziehungen initial verstärkte
-            Love-Bombing-Verhaltensweisen, um die neue Partnerin zu binden.
-            Der Zyklus beginnt von vorn – mit einer anderen Person.
-          </p>
-        </TextCollapse>
+        <Accordion
+          type="single"
+          collapsible
+          className="rounded-2xl border border-[color:var(--color-sage)]/18 bg-white/64 px-4 divide-y divide-[color:var(--color-sage)]/12"
+        >
+          {DOPPELSTANDARD_ITEMS.map((item) => (
+            <AccordionItem key={item.id} value={item.id} className="border-0">
+              <AccordionTrigger className="py-4 text-left text-sm font-semibold text-graphite hover:no-underline">
+                {item.label}
+              </AccordionTrigger>
+              <AccordionContent className="pb-4 text-sm leading-relaxed text-graphite/82">
+                {item.body}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </SectionBlock>
 
       <SectionBlock
@@ -977,10 +880,9 @@ export function Modul02() {
         title="Verwandle Doppelstandard-Schmerz in Klarheit"
       >
         <p>
-          Wenn es sich für dich sicher anfühlt, kannst du diese Übung nutzen,
-          um den Doppelstandard-Schmerz in Klarheit zu verwandeln. Fülle alle
-          drei Spalten aus – und lies Spalte C so oft laut vor, bis du
-          beginnst, es zu glauben.
+          Wenn es sich für dich sicher anfühlt, kannst du diese Übung nutzen, um den
+          Doppelstandard-Schmerz in Klarheit zu verwandeln. Fülle alle drei Spalten aus – und lies
+          Spalte C so oft laut vor, bis du beginnst, es zu glauben.
         </p>
         <Reflection3Step
           slug={SLUG}
@@ -1012,12 +914,10 @@ export function Modul02() {
           ]}
         />
         <p className="text-[11px] italic leading-snug text-graphite/60">
-          Der Schmerz beim Lesen von Spalte C ist normal. Er bedeutet, dass
-          etwas Altes loslässt.
+          Der Schmerz beim Lesen von Spalte C ist normal. Er bedeutet, dass etwas Altes loslässt.
         </p>
       </SectionBlock>
 
-      {/* ════════════════ UNTERKAPITEL 3.7 · RADICAL ACCEPTANCE ════════════════ */}
       <SectionBlock
         kind="story"
         eyebrow="Story · Mary · Loslassen beginnt innen"
@@ -1026,29 +926,24 @@ export function Modul02() {
         <div className="[&>p+p]:mt-4 [&>p]:mb-0">
           <Reveal>
             <p>
-              Mary wartet. Nicht aktiv – aber das Warten ist da. Irgendwo im
-              Hintergrund des Lebens sitzt diese stille Hoffnung:{" "}
-              <em>Vielleicht sieht sie es irgendwann. Vielleicht kommt sie,
-              wenn sie bereit ist. Vielleicht, wenn die neue Beziehung
-              scheitert. Vielleicht wenn Mary stark genug ist, um nicht mehr
-              zu brauchen. Vielleicht.</em>
+              Mary wartet. Nicht aktiv – aber das Warten ist da. Irgendwo im Hintergrund des Lebens
+              sitzt diese stille Hoffnung: <em>Vielleicht sieht sie es irgendwann. Vielleicht kommt
+              sie, wenn sie bereit ist. Vielleicht, wenn die neue Beziehung scheitert. Vielleicht
+              wenn Mary stark genug ist, um nicht mehr zu brauchen. Vielleicht.</em>
             </p>
           </Reveal>
           <Reveal delay={120}>
             <p>
-              Marys Therapeutin fragt ruhig:{" "}
-              <em>„Was würdest du verlieren, wenn du aufhörst zu warten?"</em>{" "}
-              Mary antwortet nicht sofort. Dann:{" "}
-              <em>„Die Möglichkeit, dass sie sich ändert."</em> Und die
-              Therapeutin: <em>„Und was gewinnst du, wenn du das loslässt?"</em>{" "}
+              Marys Therapeutin fragt ruhig: <em>„Was würdest du verlieren, wenn du aufhörst zu
+              warten?"</em> Mary antwortet nicht sofort. Dann: <em>„Die Möglichkeit, dass sie sich
+              ändert."</em> Und die Therapeutin: <em>„Und was gewinnst du, wenn du das loslässt?"</em>
               Stille. Eine lange Stille. Dann: <em>„Mein eigenes Leben."</em>
             </p>
           </Reveal>
           <Reveal delay={240}>
             <p>
-              Radical Acceptance ist keine Kapitulation. Es ist die
-              Erkenntnis, dass das Warten auf Veränderung eine Form der
-              Selbstbestrafung ist – und dass Loslassen kein Lieblosigkeit
+              Radical Acceptance ist keine Kapitulation. Es ist die Erkenntnis, dass das Warten auf
+              Veränderung eine Form der Selbstbestrafung ist – und dass Loslassen kein Lieblosigkeit
               bedeutet, sondern Selbstliebe.
             </p>
           </Reveal>
@@ -1061,10 +956,9 @@ export function Modul02() {
         title="Was Radical Acceptance bedeutet – und was nicht"
       >
         <p>
-          Radical Acceptance ist ein Kernkonzept der Dialektisch-Behavioralen
-          Therapie (DBT nach Linehan, 1993) und wurde von Ramani Durvasula
-          auf narzisstische Beziehungsdynamiken angewendet. Es bedeutet:{" "}
-          <strong>Die Realität vollständig anzunehmen, ohne sie zu
+          Radical Acceptance ist ein Kernkonzept der Dialektisch-Behavioralen Therapie (DBT nach
+          Linehan, 1993) und wurde von Ramani Durvasula auf narzisstische Beziehungsdynamiken
+          angewendet. Es bedeutet: <strong>Die Realität vollständig anzunehmen, ohne sie zu
           gutzuheißen.</strong>
         </p>
         <div className="grid gap-3 sm:grid-cols-2">
@@ -1091,16 +985,11 @@ export function Modul02() {
             </ul>
           </div>
         </div>
-        <CalloutBold
-          kind="quote"
-          title="Durvasula (2019)"
-          source="Ramani Durvasula"
-        >
+        <CalloutBold kind="quote" title="Durvasula (2019)" source="Ramani Durvasula">
           <p className="italic">
-            „Das Warten auf Einsicht oder Reue einer narzisstischen
-            Persönlichkeit bindet deine emotionalen Ressourcen auf unbestimmte
-            Zeit. Akzeptanz ist nicht das Ende der Hoffnung – es ist der
-            Anfang deiner Freiheit."
+            „Das Warten auf Einsicht oder Reue einer narzisstischen Persönlichkeit bindet deine
+            emotionalen Ressourcen auf unbestimmte Zeit. Akzeptanz ist nicht das Ende der Hoffnung
+            – es ist der Anfang deiner Freiheit."
           </p>
         </CalloutBold>
       </SectionBlock>
@@ -1111,9 +1000,9 @@ export function Modul02() {
         title="21 Tage. Wiederholung schafft neue Pfade."
       >
         <p>
-          Wenn es sich für dich sicher anfühlt, kannst du mit diesem Protokoll
-          beginnen. 21 Tage lang. Jeden Tag. Nicht weil es beim ersten Mal
-          klappt – sondern weil Wiederholung neue neuronale Pfade schafft.
+          Wenn es sich für dich sicher anfühlt, kannst du mit diesem Protokoll beginnen. 21 Tage
+          lang. Jeden Tag. Nicht weil es beim ersten Mal klappt – sondern weil Wiederholung neue
+          neuronale Pfade schafft.
         </p>
         <Reflection3Step
           slug={SLUG}
@@ -1146,16 +1035,14 @@ export function Modul02() {
           ]}
         />
         <p className="text-[11px] italic leading-snug text-graphite/60">
-          Es ist normal, wenn sich der Satz an Tag 1 falsch anfühlt. Er soll
-          sich mit der Zeit wahrer anfühlen – nicht durch Überzeugung, sondern
-          durch Wiederholung.
+          Es ist normal, wenn sich der Satz an Tag 1 falsch anfühlt. Er soll sich mit der Zeit
+          wahrer anfühlen – nicht durch Überzeugung, sondern durch Wiederholung.
         </p>
         <CalloutBold kind="quote" title="Wichtig">
           <p>
-            Radical Acceptance bedeutet nicht, den Schmerz wegzumachen. Der
-            Schmerz ist berechtigt. Er darf da sein. Wenn du dich in einer
-            akuten Krise befindest oder Suizidgedanken auftauchen: Bitte
-            wende dich sofort an die Telefonseelsorge.
+            Radical Acceptance bedeutet nicht, den Schmerz wegzumachen. Der Schmerz ist berechtigt.
+            Er darf da sein. Wenn du dich in einer akuten Krise befindest oder Suizidgedanken
+            auftauchen: Bitte wende dich sofort an die Telefonseelsorge.
           </p>
           <p className="flex items-start gap-2 font-semibold text-bordeaux">
             <Phone className="mt-[2px] h-4 w-4 shrink-0" strokeWidth={1.75} />
@@ -1164,7 +1051,6 @@ export function Modul02() {
         </CalloutBold>
       </SectionBlock>
 
-      {/* ── Begleit-Meditation ── */}
       <MeditationCard
         title="Gedankenkarussell stoppen – Einschlaf-Hypnose &amp; Meditation"
         duration="ChakraTunes"
@@ -1172,7 +1058,6 @@ export function Modul02() {
         youtubeId="UnjielNyg08"
       />
 
-      {/* ════════════════ 6 · CHECKLISTE ════════════════ */}
       <SectionBlock kind="checkliste" bare>
         <ChecklistGoals
           slug={SLUG}
@@ -1203,8 +1088,6 @@ export function Modul02() {
     </article>
   );
 }
-
-// ─────────────────────── Daten ───────────────────────
 
 const GASLIGHTING_BEISPIELE = [
   {
@@ -1239,6 +1122,126 @@ const GASLIGHTING_BEISPIELE = [
   },
 ];
 
+const TIMELINE_ITEMS = [
+  {
+    id: "idealisierung",
+    label: "„Niemand versteht mich so wie du.“",
+    hint: "Bindung wird durch Exklusivität aufgebaut.",
+  },
+  {
+    id: "abwertung",
+    label: "„Du bist in letzter Zeit echt schwierig.“",
+    hint: "Erste Irritation: Nähe kippt in diffuse Schuld.",
+  },
+  {
+    id: "leugnung",
+    label: "„Das habe ich nie gesagt.“",
+    hint: "Deine Wahrnehmung wird entwertet.",
+  },
+  {
+    id: "pity",
+    label: "„Du weißt gar nicht, wie schlecht es mir gerade geht.“",
+    hint: "Mitleid soll deine Grenze weich machen.",
+  },
+  {
+    id: "hoovering",
+    label: "„Lass uns wenigstens im Frieden sein.“",
+    hint: "Rückholversuch mit sanfter Verpackung.",
+  },
+];
+
+const TIMELINE_ORDER = ["idealisierung", "abwertung", "leugnung", "pity", "hoovering"];
+
+const DIAGNOSE_TABS: {
+  id: string;
+  label: string;
+  kicker: string;
+  title: string;
+  body: string;
+  highlight: string;
+  icon: LucideIcon;
+}[] = [
+  {
+    id: "festinger",
+    label: "Festinger",
+    kicker: "Kognitive Dissonanz",
+    title: "Warum dein Gehirn Widersprüche weichzeichnet",
+    body:
+      'Kognitive Dissonanz entsteht, wenn zwei Wahrheiten gleichzeitig aktiv sind: „Diese Beziehung schadet mir“ und „Ich kann sie nicht loslassen“. Um diesen Widerspruch auszuhalten, schwächt das Gehirn oft die Realität ab – nicht die Bindung.',
+    highlight:
+      'Je größer dein Einsatz war, desto stärker verteidigt dein Nervensystem oft das idealisierte Bild. Nicht aus Dummheit – sondern um den inneren Kollaps zu vermeiden.',
+    icon: Orbit,
+  },
+  {
+    id: "skinner",
+    label: "Skinner",
+    kicker: "Spielautomat-Effekt",
+    title: "Warum unvorhersehbare Nähe süchtiger macht als verlässliche Liebe",
+    body:
+      'Intermittierende Verstärkung bedeutet: Belohnung kommt unregelmäßig. Genau das macht sie so mächtig. Das System lernt nicht Sicherheit – es lernt Warten, Hoffen und erneutes Investieren.',
+    highlight:
+      'Ein kaputter Spielautomat hält Menschen länger fest als eine Maschine, die verlässlich auszahlt. Toxische Bindung funktioniert genauso.',
+    icon: Zap,
+  },
+  {
+    id: "fisher",
+    label: "Fisher",
+    kicker: "fMRT",
+    title: "Warum Trennung wie Entzug wirkt",
+    body:
+      'Helen Fisher zeigte, dass romantische Ablehnung dieselben Belohnungs- und Schmerzareale aktiviert wie Drogenentzug. Sehnsucht ist deshalb nicht „bloß emotional“ – sie ist ein neurochemischer Ausnahmezustand.',
+    highlight:
+      'Wenn du dich nach ihr sehnst, bedeutet das nicht, dass sie richtig war. Es bedeutet, dass dein Belohnungssystem sie als Lösung abgespeichert hat.',
+    icon: HeartCrack,
+  },
+  {
+    id: "wlw",
+    label: "WLW-Kontext",
+    kicker: "Weaponized Virtue",
+    title: "Warum du an dir statt an ihr gezweifelt hast",
+    body:
+      'Wenn eine Partnerin öffentlich als sensibel, reflektiert oder besonders „gut“ wahrgenommen wird, wandert dein Zweifel automatisch zu dir. In WLW-Kontexten verstärkt sich das oft noch, weil Täterinnenschaft gesellschaftlich unsichtbar gemacht wird.',
+    highlight:
+      'Weaponized Virtue heißt: Ihre Tugend wird zur Waffe gegen deine Realität.',
+    icon: ShieldAlert,
+  },
+];
+
+const TRAUMA_HOTSPOTS = [
+  {
+    id: "chemie",
+    x: 22,
+    y: 26,
+    label: "Chemie",
+    body:
+      "Dopamin, Oxytocin und Cortisol arbeiten hier nicht gegeneinander, sondern wie ein Cocktail: Hoffnung bindet, Stress hält dich alarmiert, Erleichterung verstärkt die Sucht.",
+  },
+  {
+    id: "spielautomat",
+    x: 76,
+    y: 24,
+    label: "Loop",
+    body:
+      "Der Loop entsteht, weil Belohnung nie verlässlich kommt. Gerade diese Unberechenbarkeit hält die Suche nach dem nächsten guten Moment am Laufen.",
+  },
+  {
+    id: "entzug",
+    x: 26,
+    y: 71,
+    label: "Entzug",
+    body:
+      "Wenn der Kontakt wegfällt, reagiert dein System wie auf Entzug: Es will die Quelle der Erleichterung zurück – selbst wenn diese Quelle zugleich die Wunde ist.",
+  },
+  {
+    id: "nocontact",
+    x: 73,
+    y: 73,
+    label: "No Contact",
+    body:
+      "No Contact unterbricht nicht nur Kommunikation, sondern die gesamte Reizkette. Erst wenn die Trigger ausbleiben, kann das Nervensystem langsam neu lernen.",
+  },
+];
+
 const BOTENSTOFFE: {
   id: string;
   name: string;
@@ -1253,7 +1256,7 @@ const BOTENSTOFFE: {
     kicker: "Verlangen",
     icon: Zap,
     teaser: "Das Verlangen-Molekül.",
-    desc: "Wird nicht durch Genuss ausgeschüttet, sondern durch die Erwartung von Belohnung. Macht das Warten unerträglich – und das Warten selbst zur Sucht.",
+    desc: "Dopamin reagiert auf Erwartung, nicht auf Sicherheit. Es macht das Warten auf die nächste gute Nachricht selbst zur Belohnungsschleife.",
   },
   {
     id: "oxytocin",
@@ -1261,7 +1264,7 @@ const BOTENSTOFFE: {
     kicker: "Bindung",
     icon: HeartHandshake,
     teaser: "Das Bindungshormon.",
-    desc: "Wird durch Berührung und Nähe ausgeschüttet. Erzeugt tiefes Vertrauen – auch zu Personen, die uns schaden. Macht Trennung körperlich schmerzhaft.",
+    desc: "Oxytocin verknüpft Nähe mit Vertrauen – auch dann, wenn die Person dir schadet. Dadurch fühlt sich Trennung nicht nur traurig, sondern körperlich falsch an.",
   },
   {
     id: "cortisol",
@@ -1269,7 +1272,7 @@ const BOTENSTOFFE: {
     kicker: "Stress",
     icon: Flame,
     teaser: "Das Stresshormon.",
-    desc: 'In Phasen des Rückzugs dauerhaft erhöht. Hält das Nervensystem in Alarmbereitschaft und verstärkt das Verlangen nach der einzigen bekannten „Lösung": ihr.',
+    desc: "Cortisol hält dein System in Alarmbereitschaft. Der nächste warme Moment wirkt deshalb wie Erlösung – und verstärkt die Bindung weiter.",
   },
 ];
 
@@ -1278,30 +1281,125 @@ const PHASEN: {
   label: string;
   icon: LucideIcon;
   desc: string;
+  quote: string;
 }[] = [
   {
     id: "idealisierung",
     label: "Idealisierung",
     icon: Heart,
-    desc: "Intensive Zuwendung, Komplimente, Nähe. Dopamin und Oxytocin fluten das System.",
+    desc: "Intensive Zuwendung, Komplimente, Nähe. Dopamin und Oxytocin fluten das System und markieren die Person als etwas Einzigartiges.",
+    quote: "„Mit dir fühlt es sich endlich echt an.“",
   },
   {
     id: "abwertung",
     label: "Abwertung",
     icon: CloudRain,
-    desc: "Plötzlicher Rückzug, Kritik, Ghosting. Cortisol steigt. Du suchst den Fehler bei dir.",
+    desc: "Plötzlicher Rückzug, Kritik, subtile Distanz. Cortisol steigt und du suchst den Fehler reflexhaft bei dir statt im Muster.",
+    quote: "„Du machst gerade echt viel aus nichts.“",
   },
   {
     id: "discard",
     label: "Discard",
     icon: Scissors,
-    desc: "Kognitive Dissonanz. Du zweifelst an dir. Du romanisierst die guten Phasen.",
+    desc: "Kognitive Dissonanz übernimmt. Du romanisierst die guten Momente, während die Realität immer mehr aus deinem Zugriff rutscht.",
+    quote: "„Ich brauche gerade einfach Abstand – dramatisier das bitte nicht.“",
   },
   {
     id: "hoovering",
     label: "Hoovering",
     icon: Anchor,
-    desc: "Sie kommt zurück. Ein Satz, ein Emoji. Der Dopamin-Hit ist überwältigend.",
+    desc: "Sie kommt zurück. Ein Satz, ein Emoji, eine Friedensgeste. Der kurze Dopamin-Hit lässt die ganze Schleife wieder wie Hoffnung aussehen.",
+    quote: "„Ich will keinen Streit mehr. Lass uns doch einfach Frieden finden.“",
+  },
+];
+
+const REAPPRAISAL_ITEMS = [
+  {
+    id: "was-ist-das",
+    label: "Was ist Reappraisal?",
+    body:
+      "Negative Reappraisal bedeutet, romantisierte Erinnerungen nicht länger isoliert zu betrachten, sondern sie bewusst mit der ganzen Realität zu koppeln. Du nimmst dem schönen Bild nicht die Existenz – aber du nimmst ihm das Monopol.",
+  },
+  {
+    id: "rekonsolidierung",
+    label: "Wie funktioniert Rekonsolidierung?",
+    body:
+      "Erinnerungen werden beim Abruf kurz beweglich. Wenn du dann Fakten, Verletzungen und Muster danebenlegst, verändert sich die emotionale Markierung. Genau deshalb helfen schriftliche Gegenbeweise mehr als bloßes Grübeln.",
+  },
+  {
+    id: "warum-21",
+    label: "Warum 21 Tage?",
+    body:
+      "Ein einzelner Reality-Check entlastet kurz. Wiederholung verändert Muster. Die 21 Tage geben deinem Gehirn genug Wiederholungen, damit aus Hoffnung schrittweise Klarheit werden kann.",
+  },
+];
+
+const STUDY_FLIPS = [
+  {
+    id: "langeslag",
+    icon: Bird,
+    label: "Langeslag · 2018",
+    heading: "Umbewerten reduziert Gefühle messbar",
+    front: "Negative Reappraisal senkte romantische Aktivierung stärker als Verdrängen.",
+    back: "Die Studie verglich mehrere Strategien im Labor. Reappraisal war jene Methode, die Gefühle nicht nur kurzfristig, sondern wiederholt am deutlichsten herunterregelte.",
+  },
+  {
+    id: "festinger",
+    icon: ScanSearch,
+    label: "Festinger · 1957",
+    heading: "Das Ego schützt Investitionen",
+    front: "Je mehr du investiert hast, desto schwerer wird Realität anzunehmen.",
+    back: "Kognitive Dissonanz erklärt, warum das Eingeständnis von Täuschung sich wie Selbstverlust anfühlen kann. Das Gehirn verteidigt lieber das Bild als den Bruch.",
+  },
+  {
+    id: "fisher",
+    icon: HeartCrack,
+    label: "Fisher · 2010",
+    heading: "Liebeskummer ist kein „nur psychischer“ Schmerz",
+    front: "Belohnungs- und Schmerzareale feuern parallel.",
+    back: "fMRT-Daten zeigten bei romantischer Zurückweisung Aktivierungen, die sowohl Sucht- als auch Schmerzsysteme betreffen. Deshalb fühlt Loslassen sich so körperlich an.",
+  },
+];
+
+const DEEP_DIVE_ITEMS = [
+  {
+    id: "langeslag",
+    title: "Langeslag & Sanchez (2018) — Reappraisal schlägt Verdrängen",
+    body:
+      "In kontrollierten fMRT-Studien reduzierte Negative Reappraisal die Intensität romantischer Gefühle signifikant stärker als die Strategien „an etwas anderes denken“ oder „die Situation akzeptieren“. Wichtig: Der Effekt wird mit Übung stärker. Die ersten Male fühlt sich Negative Reappraisal künstlich an. Das ist normal.",
+  },
+  {
+    id: "festinger",
+    title: "Festinger (1957) — Warum wir am idealisierten Bild festhalten",
+    body:
+      "Die Theorie der kognitiven Dissonanz erklärt, warum wir so verzweifelt an idealisierten Bildern festhalten – das Eingestehen der Realität würde bedeuten, dass unsere Urteilsfähigkeit versagt hat. Das Ego verteidigt die Investition in die Idealisierung.",
+  },
+  {
+    id: "fisher",
+    title: "Fisher et al. (2010) — Liebeskummer = Drogenentzug im fMRT",
+    body:
+      "Hirnscans zeigten aktivierte Dopamin-Sucht-Areale bei romantischer Ablehnung – identisch mit Kokainkonsumenten. Gleichzeitig erhöhte Aktivität im anterioren cingulären Kortex. Romantischer Trennungsschmerz ist real – er aktiviert dieselben Schmerzregionen wie physischer Schmerz.",
+  },
+  {
+    id: "ristock",
+    title: "Ristock (2002) — Warum WLW besonders stark zweifeln",
+    body:
+      "Frauen in lesbischen Beziehungen zweifeln besonders häufig an ihrer eigenen Wahrnehmung – weil gesellschaftliche Narrative Frauen nicht als Täterinnen konzipieren. Das macht das Gaslighting-Log für WLW-Beziehungen besonders wichtig: Die Fakten aufzuschreiben ist ein Akt des Widerstands gegen die Unsichtbarkeit dieser Erfahrungen.",
+  },
+];
+
+const NOTBREMSE_DIAGNOSE_ITEMS = [
+  {
+    id: "erklaeren",
+    label: "Warum jede Rechtfertigung den Tanz verlängert",
+    body:
+      "Gaslighting funktioniert nicht trotz deiner Versuche, dich zu erklären – es funktioniert durch sie. Jedes Mal, wenn du versuchst, deine Wahrnehmung zu beweisen, sendest du unbewusst das Signal: Meine Realität steht zur Disposition.",
+  },
+  {
+    id: "nervensystem",
+    label: "Was chronisches Gaslighting neurologisch macht",
+    body:
+      "Psychologin Robin Stern beschreibt den Gaslighting-Tanz als System, das nicht Wahrheit will, sondern Erschöpfung. Der anteriore cinguläre Kortex bleibt dabei im Konfliktmodus; dein Nervensystem kann kaum noch unterscheiden, ob gerade Gefahr oder bloß Widerspruch vorliegt.",
   },
 ];
 
@@ -1317,6 +1415,27 @@ const NOTBREMSE = [
   {
     title: "Innerer Stopp-Satz.",
     body: "Sage dir: „Ich brauche ihre Zustimmung nicht, um meine Realität zu kennen.“ Dieser Satz ist kein Angriff – er ist ein Selbstschutz.",
+  },
+];
+
+const DOPPELSTANDARD_ITEMS = [
+  {
+    id: "target",
+    label: "Was der Doppelstandard mit deinem Selbstwert macht",
+    body:
+      "Wenn die Expartnerin mit jemand anderem scheinbar mühelos tut, was sie dir verweigerte, entsteht schnell der Gedanke: Mit mir stimmte etwas nicht. Genau dieser Schluss ist der eigentliche sekundäre Schaden.",
+  },
+  {
+    id: "muster",
+    label: "Warum das neue Glück oft nur die nächste Idealisierungsphase ist",
+    body:
+      "Widerstand gegen Intimität ist selten ein einmaliger Unfall. In narzisstisch geprägten Dynamiken wirkt die neue Person anfangs wie die Ausnahme – bis der gleiche Zyklus mit neuem Ziel von vorn beginnt.",
+  },
+  {
+    id: "forschung",
+    label: "Was Durvasula dazu sagt",
+    body:
+      "Durvasula beschreibt, dass Täterinnen in neuen Beziehungen häufig zunächst besonders investiert wirken. Nicht weil plötzlich Bindungsfähigkeit da ist, sondern weil die Bindungsphase das Einfallstor des nächsten Kreislaufs ist.",
   },
 ];
 
