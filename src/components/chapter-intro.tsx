@@ -1,3 +1,5 @@
+import { Children, cloneElement, isValidElement, type ReactNode, type ReactElement } from "react";
+
 /**
  * ChapterIntro · Wiederverwendbarer Einleitungs-Block für jedes Kapitel.
  * Erscheint direkt unter dem Modul-Titel und enthält:
@@ -11,11 +13,46 @@ export function ChapterIntro({
   title,
   keywords,
   children,
+  introSentenceLimit,
 }: {
   title: string;
   keywords: string[];
-  children: React.ReactNode;
+  children: ReactNode;
+  introSentenceLimit?: number;
 }) {
+  const introBlocks = Children.toArray(children);
+  const validatedChildren = introSentenceLimit
+    ? introBlocks.map((child, index) => {
+        const typedChild = toElementWithChildren(child);
+        if (!typedChild) return child;
+
+        const sentenceCount = getSentenceCount(typedChild.props.children);
+        const exceedsLimit = sentenceCount > introSentenceLimit;
+
+        if (!exceedsLimit) return typedChild;
+
+        const existingClassName =
+          typeof typedChild.props.className === "string" ? typedChild.props.className : "";
+
+        return cloneElement(typedChild, {
+          className: [
+            existingClassName,
+            "rounded-xl border border-destructive/35 bg-destructive/10 px-3 py-2 text-destructive",
+          ]
+            .filter(Boolean)
+            .join(" "),
+        });
+      })
+    : introBlocks;
+
+  const offendingCount = introSentenceLimit
+    ? introBlocks.filter((child) => {
+        const typedChild = toElementWithChildren(child);
+        if (!typedChild) return false;
+        return getSentenceCount(typedChild.props.children) > introSentenceLimit;
+      }).length
+    : 0;
+
   return (
     <section
       className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-cream via-white/90 to-mauve/8 p-5 shadow-soft sm:p-6 animate-fade-in"
@@ -47,8 +84,37 @@ export function ChapterIntro({
       </ul>
 
       <div className="mt-4 space-y-2 text-sm leading-relaxed text-graphite/90 sm:text-[15px]">
-        {children}
+        {validatedChildren}
       </div>
+
+      {offendingCount > 0 ? (
+        <p className="mt-3 text-xs font-medium text-destructive">
+          Intro-Check: {offendingCount} Satzblock/Satzblöcke sind länger als 1 Satz.
+        </p>
+      ) : null}
     </section>
   );
+}
+
+function getSentenceCount(content: ReactNode): number {
+  const text = extractText(content).replace(/\s+/g, " ").trim();
+  if (!text) return 0;
+
+  const matches = text.match(/[^.!?…]+[.!?…]+|[^.!?…]+$/g);
+  return matches ? matches.length : 0;
+}
+
+function extractText(content: ReactNode): string {
+  if (content == null || typeof content === "boolean") return "";
+  if (typeof content === "string" || typeof content === "number") return String(content);
+  if (Array.isArray(content)) return content.map(extractText).join(" ");
+  const typedElement = toElementWithChildren(content);
+  if (typedElement) return extractText(typedElement.props.children);
+  return "";
+}
+
+function toElementWithChildren(
+  value: ReactNode,
+): ReactElement<{ children?: ReactNode; className?: string }> | null {
+  return isValidElement<{ children?: ReactNode; className?: string }>(value) ? value : null;
 }
