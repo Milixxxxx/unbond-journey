@@ -1,203 +1,234 @@
 
 
-# Modul 02 · Strukturtreue Übernahme des Rohinhalts
+# Modul 02 · Radikale Interaktivierung — Plan
 
-Der Rohtext für „Schritt 03 · Die Rosa-Brille abnehmen" wird **1:1** in das Master-Blueprint-Gerüst aus Modul 01 überführt. Inhalte werden **wortgleich** übernommen, nur Hülle und Pattern-Sprache werden vereinheitlicht.
+**Leitregel:** Modul 02 (Rosa-Brille / Gaslighting / Hoovering) wird zum **interaktiven Coaching-Tool**, nicht zur Lese-Seite. Mary&Sandra-Story-Texte bleiben **wortgleich 1:1** (Kanon-Regel + neue User-Anweisung). Alle anderen Textwüsten >4 Sätze werden in Mikro-Tools verwandelt.
 
-## 1 · Wichtige Klärung vorab
+---
 
-Du sagst „Schritt 2", der Rohtext heißt aber durchgehend **„Schritt 03 · Die Rosa-Brille abnehmen"**. Das passt zur App-Logik: in `lib/modules.ts` ist `modul-02` bereits = „Die Rosa-Brille abnehmen". Wir behalten **die App-Slug `modul-02`** bei (URL bleibt `/modul/modul-02`), zeigen aber im Header und im ChapterIntro den Original-Titel **„Schritt 03 · Die Rosa-Brille abnehmen"** wie in der Quelle. Keine Renumbering-Umstellung in der Modul-Liste.
+## 1 · Was bleibt unverändert (Kanon)
 
-## 2 · Zielstruktur (vollständige Section-Reihenfolge)
+- **Mary-&-Sandra-Story „Hoovering-Brief"** (Sechs Monate nach dem Ghosting …) — bleibt 1:1, nur Scroll-Reveal-Inszenierung.
+- **Mary-Story „Die Erklärungsschleife"** (22 Uhr, „Das habe ich nie gesagt") — bleibt 1:1.
+- **Mary-Story „Das Urlaubsfoto"** (Doppelstandard) — bleibt 1:1.
+- **Mary-Story „Der Brief, den Sandra nie schreiben wird"** (Radical Acceptance) — bleibt 1:1.
+- **Marys Gaslighting-Log · Drei Einträge** (Partnertattoo / Geburtstag / Blockade) — bleibt 1:1, nur als Reveal-Karten.
 
-```text
-<article className="space-y-7">
+→ **Kein Perspektiv-Switcher** in diesen Story-Boxen (per User-Anweisung explizit verboten für Modul 02).
 
-ChapterIntro
-  Title: „Die Rosa-Brille abnehmen"
-  Keywords: Kognitive Dissonanz · Gaslighting · Negative Reappraisal · Hoovering
-  Intro-Sätze: 1:1 aus Quelle („Solange dein Gehirn die Beziehung idealisiert…")
+---
 
-SectionBlock kind="story" eyebrow="Story · Das Gaslighting-Log"
-  title="Wenn die Schuppen von den Augen fallen"
-  StoryPortrait (Platzhalter-Frame, bis Bild geliefert wird)
-  Reveal-gestaffelte Absätze:
-    · Der Hoovering-Brief (Volltext 1:1)
-    · Sandras Nachricht als Blockquote
-    · Marys Wolf-im-Schafspelz-Spalten (Maske vs. Fakten) als 2-Spalten-Grid
-    · Auflösung („Mary atmet tief aus … Illusion ist endlich gebrochen.")
+## 2 · Komponenten-Inventar (vorhanden — wiederverwenden)
 
-SectionBlock kind="story" eyebrow="Marys Gaslighting-Log · Drei Einträge"
-  3 Eintrags-Karten 1:1 (Partnertattoo / Geburtstag / Blockade)
-  jeweils Felder: Situation · Was ich gefühlt habe · Was die Fakten sagen
-  abschließend Caption-Absatz „Abb.: Gaslighting erkennen und entmachten…"
+| Bereits vorhanden | Verwendung im Refactor |
+|---|---|
+| `SectionBlock kind="…"` | Einziger Section-Wrapper |
+| `Reveal` | Scroll-Fade für Story |
+| `FlipCard` | Studien-Zitate · Botenstoffe · Hoovering-Taktiken |
+| `InfoGraphicBlock` | Tap-to-Zoom für die zwei Infografiken |
+| `Accordion` | Theorie-Accordions (Festinger · Skinner · Fisher · Ristock) |
+| `SliderDiscrete` | Toxikometer 0–10 |
+| `StackedCards` | Gaslighting-Log + Realitäts-Check |
+| `PillCloud` | Phasen-Mapper · Werte-Matrix |
+| `Reflection3Step` | Podest-Brief · Wahrnehmungs-Anker · 3-Spalten-Wahrheit · Acceptance-Protokoll |
+| `TwentyOneDayChallenge` | 21-Tage Negative Reappraisal |
+| `HooverDecoder` | KI-Analyse (unverändert) |
+| `MeditationCard` | Begleit-Meditation |
+| `ChecklistGoals` | Transformationsziele 5er + 3-of-5-Logik |
+| `Tabs` (`ui/tabs`) | Spielautomat-Effekt-Tabs · 4-Phasen-Zyklus-Tabs |
 
-SectionBlock kind="diagnose" eyebrow="Diagnose · Kognitive Dissonanz & Spielautomat-Effekt"
-  title="Was in deinem Kopf passiert"
-  TextCollapse: 4 Original-Absätze (Festinger · Skinner · Fisher · Weaponized Virtue)
-  Caption: „Abb.: Der neurobiologische Sucht-Loop…"
+**Neu zu bauen (3 Mikro-Komponenten):**
 
-SectionBlock kind="diagnose" eyebrow="Die drei Botenstoffe der Falle"
-  FlipCard-Grid (3-spaltig md, 1-spaltig mobil):
-    Dopamin · Oxytocin · Cortisol  (Front: Name · Back: Original-Text)
-  Quellen-Zeile als Caption (Skinner 1938 · Fisher 2005/2010 · Berridge & Robinson 1998)
+1. **`InfographicHotspots`** (`src/components/infographic-hotspots.tsx`)
+   - Wrapt `<InfoGraphicBlock>` und legt absolut positionierte Klick-Punkte über die Grafik.
+   - Klick → Glassmorphism-Popover mit Erklärung.
+   - Props: `src`, `alt`, `caption`, `hotspots: { x:%, y:%, label, body }[]`.
 
-SectionBlock kind="diagnose" eyebrow="Der 4-Phasen-Zyklus der toxischen Bindung"
-  4er-Grid (Lucide-Icons statt Emojis):
-    Idealisierung (Heart) · Abwertung (CloudRain) · Discard (Scissors) · Hoovering (Anchor)
-  CalloutBold „Das Muster erkennen…"
-  Caption: „Abb.: Der 4-Phasen-Zyklus…"
+2. **`TimelineSorter`** (`src/components/exercise/timeline-sorter.tsx`)
+   - Drag-and-Drop-Liste (HTML5 native, keine zusätzliche Lib) zum Sortieren von Gaslighting-Ereignissen in chronologische Reihenfolge.
+   - Zeigt Erfolg, wenn Reihenfolge stimmt.
+   - Persistiert via `useModuleProgress(slug)` unter `storageKey`.
 
-SectionBlock kind="loesung" eyebrow="Lösung · Negative Reappraisal & Realitäts-Anker"
-  TextCollapse: 2 Original-Absätze (Langeslag/Sanchez · fMRT-Studien)
-  CalloutBold mit Quelle (Langeslag 2018 · Nader 2000)
+3. **`ToxicometerScale`** (`src/components/exercise/toxicometer-scale.tsx`)
+   - Erweiterung von `SliderDiscrete`: Skala 1–10, Farbverlauf Sage→Mauve→Terracotta, Live-Label („stabil" / „grenzwertig" / „toxisch").
+   - Persistenz wie SliderDiscrete.
 
-InfoGraphicBlock (Platzhalter „Rekonsolidierungs-Kreislauf")
+**Sticky-Progress-Bar** und **Konfetti-Pop bei 3-of-5**: bewusst NICHT in diesem Schritt — gehört auf Modul-Top-Bar-Ebene (globaler Refactor), nicht ins Modul-File. Wird als Memory-Eintrag für späteren globalen Pass markiert.
 
-SectionBlock kind="uebung" eyebrow="Übung 1a · Dein persönliches Gaslighting-Log"
-  Intro 1:1 + StackedCards
-    slug={SLUG} storageKey="gaslighting_log"
-    cards: 3 Default-Einträge × 4 Felder (Was passiert? · Was sie sagte? · Wie gefühlt? · Fakten)
-    add-button „+ Weiteren Eintrag hinzufügen"
+---
 
-SectionBlock kind="uebung" eyebrow="Übung 1b · 4-Spalten-Realitäts-Check"
-  Intro 1:1 + StackedCards
-    slug={SLUG} storageKey="realitaets_check"
-    columns: Romantisierte Version · Emotionale Wirkung · Faktische Realität · Neue Bewertung
-  CalloutBold „Negative Reappraisal bedeutet nicht…"
+## 3 · Section-für-Section · Was wird zu was
 
-SectionBlock kind="loesung" eyebrow="Lösung · Negative Reappraisal in der Praxis"
-  Originaltext + interner Verweis „→ 21-Tage-Challenge unten"
+### ✦ ChapterIntro
+- Bleibt strukturell gleich. Title `Schritt 03 · Die Rosa-Brille abnehmen`, 4 Keywords, 2 Intro-Absätze.
 
-SectionBlock kind="uebung" eyebrow="Übung 1c · Phasen-Mapper"
-  PillCloud × 4 Buckets (Idealisierung · Abwertung · Discard · Hoovering)
-  slug={SLUG} storageKey="phasen_mapper"
+### ① STORY · Der Hoovering-Brief
+- **Bleibt 1:1** (Kanon).
+- Inszenierung: Scroll-Reveals 0/120/240/360 ms.
+- 2-Spalten-Grid „Maske vs. Fakten" bleibt.
+- **Optional:** sanfte Puls-Animation (CSS keyframes, `@keyframes glassPulse`) auf der story-box — als CSS-Utility-Klasse `story-box--pulse`, opt-in.
 
-SectionBlock kind="uebung" eyebrow="Übung 2 · 21-Tage-Challenge: Negative Reappraisal"
-  TwentyOneDayChallenge slug={SLUG} storageKey="reappraisal_21"
-  Intro 1:1 (30–40% Reduktion etc.)
+### ① STORY · Marys Gaslighting-Log · 3 Einträge
+- **Text bleibt 1:1**.
+- Wird zu **`<TimelineSorter>`** ergänzt: Direkt darunter eine Mini-Übung „Sortiere diese 5 Gaslighting-Sätze in die Reihenfolge, in der sie typischerweise auftreten" (Idealisierung → erste Abwertung → Realitätsleugnung → Pity Play → Hoovering).
+- **Was ersetzt wird:** Nichts vom Originaltext. Die Übung kommt **additiv** dazu.
 
-SectionBlock kind="uebung" eyebrow="Übung 3 · Podest-Analyse & Brief"
-  2 Original-Absätze als Lead
-  Reflection3Step slug={SLUG} storageKey="podest_brief"
-    Step 1: Idealisiert – was ich ihr zuschrieb
-    Step 2: Real – was sie tatsächlich zeigte
-    Step 3: Brief ans idealisierte Bild
+### ② DIAGNOSE · Kognitive Dissonanz & Spielautomat-Effekt
+- **Aktuell:** 4 Diagnose-Absätze in `TextCollapse`.
+- **Neu:** Wird zu **`<Tabs>`** mit 4 Reitern:
+  - **Tab 1 · Festinger** — kurzer Satz + Beispiel-Box
+  - **Tab 2 · Skinner** — Spielautomat-Erklärung + Mini-Visual (Münze fällt)
+  - **Tab 3 · Fisher** — fMRT-Faktenkarte + Quote
+  - **Tab 4 · Weaponized Virtue** — WLW-spezifische Box
+- Jeder Tab maximal 3 Sätze + 1 visuelles Element.
 
-SectionBlock kind="uebung" eyebrow="Übung 4 · Hoover-Mail Decoder"
-  CalloutBold „Hinweis: Selbsthilfeübung, keine Diagnose…"
-  Lead 1:1
-  HooverDecoder slug={SLUG}  (existierende Komponente + Edge-Function unverändert)
-  CollapsibleBox „Datenschutzhinweis – KI-Analyse" (bereits vorhanden)
-  FlipCard-Grid „Die 5 häufigsten Hoovering-Taktiken" (5 Karten ohne Emojis)
+### ② DIAGNOSE · Trauma-Bonding-Infografik (NEU)
+- **`<InfoGraphicBlock>`** mit der hochgeladenen Trauma-Bonding-Grafik.
+- Caption (2–3 Sätze): „Der neurobiologische Sucht-Loop — Trauma-Bonding entsteht durch intermittierende Verstärkung: unvorhersehbare Wechsel zwischen Schmerz und Belohnung binden stärker als konstante Liebe. Cortisol-Stress + Dopamin-Erlösung erzeugen ein Sucht-Muster, das nur durch radikale Trennung aller Reize (No Contact) durchbrochen werden kann. Echte Liebe gibt Sicherheit — Trauma-Bonding aktiviert dieselben Belohnungszentren wie Kokainsucht."
+- **Konsequenz:** Da die Grafik die Inhalte der drei Botenstoffe + Spielautomat + No-Contact-Notwendigkeit erklärt, wird der Text der `Botenstoffe-FlipCards` von je 3-4 Sätzen auf je **1 Satz Teaser + 2 Sätze Back** gekürzt (keine inhaltliche Streichung — die Tiefe steht in der Grafik).
 
-DeepDiveIntro
-  └ SectionBlock kind="deep-dive" eyebrow="Deep Dive · Wissenschaft der kognitiven Neubewertung"
-     Accordion: 4 Studien (Langeslag/Sanchez · Festinger · Fisher · Ristock)
+### ② DIAGNOSE · Die drei Botenstoffe
+- **Bleibt als FlipCard-Grid** (Tap-Interaktion ist hier richtig).
+- Texte gestrafft, weil Grafik darüber die Quintessenz visualisiert.
 
-──── Unterkapitel 3.5 · Gaslighting-Notbremse ────
+### ② DIAGNOSE · Der 4-Phasen-Zyklus
+- **Aktuell:** 4-Karten-Grid statisch.
+- **Neu:** Wird zu **`<Tabs>` mit 4 Phasen-Reitern**, plus darunter `<CalloutBold>` „Das Muster erkennen…".
+- Jeder Tab zeigt: Icon · Phasen-Name · 2 Sätze · 1 typisches Sandra-Zitat in `<blockquote>`.
 
-SectionBlock kind="story" eyebrow="Story · Mary · Die Erklärungsschleife"
-  title="„Das habe ich nie gesagt."
-  Reveal-Absätze 1:1
+### ③ LÖSUNG · Negative Reappraisal
+- **Aktuell:** 2 lange `TextCollapse`-Absätze.
+- **Neu:** 
+  - 1 Lead-Satz (bleibt)
+  - **`<Accordion>`** mit 3 Items: „Was ist Reappraisal?" · „Wie funktioniert Rekonsolidierung?" · „Warum 21 Tage?"
+  - `<CalloutBold kind="science">` mit Langeslag-Quelle bleibt.
 
-SectionBlock kind="diagnose" eyebrow="Diagnose · Die Erklärungsschleife"
-  3 Original-Absätze (Robin Stern 2007 · neurologischer Effekt)
+### ③ LÖSUNG · Gaslighting-Infografik (NEU)
+- **`<InfoGraphicBlock>`** mit der hochgeladenen Gaslighting-Grafik („Vertrau deiner Wahrnehmung").
+- Caption (2–3 Sätze): „Gaslighting erkennen — Manipulation ersetzt deine Realität durch Deutungen anderer; die Gegenstrategie heißt: Daten statt Diskussion. Schreibe Fakten sofort auf (Wahrnehmungs-Anker), um dich vor späterer Verunsicherung zu schützen. Reactive Abuse ist Notwehr — deine verzweifelte Reaktion auf Provokation ist kein Beweis dafür, dass du das Problem bist."
+- **Konsequenz:** Kürzt den Wiederholungstext im Diagnose-Block 3.5 (Erklärungsschleife) — siehe unten.
 
-SectionBlock kind="loesung" eyebrow="Lösung · Die 3-Schritt-Notbremse"
-  3 nummerierte Schritte (NICHT erklären · Notieren · Innerer Stopp-Satz) als 3-Karten-Grid
+### ⑤ ÜBUNGEN (Mindestens 3 mit echter Nutzerhandlung — wir haben deutlich mehr)
 
-SectionBlock kind="uebung" eyebrow="Übung · Wahrnehmungs-Anker · Tägliches Realitätsprotokoll"
-  Reflection3Step slug={SLUG} storageKey="wahrnehmungs_anker"
-  Crisis-Hinweis-Box (warning-style) mit Telefonseelsorge
+| # | Übung | Komponente | Persistence-Key |
+|---|---|---|---|
+| 1 | **Toxikometer · Wie idealisiere ich noch?** *(NEU)* | `<ToxicometerScale>` | `toxikometer_idealisierung` |
+| 2 | **Gaslighting-Log · 3 Einträge** | `<StackedCards>` | `gaslighting_log` |
+| 3 | **4-Spalten-Realitäts-Check** | `<StackedCards>` | `realitaets_check` |
+| 4 | **Phasen-Mapper · Werte-Matrix-Style** | `<PillCloud>` × 4 Buckets | `phasen_mapper_*` |
+| 5 | **21-Tage-Challenge · Negative Reappraisal** | `<TwentyOneDayChallenge>` | `reappraisal_21` |
+| 6 | **Podest-Analyse & Brief** | `<Reflection3Step>` | `podest_brief` |
+| 7 | **Hoover-Mail Decoder** (KI) | `<HooverDecoder>` | `hoover_decoder` |
+| 8 | **Wahrnehmungs-Anker · Tägliches Realitätsprotokoll** | `<Reflection3Step>` | `wahrnehmungs_anker` |
+| 9 | **3-Spalten-Wahrheit (Doppelstandard)** | `<Reflection3Step>` | `drei_spalten_wahrheit` |
+| 10 | **Acceptance-Protokoll (21 Tage)** | `<Reflection3Step>` + Tag-Counter | `acceptance_protokoll` |
 
-──── Unterkapitel 3.6 · Der Doppelstandard ────
+**Alle synchronisieren** über `useModuleProgress("modul-02")` → Supabase `module_progress` + LocalStorage `unbond-progress:modul-02`.
 
-SectionBlock kind="story" eyebrow="Story · Mary · Der Vergleich, der brennt"
-  title="Das Urlaubsfoto"
-  Reveal-Absätze 1:1
+### Hoover-Decoder · 5 Hoovering-Taktiken
+- Bleibt FlipCard-Grid 5 Karten — Lucide-Icons, keine Emojis.
 
-SectionBlock kind="diagnose" eyebrow="Diagnose · Doppelstandard als Kontrollmuster"
-  3 Original-Absätze (Durvasula 2019)
+### ⑥ DEEP DIVE
+- Bleibt Accordion mit 4 Studien (Langeslag · Festinger · Fisher · Ristock).
+- **Erweiterung:** Zusätzliche **Studien-FlipCard-Reihe** (3 Karten) als visueller Auflockerer vor dem Accordion: Front = Erkenntnis, Back = Methodik+Quelle.
 
-SectionBlock kind="uebung" eyebrow="Übung · Die 3-Spalten-Wahrheit"
-  Reflection3Step slug={SLUG} storageKey="drei_spalten_wahrheit"
-  Spalte A · Spalte B · Spalte C
+### Unterkapitel 3.5 · Gaslighting-Notbremse
+- Mary-Story bleibt 1:1.
+- Diagnose-Block (Robin Stern + ACC-Effekt) wird zu **`<Accordion>` mit 2 Items** statt `TextCollapse`.
+- Lösung „3-Schritt-Notbremse" bleibt als 3-Karten-Grid.
+- Übung: `<Reflection3Step>` Wahrnehmungs-Anker.
+- **Crisis-Hinweis-Box** bleibt (warning-style + Telefonnummer).
 
-──── Unterkapitel 3.7 · Radical Acceptance ────
+### Unterkapitel 3.6 · Doppelstandard
+- Mary-Story „Urlaubsfoto" bleibt 1:1.
+- Diagnose Durvasula → **`<Accordion>` 3 Items** (Was ist Doppelstandard? · Warum es dich trifft · Was Forschung sagt).
+- Übung „3-Spalten-Wahrheit" via `<Reflection3Step>`.
 
-SectionBlock kind="story" eyebrow="Story · Mary · Loslassen beginnt innen"
-  title="Der Brief, den Sandra nie schreiben wird"
-  Reveal-Absätze 1:1
+### Unterkapitel 3.7 · Radical Acceptance
+- Mary-Story „Brief Sandra nie schreiben wird" bleibt 1:1.
+- Psychoedukation: 2-Spalten-Grid „Akzeptanz bedeutet NICHT/Akzeptanz bedeutet" bleibt (visuell schon gut).
+- `<CalloutBold>` Durvasula-Zitat bleibt.
+- Übung „Acceptance-Protokoll" via `<Reflection3Step>` + Tag-Zähler 1–21.
+- Crisis-Hinweis bleibt.
 
-SectionBlock kind="diagnose" eyebrow="Psychoedukation · Radical Acceptance"
-  Lead-Absatz (DBT/Linehan 1993 · Durvasula)
-  2-Spalten-Grid „Akzeptanz bedeutet NICHT" / „Akzeptanz bedeutet"
-  CalloutBold Durvasula-Zitat
+### MeditationCard
+- Bleibt unverändert (YouTube-Link).
 
-SectionBlock kind="uebung" eyebrow="Übung · Acceptance-Protokoll (21 Tage)"
-  Reflection3Step slug={SLUG} storageKey="acceptance_protokoll"
-  Crisis-Hinweis-Box mit Telefonseelsorge
+### ⑦ CHECKLISTE
+- `<ChecklistGoals slug="modul-02">` mit 5 Original-Zielen.
+- 3-of-5 → Badge-Pop (bereits in Komponente vorhanden).
 
-MeditationCard
-  Title: „Gedankenkarussell stoppen – Einschlaf-Hypnose & Meditation"
-  Source: ChakraTunes / Raphael Kempermann
-  YouTube-Link 1:1
+---
 
-SectionBlock kind="checkliste" bare
-  ChecklistGoals slug={SLUG} mit 5 Original-Zielen 1:1
+## 4 · Klare Markierung · Was ist NEU interaktiv?
 
-</article>
-```
+| Element | Status |
+|---|---|
+| Trauma-Bonding-Infografik mit Caption (Modul 02 Diagnose) | **NEU** |
+| Gaslighting-Infografik mit Caption (Modul 02 Lösung) | **NEU** |
+| Toxikometer-Slider „Wie idealisiere ich noch?" | **NEU Komponente** |
+| Spielautomat-Effekt als 4-Tab-Layout | **NEU Pattern** (Tabs statt TextCollapse) |
+| 4-Phasen-Zyklus als Tab-Layout | **NEU Pattern** |
+| Negative Reappraisal als Accordion | **NEU Pattern** (Accordion statt TextCollapse) |
+| Studien-FlipCard-Reihe im Deep Dive | **NEU Pattern** (additive 3 Karten) |
+| Diagnose 3.5/3.6 als Accordion | **NEU Pattern** |
+| Timeline-Sortierer für Gaslighting-Sätze | **NEU Komponente** |
+| Hotspot-Layer auf Trauma-Bonding-Grafik | **NEU Komponente** (4 Hotspots: Spielautomat / No-Contact / Cocktail / Chemie) |
 
-## 3 · Persistence-Konvention (1:1 wie Modul 01)
+---
+
+## 5 · Bewusst NICHT übernommen aus Modul 1 / Vorlage
+
+| Element | Begründung |
+|---|---|
+| **Perspektiv-Switcher Mary/Sandra** | Per User-Anweisung in Modul 02 explizit verboten — Storys hier sind Lehrszenen, kein Dialog-Wechsel. |
+| **Sticky-Progress-Bar** | Gehört auf Top-Bar-Ebene (`module-top-bar.tsx`), nicht ins Modul-File. Wird als separater Task notiert. |
+| **Konfetti bei Badge-Pop** | `ChecklistGoals` hat bereits `animate-badge-pop` — Konfetti wäre Overkill für ein Heilungs-Tool, das emotional nicht jubeln soll. Bleibt zurückhaltend (User-Memory: „Apple-like minimal"). |
+| **Werte-Matrix als eigene Übung** | Modul 02 ist Gaslighting/Idealisierung — Werte-Matrix passt thematisch zu Modul 09/10 (Identität). Bewusst nicht hier. |
+| **Urge-Surfing-Welle** | Gehört in SOS / Modul 04 (Trigger), nicht hier. |
+| **Bonus-Mary-Storys neu erfinden** | Anweisung war: Story 1:1 lassen. |
+
+---
+
+## 6 · Persistence-Konvention
 
 ```ts
 const SLUG = "modul-02";
 ```
-Übungs-Storage-Keys (modul-isoliert via `useModuleProgress(SLUG)`):
-- `gaslighting_log`
-- `realitaets_check`
-- `phasen_mapper`
-- `reappraisal_21`
-- `podest_brief`
-- `hoover_decoder` (bereits intern in Komponente)
-- `wahrnehmungs_anker`
-- `drei_spalten_wahrheit`
-- `acceptance_protokoll`
+Alle neuen Übungen erhalten `slug={SLUG}` und unique `storageKey`. `useModuleProgress(SLUG)` synchronisiert automatisch mit Supabase `module_progress` (vorhandene RLS) + LocalStorage `unbond-progress:modul-02`. Tab-Auswahl und Accordion-Open-State sind UI-State, **nicht** persistiert (bewusst — sonst springt UI bei Wiederbesuch).
 
-ChecklistGoals-IDs `g1…g5` automatisch unter `modul-02`-Scope.
+---
 
-## 4 · Design-System-Treue
+## 7 · Memory-Update (am Ende dieses Refactors)
 
-- **Farb-Mapping** ausschließlich über `kind`-Prop (story=Bordeaux/Cream · diagnose=Sage · loesung=Terracotta · uebung=Terracotta · deep-dive=Sage · checkliste=Mauve)
-- **Keine Emojis in UI-Labels**: 🌹 🔍 ✉️ 🔄 ⚠️ 💛 🌑 🪝 🎭 🔄 💧 🕊 ⚖️ → ersetzt durch Lucide-Icons (Heart, CloudRain, Scissors, Anchor, Mask, RefreshCw, Droplet, Dove, Scale)
-- Emojis im **Fließtext** der Quelle (z. B. „💾 Wird automatisch gespeichert") werden zum dezenten Save-Indicator-Pattern (Lucide `Save` + Caption) — Inhalt bleibt identisch
-- **Typografie-Stufen**: Headline / Body / Caption — keine vierte Stufe
-- **`<Reveal delay>`**: 120/240/360 ms gestaffelt für Story-Absätze
-- **`TextCollapse`**: `preview={1} threshold={2}` für Diagnose-Wisstexte
-- Article-Wrapper: `<article className="space-y-7">`
+- **Neuer Eintrag** `mem://design/interaction-doctrine.md`: „UNBOND ist ein interaktives Coaching-Tool. Textblöcke >4 Sätze MÜSSEN in Tabs/Accordion/FlipCard/Slider verwandelt werden. Statische Listen → interaktive Komponenten."
+- **Update** `mary-sandra-canon.md`: Ergänzung um die 4 Modul-02-Mary-Szenen (Hoovering-Brief / Erklärungsschleife / Urlaubsfoto / Brief Sandra nie schreiben wird) — Wortlaut 1:1 als Schutz vor späteren ungewollten Änderungen.
+- **Update** `index.md`: Neue Core-Regel „Mikro-Interaktion vor Lesen — siehe interaction-doctrine".
+- **Neuer Eintrag** `mem://modules/modul-02-stable.md`: Snapshot.
+- **TODO-Notiz** für späteren globalen Refactor: Sticky-Progress-Bar in `module-top-bar.tsx` einbauen.
 
-## 5 · Was im Refactor NICHT passiert
+---
 
-- Keine Inhaltskürzungen, kein Umformulieren, keine erfundenen Sätze
-- Keine neuen Komponenten gebaut — nur bestehende Bausteine genutzt
-- HooverDecoder-Edge-Function (`supabase/functions/hoover-decoder/index.ts`) bleibt unangetastet
-- Module 01, 03–10 nicht angefasst
-- Kein Renumbering der Modul-Liste (`modul-02` bleibt URL und Slug)
-- Keine neuen Routen, keine neuen Migrations
-- Keine Bilder ersetzt — Platzhalter-Frames bis du die Assets lieferst
+## 8 · Was ich JETZT bauen werde (Reihenfolge im nächsten Schritt)
 
-## 6 · Bilder-Bedarf (vom User nachzuliefern, optional)
+1. **3 neue Komponenten**:
+   - `src/components/infographic-hotspots.tsx`
+   - `src/components/exercise/timeline-sorter.tsx`
+   - `src/components/exercise/toxicometer-scale.tsx`
+   - + Export im `exercise/index.ts`
+2. **2 Bilder** aus User-Uploads in `src/assets/infographics/` kopieren:
+   - `gaslighting-erkennen.png`
+   - `trauma-bonding-sucht-loop.png` (falls anders als bestehende `trauma-bonding-kreislauf.png`)
+3. **Refactor** `src/modules/modul-02.tsx`:
+   - Tabs für Spielautomat-Effekt + 4-Phasen-Zyklus
+   - Accordion für Negative Reappraisal + Notbremse-Diagnose + Doppelstandard-Diagnose
+   - InfoGraphicBlock × 2 mit Caption
+   - InfographicHotspots auf Trauma-Bonding (4 Hotspots)
+   - TimelineSorter additiv nach Gaslighting-Log-Story
+   - ToxicometerScale als Übung 0
+   - Studien-FlipCards im Deep Dive
+4. **Optional Refactor** `src/modules/modul-01.tsx`: bestehenden `traumaBondingInfografik`-Block ggf. ergänzen mit `InfographicHotspots` (nur falls die Grafik dort wirklich identisch ist) — falls anders, neuer Hotspot-Layer auf Modul 02.
+5. **Memory-Updates** wie oben.
 
-- Story-Portrait Mary „Hoovering-Brief" (Handy am Küchentisch)
-- Infografik „Negative Reappraisal · Rekonsolidierungs-Kreislauf"
-- Optional: Story-Portraits für 3.5 / 3.6 / 3.7
-
-Bis dahin werden die bestehenden dezenten Frames genutzt — kein Layout-Bruch.
-
-## 7 · Memory-Update (nach Build)
-
-- `mary-sandra-canon.md` ergänzen um die 4 neuen Mary-Szenen aus Modul 02 (Hoovering-Brief, Erklärungsschleife, Urlaubsfoto, Brief-den-Sandra-nie-schreiben-wird) — Wortlaut 1:1
-- `modules/modul-02-stable.md` als Snapshot-Eintrag (analog zu modul-01-stable.md)
+**Nicht angefasst:** `HooverDecoder`-Edge-Function, andere Module, Routen, Migrationen.
 
