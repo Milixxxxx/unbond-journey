@@ -23,31 +23,33 @@ export function ChapterIntro({
   const introBlocks = Children.toArray(children);
   const validatedChildren = introSentenceLimit
     ? introBlocks.map((child, index) => {
-        if (!isValidElement(child)) return child;
+        const typedChild = toElementWithChildren(child);
+        if (!typedChild) return child;
 
-        const sentenceCount = getSentenceCount(child.props.children);
+        const sentenceCount = getSentenceCount(typedChild.props.children);
         const exceedsLimit = sentenceCount > introSentenceLimit;
 
-        if (!exceedsLimit) return child;
+        if (!exceedsLimit) return typedChild;
 
-        const existingClassName = typeof child.props.className === "string" ? child.props.className : "";
+        const existingClassName =
+          typeof typedChild.props.className === "string" ? typedChild.props.className : "";
 
-        return cloneElement(child as ReactElement<{ className?: string }>, {
+        return cloneElement(typedChild, {
           className: [
             existingClassName,
             "rounded-xl border border-destructive/35 bg-destructive/10 px-3 py-2 text-destructive",
           ]
             .filter(Boolean)
             .join(" "),
-          "data-intro-sentence-warning": true,
         });
       })
     : introBlocks;
 
   const offendingCount = introSentenceLimit
     ? introBlocks.filter((child) => {
-        if (!isValidElement(child)) return false;
-        return getSentenceCount(child.props.children) > introSentenceLimit;
+        const typedChild = toElementWithChildren(child);
+        if (!typedChild) return false;
+        return getSentenceCount(typedChild.props.children) > introSentenceLimit;
       }).length
     : 0;
 
@@ -106,6 +108,13 @@ function extractText(content: ReactNode): string {
   if (content == null || typeof content === "boolean") return "";
   if (typeof content === "string" || typeof content === "number") return String(content);
   if (Array.isArray(content)) return content.map(extractText).join(" ");
-  if (isValidElement(content)) return extractText(content.props.children);
+  const typedElement = toElementWithChildren(content);
+  if (typedElement) return extractText(typedElement.props.children);
   return "";
+}
+
+function toElementWithChildren(
+  value: ReactNode,
+): ReactElement<{ children?: ReactNode; className?: string }> | null {
+  return isValidElement<{ children?: ReactNode; className?: string }>(value) ? value : null;
 }
