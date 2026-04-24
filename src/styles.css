@@ -213,6 +213,15 @@
     animation: story-breath 9s ease-in-out infinite;
     pointer-events: none;
   }
+  .story-box--pulse::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(135deg, oklch(1 0 0 / 0.03), transparent 45%, oklch(0.78 0.04 250 / 0.08));
+    mix-blend-mode: screen;
+    animation: story-breath 9s ease-in-out infinite reverse;
+  }
   .story-box h1, .story-box h2, .story-box h3, .story-box h4, .story-box h5 {
     color: oklch(0.96 0.005 250);
   }
