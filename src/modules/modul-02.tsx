@@ -11,9 +11,6 @@ import {
   Droplet,
   Bird,
   Scale,
-  Brain,
-  Eye,
-  AlertTriangle,
   Phone,
   type LucideIcon,
 } from "lucide-react";
