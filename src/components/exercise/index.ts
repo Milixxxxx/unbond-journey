@@ -15,6 +15,8 @@ export { DailyTracker } from "./daily-tracker";
 export type { DailyEntry } from "./daily-tracker";
 export { CalloutBold } from "./callout-bold";
 export type { CalloutKind } from "./callout-bold";
+export { ToxicometerScale } from "./toxicometer-scale";
+export { TimelineSorter } from "./timeline-sorter";
 export { TransformationGoals } from "./transformation-goals";
 export type { TransformationGoal } from "./transformation-goals";
 export { TwentyOneDayChallenge } from "./twenty-one-day-challenge";

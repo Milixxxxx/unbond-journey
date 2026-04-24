@@ -12,6 +12,7 @@ Chapter structure (verified from UNBOND_Final_02-2.html): 01 SOS · 02 Trauma-Bo
 **Icons**: Nur Lucide-Outline-Icons. Keine bunten Emojis in funktionalen UI-Elementen. Siehe mem://design/icon-style.
 **Bilder in Story-Boxen**: `<StoryPortrait>` (src/components/story-portrait.tsx). Float-Layout mit Textumfluss auf Desktop, voller Breite auf Mobile. Innerhalb `<SectionBlock kind="story">`, immer am Anfang des Children-Bereichs + Clearfix-Div am Ende.
 **Infografiken**: `<InfoGraphicBlock>` (src/components/infographic-block.tsx). Tap-to-Zoom-Lightbox, responsive, Cream-Frame. Standardposition: NACH dem Lösungsteil.
+Mikro-Interaktion vor Lesen: Textblöcke über 4 Sätze in interaktive Muster übersetzen. Siehe mem://design/interaction-doctrine.
 
 ## Memories
 - [Mary-Sandra-Kanon](mem://content/mary-sandra-canon) — Wortlaut der Story-Texte (read-only)
@@ -21,3 +22,5 @@ Chapter structure (verified from UNBOND_Final_02-2.html): 01 SOS · 02 Trauma-Bo
 - [Modul 01 Stable](mem://modules/modul-01-stable) — Lesbarkeits-Snapshot
 - [Modul 01 Fallback](mem://modules/modul-01-fallback) — Notfall-Wiederherstellung
 - [Phase 2 Briefing](mem://phase2-briefing) — Roadmap
+- [Interaction Doctrine](mem://design/interaction-doctrine) — Interaktive Regeln statt Textwüsten
+- [Modul 02 Stable](mem://modules/modul-02-stable) — Referenz für interaktive Diagnose-/Übungsdichte
