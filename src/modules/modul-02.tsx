@@ -65,9 +65,7 @@ export function Modul02() {
         ]}
       >
         <p>
-          Was du vermisst, ist nicht die Wahrheit — es ist die Illusion, die dein Gehirn
-          zum Überleben gebaut hat. Heilung beginnt in dem Moment, in dem du aufhörst,
-          Hoffnung mit Realität zu verwechseln.
+          Was du vermisst, ist nicht die Wahrheit — es ist die Illusion, die dein Gehirn zum Überleben gebaut hat.
         </p>
         <p>
           In diesem Schritt arbeitest du mit konkreten Werkzeugen wie dem Gaslighting-Log,
