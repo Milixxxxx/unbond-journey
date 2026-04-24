@@ -63,6 +63,7 @@ export function Modul02() {
           "Negative Reappraisal",
           "Hoovering",
         ]}
+        introSentenceLimit={1}
       >
         <p>
           Was du vermisst, ist nicht die Wahrheit — es ist die Illusion, die dein Gehirn zum Überleben gebaut hat.
