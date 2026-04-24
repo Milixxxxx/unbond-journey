@@ -65,10 +65,9 @@ export function Modul02() {
         ]}
       >
         <p>
-          Solange dein Gehirn die Beziehung idealisiert, ist echte Heilung neurobiologisch
-          unmöglich. Die rosa Brille ist keine Schwäche – sie ist ein Schutzmechanismus
-          deines Gehirns, der jedoch genau das verhindert, was du jetzt brauchst: Klarheit
-          über die Realität.
+          Was du vermisst, ist nicht die Wahrheit — es ist die Illusion, die dein Gehirn
+          zum Überleben gebaut hat. Heilung beginnt in dem Moment, in dem du aufhörst,
+          Hoffnung mit Realität zu verwechseln.
         </p>
         <p>
           In diesem Schritt arbeitest du mit konkreten Werkzeugen wie dem Gaslighting-Log,
