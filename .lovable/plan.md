@@ -1,126 +1,138 @@
 
 
-# Strukturtreuer Sync · Cover bis Modul 01
+# Master-Template Modul 01 → Blueprint für Modul 02
 
-Single Source of Truth: `UNBOND_Final_02-3.html`. Keine Inhalte erfinden, keine Vorwort-/Einleitungs-Texte kürzen, kein Re-Numbering.
+## 1 · Extrahiertes 6-Elemente-Gerüst (Modul 01)
 
-## 1 · Mapping-Übersicht (was lebt wo)
+```text
+<article className="space-y-7">
+  ① ChapterIntro            ← Titel + Keyword-Pills + 2–3 Sätze
+  ② SectionBlock kind="story"     ← Mary&Sandra-Szene + StoryPortrait + Reveal
+  ③ SectionBlock kind="diagnose"  ← Wissenschaft + Accordion + FlipCards
+  ④ SectionBlock kind="loesung"   ← Lead-Sentence + TextCollapse + CalloutBold
+     InfoGraphicBlock              ← Bild mit Tap-to-Zoom
+     DeepDiveIntro > SectionBlock kind="deep-dive"  ← 3 Studien-FlipCards
+  ⑤ SectionBlock kind="uebung"  ×3  ← ButtonChoice / StackedCards / Reflection3Step / PillCloud
+     MeditationCard (optional)
+  ⑥ SectionBlock kind="checkliste" bare  ← ChecklistGoals (5 Ziele · 3-of-5 = Bloom)
+</article>
+```
 
-| Quelle (HTML) | Ziel in App | Bemerkung |
+### Verbindliche Bausteine (nur diese, keine eigenen `Section`-Wrapper)
+| Baustein | Zweck | Quelle |
 |---|---|---|
-| `section-cover` | bestehende `/` (Landing) – wird auf das Cover-Original zurückgeführt: Healing-Hearts-Bild, Title „UNBOND · Breaking Chains", Tagline, Milena-Quote, CTA „Beginne deine Reise" | Hero-Inhalt 1:1 |
-| `section-vorwort` | **neu** `/vorwort` (eigene Route, eigenes Meta) | Vorworttext 1:1, kein Kürzen |
-| `section-poem` ("Am Anfang war das Gefühl") | **neu** `/poem` (eigene Route) | Mary's Eröffnungstext 1:1 |
-| `section-toc` | **neu** `/inhalt` (Inhaltsverzeichnis) | TOC-Karten verlinken auf bestehende Module |
-| `section-einleitung` | **ersetzt** `/willkommen` ⇒ neu `/einleitung` (alter Slug bleibt als Redirect/Alias bestehen) | „Was ist UNBOND" + Wissenschaftlicher Aufbau + 5 Säulen + 4-Phasen-Heilungsweg + Mary&Sandra-Vorstellung — alles 1:1 |
-| `section-toxicometer` (25-Fragen-Test) | **vorerst nicht** als Test umgesetzt | per Beschluss heute nur Routing-Buttons |
-| `section-routing` | **neu** `/routing` mit den 2 Self-Select-Buttons („Beziehung beendet" / „noch in Beziehung") aus `section-einleitung` (Original-Antworttexte 1:1) | inkl. CTA-Buttons zu Kapitel 1 / Schritt 02 |
-| `section-kapitel0` | **aufgelöst gemäß Vereinbarung**: <br>• Story 3:14 Uhr nachts → wird Story-Intro von **modul-01** (passt zur bestehenden Mary-Story-Box; Originaltext 1:1) <br>• Diagnose Amygdala-Hijacking-Text → bestehende Diagnose-Sektion in modul-01 ergänzen <br>• Akut-Notfall-Übungen (TIPP, Tauchreflex etc.) → in **`/modul/sos-soforthilfe`** (SOS-Button) konsolidieren <br>• Krisen-Banner-Block → bleibt nur im SOS, nicht in jedem Kapitel | siehe Detail unten |
-| `section-modul1` (SOS/TIPP/STOPP) | **inhaltlich gespalten**: <br>• TIPP-Notfallplan + STOPP-Technik + Urge Surfing + High-Load Distraction + 90-Sekunden-Regel → **`/modul/sos-soforthilfe`** als ausführlicher Notfallkoffer <br>• Story „Mary auf dem Küchenboden um 3 Uhr" → Mary-Story-Variante in **modul-01** (zweites Bild) <br>• Transformationsziele Schritt 01 (5 Items) → **modul-01** ergänzen | bewahrt deine App-Numerierung; gleicht Mary-Texte 1:1 ab |
+| `ChapterIntro` | Kopf jedes Kapitels | `@/components/chapter-intro` |
+| `SectionBlock kind="…"` | Einziger Section-Wrapper, Farbe per `kind` | `@/components/section-block` |
+| `StoryPortrait` | Bild im Story-Block, Desktop float-left | `@/components/story-portrait` |
+| `InfoGraphicBlock` | Infografik nach Lösung, Lightbox | `@/components/infographic-block` |
+| `TextCollapse` | Lange Texte, `preview={1} threshold={2-3}` | `@/components/text-collapse` |
+| `Reveal` | Scroll-Fade pro Absatz, gestaffelt `delay` | `@/components/reveal` |
+| `GlossarTerm` | Glossar-Hover | `@/components/glossar-term` |
+| `CalloutBold` | Wissenschafts-Zitat-Box | `@/components/exercise` |
+| `FlipCard` | Tap-Karten mit Front/Back | `@/components/exercise` |
+| `DeepDiveIntro` | Optional-aufklappbare Wissenschaft | `@/components/deep-dive-intro` |
+| `ButtonChoice` · `StackedCards` · `Reflection3Step` · `PillCloud` | Übungen mit Auto-Save | `@/components/exercise` |
+| `MeditationCard` | YouTube-Begleitung | `@/components/exercise` |
+| `ChecklistGoals` | 5 Transformationsziele | `@/components/checklist-goals` |
+| `Accordion` | Diagnose-Studien | `@/components/ui/accordion` |
 
-`Kapitel 0` als eigene Route entfällt; in `lib/modules.ts` wird kein `kapitel-0`-Eintrag angelegt.
+### Design-System-Regeln (1:1 aus Modul 01)
+- **Farb-Mapping über `kind`** — niemals Inline-Farben für Section-Hülle.
+  - `story` → Bordeaux/Cream-Glass (story-box)
+  - `diagnose` → Sage-grün (diagnose-box)
+  - `loesung` → Terracotta (loesung-box)
+  - `uebung` → Terracotta (uebung-box)
+  - `deep-dive` → Sage (science-box)
+  - `checkliste` → Mauve (progress-box)
+- **Article-Wrapper**: `<article className="space-y-7">`
+- **Keine Emojis** in Labels (🎰 🧊 💊 etc. raus — gilt auch für Modul 02 Phasen-Karten)
+- **Typografie max. 3 Stufen**: Headline `text-lg sm:text-xl md:text-2xl` · Body `text-sm sm:text-[15px]` · Caption `text-[11px]/uppercase tracking-wider`
 
-## 2 · Sitemap nach dem Sync
+### Micro-Interaktionen
+- `<Reveal delay={120/240/360}>` — gestaffelte Fade-Ins für Story-Absätze
+- `<FlipCard>` — Tap-to-Flip, 5er-Grid auf md, 2er auf Mobile
+- `<TextCollapse preview={1} threshold={2}>` — verhindert Textwüsten
+- Perspektiv-Switch (optional, nur wenn 2+ Voices) — Pill-Buttons mit `aria-pressed` und `dim()`-Helper
+- Auto-Save via `moduleSlug`/`slug` Prop (debounced Supabase + LocalStorage)
+
+### Persistence-Konvention
+- **Constant am Datei-Anfang**: `const SLUG = "modul-02";`
+- Alle Übungen erhalten `slug={SLUG}` (oder `moduleSlug={SLUG}`) als Prop.
+- `storageKey` ist **pro Übung eindeutig** (z. B. `gaslighting_log`, `realitaets_check`, `podest_brief`, `21_tage`).
+- Speicher-Schlüssel werden automatisch zu `module_progress[user, "modul-02"].exercise_state[storageKey]` (Supabase) bzw. `unbond-progress:modul-02` (LocalStorage). **Keine zusätzliche Anpassung nötig** — der Hook `useModuleProgress(slug)` macht das automatisch, sofern `slug` korrekt übergeben wird.
+- ChecklistGoals-IDs `g1…g5` sind pro Modul isoliert (Schlüssel = slug+goal-id).
+
+## 2 · Bestandsaufnahme Modul 02 (was zu refaktorieren ist)
+
+Modul 02 nutzt **noch nicht** den Master-Blueprint:
+- Eigener `<Section icon label>`-Wrapper statt `SectionBlock kind`
+- `glass-card-strong` + Inline-Border-Colors statt kind-basiertem Theming
+- Emojis in Phasen-Labels (🌹 🔍 ✉️ 🔄 ⚠️)
+- Kein `StoryPortrait`, kein `InfoGraphicBlock`, kein `DeepDiveIntro`, keine `FlipCard`, kein `Reveal`, kein `TextCollapse`
+- `ChecklistGoals` vorhanden? → wird im Refactor mit 5 Zielen ergänzt
+- ❗ Inhalte stehen, dürfen 1:1 übernommen werden — nur Hülle/Pattern wird angepasst
+
+## 3 · Refactor-Plan Modul 02 (nur Strukturangleichung)
 
 ```text
-/                       Cover (Landing)
-/vorwort                Vorwort (Milena)
-/poem                   Am Anfang war das Gefühl
-/inhalt                 Inhaltsverzeichnis (TOC)
-/einleitung             Bevor du anfängst (alt: /willkommen → Redirect)
-/routing                Wo stehst du? (Self-Select)
-/dashboard              Sicherer Hafen + Healing-Tree + Reading-Flow
-/modul/sos-soforthilfe  SOS-Notfallkoffer (TIPP, STOPP, Urge Surfing, 90s)
-/modul/modul-01         Trauma-Bonding (mit Mary-Storys aus Kap0+Modul1)
-/modul/modul-02 … /modul/modul-10
-/modul/bonus-d|e|f
-/glossar /journal /datenschutz /einstellungen /unlock /auth
+<article className="space-y-7">
+  ChapterIntro „Kapitel 02 · Die Rosa-Brille abnehmen" (bestehende Keywords beibehalten)
+
+  SectionBlock kind="story" eyebrow="Story · Der Hoovering-Brief"
+    └ StoryPortrait (Platzhalter-Frame bis Bild geliefert)
+    └ Reveal-gestaffelte Absätze (Mary 6 Monate nach Ghosting)
+    └ TextCollapse für Sandras Original-Zitat + Realitäts-Check-Spalten
+
+  SectionBlock kind="diagnose" eyebrow="Diagnose · Kognitive Dissonanz"
+    └ Lead + Accordion (Festinger · Skinner · Fisher · Weaponized Virtue)
+
+  SectionBlock kind="diagnose" eyebrow="Marys Gaslighting-Log · 3 Beispiele"
+    └ FlipCard-Grid (Front: Situation · Back: Fakten)
+
+  SectionBlock kind="diagnose" eyebrow="Die 3 Botenstoffe der Falle"
+    └ FlipCard-Grid 3-spaltig (Dopamin · Cortisol · Oxytocin)
+
+  SectionBlock kind="diagnose" eyebrow="Der 4-Phasen-Zyklus"
+    └ 4-Karten-Grid (ohne Emojis, mit Lucide-Icons)
+
+  SectionBlock kind="loesung" eyebrow="Lösung · Negative Reappraisal"
+    └ Lead + TextCollapse + CalloutBold (Langeslag & Sanchez)
+
+  InfoGraphicBlock (Platzhalter „Rekonsolidierungs-Kreislauf")
+
+  DeepDiveIntro
+    └ SectionBlock kind="deep-dive" — 3 FlipCards (Festinger 1957 · Langeslag 2018 · Nader 2000)
+
+  SectionBlock kind="uebung" eyebrow="Übung 1 · Gaslighting-Log"
+    └ StackedCards slug={SLUG} storageKey="gaslighting_log" (3 Einträge × 4 Felder)
+
+  SectionBlock kind="uebung" eyebrow="Übung 2 · 4-Spalten-Realitäts-Check"
+    └ StackedCards slug={SLUG} storageKey="realitaets_check"
+
+  SectionBlock kind="uebung" eyebrow="Übung 3 · Podest-Analyse & Brief"
+    └ ButtonChoice (Idealisierungs-Intensität)
+    └ Reflection3Step slug={SLUG} storageKey="podest_brief"
+
+  SectionBlock kind="uebung" eyebrow="Übung 4 · 21-Tage-Challenge"
+    └ TwentyOneDayChallenge slug={SLUG} storageKey="21_tage"
+
+  SectionBlock kind="uebung" eyebrow="Übung 5 · Hoover-Decoder"
+    └ HooverDecoder slug={SLUG} (KI-Edge-Function bleibt unverändert)
+
+  MeditationCard (passende YouTube-ID)
+
+  SectionBlock kind="checkliste" bare
+    └ ChecklistGoals slug={SLUG} mit 5 Zielen
 ```
 
-## 3 · Dashboard als „sicherer Hafen"
+## 4 · Was im Refactor NICHT passiert
+- Keine inhaltlichen Texte gekürzt oder neu erfunden — Mary-Story, Gaslighting-Beispiele, Phasen-Beschreibungen, Diagnose-Absätze bleiben **wortgleich**.
+- Keine neuen Komponenten gebaut.
+- HooverDecoder-Edge-Function nicht angefasst.
+- Keine Module 03–10 berührt.
+- Kein neues Persistence-Schema — `useModuleProgress("modul-02")` greift bereits korrekt; nur `SLUG`-Konstante muss konsequent genutzt werden.
 
-Sticky Top-Bar (bleibt minimal, kein Druck):  
-`UNBOND · Mein Fortschritt · SOS (orange) · Einstellungen`
+## 5 · Bereit für Schritt 2
 
-### Layout (top → bottom)
-
-```text
-┌────────────────────────────────────────────┐
-│  Begrüßung (tageszeit-abhängig, ruhig)     │
-│  „Wie fühlst du dich heute?"               │
-│  [ Panik → SOS ]   [ Sehnsucht → Modul 01 ]│
-├────────────────────────────────────────────┤
-│  HEALING TREE (SVG, zentriert)             │
-│   - Stamm + Äste = 10 Module              │
-│   - Blatt = Modul abgeschlossen           │
-│   - Blüte = 3 von 5 Zielen erfüllt        │
-│   - heute: Dummy-Zustand (2 Blätter,1Blüte)│
-├────────────────────────────────────────────┤
-│  „Bevor es losgeht" — Reading-Flow         │
-│   Cards: Vorwort · Poem · Inhalt ·         │
-│          Einleitung · Routing              │
-├────────────────────────────────────────────┤
-│  Modul-Karten (Status: Offen/InArbeit/✓)   │
-│  Phase 1 · Phase 2 · Phase 3 · Phase 4     │
-│  Bonus D · E · F (Lock-Logik bleibt)       │
-├────────────────────────────────────────────┤
-│  Trust-Badge:                              │
-│  „Daten-Safe · EU-Server Frankfurt ·       │
-│   Cross-Device-Sync via Login"             │
-└────────────────────────────────────────────┘
-```
-
-### Healing-Tree (Phase 1: Hülle + Dummy)
-
-- Eigenkomponente `components/healing-tree.tsx` — pure SVG, monochrom-graphite Stamm, sage-green Blätter, mauve Blüten.
-- Stilrichtung: minimaler Linien-Tree (kein Disney-Stil), inspiriert an Apple-Symbol-Sprache: dünne 1.5px Strokes, keine Farbverläufe innerhalb der Blätter, dezenter Glow.
-- Props: `leafSlugs: string[]`, `bloomSlugs: string[]`. Heute: hartkodierter Demo-State.
-- Animationen: Blätter faden 400ms ein (cubic-bezier .4,0,.2,1), keine Bounce.
-- Spätere Erweiterung: echter Reader aus `unbond-progress:*` LocalStorage + Supabase `module_progress`.
-
-## 4 · Inhalts-Übernahme aus der Quelle
-
-- **Vorwort (Z. 829–869)**: vollständig, jeder Absatz, Blockquote „157.680.000 Sekunden", Signatur „— Milena". Bild: Platzhalter für `milena_autor.png` (User liefert nach).
-- **Poem (Z. 879+)**: Mary-Eröffnungstext 1:1 inkl. Glossar-Spans (`Dopamin` etc.) — werden auf `<GlossarTerm>` gemappt.
-- **TOC (Z. 936–1022)**: Karten 1:1; Links zeigen auf bestehende Modul-Routen.
-- **Einleitung (Z. 1044–1172)**: alle Absätze, alle 4 Intro-Items, „Wissenschaftlicher Aufbau der Module" (Story/Diagnose/Lösung/Übungen/Deep-Dive) inkl. Transformationsziele-Hinweis, „Warum funktioniert" + 5 Säulen, „4-Phasen-Heilungsweg", Mary&Sandra-Vorstellung mit Bild und Caption.
-- **Routing (Z. 1182–1222)**: 2 Wege („Beziehung beendet" / „noch in Beziehung") + jeweilige Antwort-Box mit den exakten Original-Empfehlungen.
-- **Kapitel-0-Story 3:14 Uhr (Z. 1370–1375)**: wandert als zweite `StoryPortrait`-Variante in modul-01 (Original-Wortlaut, „Tauchreflex"-Absatz inkl.).
-- **Modul-1-Story (Z. 1962–1965)**: Mary-Küchenboden-Szene — 1:1 in `sos-soforthilfe` als Story-Eröffnung.
-- **TIPP/STOPP/Urge-Übungen (Z. 2005–2052)** + 90s-Regel (Z. 2055–2061) + TIPP-Bild → SOS-Seite.
-- **Transformationsziele Schritt 01 (Z. 2080–2086)**: 1:1 in modul-01 unter `ChecklistGoals`.
-
-Mary-Sandra-Kanon-Regel bleibt absolut. Wo Original-Text in der App eine bessere Variante existiert (z. B. der „Spielautomat"-Block), bleibt der Kanon-Text. Neue Absätze werden additiv eingefügt.
-
-## 5 · Globale UX-Regeln (Apple-Style)
-
-- Transitions: 300–500 ms, `cubic-bezier(.4,0,.2,1)`, kein Bounce, kein Snap.
-- Keine Gamification-Pop-ups, keine Streak-Counter, keine Punkte. Nur Blätter/Blüten am Tree.
-- Reading-Flow-Cards: glass-card-light, 1px Border, Hover = sanfter Lift (translateY -2px, shadow weicher).
-- Crisis-Banner verschwindet aus jedem Modul-Top — bleibt nur im SOS sichtbar (bereits Konsens).
-
-## 6 · Technische Schritte (READ-ONLY heute, Build nach Freigabe)
-
-1. `lib/modules.ts` — Subtitles & Reihenfolge prüfen (kein Renumbering).
-2. **Routen anlegen**: `src/routes/vorwort.tsx`, `poem.tsx`, `inhalt.tsx`, `einleitung.tsx`, `routing.tsx` — jede mit eigenem `head()` (title, description, og:title, og:description). Bestehende `/willkommen` wird auf `/einleitung` umgelenkt (TanStack `redirect()` in beforeLoad).
-3. **`/` (index.tsx)** komplett auf das Cover-Original umstellen (Healing-Hearts-Hero, Title „UNBOND · Breaking Chains", Milena-Quote, CTA „Beginne deine Reise →" → `/vorwort`).
-4. **`dashboard.tsx`** umbauen: Greeting-Block + Mood-Routing („Panik" / „Sehnsucht"), neue `HealingTree`-Komponente, „Bevor es losgeht"-Karten-Reihe, Trust-Badge.
-5. **`components/healing-tree.tsx`** neu (Hülle + Dummy-State, Props vorbereitet).
-6. **`modules/modul-01.tsx`** ergänzen: zweite Mary-Story (3:14 Uhr) + Diagnose-Block-Erweiterung + Schritt-01-Transformationsziele übernehmen.
-7. **`modules/sos-soforthilfe.tsx`** als vollwertiger Notfallkoffer ausbauen: Mary-Küchenboden-Story, TIPP-Plan (4 Felder), STOPP-Technik, Urge Surfing, High-Load Distraction, 90s-Regel inkl. TIPP-Grafik.
-8. **Bilder-Bedarf** (vom User nachzuliefern):
-   - `healing_hearts_logo.png` (Cover)
-   - `milena_autor.png` (Vorwort)
-   - `freepik__85299_1774887769478.png` (Mary&Sandra Einleitung)
-   - `freepik__0001_1774887361238.png` (Mary 3:14 Uhr)
-   - `TIPP_1774948999615.png` (SOS)
-   Bis dahin: dezente Platzhalter-Frames im bestehenden Stil — kein Layout-Bruch.
-9. **Memory-Update**: `mary-sandra-canon.md` um die zwei zusätzlichen Story-Szenen ergänzen; neuer Eintrag `structure/preface-flow.md` als Sync-Snapshot.
-
-## 7 · Was heute NICHT passiert
-
-- Modul 02–10 inhaltlich nicht angefasst (nur Links/Subtitles, falls technisch nötig).
-- Toxicometer-Test bleibt ungebaut (nur Routing-Buttons aus `section-einleitung`).
-- Healing-Tree-Datenbindung später.
-- Keine Login/Onboarding-Erfindungen, kein Stripe, kein neues Branding.
+Sobald du mir den Rohinhalt von Schritt 2 lieferst, mappe ich ihn additiv in dieses 6-Elemente-Gerüst — Bordeaux/Sage/Mauve/Terracotta-Farbwelt, dieselben Micro-Interaktionen, identische Persistence-Konvention. Sag Bescheid, wenn ich loslegen soll.
 
