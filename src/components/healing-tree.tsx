@@ -54,16 +54,17 @@ export function HealingTree({
   className,
 }: HealingTreeProps) {
   const gradientId = useId();
+  const titleId = useId();
 
   return (
     <div className={`relative mx-auto w-full max-w-[300px] ${className ?? ""}`}>
       <svg
         viewBox="0 0 300 320"
         className="h-auto w-full"
-        aria-labelledby="healing-tree-title"
+        aria-labelledby={titleId}
         role="img"
       >
-        <title id="healing-tree-title">
+        <title id={titleId}>
           Dein Healing-Tree · {leafSlugs.length} von {ALL_SLUGS.length} Schritten gemeistert
         </title>
 
