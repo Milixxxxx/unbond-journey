@@ -110,10 +110,6 @@ function Dashboard() {
   }, [mainModules]);
 
   const doneSlugs = new Set<string>(earnedSlugs);
-  // Demo-State: zwei Blätter, eine Blüte (für visuelle Wirkung in Phase 1).
-  // Später wird das durch echte Progress-Daten ersetzt.
-  const leafSlugs = earnedSlugs.length > 0 ? earnedSlugs : ["modul-01", "modul-02"];
-  const bloomSlugs = earnedSlugs.length > 0 ? earnedSlugs.slice(0, 1) : ["modul-01"];
 
   const phases: Phase[] = [1, 2, 3, 4];
 
