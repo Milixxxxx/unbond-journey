@@ -138,25 +138,28 @@
   }
 
   body {
+    /* ZIP-Design · Atmospheric Mauve → Sage → Cream */
     background-image:
-      radial-gradient(at 15% 10%, oklch(0.7 0.085 45 / 0.10) 0px, transparent 55%),
-      radial-gradient(at 85% 90%, oklch(0.6 0.075 320 / 0.10) 0px, transparent 55%),
-      radial-gradient(at 50% 50%, oklch(0.66 0.045 155 / 0.06) 0px, transparent 60%);
+      radial-gradient(ellipse 60% 50% at 15% 10%, color-mix(in oklch, var(--mauve) 35%, transparent), transparent 60%),
+      radial-gradient(ellipse 55% 45% at 85% 20%, color-mix(in oklch, var(--sage) 30%, transparent), transparent 60%),
+      radial-gradient(ellipse 70% 55% at 50% 100%, color-mix(in oklch, var(--mauve) 25%, transparent), transparent 65%),
+      linear-gradient(160deg, color-mix(in oklch, var(--mauve) 12%, var(--cream)) 0%, var(--cream) 50%, color-mix(in oklch, var(--sage) 10%, var(--cream)) 100%);
     background-attachment: fixed;
     background-size: cover;
     min-height: 100dvh;
   }
 
-  h1, h2, h3, h4, h5 {
+  h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     color: var(--color-bordeaux);
-    letter-spacing: -0.015em;
-    font-feature-settings: "ss01", "ss02";
-    font-optical-sizing: auto;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1.2;
   }
 
   /* Mobile-first body size */
-  body { font-size: 15px; line-height: 1.7; }
+  body { font-size: 15px; line-height: 1.8; }
   @media (min-width: 768px) { body { font-size: 16px; } }
 }
 
