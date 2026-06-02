@@ -120,7 +120,7 @@ function Dashboard() {
         <div className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full bg-bordeaux/30 blur-[120px]" />
         <div className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-sage/20 blur-[120px]" />
 
-        <div className="relative mx-auto max-w-2xl px-4 pt-20 pb-12">
+        <div className="relative mx-auto max-w-5xl px-6 pt-20 pb-12">
           {/* Top-rechts Quick-Actions */}
           <div className="absolute right-4 top-6 flex items-center gap-1">
             <Link
@@ -187,7 +187,7 @@ function Dashboard() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-2xl px-4">
+      <div className="mx-auto max-w-5xl px-6">
         {/* ─── WINDING PATH JOURNEY ─── */}
         <section className="-mt-4 animate-fade-in">
           <WindingPathJourney />
