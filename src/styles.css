@@ -53,8 +53,8 @@
   --color-warning: var(--warning);
   --color-sos: var(--sos);
 
-  --font-display: "Fraunces", ui-serif, Georgia, serif;
-  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Lato", ui-sans-serif, system-ui, sans-serif;
   --font-lead: "Montserrat", ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -138,25 +138,28 @@
   }
 
   body {
+    /* ZIP-Design · Atmospheric Mauve → Sage → Cream */
     background-image:
-      radial-gradient(at 15% 10%, oklch(0.7 0.085 45 / 0.10) 0px, transparent 55%),
-      radial-gradient(at 85% 90%, oklch(0.6 0.075 320 / 0.10) 0px, transparent 55%),
-      radial-gradient(at 50% 50%, oklch(0.66 0.045 155 / 0.06) 0px, transparent 60%);
+      radial-gradient(ellipse 60% 50% at 15% 10%, color-mix(in oklch, var(--mauve) 35%, transparent), transparent 60%),
+      radial-gradient(ellipse 55% 45% at 85% 20%, color-mix(in oklch, var(--sage) 30%, transparent), transparent 60%),
+      radial-gradient(ellipse 70% 55% at 50% 100%, color-mix(in oklch, var(--mauve) 25%, transparent), transparent 65%),
+      linear-gradient(160deg, color-mix(in oklch, var(--mauve) 12%, var(--cream)) 0%, var(--cream) 50%, color-mix(in oklch, var(--sage) 10%, var(--cream)) 100%);
     background-attachment: fixed;
     background-size: cover;
     min-height: 100dvh;
   }
 
-  h1, h2, h3, h4, h5 {
+  h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     color: var(--color-bordeaux);
-    letter-spacing: -0.015em;
-    font-feature-settings: "ss01", "ss02";
-    font-optical-sizing: auto;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1.2;
   }
 
   /* Mobile-first body size */
-  body { font-size: 15px; line-height: 1.7; }
+  body { font-size: 15px; line-height: 1.8; }
   @media (min-width: 768px) { body { font-size: 16px; } }
 }
 
@@ -179,6 +182,28 @@
     box-shadow: var(--shadow-soft);
     border-radius: var(--radius-xl);
   }
+
+  /* ZIP-Design · Glassmorphism (60% / 75% white, 12px radius — brand spec) */
+  .glass {
+    background-color: color-mix(in oklch, white 60%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid color-mix(in oklch, white 40%, transparent);
+    box-shadow:
+      0 8px 32px -8px color-mix(in oklch, var(--bordeaux) 18%, transparent),
+      inset 0 1px 0 color-mix(in oklch, white 50%, transparent);
+  }
+
+  .glass-strong {
+    background-color: color-mix(in oklch, white 75%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 12px;
+    border: 1px solid color-mix(in oklch, white 50%, transparent);
+    box-shadow: 0 12px 40px -12px color-mix(in oklch, var(--bordeaux) 22%, transparent);
+  }
+
 
   /* === STORY (silbriges Glass-Grau, neutral für SW-Fotos der Hauptdarstellerinnen) === */
   .story-box {
@@ -452,3 +477,32 @@
 
 /* Safe-area for fixed bottom-bar on mobile */
 .pb-safe { padding-bottom: calc(env(safe-area-inset-bottom, 0) + 5.25rem); }
+
+/* ============================================================
+   ZIP-Design · Utilities (Tracking-Brand, Healing-Tree Animations)
+   ============================================================ */
+@layer utilities {
+  .tracking-brand { letter-spacing: 0.04em; }
+}
+
+@keyframes leafGrow {
+  0%   { transform: scale(0) rotate(-20deg); opacity: 0; }
+  60%  { transform: scale(1.15) rotate(4deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+@keyframes sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50%      { transform: rotate(3deg); }
+}
+@keyframes bloomPulse {
+  0%, 100% { filter: drop-shadow(0 0 4px color-mix(in oklch, var(--mauve) 40%, transparent)); }
+  50%      { filter: drop-shadow(0 0 10px color-mix(in oklch, var(--mauve) 70%, transparent)); }
+}
+.leaf-enter {
+  transform-origin: center bottom;
+  animation: leafGrow 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards, sway 5s ease-in-out infinite 0.7s;
+}
+.bloom-enter {
+  transform-origin: center;
+  animation: badgePop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards, bloomPulse 4s ease-in-out infinite 0.6s;
+}

@@ -13,6 +13,8 @@ Chapter structure (verified from UNBOND_Final_02-2.html): 01 SOS · 02 Trauma-Bo
 **Bilder in Story-Boxen**: `<StoryPortrait>` (src/components/story-portrait.tsx). Float-Layout mit Textumfluss auf Desktop, voller Breite auf Mobile. Innerhalb `<SectionBlock kind="story">`, immer am Anfang des Children-Bereichs + Clearfix-Div am Ende.
 **Infografiken**: `<InfoGraphicBlock>` (src/components/infographic-block.tsx). Tap-to-Zoom-Lightbox, responsive, Cream-Frame. Standardposition: NACH dem Lösungsteil.
 Mikro-Interaktion vor Lesen: Textblöcke über 4 Sätze in interaktive Muster übersetzen. Siehe mem://design/interaction-doctrine.
+Dashboard-Hauptvisual ist der Winding-Path-Journey (NICHT der Healing-Tree). 10 Kapitel, je 3 Transformationsziele, alle 3 nötig zum Aufleuchten. Checkbox-Stand NIE zurücksetzen.
+**Design-Foundation (ZIP)**: Montserrat 800 uppercase + Lato 1.8. Brand-Tokens bordeaux/sage/mauve/terracotta/orange-soft/cream. Glass-Utilities `.glass` (60%) + `.glass-strong` (75%). Body hat fixed atmospheric Mauve→Sage→Cream-Gradient. Headlines global uppercase + 0.04em tracking. Siehe mem://design/zip-design-tokens.
 
 ## Memories
 - [Mary-Sandra-Kanon](mem://content/mary-sandra-canon) — Wortlaut der Story-Texte (read-only)
@@ -24,3 +26,5 @@ Mikro-Interaktion vor Lesen: Textblöcke über 4 Sätze in interaktive Muster ü
 - [Phase 2 Briefing](mem://phase2-briefing) — Roadmap
 - [Interaction Doctrine](mem://design/interaction-doctrine) — Interaktive Regeln statt Textwüsten
 - [Modul 02 Stable](mem://modules/modul-02-stable) — Referenz für interaktive Diagnose-/Übungsdichte
+- [Winding-Path-Journey](mem://features/winding-path-journey) — Dashboard-Pfad mit 10 Knoten, 3 Goals/Kapitel
+- [ZIP-Design-Tokens](mem://design/zip-design-tokens) — Übernommene Design-Foundation (Fonts, Tokens, Glass-Utilities, Body-Gradient)
