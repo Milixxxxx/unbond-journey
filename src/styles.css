@@ -183,6 +183,28 @@
     border-radius: var(--radius-xl);
   }
 
+  /* ZIP-Design · Glassmorphism (60% / 75% white, 12px radius — brand spec) */
+  .glass {
+    background-color: color-mix(in oklch, white 60%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid color-mix(in oklch, white 40%, transparent);
+    box-shadow:
+      0 8px 32px -8px color-mix(in oklch, var(--bordeaux) 18%, transparent),
+      inset 0 1px 0 color-mix(in oklch, white 50%, transparent);
+  }
+
+  .glass-strong {
+    background-color: color-mix(in oklch, white 75%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 12px;
+    border: 1px solid color-mix(in oklch, white 50%, transparent);
+    box-shadow: 0 12px 40px -12px color-mix(in oklch, var(--bordeaux) 22%, transparent);
+  }
+
+
   /* === STORY (silbriges Glass-Grau, neutral für SW-Fotos der Hauptdarstellerinnen) === */
   .story-box {
     position: relative;
