@@ -100,7 +100,7 @@ function ModulePage() {
         title={meta.title}
       />
 
-      <div className="mx-auto max-w-3xl px-4 py-6">
+      <div className="mx-auto max-w-4xl px-6 py-6">
         <div className="mt-6">
           {meta.slug === "sos-soforthilfe" ? (
             <SosSoforthilfe />
