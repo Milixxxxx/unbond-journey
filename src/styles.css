@@ -477,3 +477,32 @@
 
 /* Safe-area for fixed bottom-bar on mobile */
 .pb-safe { padding-bottom: calc(env(safe-area-inset-bottom, 0) + 5.25rem); }
+
+/* ============================================================
+   ZIP-Design · Utilities (Tracking-Brand, Healing-Tree Animations)
+   ============================================================ */
+@layer utilities {
+  .tracking-brand { letter-spacing: 0.04em; }
+}
+
+@keyframes leafGrow {
+  0%   { transform: scale(0) rotate(-20deg); opacity: 0; }
+  60%  { transform: scale(1.15) rotate(4deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+@keyframes sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50%      { transform: rotate(3deg); }
+}
+@keyframes bloomPulse {
+  0%, 100% { filter: drop-shadow(0 0 4px color-mix(in oklch, var(--mauve) 40%, transparent)); }
+  50%      { filter: drop-shadow(0 0 10px color-mix(in oklch, var(--mauve) 70%, transparent)); }
+}
+.leaf-enter {
+  transform-origin: center bottom;
+  animation: leafGrow 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards, sway 5s ease-in-out infinite 0.7s;
+}
+.bloom-enter {
+  transform-origin: center;
+  animation: badgePop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards, bloomPulse 4s ease-in-out infinite 0.6s;
+}
