@@ -159,8 +159,8 @@
   }
 
   /* Mobile-first body size */
-  body { font-size: 15px; line-height: 1.8; }
-  @media (min-width: 768px) { body { font-size: 16px; } }
+ body { font-size: 17px; line-height: 1.8; }
+ @media (min-width: 768px) { body { font-size: 18px; } }
 }
 
 /* ====== Glassmorphism ====== */
