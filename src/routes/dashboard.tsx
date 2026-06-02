@@ -17,7 +17,7 @@ import {
   BookOpen,
   Compass,
 } from "lucide-react";
-import { HealingTree } from "@/components/healing-tree";
+import { WindingPathJourney } from "@/components/winding-path-journey";
 
 const STORAGE_KEY = "unbond-bonus-unlocks";
 function readBonusUnlocks(): string[] {
@@ -192,27 +192,9 @@ function Dashboard() {
       </section>
 
       <div className="mx-auto max-w-2xl px-4">
-        {/* ─── HEALING TREE ─── */}
+        {/* ─── WINDING PATH JOURNEY ─── */}
         <section className="-mt-4 animate-fade-in">
-          <div className="rounded-2xl border border-border/50 bg-white/75 p-6 shadow-soft">
-            <div className="text-center">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-mauve">
-                · Dein Healing-Tree ·
-              </p>
-              <h2 className="mt-2 font-display text-xl font-semibold text-bordeaux">
-                {leafSlugs.length === 0
-                  ? "Dein Baum wartet auf das erste Blatt"
-                  : `${leafSlugs.length} ${leafSlugs.length === 1 ? "Schritt" : "Schritte"} gemeistert`}
-              </h2>
-              <p className="mx-auto mt-1.5 max-w-xs text-[12px] leading-snug text-graphite/65">
-                Jedes abgeschlossene Modul wird zu einem Blatt. Drei von fünf Zielen
-                erreichen → Blüte.
-              </p>
-            </div>
-            <div className="mt-4">
-              <HealingTree leafSlugs={leafSlugs} bloomSlugs={bloomSlugs} />
-            </div>
-          </div>
+          <WindingPathJourney />
         </section>
 
         {/* ─── BEVOR ES LOSGEHT · Reading-Flow ─── */}
