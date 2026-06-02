@@ -101,7 +101,7 @@ export const JOURNEY_CHAPTERS: JourneyChapter[] = [
     title: "Bindungsmuster & Inneres Kind",
     shortTitle: "Inneres Kind",
     goals: [
-      "Ich verstehe mein „hysterisches" Verhalten als biologische Notwehr.",
+      "Ich verstehe mein \u201ehysterisches\u201c Verhalten als biologische Notwehr.",
       "Ich erkenne den Anxious-Avoidant-Tanz und kann ihn unterbrechen.",
       "Ich beginne, mein inneres Kind zu beelternisieren.",
     ],
