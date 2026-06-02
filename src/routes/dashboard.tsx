@@ -187,7 +187,7 @@ function Dashboard() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-2xl px-4">
+      <div className="mx-auto max-w-5xl px-6">
         {/* ─── WINDING PATH JOURNEY ─── */}
         <section className="-mt-4 animate-fade-in">
           <WindingPathJourney />
