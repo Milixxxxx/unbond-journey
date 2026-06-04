@@ -87,8 +87,19 @@ function Dashboard() {
   const total = allModules.length;
   const done = allModules.filter((m) => doneSlugs.has(m.slug)).length;
 
-  // nächstes offenes Modul für die "Weiter mit"-Karte
-  const nextModule = allModules.find((m) => !doneSlugs.has(m.slug)) ?? allModules[0];
+  // nächstes offenes Modul – respektiert den Pfad-Modus.
+  // "klarheit": SOS wird aus dem "Weiter mit"-Vorschlag ausgeklammert
+  //             (bleibt jederzeit über den Herz-Button erreichbar).
+  // "akut":     SOS bleibt der erste Vorschlag, danach linear weiter.
+  const candidates = pathMode === "klarheit"
+    ? allModules.filter((m) => m.slug !== "sos-soforthilfe")
+    : allModules;
+  const nextModule = candidates.find((m) => !doneSlugs.has(m.slug)) ?? candidates[0];
+
+  const pickPath = (mode: PathMode) => {
+    writePathMode(mode);
+    setPathMode(mode);
+  };
 
   return (
     <main className="min-h-screen pb-24">
