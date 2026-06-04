@@ -32,7 +32,7 @@ export const Route = createFileRoute("/dashboard")({
 });
 
 const IMPULSE =
-  "„Das Nervensystem nennt Schmerz irgendwann Vertrautheit. Und was vertraut ist, verlässt man nicht einfach." — Milena, Vorwort";
+  "\u201EDas Nervensystem nennt Schmerz irgendwann Vertrautheit. Und was vertraut ist, verl\u00E4sst man nicht einfach.\u201C \u2014 Milena, Vorwort";
 
 function Dashboard() {
   const [earnedSlugs, setEarnedSlugs] = useState<string[]>([]);
