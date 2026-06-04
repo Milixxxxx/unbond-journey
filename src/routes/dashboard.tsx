@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { MODULES, isBonus } from "@/lib/modules";
-import { ArrowRight, Leaf, Flower2 } from "lucide-react";
+import { ArrowRight, Leaf, Flower2, LifeBuoy, Compass, Heart } from "lucide-react";
 import { WindingPathJourney } from "@/components/winding-path-journey";
+import { readPathMode, writePathMode, type PathMode } from "@/lib/path-mode";
 
 const STORAGE_KEY = "unbond-bonus-unlocks";
 function readBonusUnlocks(): string[] {
@@ -36,9 +37,18 @@ const IMPULSE =
 
 function Dashboard() {
   const [earnedSlugs, setEarnedSlugs] = useState<string[]>([]);
+  const [pathMode, setPathMode] = useState<PathMode | null>(null);
 
   useEffect(() => {
     readBonusUnlocks();
+    setPathMode(readPathMode());
+    const onPath = () => setPathMode(readPathMode());
+    window.addEventListener("unbond-path-mode-updated", onPath);
+    window.addEventListener("storage", onPath);
+    return () => {
+      window.removeEventListener("unbond-path-mode-updated", onPath);
+      window.removeEventListener("storage", onPath);
+    };
   }, []);
 
   const mainModules = useMemo(
