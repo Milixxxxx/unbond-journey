@@ -23,7 +23,7 @@ type Item = {
   num: string;
   title: string;
   sub: string;
-  to?: "/einleitung" | "/routing" | "/modul/$slug";
+  to?: "/einleitung" | "/routing" | "/modul/$slug" | "/vorwort" | "/poem";
   slug?: string;
   cta?: boolean;
 };
@@ -35,6 +35,18 @@ const ITEMS: Item[] = [
     sub: "Wer sind Mary und Sandra · Wie du dieses Programm nutzt · Für wen UNBOND geschrieben wurde",
     to: "/einleitung",
     cta: true,
+  },
+  {
+    num: "✉︎ Vorwort",
+    title: "Ein Brief von Milena",
+    sub: "Warum dieses Programm entstanden ist · Meine Geschichte · An dich, die liest",
+    to: "/vorwort",
+  },
+  {
+    num: "✦ Marys Geschichte",
+    title: "Am Anfang war das Gefühl",
+    sub: "Wo alles begann · Liebe fragt nicht nach der Uhr · Mary & Sandra im Café",
+    to: "/poem",
   },
   {
     num: "🧭 Routing",
@@ -191,6 +203,12 @@ function TocCard({ item }: { item: Item }) {
   }
   if (item.to === "/einleitung") {
     return <Link to="/einleitung" className={cls}>{inner}</Link>;
+  }
+  if (item.to === "/vorwort") {
+    return <Link to="/vorwort" className={cls}>{inner}</Link>;
+  }
+  if (item.to === "/poem") {
+    return <Link to="/poem" className={cls}>{inner}</Link>;
   }
   if (item.to === "/routing") {
     return <Link to="/routing" className={cls}>{inner}</Link>;

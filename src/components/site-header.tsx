@@ -10,9 +10,12 @@ export function SiteHeader() {
       className="sticky top-0 z-40 w-full border-b border-sage/30"
       style={{ backgroundColor: "var(--sage)" }}
     >
-      <div className="mx-auto flex max-w-[1400px] items-center justify-center px-6 py-3">
-        <nav className="flex items-center gap-10">
+      <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-center gap-x-8 gap-y-2 px-6 py-3">
+        <nav className="flex flex-wrap items-center justify-center gap-x-7 gap-y-2">
           <NavLink to="/dashboard">Dashboard</NavLink>
+          <NavLink to="/inhalt">Inhalt</NavLink>
+          <NavLink to="/vorwort">Vorwort</NavLink>
+          <NavLink to="/poem">Marys Geschichte</NavLink>
           <NavLink to="/einleitung">Über</NavLink>
           <NavLink to="/einstellungen">Profil</NavLink>
         </nav>
