@@ -245,6 +245,7 @@ export function SosSoforthilfe() {
         <UrgeSurfWave totalSeconds={90} accent="bordeaux" />
         <Reflection3Step
           slug={SLUG}
+          title="Urge-Surf-Reflexion"
           accent="bordeaux"
           steps={[
             {
