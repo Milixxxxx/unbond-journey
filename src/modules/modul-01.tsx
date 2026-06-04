@@ -359,8 +359,8 @@ export function Modul01() {
         label="Wenn du tiefer verstehen willst …"
         hint="Optional. Drei Studien, die das Muster erklären — du musst sie nicht lesen, um zu heilen."
       >
-        <SectionBlock kind="deep-dive" title="Drei Studien, die alles erklären">
-          <div className="grid gap-3 sm:grid-cols-3">
+        <SectionBlock kind="deep-dive" title="Fünf Studien, die alles erklären">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             <FlipCard
               icon={Bird}
               color="var(--color-sage)"
@@ -385,11 +385,28 @@ export function Modul01() {
               front="Trauma-Bonding entsteht wegen, nicht trotz Schmerz."
               back="Erleichterung nach Bestrafung wirkt stärker als jede konstante Zuneigung. Das ist der Kern jeder pathologischen Bindung."
             />
+            <FlipCard
+              icon={Brain}
+              color="var(--color-sage)"
+              label="Langeslag · 2016"
+              heading="Negative Reappraisal"
+              front="Liebesgefühle lassen sich aktiv herunterregulieren."
+              back="Negative Reappraisal erhöht die Aktivierung des medialen präfrontalen Kortex und reduziert die Amygdala-Aktivität messbar — bewusste Neubewertung dämpft Craving."
+            />
+            <FlipCard
+              icon={Flame}
+              color="var(--color-sage)"
+              label="Grant · 2010"
+              heading="Verhaltenssucht = Substanzsucht"
+              front="Toxische Liebe erfüllt alle vier Suchtkriterien."
+              back="Verhaltenssucht aktiviert dieselben Mechanismen wie Substanzabhängigkeit: Toleranzentwicklung, Entzugssymptome, Kontrollverlust, fortgesetztes Verhalten trotz negativer Konsequenzen."
+            />
           </div>
         </SectionBlock>
       </DeepDiveIntro>
 
-      {/* ════════════════ 5 · ÜBUNGEN (3) ════════════════ */}
+      {/* ════════════════ 5 · ÜBUNGEN (4) ════════════════ */}
+
 
       {/* ── Übung 1 · Warnsignale erkennen ── */}
       <SectionBlock
