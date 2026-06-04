@@ -67,7 +67,7 @@ function ModulePage() {
           title={meta.title}
         />
 
-        <div className="mx-auto max-w-7xl px-6 py-6">
+        <div className="mx-auto max-w-[1400px] px-6 py-6">
           <div className="mt-6 rounded-2xl border border-mauve/20 bg-white/80 p-6 shadow-soft">
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-mauve">
               Kapitelweise Freigabe
@@ -100,8 +100,8 @@ function ModulePage() {
         title={meta.title}
       />
 
-      <div className="mx-auto max-w-7xl px-6 py-6">
-        <div className="mt-6">
+      <div className="mx-auto max-w-[1400px] px-6 py-6">
+        <div className="mt-6 rounded-3xl border border-mauve/15 bg-white/55 p-5 shadow-soft backdrop-blur-sm sm:p-8">
           {meta.slug === "sos-soforthilfe" ? (
             <SosSoforthilfe />
           ) : meta.slug === "modul-01" ? (

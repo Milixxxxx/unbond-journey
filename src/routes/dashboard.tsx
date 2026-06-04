@@ -82,7 +82,7 @@ function Dashboard() {
 
   return (
     <main className="min-h-screen pb-24">
-      <div className="mx-auto max-w-7xl px-6 pt-4">
+      <div className="mx-auto max-w-[1400px] px-6 pt-4">
         {/* ─── HEADLINE ─── */}
         <div className="mb-6">
           <p

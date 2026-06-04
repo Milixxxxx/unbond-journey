@@ -1,15 +1,17 @@
 import { Link } from "@tanstack/react-router";
 
 /**
- * Reduzierter Site-Header im ZIP-Design-Look:
- * Transparente Pille mit nur drei Top-Level-Links (Dashboard · Über · Profil),
- * mittig zentriert, ohne Logo-Wortmarke und ohne Aktions-Button.
+ * Statische Navigationsleiste in Salbeigrün.
+ * Volldeckend, damit nichts mehr durchscrollt und überlappt.
  */
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 w-full">
-      <div className="mx-auto flex max-w-7xl items-center justify-center px-6 py-4">
-        <nav className="flex items-center gap-8">
+    <header
+      className="sticky top-0 z-40 w-full border-b border-sage/30"
+      style={{ backgroundColor: "var(--sage)" }}
+    >
+      <div className="mx-auto flex max-w-[1400px] items-center justify-center px-6 py-3">
+        <nav className="flex items-center gap-10">
           <NavLink to="/dashboard">Dashboard</NavLink>
           <NavLink to="/einleitung">Über</NavLink>
           <NavLink to="/einstellungen">Profil</NavLink>
@@ -23,8 +25,8 @@ function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
   return (
     <Link
       to={to}
-      className="text-[11px] font-display font-semibold tracking-brand uppercase text-muted-foreground transition-colors hover:text-foreground"
-      activeProps={{ style: { color: "var(--bordeaux)" } }}
+      className="text-[11px] font-display font-semibold tracking-brand uppercase text-white/85 transition-colors hover:text-white"
+      activeProps={{ style: { color: "#ffffff", textShadow: "0 1px 0 rgba(0,0,0,0.15)" } }}
     >
       {children}
     </Link>
