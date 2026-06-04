@@ -1,6 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
-import { ArrowLeft, ArrowRight, Waves, HeartCrack } from "lucide-react";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import { ArrowLeft, ArrowRight, Heart, Compass, LifeBuoy } from "lucide-react";
+import { readPathMode, writePathMode, type PathMode } from "@/lib/path-mode";
 
 export const Route = createFileRoute("/routing")({
   component: Routing,
@@ -10,7 +11,7 @@ export const Route = createFileRoute("/routing")({
       {
         name: "description",
         content:
-          "Self-Select: Beziehung beendet oder noch in der Beziehung – wir zeigen dir den passenden Einstieg.",
+          "Zwei Wege durch UNBOND: akute Krise mit SOS-Stabilisierung oder ruhige Aufarbeitung mit Trauma-Bonding als Einstieg.",
       },
       { property: "og:title", content: "Wo stehst du gerade? · UNBOND" },
       {
@@ -21,167 +22,177 @@ export const Route = createFileRoute("/routing")({
   }),
 });
 
-type Path = "after" | "in" | null;
-
 function Routing() {
-  const [path, setPath] = useState<Path>(null);
+  const navigate = useNavigate();
+  const [path, setPath] = useState<PathMode | null>(null);
+
+  useEffect(() => {
+    setPath(readPathMode());
+  }, []);
+
+  const choose = (mode: PathMode) => {
+    setPath(mode);
+    writePathMode(mode);
+  };
+
+  const startAkut = () => {
+    writePathMode("akut");
+    navigate({ to: "/modul/$slug", params: { slug: "sos-soforthilfe" } });
+  };
+  const startKlarheit = () => {
+    writePathMode("klarheit");
+    navigate({ to: "/modul/$slug", params: { slug: "modul-01" } });
+  };
 
   return (
     <main className="min-h-screen px-4 py-10 pb-24">
-      <article className="mx-auto max-w-2xl space-y-7">
+      <article className="mx-auto max-w-3xl space-y-7">
         <Link to="/einleitung" className="inline-flex items-center gap-1 text-sm text-bordeaux hover:underline">
           <ArrowLeft className="h-3.5 w-3.5" /> Einleitung
         </Link>
 
         <header className="text-center animate-fade-in">
           <p className="inline-block rounded-full bg-gradient-to-r from-bordeaux to-sage px-4 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-white">
-            🧭 Dein Einstieg
+            Dein Einstieg
           </p>
           <h1 className="mt-4 font-display text-4xl font-extrabold tracking-tight text-bordeaux">
             Wo stehst du gerade?
           </h1>
-          <p className="mx-auto mt-3 max-w-md text-sm text-graphite/75">
-            UNBOND begleitet dich, egal wo du gerade stehst. Triff eine Auswahl:
+          <p className="mx-auto mt-3 max-w-xl text-sm text-graphite/75">
+            Es macht einen Unterschied, ob du gerade aufgelöst und in Not bist –
+            oder ob du in Ruhe verstehen und aufarbeiten möchtest. Wähle den
+            Einstieg, der zu deinem aktuellen Zustand passt. Du kannst die
+            Auswahl jederzeit ändern.
           </p>
         </header>
 
-        <div className="space-y-3 animate-fade-in">
+        <div className="grid gap-4 md:grid-cols-2 animate-fade-in">
+          {/* AKUT */}
           <button
             type="button"
-            onClick={() => setPath("after")}
-            aria-pressed={path === "after"}
-            className={`w-full rounded-xl border-2 bg-white/72 p-5 text-left transition-all duration-300 hover:bg-white ${
-              path === "after" ? "border-sage shadow-soft" : "border-transparent"
+            onClick={() => choose("akut")}
+            aria-pressed={path === "akut"}
+            className={`group rounded-2xl border-2 bg-white/75 p-6 text-left transition-all hover:-translate-y-[1px] hover:bg-white ${
+              path === "akut" ? "border-[var(--color-sos)] shadow-elegant" : "border-transparent"
             }`}
           >
-            <div className="flex items-start gap-4">
-              <span className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-full bg-sage/20 text-sage">
-                <Waves className="h-5 w-5" />
-              </span>
-              <div>
-                <strong className="font-display text-base text-bordeaux">
-                  Die Beziehung ist beendet
-                </strong>
-                <p className="mt-1 text-sm leading-snug text-graphite/75">
-                  Ich habe mich getrennt oder wurde verlassen – und komme nicht los.
-                </p>
-              </div>
-            </div>
+            <span className="grid h-12 w-12 place-items-center rounded-full bg-[var(--color-sos)]/15 text-[var(--color-sos)]">
+              <LifeBuoy className="h-6 w-6" />
+            </span>
+            <h2 className="mt-4 font-display text-lg font-extrabold text-bordeaux">
+              Ich bin in akuter Not
+            </h2>
+            <p className="mt-1 text-[11px] font-semibold uppercase tracking-wider text-[var(--color-sos)]">
+              Direkt nach der Trennung · Panik · 3-Uhr-nachts-Loops
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-graphite/80">
+              Dein Nervensystem ist im Alarmmodus. Du brauchst jetzt keine
+              Theorie über Trauma-Bonding – du brauchst Werkzeuge, die den
+              Schmerz im Körper sofort regulieren.
+            </p>
+            <ul className="mt-3 space-y-1 text-[12.5px] text-graphite/80">
+              <li>• <strong>Start:</strong> SOS · Akute Stabilisierung</li>
+              <li>• 4-7-8-Atem, TIPP-Skill, Grounding, Urge-Surf</li>
+              <li>• Krisen-Telefonnummern jederzeit greifbar</li>
+            </ul>
           </button>
 
+          {/* KLARHEIT */}
           <button
             type="button"
-            onClick={() => setPath("in")}
-            aria-pressed={path === "in"}
-            className={`w-full rounded-xl border-2 bg-white/72 p-5 text-left transition-all duration-300 hover:bg-white ${
-              path === "in" ? "border-warning shadow-soft" : "border-transparent"
+            onClick={() => choose("klarheit")}
+            aria-pressed={path === "klarheit"}
+            className={`group rounded-2xl border-2 bg-white/75 p-6 text-left transition-all hover:-translate-y-[1px] hover:bg-white ${
+              path === "klarheit" ? "border-sage shadow-elegant" : "border-transparent"
             }`}
           >
-            <div className="flex items-start gap-4">
-              <span className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-full bg-mauve/15 text-mauve">
-                <HeartCrack className="h-5 w-5" />
-              </span>
-              <div>
-                <strong className="font-display text-base text-bordeaux">
-                  Ich bin noch in der Beziehung
-                </strong>
-                <p className="mt-1 text-sm leading-snug text-graphite/75">
-                  Ich bin unglücklich oder verwirrt – und weiß nicht, was ich tun soll.
-                </p>
-              </div>
-            </div>
+            <span className="grid h-12 w-12 place-items-center rounded-full bg-sage/20 text-sage">
+              <Compass className="h-6 w-6" />
+            </span>
+            <h2 className="mt-4 font-display text-lg font-extrabold text-bordeaux">
+              Ich möchte verstehen & aufarbeiten
+            </h2>
+            <p className="mt-1 text-[11px] font-semibold uppercase tracking-wider text-sage">
+              Noch in der Beziehung · Liebeskummer · Klarheit suchen
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-graphite/80">
+              Du bist nicht in akuter Panik, sondern willst die Dynamik
+              durchschauen und Stück für Stück loslassen. Du arbeitest in
+              deinem Tempo durchs Buch.
+            </p>
+            <ul className="mt-3 space-y-1 text-[12.5px] text-graphite/80">
+              <li>• <strong>Start:</strong> Schritt 01 · Trauma-Bonding</li>
+              <li>• Lineare Reise durch die 10 Kapitel</li>
+              <li className="flex items-start gap-1.5">
+                <Heart className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-[var(--color-sos)]" fill="currentColor" />
+                <span>SOS bleibt jederzeit über den Herz-Button rechts unten erreichbar – falls eine akute Welle kommt.</span>
+              </li>
+            </ul>
           </button>
         </div>
 
-        {path === "after" && (
+        {path && (
           <div className="science-box animate-fade-in">
-            <h4 className="font-display text-base font-bold text-bordeaux">
-              🧭 Dein Weg: Liebeskummer &amp; Trennung
-            </h4>
+            <h3 className="font-display text-base font-bold text-bordeaux">
+              {path === "akut" ? "Dein Weg: Erst stabilisieren" : "Dein Weg: Verstehen & aufarbeiten"}
+            </h3>
             <p className="mt-2 text-[14px] leading-relaxed">
-              Du kannst direkt mit <strong>Schritt 01 · Trauma-Bonding verstehen</strong>{" "}
-              beginnen und das Programm linear durchlaufen. Der Weg ist klar: Stabilisierung →
-              Verarbeitung → Loslassen → Neuaufbau. Alle Module wurden für genau diese Situation
-              entwickelt.
-            </p>
-            <p className="mt-2 text-[14px] leading-relaxed">
-              Wenn du gerade in einer akuten Krise bist (Panik, 3-Uhr-nachts-Loops, körperliche
-              Überflutung): Beginne mit dem <strong>SOS-Notfallkoffer</strong> – die akuten
-              Stabilisierungs-Tools holen dein Nervensystem aus dem Alarmmodus.
+              {path === "akut" ? (
+                <>
+                  Beginne mit dem <strong>SOS-Notfallkoffer</strong>. Erst wenn dein
+                  Körper aus dem Alarmmodus zurückkommt, kannst du verstehen –
+                  Theorie greift nicht im Sturm. Sobald sich dein Nervensystem
+                  beruhigt, führt dich der Pfad weiter zu Schritt 01 · Trauma-Bonding.
+                </>
+              ) : (
+                <>
+                  Beginne mit <strong>Schritt 01 · Trauma-Bonding</strong> und
+                  folge dem Pfad in deinem Tempo. Solltest du in einen akuten
+                  Moment geraten, öffne den{" "}
+                  <strong>Herz-Button rechts unten</strong> – darin findest du
+                  alle SOS-Werkzeuge.
+                </>
+              )}
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
+              {path === "akut" ? (
+                <button
+                  type="button"
+                  onClick={startAkut}
+                  className="inline-flex items-center gap-1.5 rounded-md bg-[var(--color-sos)] px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-white shadow-elegant transition hover:opacity-90"
+                >
+                  SOS starten <ArrowRight className="h-3.5 w-3.5" />
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={startKlarheit}
+                  className="inline-flex items-center gap-1.5 rounded-md bg-bordeaux px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-white shadow-elegant transition hover:opacity-90"
+                >
+                  Schritt 01 starten <ArrowRight className="h-3.5 w-3.5" />
+                </button>
+              )}
               <Link
-                to="/modul/$slug"
-                params={{ slug: "modul-01" }}
-                className="inline-flex items-center gap-1.5 rounded-md bg-bordeaux px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white shadow-elegant transition hover:opacity-90"
+                to="/dashboard"
+                className="inline-flex items-center gap-1.5 rounded-md border border-bordeaux/20 bg-white/70 px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-bordeaux transition hover:bg-white"
               >
-                Schritt 01 starten <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-              <Link
-                to="/modul/$slug"
-                params={{ slug: "sos-soforthilfe" }}
-                className="inline-flex items-center gap-1.5 rounded-md border-2 border-warning/40 bg-white/60 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-warning transition hover:bg-white"
-              >
-                SOS-Notfallkoffer
+                Zum Dashboard
               </Link>
             </div>
+            <p className="mt-3 text-[11px] text-graphite/60">
+              Du kannst diese Auswahl jederzeit ändern – sie steuert nur den
+              vorgeschlagenen nächsten Schritt auf dem Dashboard.
+            </p>
           </div>
         )}
 
-        {path === "in" && (
-          <div
-            className="science-box animate-fade-in"
-            style={{ borderLeftColor: "var(--color-warning)", background: "linear-gradient(135deg,rgba(212,165,116,0.32),rgba(212,165,116,0.15))" }}
-          >
-            <h4 className="font-display text-base font-bold text-bordeaux">
-              💡 Dein Weg: Noch in der Beziehung
-            </h4>
-            <p className="mt-2 text-[14px] leading-relaxed">
-              Manche Kapitel – insbesondere No-Contact, Trigger-Management und Detox-Module –
-              werden sich für dich noch nicht vollständig anwendbar anfühlen. Das ist normal und
-              in Ordnung.
-            </p>
-            <p className="mt-2 text-[14px] leading-relaxed">
-              Nutze zunächst <strong>Schritt 01 bis 03</strong>, um Klarheit darüber zu
-              gewinnen, was du wirklich erlebst. Der Rest des Programms steht dir zur Verfügung,
-              wenn du bereit bist.
-            </p>
-            <p className="mt-3 text-[13px] font-semibold text-bordeaux">
-              Wenn du dich in akuter Gefahr befindest:{" "}
-              <strong>Hilfetelefon Gewalt gegen Frauen 0800 116 016</strong> (kostenlos, 24/7).
-            </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              <Link
-                to="/modul/$slug"
-                params={{ slug: "modul-01" }}
-                className="inline-flex items-center gap-1.5 rounded-md bg-bordeaux px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white shadow-elegant transition hover:opacity-90"
-              >
-                Schritt 01 <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-              <Link
-                to="/modul/$slug"
-                params={{ slug: "modul-02" }}
-                className="inline-flex items-center gap-1.5 rounded-md bg-mauve px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white shadow-soft transition hover:opacity-90"
-              >
-                Schritt 02 · Diagnose
-              </Link>
-            </div>
-          </div>
-        )}
-
-        <div className="flex items-center justify-between gap-3 pt-4">
-          <Link
-            to="/einleitung"
-            className="inline-flex items-center gap-1 rounded-md border border-bordeaux/20 bg-white/60 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-bordeaux transition hover:bg-white"
-          >
-            <ArrowLeft className="h-3.5 w-3.5" /> Einleitung
-          </Link>
-          <Link
-            to="/dashboard"
-            className="inline-flex items-center gap-1.5 rounded-md bg-graphite px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-white shadow-soft transition hover:opacity-90"
-          >
-            Zum Dashboard <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
+        <div className="rounded-xl border border-bordeaux/10 bg-cream/40 p-4 text-[12px] leading-relaxed text-graphite/75">
+          <p>
+            <strong>In akuter Lebensgefahr:</strong> Hilfetelefon Gewalt gegen
+            Frauen <strong>0800 116 016</strong> (kostenlos, 24/7) ·
+            Telefonseelsorge <strong>0800 111 0 111</strong> · Notruf{" "}
+            <strong>112</strong>.
+          </p>
         </div>
       </article>
     </main>

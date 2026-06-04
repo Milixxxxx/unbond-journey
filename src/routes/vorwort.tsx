@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { LightboxImage } from "@/components/lightbox-image";
 import milenaAuthor from "@/assets/milena-author.png.asset.json";
 
 export const Route = createFileRoute("/vorwort")({
@@ -44,12 +45,13 @@ function Vorwort() {
 
           <div className="glass-card p-6 md:p-8 text-[15px] leading-relaxed text-graphite/90 animate-fade-in">
             {/* Milena – links umflossen vom Text, ohne Rand */}
-            <img
+            <LightboxImage
               src={milenaAuthor.url}
               alt="Milena – Autorin von UNBOND"
               className="float-left mb-4 mr-5 w-40 sm:w-52 md:w-60"
-              loading="lazy"
+              hint="Porträt vergrößern"
             />
+
 
             <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-mauve">
               Meine Geschichte

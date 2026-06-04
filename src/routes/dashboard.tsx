@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { MODULES, isBonus } from "@/lib/modules";
-import { ArrowRight, Leaf, Flower2 } from "lucide-react";
+import { ArrowRight, Leaf, Flower2, LifeBuoy, Compass, Heart } from "lucide-react";
 import { WindingPathJourney } from "@/components/winding-path-journey";
+import { readPathMode, writePathMode, type PathMode } from "@/lib/path-mode";
 
 const STORAGE_KEY = "unbond-bonus-unlocks";
 function readBonusUnlocks(): string[] {
@@ -36,9 +37,18 @@ const IMPULSE =
 
 function Dashboard() {
   const [earnedSlugs, setEarnedSlugs] = useState<string[]>([]);
+  const [pathMode, setPathMode] = useState<PathMode | null>(null);
 
   useEffect(() => {
     readBonusUnlocks();
+    setPathMode(readPathMode());
+    const onPath = () => setPathMode(readPathMode());
+    window.addEventListener("unbond-path-mode-updated", onPath);
+    window.addEventListener("storage", onPath);
+    return () => {
+      window.removeEventListener("unbond-path-mode-updated", onPath);
+      window.removeEventListener("storage", onPath);
+    };
   }, []);
 
   const mainModules = useMemo(
@@ -77,8 +87,19 @@ function Dashboard() {
   const total = allModules.length;
   const done = allModules.filter((m) => doneSlugs.has(m.slug)).length;
 
-  // nächstes offenes Modul für die "Weiter mit"-Karte
-  const nextModule = allModules.find((m) => !doneSlugs.has(m.slug)) ?? allModules[0];
+  // nächstes offenes Modul – respektiert den Pfad-Modus.
+  // "klarheit": SOS wird aus dem "Weiter mit"-Vorschlag ausgeklammert
+  //             (bleibt jederzeit über den Herz-Button erreichbar).
+  // "akut":     SOS bleibt der erste Vorschlag, danach linear weiter.
+  const candidates = pathMode === "klarheit"
+    ? allModules.filter((m) => m.slug !== "sos-soforthilfe")
+    : allModules;
+  const nextModule = candidates.find((m) => !doneSlugs.has(m.slug)) ?? candidates[0];
+
+  const pickPath = (mode: PathMode) => {
+    writePathMode(mode);
+    setPathMode(mode);
+  };
 
   return (
     <main className="min-h-screen pb-24">
@@ -173,6 +194,61 @@ function Dashboard() {
               </div>
             </div>
 
+            {/* Pfad-Auswahl (falls noch nicht getroffen) */}
+            {!pathMode && (
+              <div className="glass rounded-2xl p-5">
+                <p
+                  className="text-[10px] font-display font-semibold tracking-brand uppercase"
+                  style={{ color: "var(--mauve)" }}
+                >
+                  Wo stehst du gerade?
+                </p>
+                <p className="mt-2 text-xs leading-relaxed text-foreground/80">
+                  Wähle deinen Einstieg – das steuert, was wir dir als nächsten
+                  Schritt vorschlagen. Du kannst jederzeit wechseln.
+                </p>
+                <div className="mt-3 grid gap-2">
+                  <button
+                    type="button"
+                    onClick={() => pickPath("akut")}
+                    className="flex items-start gap-3 rounded-xl border border-[var(--color-sos)]/25 bg-white/70 p-3 text-left transition hover:bg-white"
+                  >
+                    <LifeBuoy className="mt-0.5 h-4 w-4 flex-shrink-0 text-[var(--color-sos)]" />
+                    <div>
+                      <p className="text-[12px] font-bold text-bordeaux">
+                        In akuter Not
+                      </p>
+                      <p className="text-[11px] leading-snug text-graphite/70">
+                        Starte mit SOS · Stabilisierung zuerst.
+                      </p>
+                    </div>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => pickPath("klarheit")}
+                    className="flex items-start gap-3 rounded-xl border border-sage/30 bg-white/70 p-3 text-left transition hover:bg-white"
+                  >
+                    <Compass className="mt-0.5 h-4 w-4 flex-shrink-0 text-sage" />
+                    <div>
+                      <p className="text-[12px] font-bold text-bordeaux">
+                        Verstehen & aufarbeiten
+                      </p>
+                      <p className="text-[11px] leading-snug text-graphite/70">
+                        Starte mit Trauma-Bonding. SOS bleibt über den
+                        Herz-Button erreichbar.
+                      </p>
+                    </div>
+                  </button>
+                </div>
+                <Link
+                  to="/routing"
+                  className="mt-3 inline-block text-[11px] font-semibold text-bordeaux underline-offset-2 hover:underline"
+                >
+                  Mehr erfahren →
+                </Link>
+              </div>
+            )}
+
             {/* Weiter mit */}
             {nextModule && (
               <Link
@@ -186,14 +262,39 @@ function Dashboard() {
                 </p>
                 <div className="mt-2 flex items-center justify-between gap-3">
                   <p className="font-display text-sm font-bold">
-                    Modul {nextModule.number} · {nextModule.title}
+                    {nextModule.number === "0" ? "SOS" : `Modul ${nextModule.number}`} · {nextModule.title}
                   </p>
                   <ArrowRight className="h-4 w-4 flex-shrink-0 transition-transform group-hover:translate-x-1" />
                 </div>
+                {pathMode === "klarheit" && (
+                  <p className="mt-2 flex items-start gap-1.5 text-[11px] text-white/85">
+                    <Heart className="mt-0.5 h-3 w-3 flex-shrink-0" fill="currentColor" />
+                    <span>SOS jederzeit über den Herz-Button rechts unten.</span>
+                  </p>
+                )}
+                {pathMode === "akut" && nextModule.slug === "sos-soforthilfe" && (
+                  <p className="mt-2 text-[11px] text-white/85">
+                    Erst stabilisieren – Theorie greift nicht im Sturm.
+                  </p>
+                )}
               </Link>
+            )}
+
+            {pathMode && (
+              <button
+                type="button"
+                onClick={() => {
+                  writePathMode(pathMode === "akut" ? "klarheit" : "akut");
+                  setPathMode(pathMode === "akut" ? "klarheit" : "akut");
+                }}
+                className="text-[11px] text-graphite/60 underline-offset-2 hover:underline"
+              >
+                Pfad wechseln (aktuell: {pathMode === "akut" ? "In akuter Not" : "Verstehen & aufarbeiten"})
+              </button>
             )}
           </aside>
         </div>
+
 
         {/* ─── ALLE MODULE ─── */}
         <section className="mt-10">

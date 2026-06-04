@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
+import { LightboxImage } from "@/components/lightbox-image";
 import poemImg1 from "@/assets/poem-liebe-1.png.asset.json";
 import poemImg2 from "@/assets/poem-liebe-2.png.asset.json";
 import marySandraCafe from "@/assets/mary-sandra-cafe.jpg.asset.json";
@@ -47,16 +48,14 @@ function Poem() {
 
           {/* Mary & Sandra im Café */}
           <figure className="animate-fade-in">
-            <img
+            <LightboxImage
               src={marySandraCafe.url}
               alt="Mary und Sandra im Café – ein erster Moment, der alles veränderte"
-              className="w-full rounded-2xl shadow-elegant"
-              loading="lazy"
+              className="w-full overflow-hidden rounded-2xl shadow-elegant"
+              caption="Mary & Sandra · Ein gewöhnlicher Nachmittag, ein Café mit zu vielen Stühlen."
             />
-            <figcaption className="mt-2 text-center text-xs italic text-graphite/65">
-              Mary &amp; Sandra · Ein gewöhnlicher Nachmittag, ein Café mit zu vielen Stühlen.
-            </figcaption>
           </figure>
+
 
           <div className="glass-card p-6 md:p-8 space-y-5 text-[15px] leading-relaxed text-graphite/90 animate-fade-in">
             <p>
@@ -97,23 +96,22 @@ function Poem() {
               </h2>
             </div>
 
+            <p className="text-center text-[11px] text-mauve">
+              Tippe auf den Brief, um ihn in voller Größe zu lesen.
+            </p>
             <div className="grid gap-5 md:grid-cols-2">
-              <figure>
-                <img
-                  src={poemImg1.url}
-                  alt="Liebe fragt nicht nach der Uhr – Teil 1"
-                  className="w-full rounded-2xl shadow-soft ring-1 ring-bordeaux/10"
-                  loading="lazy"
-                />
-              </figure>
-              <figure>
-                <img
-                  src={poemImg2.url}
-                  alt="Liebe fragt nicht nach der Uhr – Teil 2"
-                  className="w-full rounded-2xl shadow-soft ring-1 ring-bordeaux/10"
-                  loading="lazy"
-                />
-              </figure>
+              <LightboxImage
+                src={poemImg1.url}
+                alt="Liebe fragt nicht nach der Uhr – Teil 1"
+                className="w-full overflow-hidden rounded-2xl shadow-soft ring-1 ring-bordeaux/10"
+                hint="Lies den Brief in Ruhe"
+              />
+              <LightboxImage
+                src={poemImg2.url}
+                alt="Liebe fragt nicht nach der Uhr – Teil 2"
+                className="w-full overflow-hidden rounded-2xl shadow-soft ring-1 ring-bordeaux/10"
+                hint="Lies den Brief in Ruhe"
+              />
             </div>
             <p className="text-center text-[11px] italic text-graphite/60">
               — Unbekannter Autor, Mai 2024
