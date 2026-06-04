@@ -65,7 +65,7 @@ export function Modul01() {
     <article className="space-y-7">
       {/* ── Einleitung (3 Sätze max) ── */}
       <ChapterIntro
-        title="Kapitel 01 · Trauma-Bonding verstehen"
+        title="Schritt 02 · Trauma-Bonding: Anatomie der Fessel"
         keywords={[
           "Intermittierende Verstärkung",
           "Dopamin-Achterbahn",
@@ -73,11 +73,17 @@ export function Modul01() {
         ]}
       >
         <p>
-          Was du fühlst, ist keine zu große Liebe — es ist Biochemie. Dein
-          Gehirn wurde auf einen Spielautomaten konditioniert, und
-          Spielautomaten gewinnen immer.
+          Was du für tiefe Liebe gehalten hast, ist eine messbare
+          neurobiologische Reaktion — und das ist keine Beleidigung, sondern
+          eine Befreiung. Intermittierende Verstärkung konditioniert das Gehirn
+          stärker als jede konstante Zuneigung, und genau das macht diese
+          Bindung so schwer zu durchbrechen.
         </p>
       </ChapterIntro>
+
+      {/* ── Quick-Tools-Trio direkt unter Hero ── */}
+      <QuickToolsTrio tools={QUICK_TOOLS_M02} />
+
 
       {/* ════════════════ 1 · STORY ════════════════ */}
       <SectionBlock
