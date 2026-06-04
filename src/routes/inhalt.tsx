@@ -23,7 +23,7 @@ type Item = {
   num: string;
   title: string;
   sub: string;
-  to?: "/einleitung" | "/routing" | "/modul/$slug";
+  to?: "/einleitung" | "/routing" | "/modul/$slug" | "/vorwort" | "/poem";
   slug?: string;
   cta?: boolean;
 };
