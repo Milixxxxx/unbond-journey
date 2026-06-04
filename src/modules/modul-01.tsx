@@ -42,6 +42,8 @@ import {
   FlipCard,
   MeditationCard,
 } from "@/components/exercise";
+import { BreathPacer } from "@/components/exercise/breath-pacer";
+import { QuickToolsTrio, QUICK_TOOLS_M02 } from "@/components/quick-tools-trio";
 
 const SLUG = "modul-01";
 
@@ -63,7 +65,7 @@ export function Modul01() {
     <article className="space-y-7">
       {/* ── Einleitung (3 Sätze max) ── */}
       <ChapterIntro
-        title="Kapitel 01 · Trauma-Bonding verstehen"
+        title="Schritt 02 · Trauma-Bonding: Anatomie der Fessel"
         keywords={[
           "Intermittierende Verstärkung",
           "Dopamin-Achterbahn",
@@ -71,11 +73,17 @@ export function Modul01() {
         ]}
       >
         <p>
-          Was du fühlst, ist keine zu große Liebe — es ist Biochemie. Dein
-          Gehirn wurde auf einen Spielautomaten konditioniert, und
-          Spielautomaten gewinnen immer.
+          Was du für tiefe Liebe gehalten hast, ist eine messbare
+          neurobiologische Reaktion — und das ist keine Beleidigung, sondern
+          eine Befreiung. Intermittierende Verstärkung konditioniert das Gehirn
+          stärker als jede konstante Zuneigung, und genau das macht diese
+          Bindung so schwer zu durchbrechen.
         </p>
       </ChapterIntro>
+
+      {/* ── Quick-Tools-Trio direkt unter Hero ── */}
+      <QuickToolsTrio tools={QUICK_TOOLS_M02} />
+
 
       {/* ════════════════ 1 · STORY ════════════════ */}
       <SectionBlock
@@ -351,8 +359,8 @@ export function Modul01() {
         label="Wenn du tiefer verstehen willst …"
         hint="Optional. Drei Studien, die das Muster erklären — du musst sie nicht lesen, um zu heilen."
       >
-        <SectionBlock kind="deep-dive" title="Drei Studien, die alles erklären">
-          <div className="grid gap-3 sm:grid-cols-3">
+        <SectionBlock kind="deep-dive" title="Fünf Studien, die alles erklären">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             <FlipCard
               icon={Bird}
               color="var(--color-sage)"
@@ -377,11 +385,28 @@ export function Modul01() {
               front="Trauma-Bonding entsteht wegen, nicht trotz Schmerz."
               back="Erleichterung nach Bestrafung wirkt stärker als jede konstante Zuneigung. Das ist der Kern jeder pathologischen Bindung."
             />
+            <FlipCard
+              icon={Brain}
+              color="var(--color-sage)"
+              label="Langeslag · 2016"
+              heading="Negative Reappraisal"
+              front="Liebesgefühle lassen sich aktiv herunterregulieren."
+              back="Negative Reappraisal erhöht die Aktivierung des medialen präfrontalen Kortex und reduziert die Amygdala-Aktivität messbar — bewusste Neubewertung dämpft Craving."
+            />
+            <FlipCard
+              icon={Flame}
+              color="var(--color-sage)"
+              label="Grant · 2010"
+              heading="Verhaltenssucht = Substanzsucht"
+              front="Toxische Liebe erfüllt alle vier Suchtkriterien."
+              back="Verhaltenssucht aktiviert dieselben Mechanismen wie Substanzabhängigkeit: Toleranzentwicklung, Entzugssymptome, Kontrollverlust, fortgesetztes Verhalten trotz negativer Konsequenzen."
+            />
           </div>
         </SectionBlock>
       </DeepDiveIntro>
 
-      {/* ════════════════ 5 · ÜBUNGEN (3) ════════════════ */}
+      {/* ════════════════ 5 · ÜBUNGEN (4) ════════════════ */}
+
 
       {/* ── Übung 1 · Warnsignale erkennen ── */}
       <SectionBlock
@@ -503,13 +528,28 @@ export function Modul01() {
         />
       </SectionBlock>
 
+      {/* ── Übung 4 · 4-7-8 Atem — Craving unterbrechen ── */}
+      <SectionBlock
+        kind="uebung"
+        eyebrow="Übung 4 · 4-7-8 Atem"
+        title="Wenn der Drang kommt, sie zu kontaktieren — erst atmen, dann entscheiden"
+      >
+        <p className="text-sm text-graphite/75">
+          Vier Sekunden einatmen, sieben halten, acht ausatmen. Der lange
+          Ausatem aktiviert den Vagusnerv und schaltet das Craving-Signal
+          messbar herunter.
+        </p>
+        <BreathPacer slug={SLUG} totalCycles={4} />
+      </SectionBlock>
+
       {/* ── Begleit-Meditation (optional, kein Pflicht-Element) ── */}
       <MeditationCard
-        title="Nervensystem beruhigen &amp; Cortisol senken"
+        title="Lass los — ohne darüber zu reden"
         duration="2 Std"
         source="ChakraTunes / Raphael Kempermann"
         youtubeId="VXrIMaXIpkQ"
       />
+
 
       {/* ════════════════ 6 · CHECKLISTE ════════════════ */}
       <SectionBlock kind="checkliste" bare>

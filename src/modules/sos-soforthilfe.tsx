@@ -1,269 +1,478 @@
-import { CollapsibleBox } from "@/components/collapsible-box";
-import { GlossarTerm } from "@/components/glossar-term";
-import { ZoomableImage } from "@/components/zoomable-image";
-import { ChecklistGoals } from "@/components/checklist-goals";
-import { ReflectionField, ReflectionInput } from "@/components/exercise-fields";
-import { DailyTracker } from "@/components/exercise/daily-tracker";
 import {
   Brain,
   Lightbulb,
   ScrollText,
-  Pencil,
   Microscope,
-  Sparkles,
-  Phone,
-  Info,
+  Hand,
+  Snowflake,
+  Activity,
+  Wind,
+  Pause,
 } from "lucide-react";
+import { CollapsibleBox } from "@/components/collapsible-box";
+import { GlossarTerm } from "@/components/glossar-term";
+import { ZoomableImage } from "@/components/zoomable-image";
+import { CrisisBanner } from "@/components/crisis-banner";
+import { ChapterIntro } from "@/components/chapter-intro";
+import { SectionBlock } from "@/components/section-block";
+import { ChecklistGoals } from "@/components/checklist-goals";
+import { TextCollapse } from "@/components/text-collapse";
+import { DeepDiveIntro } from "@/components/deep-dive-intro";
+import { ReflectionField, ReflectionInput } from "@/components/exercise-fields";
+import { DailyTracker } from "@/components/exercise/daily-tracker";
+import { UrgeSurfWave } from "@/components/exercise/urge-surf-wave";
+import {
+  Reflection3Step,
+  PillCloud,
+  MeditationCard,
+} from "@/components/exercise";
+import { HighLoadDistraction } from "@/components/exercise/high-load-distraction";
 
 const SLUG = "sos-soforthilfe";
 
 /**
- * SOS · Notfallkoffer
- * Permanente Anlaufstelle: Mary/Sandra-Story (DIE SOS-Geschichte),
- * Selbst-Monitoring (DailyTracker mit Liniendiagramm),
- * Notfallkontakte mit Fallback-Hinweis.
+ * SCHRITT 01 · SOS: Akute Stabilisierung
+ * Wenn der präfrontale Kortex offline ist, kannst du nicht denken — du kannst nur überleben.
  *
- * Die akuten Quick-Tools (TIPP, STOPP, 5-4-3-2-1, Urge-Surf, 4-7-8 Atem)
- * leben im globalen SosFloatingButton-Drawer und sind aus jedem Kapitel
- * heraus erreichbar – für die Zeit nach dem Buch und bei akuten Triggern
- * während der Buchbearbeitung.
+ * Struktur (Claude-Vorlage):
+ *   Hero · Crisis-Banner · Story · Diagnose · Lösung (TIPP) ·
+ *   Übungen (TIPP-Notfallplan · Urge Surfing · STOPP · Supermarkt-Distraction) ·
+ *   Deep Dive (90-Sek-Regel) · Meditation · Selbst-Monitoring · Notfallkontakte · Checkliste
+ *
+ * Hinweis: Die akuten Quick-Tools (TIPP, STOPP, 5-4-3-2-1, Urge-Surf, 4-7-8 Atem)
+ * leben zusätzlich im globalen SosFloatingButton-Drawer — aus jedem Kapitel erreichbar.
  */
 export function SosSoforthilfe() {
   return (
     <article className="space-y-7">
-      {/* ─── STORY · 3:14 Uhr nachts ─── */}
-      <Section icon={<ScrollText className="h-4 w-4" />} label="Story · 3:14 Uhr nachts">
-        <div className="glass-card-strong p-5">
-          <div className="grid gap-5 sm:grid-cols-[200px_1fr]">
-            <ZoomableImage alt="Mary · Die erste Nacht" caption="Mary · Die erste Nacht" />
-            <div className="space-y-3 text-sm leading-relaxed animate-fade-in-stagger">
-              <h3 className="font-display text-base font-bold text-bordeaux">Der Kontaktabbruch</h3>
-              <p>
-                Eigentlich ist es ein sonniger, schöner Tag. Doch Mary kann nichts davon wirklich
-                wahrnehmen. Sie sitzt auf ihrer Couch und starrt das tutende Smartphone an. Alles
-                wirkt unwirklich auf sie. Ihr Herz hämmert so heftig gegen ihre Rippen, dass es
-                schmerzt. Der Auslöser?
-              </p>
-              <p>
-                Ein plötzlicher, eiskalter Kontaktabbruch von Sandra, nur 4 Tage nach einem innigen,
-                harmonischen Wochenende. Marys Verstand rattert: <em>„Was habe ich falsch gemacht?
-                Warum stoßt sie mich wieder weg?"</em> 3 Tage hatte sie Sandras Rückzug ausgehalten,
-                doch paradoxerweise, je mehr sie aushielt, desto komischer und abweisender wurde
-                Sandra. Schließlich stellte sie sie zur Rede, nicht anklagend, in einem ruhigen Ton.
-                Doch Sandra legte auf und blockierte sie. Allein die Frage nach ihrem Verhalten löste
-                aggressive Abwehr aus.
-              </p>
-              <p>
-                Ihr Körper ist in Alarmbereitschaft. Die{" "}
-                <GlossarTerm termKey="amygdala-hijacking">Amygdala</GlossarTerm> hat das Schweigen als
-                Bedrohung registriert – so, als ob sie einer physischen Gefahr ausgesetzt wäre.
-                Cortisol flutet. Der präfrontale Kortex, der Marys rationale Stimme ist, schaltet sich
-                zunehmend ab. Was bleibt: Drang. Reflexe. Schmerz.
-              </p>
-              <p>
-                Doch Mary weiß: Wenn sie jetzt zum Handy greift, füttert sie nur das Monster. Sie
-                wankt ins Badezimmer, füllt das Waschbecken mit eiskaltem Wasser und taucht ihr
-                Gesicht für 30 Sekunden unter. Der Tauchreflex kickt ein. Ihr Herzschlag wird ruhiger.{" "}
-                <strong>Die Gefahr ist nicht real, es ist nur ihr Nervensystem.</strong>
-              </p>
-            </div>
-          </div>
-        </div>
-      </Section>
+      <ChapterIntro
+        title="Schritt 01 · SOS: Akute Stabilisierung"
+        keywords={["TIPP-Protokoll", "Amygdala-Hijacking", "90-Sekunden-Regel"]}
+        introSentenceLimit={2}
+      >
+        <p>
+          Wenn der präfrontale Kortex offline ist, kannst du nicht denken — du
+          kannst nur überleben. Deshalb beginnen wir nicht mit Analyse, sondern
+          damit, dein Nervensystem physiologisch aus dem Alarmmodus
+          herauszuholen.
+        </p>
+        <p>
+          Dieser Schritt vermittelt dir das evidenzbasierte TIPP-Protokoll aus
+          der DBT, konkrete Atemtechniken und Sofortmaßnahmen — anwendbar
+          mitten in der Nacht, auf dem Küchenboden, mit zitternden Händen,
+          ohne einen einzigen klaren Gedanken fassen zu müssen.
+        </p>
+      </ChapterIntro>
 
-      {/* ─── DIAGNOSE ─── */}
-      <Section icon={<Brain className="h-4 w-4" />} label="Diagnose · Was in deinem Körper passiert">
-        <div className="diagnose-box space-y-3 text-sm">
-          <p>
-            Was du gerade erlebst – die Gedankenschleifen um 3 Uhr morgens, das Herzrasen, das Wissen,
-            dass du gehen musst, und der Körper, der trotzdem zurückwill – ist kein Zeichen, dass du
-            verrückt bist. Es ist ein neurobiologisches Ereignis. Dein Gehirn reagiert auf Trennung
-            wie auf Drogenentzug. <GlossarTerm termKey="dopamin">Dopamin</GlossarTerm> bricht ein,
-            Cortisol steigt, der präfrontale Kortex – dein rationales Denken – ist offline.
-          </p>
-          <p>
-            Romantische Liebe aktiviert dieselben neuronalen Belohnungspfade wie Kokain (Fisher et
-            al., 2005). Bei{" "}
-            <GlossarTerm termKey="intermittierende-verstaerkung">intermittierender Verstärkung</GlossarTerm>{" "}
-            – dem unvorhersehbaren Wechsel aus Nähe und Rückzug – wird dieses Belohnungssystem
-            besonders stark konditioniert. Wir nennen sie{" "}
-            <GlossarTerm termKey="trauma-bonding">Trauma-Bonding</GlossarTerm>.
-          </p>
-        </div>
-      </Section>
+      {/* Crisis-Banner ganz oben */}
+      <CrisisBanner />
 
-      {/* ─── LÖSUNG · Selbst-Monitoring ─── */}
-      <Section icon={<Lightbulb className="h-4 w-4" />} label="Lösung · Selbst-Monitoring">
-        <div className="loesung-box space-y-3 text-sm">
-          <p>
-            Bevor du mit der aktiven Arbeit beginnst, ist Selbst-Monitoring das erste wirksame
-            Werkzeug deiner Heilung. Kabat-Zinn (1990) zeigte: Die bloße Beobachtung eines Zustands
-            – ohne ihn verändern zu müssen – aktiviert den präfrontalen Kortex und senkt die
-            Amygdala-Reaktivität.
-          </p>
-          <p>
-            Indem du <strong>täglich</strong> drei Werte dokumentierst – Schlafqualität,
-            Körperspannung und Kontakt-Drang – schaffst du eine datenbasierte Außenperspektive auf
-            dein Nervensystem. Im Trauma fühlen sich Zustände endlos an; tatsächliche Zahlen beweisen
-            die Veränderlichkeit deines Erlebens.
-          </p>
-          <p className="rounded-lg bg-mauve/8 p-3 text-xs text-graphite/80">
-            💡 <strong>Akute Krise jetzt?</strong> Tippe rechts unten auf den roten SOS-Button. Dort
-            findest du die fünf Sofort-Tools (4-7-8 Atem, TIPP, 5-4-3-2-1, STOPP, Urge-Surf) plus
-            Notfallnummern – aus jedem Kapitel heraus erreichbar.
-          </p>
-        </div>
-      </Section>
-
-      {/* ─── ÜBUNG 1 · Tägliches Tracking mit Liniendiagramm ─── */}
-      <DailyTracker slug={SLUG} />
-
-      {/* ─── ÜBUNG 2 · Notfall-Kontaktliste mit Fallback ─── */}
-      <Section icon={<Pencil className="h-4 w-4" />} label="Übung 2 · Notfall-Kontaktliste">
-        <div className="uebung-box space-y-3">
-          <p className="text-sm">
-            Trage jetzt – nicht in der Krise – mindestens eine Person pro Kategorie ein. Diese Liste
-            kommt ans Handy und an den Kühlschrank.
-          </p>
-          <ReflectionInput
-            slug={SLUG}
-            exerciseKey="kontakt_a"
-            label="💛 A · Wärme – jemand, der zuhört und nicht urteilt"
-            placeholder="Name & Telefonnummer"
-          />
-          <ReflectionInput
-            slug={SLUG}
-            exerciseKey="kontakt_b"
-            label="🧩 B · Struktur – jemand, der dir hilft, den Tag zu planen"
-            placeholder="Name & Telefonnummer"
-          />
-          <ReflectionInput
-            slug={SLUG}
-            exerciseKey="kontakt_c"
-            label="🩺 C · Professionell – Therapeutin oder Krisentelefon"
-            placeholder="z.B. Telefonseelsorge 0800 111 0 111"
-          />
-
-          <div className="flex gap-3 rounded-xl border-l-4 border-mauve bg-mauve/8 p-3 text-xs leading-snug">
-            <Info className="mt-0.5 h-4 w-4 flex-shrink-0 text-mauve" />
+      {/* ════════════════ 1 · STORY ════════════════ */}
+      <SectionBlock
+        kind="story"
+        eyebrow="Story · 3:14 Uhr nachts"
+        title="Mary — Die erste Nacht"
+      >
+        <div className="grid gap-5 sm:grid-cols-[200px_1fr]">
+          <ZoomableImage alt="Mary · Die erste Nacht" caption="Mary · Schritt 01" />
+          <div className="space-y-3 text-sm leading-relaxed">
             <p>
-              <strong>Du hast nicht drei verschiedene Personen?</strong> Eine einzige Person reicht
-              auch – sie sollte nur ein wenig <strong>Einblick in die Thematik</strong> (toxische
-              Bindung, Trauma-Bonding) haben, damit sie dich nicht mit „Du übertreibst" oder „Geh
-              halt einfach zurück" zurück in den Strudel zieht. Wenn niemand verfügbar ist: Trag
-              unter <strong>A</strong> und <strong>B</strong> ruhig die Telefonseelsorge ein – sie
-              ist 24/7 ohne Wartezeit erreichbar.
+              Mary sitzt um 3 Uhr nachts auf dem Küchenboden. Ihr Herz rast,
+              sie bekommt kaum Luft. Vor dem endgültigen Abbruch hatte Sandra
+              sie mit ihrer extremen Ambivalenz schier in den Wahnsinn
+              getrieben: Morgens nahm sie noch innig ein Liebeskettchen an und
+              sprach von einer gemeinsamen Zukunft, abends machte sie
+              plötzlich Schluss — nur um Mary am nächsten Tag ihren Schlüssel
+              in einem parfümierten Briefumschlag in den Briefkasten zu
+              werfen.
             </p>
-          </div>
-
-          <div className="rounded-xl bg-[var(--color-sos)]/8 p-3">
-            <p className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-[var(--color-sos)]">
-              Krisennummern · Kostenlos · 24/7
-            </p>
-            <div className="space-y-1.5">
-              <a
-                href="tel:08001110111"
-                className="flex items-center gap-2 rounded-lg bg-white/85 p-2 text-xs hover:bg-white"
-              >
-                <Phone className="h-3.5 w-3.5 text-bordeaux" />
-                <span><strong>Telefonseelsorge</strong> · 0800 111 0 111</span>
-              </a>
-              <a
-                href="tel:08001160160"
-                className="flex items-center gap-2 rounded-lg bg-white/85 p-2 text-xs hover:bg-white"
-              >
-                <Phone className="h-3.5 w-3.5 text-bordeaux" />
-                <span><strong>Hilfetelefon Gewalt gegen Frauen</strong> · 0800 116 016</span>
-              </a>
-            </div>
+            <TextCollapse preview={1} threshold={2}>
+              <p>
+                Der eigentliche Auslöser für die jetzige Eskalation war ein
+                intimer, überaus harmonischer Vormittag. Als Mary — wohlwissend
+                um Sandras Muster — erst am nächsten Tag anrief, blockte
+                Sandra sofort ab. Als Mary fassungslos fragte, was das soll,
+                legte sie einfach auf und blockierte sie überall.
+              </p>
+              <p>
+                Der Schock über diesen ultimativen Verrat lässt Marys Körper
+                hyperventilieren. Statt Sandra anzuflehen, stoppt Mary. Sie
+                nutzt das TIPP-Protokoll, taucht ihr Gesicht in eiskaltes
+                Wasser und zwingt ihr Nervensystem durch tiefe Bauchatmung aus
+                der Panik. <strong>Sie schreibt nicht. Sie atmet.</strong>
+              </p>
+            </TextCollapse>
           </div>
         </div>
-      </Section>
+      </SectionBlock>
 
-      {/* ─── REFLEXION ─── */}
-      <Section icon={<Pencil className="h-4 w-4" />} label="Reflexion · Dein erster Schritt">
-        <div className="uebung-box space-y-3">
-          <ReflectionField
-            slug={SLUG}
-            exerciseKey="erster_schritt"
-            label="Was nimmst du dir aus diesem Modul mit – und was probierst du als Erstes aus?"
-            placeholder="z.B. Ich werde heute Abend die Notfall-Kontaktliste fertig ausfüllen…"
+      {/* ════════════════ 2 · DIAGNOSE ════════════════ */}
+      <SectionBlock
+        kind="diagnose"
+        eyebrow="Diagnose · Amygdala-Hijacking"
+        title="Was in deinem Körper passiert"
+      >
+        <p>
+          Was Mary erlebt — und was du vielleicht gerade erlebst — hat einen
+          Namen:{" "}
+          <GlossarTerm termKey="amygdala-hijacking">Amygdala-Hijacking</GlossarTerm>.
+          Die Amygdala, das Alarmsystem deines Gehirns, hat das plötzliche
+          Schweigen als lebensbedrohliche Situation registriert. In diesem
+          Zustand ist dein präfrontaler Kortex buchstäblich offline.
+        </p>
+        <TextCollapse preview={1} threshold={2}>
+          <p>
+            Das ist kein Zeichen von Schwäche. Das ist Biologie. Dein
+            Nervensystem hat gelernt, dass der Entzug von Aufmerksamkeit und
+            Sicherheit eine existenzielle Bedrohung darstellt — weil er in
+            dieser Beziehung immer wieder genau das war.
+          </p>
+          <p>
+            Die gute Nachricht: Das Nervensystem lässt sich regulieren. Nicht
+            durch Willenskraft, sondern durch gezielte körperliche
+            Interventionen, die direkt auf das autonome Nervensystem wirken —
+            bevor der Verstand überhaupt eingeschaltet ist.
+          </p>
+        </TextCollapse>
+      </SectionBlock>
+
+      {/* ════════════════ 3 · LÖSUNG · TIPP ════════════════ */}
+      <SectionBlock
+        kind="loesung"
+        eyebrow="Lösung · Das TIPP-Protokoll (DBT)"
+        title="Wirkt auf die Physiologie, bevor Kognition möglich ist"
+      >
+        <p>
+          Das TIPP-Protokoll aus der Dialektisch-Behavioralen Therapie
+          (Linehan, 1993) ist das wirksamste evidenzbasierte Notfall-Werkzeug
+          bei akuter emotionaler Überwältigung — und es ist deshalb so
+          effektiv, weil es die Biologie deiner Krise versteht.
+        </p>
+        <p>
+          Neuroanatomin Jill Bolte Taylor (2006) beschrieb, dass eine reine
+          biochemische Emotionswelle physiologisch nur{" "}
+          <strong>90 Sekunden</strong> dauert — was danach kommt, ist ein
+          Gedanke, der die Emotion neu aktiviert. Diese 90 Sekunden sind das
+          Ziel: <strong>Du musst sie nur überstehen, ohne zu handeln.</strong>
+        </p>
+
+        <div className="mt-2 grid gap-3 sm:grid-cols-2">
+          <TippCard
+            icon={<Snowflake className="h-4 w-4" />}
+            letter="T"
+            title="Temperature"
+            text="Eiskaltes Wasser ins Gesicht (30 Sek.) aktiviert den Tauchreflex und senkt die Herzfrequenz innerhalb von Sekunden."
+          />
+          <TippCard
+            icon={<Activity className="h-4 w-4" />}
+            letter="I"
+            title="Intense Exercise"
+            text="Kurze, intensive Bewegung (20 Liegestütze, Treppe) metabolisiert Cortisol und Adrenalin im Blut."
+          />
+          <TippCard
+            icon={<Wind className="h-4 w-4" />}
+            letter="P"
+            title="Paced Breathing"
+            text="Langsame Bauchatmung im 4-4-8-Rhythmus aktiviert den Vagusnerv und kippt dich in den parasympathischen Modus."
+          />
+          <TippCard
+            icon={<Pause className="h-4 w-4" />}
+            letter="P"
+            title="Progressive Relaxation"
+            text="Muskelgruppen für 5 Sek. anspannen, dann lösen — entladen körperliche Anspannung systematisch."
           />
         </div>
-      </Section>
 
-      {/* ─── DEEP DIVE ─── */}
-      <Section icon={<Microscope className="h-4 w-4" />} label="Deep Dive · Die 90-Sekunden-Regel">
-        <CollapsibleBox title="Die Neurobiologie der Emotionswelle (Jill Bolte Taylor, 2006)">
+        <p className="mt-2 text-xs italic text-graphite/65">
+          Quellen: Linehan, M. M. (1993), <em>DBT Skills Training Manual</em>;
+          Taylor, J. B. (2006), <em>My Stroke of Insight</em>.
+        </p>
+      </SectionBlock>
+
+      {/* ════════════════ 4 · ÜBUNGEN (4) ════════════════ */}
+
+      {/* Übung 1 · TIPP-Notfallplan */}
+      <SectionBlock
+        kind="uebung"
+        eyebrow="Übung 1 · Mein TIPP-Notfallplan"
+        title="Schreibe jetzt — nicht in der Krise — wie du jede Phase umsetzt"
+      >
+        <p className="text-sm text-graphite/75">
+          Wird automatisch gespeichert. In der nächsten Krise hast du diesen
+          Plan griffbereit — ohne nachdenken zu müssen.
+        </p>
+        <Reflection3Step
+          slug={SLUG}
+          title="Mein persönlicher Notfallplan"
+          accent="bordeaux"
+          steps={[
+            {
+              key: "tipp_t",
+              label: "T · Temperature — Wo ist bei mir kaltes Wasser verfügbar?",
+              placeholder: "z.B. Waschbecken im Bad, Eiswürfel im Tiefkühler …",
+            },
+            {
+              key: "tipp_i",
+              label: "I · Intense Exercise — Welche Bewegung kann ich sofort machen?",
+              placeholder: "z.B. 20 Liegestütze, Treppe im Haus …",
+            },
+            {
+              key: "tipp_p1",
+              label: "P · Paced Breathing — Mein Atemrhythmus",
+              placeholder: "z.B. 4-4-8, 5 Minuten, mit Timer …",
+            },
+          ]}
+        />
+        <ReflectionField
+          slug={SLUG}
+          exerciseKey="tipp_p2"
+          label="P · Progressive Relaxation — Wann und wo übe ich das?"
+          placeholder="z.B. Abends im Bett, bevor ich einschlafe …"
+        />
+      </SectionBlock>
+
+      {/* Übung 2 · Urge Surfing */}
+      <SectionBlock
+        kind="uebung"
+        eyebrow="Übung 2 · Urge Surfing"
+        title="Den Impuls reiten — wie eine Welle"
+      >
+        <p className="text-sm text-graphite/80">
+          Wenn der Drang kommt, ihr zu schreiben: Beobachte ihn wie eine
+          Welle. Er steigt, erreicht seinen Höhepunkt — und fällt wieder ab.
+          Du musst nicht handeln. Du musst nur warten.
+        </p>
+        <UrgeSurfWave totalSeconds={90} accent="bordeaux" />
+        <Reflection3Step
+          slug={SLUG}
+          title="Urge-Surf-Reflexion"
+          accent="bordeaux"
+          steps={[
+            {
+              key: "urge_koerper",
+              label: "Wie fühlt sich der Impuls in meinem Körper an?",
+              placeholder: "z.B. Enge in der Brust, Kribbeln in den Fingern …",
+            },
+            {
+              key: "urge_stattdessen",
+              label: "Was tue ich stattdessen, wenn die Welle kommt?",
+              placeholder: "z.B. TIPP-T sofort, dann 5 Min. spazieren …",
+            },
+            {
+              key: "urge_lernen",
+              label: "Was nehme ich aus dieser Übung mit?",
+              placeholder: "z.B. Die Welle ist immer wieder abgeklungen, ohne dass ich etwas tun musste …",
+            },
+          ]}
+        />
+      </SectionBlock>
+
+      {/* Übung 3 · STOPP-Technik */}
+      <SectionBlock
+        kind="uebung"
+        eyebrow="Übung 3 · Die STOPP-Technik"
+        title="Den Moment zwischen Impuls und Reaktion erweitern"
+      >
+        <p className="text-sm text-graphite/80">
+          Die STOPP-Technik aus der Verhaltenstherapie unterbricht impulsive
+          Reaktionen, bevor sie zur Handlung werden.{" "}
+          <strong>Wichtig:</strong> Übe sie zuerst in ruhigen Momenten — je
+          öfter du sie im Alltag trainierst, desto zuverlässiger greift sie in
+          der Krise.
+        </p>
+        <CollapsibleBox title="So funktioniert es">
           <p>
-            Die Neuroanatomin Jill Bolte Taylor beschrieb, dass eine reine biochemische Emotionswelle
-            nur <strong>90 Sekunden</strong> dauert. Was danach kommt, ist kein Gefühl mehr, sondern
-            ein Gedanke, der die Emotion neu aktiviert. Wenn du 90 Sekunden lang nicht auf den Impuls
-            reagierst, ist die ursprüngliche Welle vorbei.
-          </p>
-          <p>
-            Das TIPP-Protokoll (Linehan, 1993) nutzt genau dieses Fenster. Du findest es zusammen mit
-            STOPP, 5-4-3-2-1 und Urge-Surf jederzeit im SOS-Drawer (roter Button rechts unten).
-          </p>
-          <p className="text-xs italic text-graphite/65">
-            Quellen: Linehan (1993), <em>DBT Skills Training Manual</em> · Taylor (2006), <em>My
-            Stroke of Insight</em> · Fisher et al. (2005), <em>Romantic Love: An fMRI Study</em>.
+            Setze dich hin und stell dir vor, du willst ihr gerade schreiben.
+            Hebe die Hand wie ein Stoppschild. Sage laut: „STOPP!" Zähle bis
+            5. Wähle dann eine Ersatzhandlung.{" "}
+            <strong>Wiederhole die Übung 3× am Stück.</strong>
           </p>
         </CollapsibleBox>
-      </Section>
+        <PillCloud
+          slug={SLUG}
+          storageKey="stopp_ersatzhandlungen"
+          title="Meine Ersatzhandlungen"
+          subtitle="Klicke alle an, die du dir vorstellen kannst — oder ergänze weiter unten."
+          meta="Vor-Auswahl trainiert das Gehirn"
+          accent="bordeaux"
+          pills={ERSATZHANDLUNGEN.map((e) => ({ id: e.id, label: e.label }))}
+          counterLabel="Ersatzhandlungen gewählt"
+          emptyHint="Tippe an, was du dir merken willst."
+        />
+        <ReflectionField
+          slug={SLUG}
+          exerciseKey="stopp_reflexion"
+          label="Mein STOPP-Moment: Beschreibe, wann du es geübt hast."
+          placeholder="z.B. Ich wollte ihr schreiben. Ich habe STOPP gesagt, geatmet und dann meiner Freundin geschrieben …"
+        />
+      </SectionBlock>
 
-      {/* ─── BEGLEIT-MEDITATION ─── */}
-      <Section icon={<Sparkles className="h-4 w-4" />} label="Begleitende Meditation">
-        <a
-          href="https://www.youtube.com"
-          target="_blank"
-          rel="noreferrer"
-          className="flex items-center gap-4 rounded-xl bg-gradient-to-br from-mauve/15 to-sage/15 p-4 transition hover:shadow-soft"
+      {/* Übung 4 · High-Load Distraction */}
+      <SectionBlock
+        kind="uebung"
+        eyebrow="Übung 4 · High-Load Distraction"
+        title="Supermarkt-Übung — Working-Memory-Overload"
+      >
+        <p className="text-sm text-graphite/80">
+          Dein Arbeitsgedächtnis gleichzeitig mit drei kognitiv anspruchsvollen
+          Aufgaben überlasten — dann hat es schlicht keine Kapazität mehr für
+          obsessive Gedanken an die Ex.
+        </p>
+        <HighLoadDistraction />
+        <CollapsibleBox title="Warum das funktioniert">
+          <p>
+            Das Arbeitsgedächtnis hat eine begrenzte Kapazität. Wenn es mit
+            kognitiv anspruchsvollen Aufgaben zu 100 % ausgelastet ist, fehlt
+            buchstäblich der neuronale Raum für obsessive Gedanken. Working
+            Memory Overload ist eine klinisch validierte Technik aus der DBT
+            (Linehan, 1993).
+          </p>
+        </CollapsibleBox>
+      </SectionBlock>
+
+      {/* ════════════════ 5 · DEEP DIVE ════════════════ */}
+      <DeepDiveIntro
+        label="Wenn du tiefer verstehen willst …"
+        hint="Optional. Die Neurobiologie der 90-Sekunden-Welle."
+      >
+        <SectionBlock
+          kind="deep-dive"
+          eyebrow="Deep Dive · Die 90-Sekunden-Regel"
+          title="Die Neurobiologie der Emotion (Bolte Taylor, 2006)"
         >
-          <div className="grid h-14 w-14 flex-shrink-0 place-items-center rounded-full bg-white/70 text-2xl">
-            🧘
-          </div>
-          <div>
-            <p className="font-display text-sm font-bold text-bordeaux">
-              Nervensystem beruhigen &amp; Cortisol senken
-            </p>
-            <p className="text-xs text-graphite/70">2 Std · ChakraTunes / Raphael Kempermann</p>
-            <p className="mt-0.5 text-[11px] text-mauve underline">▹ Auf YouTube anhören</p>
-          </div>
-        </a>
-      </Section>
+          <p>
+            Neuroanatomin Jill Bolte Taylor beschrieb, dass eine Emotion — die
+            reine biochemische Reaktion im Körper — nur 90 Sekunden dauert.
+            Was danach kommt, ist kein Gefühl mehr, sondern ein Gedanke, der
+            die Emotion neu aktiviert. Das bedeutet: Wenn du 90 Sekunden lang
+            nicht auf den Impuls reagierst, ist die ursprüngliche Welle vorbei.
+          </p>
+          <p>
+            Das TIPP-Protokoll nutzt genau dieses Fenster. Kaltes Wasser
+            aktiviert den Tauchreflex und senkt die Herzfrequenz innerhalb von
+            Sekunden. Intensive Bewegung metabolisiert Cortisol und Adrenalin.
+          </p>
+          <p className="text-xs italic text-graphite/65">
+            Quellen: Linehan (1993), <em>DBT Skills Training Manual</em> ·
+            Taylor (2006), <em>My Stroke of Insight</em> · Fisher et al.
+            (2005), <em>Romantic Love: An fMRI Study</em>.
+          </p>
+        </SectionBlock>
+      </DeepDiveIntro>
 
-      {/* ─── CHECKLISTE ─── */}
-      <ChecklistGoals
-        slug={SLUG}
-        goals={[
-          { id: "g1", text: "Ich verstehe, dass mein Schmerz Entzug ist – keine Einbildung." },
-          { id: "g2", text: "Ich habe heute meinen ersten Nervensystem-Eintrag gemacht." },
-          { id: "g3", text: "Ich habe meine Notfall-Kontaktliste erstellt (auch Krisentelefon zählt)." },
-          { id: "g4", text: "Ich weiß, wo der SOS-Button ist und welche fünf Tools dort warten." },
-          { id: "g5", text: "Ich weiß: Eine Emotionswelle klingt nach 90 Sekunden ab – ich muss sie nur überstehen." },
-        ]}
+      {/* ════════════════ 6 · MEDITATION ════════════════ */}
+      <MeditationCard
+        title="Nervensystem beruhigen & Cortisol senken — Stressabbau"
+        duration="2 Std"
+        source="ChakraTunes / Raphael Kempermann"
+        youtubeId="v9XmIgvP0Wc"
       />
+
+      {/* ════════════════ 7 · BEGLEIT-WERKZEUGE ════════════════ */}
+      <SectionBlock
+        kind="uebung"
+        eyebrow="Begleitend · Selbst-Monitoring"
+        title="Tägliches Nervensystem-Tracking"
+      >
+        <p className="text-sm text-graphite/80">
+          Kabat-Zinn (1990) zeigte: Die bloße Beobachtung eines Zustands —
+          ohne ihn verändern zu müssen — aktiviert den präfrontalen Kortex und
+          senkt die Amygdala-Reaktivität. Trage täglich drei Werte ein: Schlaf,
+          Körperspannung, Kontakt-Drang.
+        </p>
+        <DailyTracker slug={SLUG} />
+      </SectionBlock>
+
+      <SectionBlock
+        kind="uebung"
+        eyebrow="Begleitend · Notfall-Kontaktliste"
+        title="Drei Menschen, drei Funktionen — jetzt eintragen"
+      >
+        <p className="text-sm">
+          Trage jetzt — nicht in der Krise — mindestens eine Person pro
+          Kategorie ein. Diese Liste kommt ans Handy und an den Kühlschrank.
+        </p>
+        <ReflectionInput
+          slug={SLUG}
+          exerciseKey="kontakt_a"
+          label="💛 A · Wärme — jemand, der zuhört und nicht urteilt"
+          placeholder="Name & Telefonnummer"
+        />
+        <ReflectionInput
+          slug={SLUG}
+          exerciseKey="kontakt_b"
+          label="🧩 B · Struktur — jemand, der dir hilft, den Tag zu planen"
+          placeholder="Name & Telefonnummer"
+        />
+        <ReflectionInput
+          slug={SLUG}
+          exerciseKey="kontakt_c"
+          label="🩺 C · Professionell — Therapeutin oder Krisentelefon"
+          placeholder="z.B. Telefonseelsorge 0800 111 0 111"
+        />
+        <p className="rounded-xl border-l-4 border-mauve bg-mauve/8 p-3 text-xs leading-snug">
+          <strong>Du hast nicht drei verschiedene Personen?</strong> Eine
+          einzige reicht — sie sollte nur ein wenig Einblick in die Thematik
+          (Trauma-Bonding) haben, damit sie dich nicht mit „Du übertreibst"
+          zurück in den Strudel zieht. Wenn niemand verfügbar ist, trag unter
+          A und B die Telefonseelsorge ein — 24/7 ohne Wartezeit.
+        </p>
+      </SectionBlock>
+
+      {/* ════════════════ 8 · CHECKLISTE ════════════════ */}
+      <SectionBlock kind="checkliste" bare>
+        <ChecklistGoals
+          slug={SLUG}
+          goals={[
+            { id: "g1", text: "Ich kenne das TIPP-Protokoll und kann es im Notfall anwenden." },
+            { id: "g2", text: "Ich verstehe, dass mein Amygdala-Hijacking eine biologische Reaktion ist — kein Zeichen von Schwäche." },
+            { id: "g3", text: "Ich habe meinen persönlichen TIPP-Notfallplan ausgefüllt." },
+            { id: "g4", text: "Ich habe Urge Surfing oder die STOPP-Technik mindestens einmal ausprobiert." },
+            { id: "g5", text: "Ich weiß: Eine Emotionswelle klingt nach 90 Sekunden ab — ich muss sie nur überstehen, ohne zu handeln." },
+          ]}
+        />
+      </SectionBlock>
     </article>
   );
 }
 
-function Section({
+/* ─── Kleine TIPP-Karte ─── */
+function TippCard({
   icon,
-  label,
-  children,
+  letter,
+  title,
+  text,
 }: {
   icon: React.ReactNode;
-  label: string;
-  children: React.ReactNode;
+  letter: string;
+  title: string;
+  text: string;
 }) {
   return (
-    <section className="space-y-3 animate-fade-in">
-      <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-mauve">
-        {icon}
-        {label}
+    <div className="flex gap-3 rounded-xl border-l-4 border-bordeaux bg-white/70 p-3.5">
+      <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-full bg-bordeaux/10 font-display text-base font-extrabold text-bordeaux">
+        {letter}
       </div>
-      {children}
-    </section>
+      <div>
+        <div className="mb-0.5 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-bordeaux">
+          {icon}
+          {title}
+        </div>
+        <p className="text-sm leading-relaxed text-graphite/90">{text}</p>
+      </div>
+    </div>
   );
 }
+
+const ERSATZHANDLUNGEN = [
+  { id: "freundin", label: "Freundin anrufen" },
+  { id: "spaziergang", label: "5 Min. spazieren gehen" },
+  { id: "kaltes_wasser", label: "Kaltes Wasser ins Gesicht" },
+  { id: "musik", label: "Lautstarke Lieblings-Playlist" },
+  { id: "journal", label: "Ins Journal schreiben" },
+  { id: "dusche", label: "Kalt duschen" },
+  { id: "putzen", label: "Etwas konkret aufräumen" },
+  { id: "atem", label: "4-7-8 Atem (4 Zyklen)" },
+  { id: "sport", label: "20 Liegestütze / Treppe" },
+  { id: "meditation", label: "Geführte Meditation starten" },
+];
