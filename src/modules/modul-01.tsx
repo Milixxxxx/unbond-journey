@@ -42,6 +42,8 @@ import {
   FlipCard,
   MeditationCard,
 } from "@/components/exercise";
+import { BreathPacer } from "@/components/exercise/breath-pacer";
+import { QuickToolsTrio, QUICK_TOOLS_M02 } from "@/components/quick-tools-trio";
 
 const SLUG = "modul-01";
 
