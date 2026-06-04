@@ -511,13 +511,28 @@ export function Modul01() {
         />
       </SectionBlock>
 
+      {/* ── Übung 4 · 4-7-8 Atem — Craving unterbrechen ── */}
+      <SectionBlock
+        kind="uebung"
+        eyebrow="Übung 4 · 4-7-8 Atem"
+        title="Wenn der Drang kommt, sie zu kontaktieren — erst atmen, dann entscheiden"
+      >
+        <p className="text-sm text-graphite/75">
+          Vier Sekunden einatmen, sieben halten, acht ausatmen. Der lange
+          Ausatem aktiviert den Vagusnerv und schaltet das Craving-Signal
+          messbar herunter.
+        </p>
+        <BreathPacer slug={SLUG} totalCycles={4} />
+      </SectionBlock>
+
       {/* ── Begleit-Meditation (optional, kein Pflicht-Element) ── */}
       <MeditationCard
-        title="Nervensystem beruhigen &amp; Cortisol senken"
+        title="Lass los — ohne darüber zu reden"
         duration="2 Std"
         source="ChakraTunes / Raphael Kempermann"
         youtubeId="VXrIMaXIpkQ"
       />
+
 
       {/* ════════════════ 6 · CHECKLISTE ════════════════ */}
       <SectionBlock kind="checkliste" bare>
