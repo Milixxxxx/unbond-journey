@@ -21,7 +21,7 @@ export const JOURNEY_CHAPTERS: JourneyChapter[] = [
   {
     slug: "modul-01",
     number: "01",
-    title: "Trauma-Bonding verstehen",
+    title: "Trauma-Bonding: Anatomie der Fessel",
     shortTitle: "Trauma-Bond",
     goals: [
       "Ich verstehe meine Sehnsucht als neurobiologische Reaktion, nicht als Beweis für Liebe.",

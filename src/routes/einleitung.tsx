@@ -93,37 +93,38 @@ function Einleitung() {
           <SectionLabel>Der wissenschaftliche Aufbau der Module</SectionLabel>
           <div className="science-box space-y-3">
             <p>
-              Dieses Buch ist streng wissenschaftlich fundiert und nicht einfach aus den Fingern
-              gesogen. Um dich sicher durch den Prozess zu führen, hat jedes einzelne Kapitel
-              exakt denselben strukturierten Aufbau:
+              UNBOND ist konsequent evidenzbasiert aufgebaut. Jedes Kapitel folgt
+              demselben strukturierten Bogen, damit du dich auf die innere Arbeit
+              konzentrieren kannst und nicht auf die Form:
             </p>
             <ol className="space-y-2.5">
               <Step icon="📖" title="Die Story">
-                Beschreibt das Problem und die emotionale Situation, an der man leidet,
-                veranschaulicht durch eine Szene von Mary und Sandra.
+                Eine Szene aus Marys Leben veranschaulicht das jeweilige Muster
+                und macht das Abstrakte greifbar.
               </Step>
               <Step icon="🔬" title="Die Diagnose">
-                Erklärt neurobiologisch und psychologisch, warum genau diese Situation entsteht
-                und was in deinem Körper passiert.
+                Neurobiologisch und psychologisch eingeordnet: Was geschieht
+                gerade in deinem Körper und in deinem Gehirn?
               </Step>
               <Step icon="🗝️" title="Die Lösung">
-                Zeigt dir konkrete, anwendbare Strategien, was du dagegen tun kannst.
+                Konkrete, anwendbare Strategien — keine Theorie ohne
+                Handlungsanleitung.
               </Step>
               <Step icon="✏️" title="Die Übungen">
-                Mindestens drei interaktive Praxis-Tools, um das Gelesene direkt in die Tat
-                umzusetzen.
+                Drei bis vier interaktive Werkzeuge, mit denen du das Gelesene
+                in deinen Alltag übersetzt.
               </Step>
               <Step icon="🧠" title="Wissenschaftlicher Deep Dive">
-                Bietet den theoretischen Kontext und die Studien, auf denen das Kapitel basiert.
+                Optionaler Kontext mit den zentralen Studien des Kapitels — für
+                alle, die tiefer einsteigen wollen.
               </Step>
             </ol>
             <div className="rounded-lg border-l-4 border-bordeaux bg-bordeaux/8 p-4 text-[14px] leading-relaxed">
               <strong className="text-bordeaux">Die Transformationsziele:</strong>{" "}
-              Abschließend folgen in jedem Kapitel fünf Transformationsziele. Du solltest diese
-              wahrheitsgetreu beantworten und am Ende mindestens drei davon ankreuzen können.
-              Nur wenn du diese Meilensteine erreichst, hast du die Transformation für das
-              jeweilige Modul vollzogen – und nur so schaffst du es nachhaltig, dich zu
-              entlieben und dieser Hölle zu entkommen.
+              Jedes Kapitel endet mit fünf Transformationszielen. Ein Kapitel
+              gilt erst dann als abgeschlossen, wenn du mindestens drei davon
+              ehrlich für dich beantworten kannst — sie sind die Brücke zwischen
+              Verstehen und nachhaltiger Veränderung.
             </div>
           </div>
         </section>

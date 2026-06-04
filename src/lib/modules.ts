@@ -39,16 +39,18 @@ export const MODULES: ModuleMeta[] = [
   {
     slug: "sos-soforthilfe",
     number: "0",
-    title: "SOS · Notfallkoffer",
-    subtitle: "Selbst-Monitoring, Notfallkontakte & Quick-Tools – aus jedem Kapitel über den SOS-Button erreichbar",
+    title: "SOS · Akute Stabilisierung",
+    subtitle:
+      "TIPP-Protokoll, STOPP-Technik, Urge Surfing und Notfallkontakte — aus jedem Kapitel über den SOS-Button erreichbar.",
     phase: 1,
     available: true,
   },
   {
     slug: "modul-01",
     number: "01",
-    title: "Trauma-Bonding verstehen",
-    subtitle: "Die neurobiologische Fessel: intermittierende Verstärkung, Dopamin-Achterbahn, Cycle of Abuse",
+    title: "Trauma-Bonding: Anatomie der Fessel",
+    subtitle:
+      "Intermittierende Verstärkung, Dopamin-Achterbahn und der Spielautomaten-Effekt — warum sich die Bindung wie Sucht anfühlt.",
     phase: 1,
     available: true,
   },
@@ -56,7 +58,8 @@ export const MODULES: ModuleMeta[] = [
     slug: "modul-02",
     number: "02",
     title: "Die Rosa-Brille abnehmen",
-    subtitle: "Kognitive Dissonanz auflösen, Gaslighting dokumentieren, Hoovering entlarven",
+    subtitle:
+      "Kognitive Dissonanz auflösen, Gaslighting dokumentieren, Hoovering benennen — Realität statt Hoffnung.",
     phase: 2,
     available: true,
   },
@@ -64,7 +67,8 @@ export const MODULES: ModuleMeta[] = [
     slug: "modul-03",
     number: "03",
     title: "No Contact als Neurobiologie",
-    subtitle: "Medizinisches Protokoll, drei Schleusen, 90-Tage-Detox – Breadcrumbing entlarven",
+    subtitle:
+      "Kontaktabbruch als medizinisches Entzugsprotokoll — drei Schleusen, 90 Tage, Wenn-Dann-Pläne.",
     phase: 2,
     available: true,
   },
