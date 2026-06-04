@@ -204,6 +204,12 @@ function TocCard({ item }: { item: Item }) {
   if (item.to === "/einleitung") {
     return <Link to="/einleitung" className={cls}>{inner}</Link>;
   }
+  if (item.to === "/vorwort") {
+    return <Link to="/vorwort" className={cls}>{inner}</Link>;
+  }
+  if (item.to === "/poem") {
+    return <Link to="/poem" className={cls}>{inner}</Link>;
+  }
   if (item.to === "/routing") {
     return <Link to="/routing" className={cls}>{inner}</Link>;
   }
