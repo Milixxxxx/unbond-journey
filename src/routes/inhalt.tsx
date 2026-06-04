@@ -45,7 +45,7 @@ const ITEMS: Item[] = [
   {
     num: "✦ Marys Geschichte",
     title: "Am Anfang war das Gefühl",
-    sub: "Wo alles begann · „Liebe fragt nicht nach der Uhr" · Mary & Sandra im Café",
+    sub: "Wo alles begann · Liebe fragt nicht nach der Uhr · Mary & Sandra im Café",
     to: "/poem",
   },
   {
