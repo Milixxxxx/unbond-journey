@@ -37,6 +37,18 @@ const ITEMS: Item[] = [
     cta: true,
   },
   {
+    num: "✉︎ Vorwort",
+    title: "Ein Brief von Milena",
+    sub: "Warum dieses Programm entstanden ist · Meine Geschichte · An dich, die liest",
+    to: "/vorwort",
+  },
+  {
+    num: "✦ Marys Geschichte",
+    title: "Am Anfang war das Gefühl",
+    sub: "Wo alles begann · „Liebe fragt nicht nach der Uhr" · Mary & Sandra im Café",
+    to: "/poem",
+  },
+  {
     num: "🧭 Routing",
     title: "Wo stehst du gerade?",
     sub: "Self-Select · Persönliche Routingempfehlung für deinen Einstiegspunkt",
