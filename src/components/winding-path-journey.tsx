@@ -92,8 +92,8 @@ export function WindingPathJourney() {
           </span>
         </div>
         <p className="mt-1 max-w-md text-[12.5px] leading-relaxed text-graphite/70">
-          Jedes Kapitel hat drei stille Ziele. Markiere, was sich für dich
-          schon wahr anfühlt — der Pfad leuchtet auf und der nächste Schritt
+          Jedes Kapitel hat drei stille Transformationsziele. Markiere, was für
+          dich schon wahr ist — der Pfad leuchtet auf und das nächste Kapitel
           wird sichtbar.
         </p>
       </div>
@@ -353,8 +353,8 @@ function ChapterPanel({
       </div>
 
       <p className="mt-3 text-[12.5px] leading-relaxed text-graphite/70">
-        Drei stille Ziele. Markiere, was schon wahr ist. Was noch fehlt, darf
-        fehlen — der Pfad merkt sich deinen Stand.
+        Drei stille Transformationsziele. Markiere, was schon wahr ist. Was
+        noch fehlt, darf fehlen — der Pfad merkt sich deinen Stand.
       </p>
 
       <ul className="mt-4 space-y-2.5">

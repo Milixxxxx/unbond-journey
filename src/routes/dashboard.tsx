@@ -21,18 +21,18 @@ export const Route = createFileRoute("/dashboard")({
   component: Dashboard,
   head: () => ({
     meta: [
-      { title: "Dein Healing Tree · UNBOND" },
+      { title: "Dein Heilungs-Pfad · UNBOND" },
       {
         name: "description",
         content:
-          "Dein persönliches Dashboard – Healing-Tree-Pfad, Tagesimpuls und alle Kapitel von UNBOND.",
+          "Dein persönliches Dashboard – Heilungs-Pfad mit 10 Kapiteln, Tagesimpuls und Fortschritt.",
       },
     ],
   }),
 });
 
 const IMPULSE =
-  "„Du musst nicht stark sein, um zu heilen. Du musst nur ehrlich sein – mit dir selbst.\u201C";
+  "\u201EDas Nervensystem nennt Schmerz irgendwann Vertrautheit. Und was vertraut ist, verl\u00E4sst man nicht einfach.\u201C \u2014 Milena, Vorwort";
 
 function Dashboard() {
   const [earnedSlugs, setEarnedSlugs] = useState<string[]>([]);
@@ -95,8 +95,12 @@ function Dashboard() {
             className="mt-2 font-display text-4xl font-extrabold tracking-brand uppercase md:text-5xl"
             style={{ color: "var(--bordeaux)" }}
           >
-            Dein Healing Tree
+            Dein Heilungs-Pfad
           </h1>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-graphite/75">
+            Zehn Kapitel, je drei stille Transformationsziele. Du gehst sie in
+            deinem Tempo — der Pfad merkt sich, wo du stehst.
+          </p>
         </div>
 
         {/* ─── HAUPT-GRID: Pfad links, Side-Panel rechts ─── */}
