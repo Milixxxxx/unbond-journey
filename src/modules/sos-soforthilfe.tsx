@@ -203,6 +203,7 @@ export function SosSoforthilfe() {
         </p>
         <Reflection3Step
           slug={SLUG}
+          title="Mein persönlicher Notfallplan"
           accent="bordeaux"
           steps={[
             {
