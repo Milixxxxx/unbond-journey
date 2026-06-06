@@ -4,9 +4,7 @@ import { GlossarTerm } from "@/components/glossar-term";
 import { LightboxImage } from "@/components/lightbox-image";
 import poemImg1 from "@/assets/poem-liebe-1.png.asset.json";
 import poemImg2 from "@/assets/poem-liebe-2.png.asset.json";
-import marySandraCafe from "@/assets/mary-sandra-cafe.jpg.asset.json";
 import marySandraIntro from "@/assets/book/mary-sandra-intro.png.asset.json";
-import maryErsteNacht from "@/assets/book/mary-erste-nacht.png.asset.json";
 
 export const Route = createFileRoute("/poem")({
   component: Poem,
