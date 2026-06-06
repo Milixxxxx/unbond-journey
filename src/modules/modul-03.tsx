@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
+import { ChapterHero } from "@/components/chapter-hero";
 import {
   TwentyOneDayChallenge,
   StackedCards,
@@ -45,6 +46,7 @@ export function Modul03() {
   return (
     <article className="space-y-7">
       {/* ── Einleitungs-Block (NEU) ── */}
+      <ChapterHero image="heroNoContact" alt="No Contact – die Schleuse schließt sich" />
       <ChapterIntro
         title="Kapitel 03 · No Contact als Neurobiologie"
         keywords={[

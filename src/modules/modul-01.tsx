@@ -17,6 +17,8 @@ import {
 } from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
+import { ChapterHero } from "@/components/chapter-hero";
+import { InfographicImage } from "@/components/infographic-image";
 import { SectionBlock } from "@/components/section-block";
 import { StoryPortrait } from "@/components/story-portrait";
 import { InfoGraphicBlock } from "@/components/infographic-block";
@@ -64,6 +66,7 @@ export function Modul01() {
   return (
     <article className="space-y-7">
       {/* ── Einleitung (3 Sätze max) ── */}
+      <ChapterHero image="heroTraumabonding" alt="Trauma-Bonding – Schritt 02" />
       <ChapterIntro
         title="Schritt 02 · Trauma-Bonding: Anatomie der Fessel"
         keywords={[
@@ -80,6 +83,18 @@ export function Modul01() {
           Bindung so schwer zu durchbrechen.
         </p>
       </ChapterIntro>
+
+      {/* Visualisierungen aus dem Buch (zoombar) */}
+      <section className="space-y-3 animate-fade-in">
+        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-mauve">
+          Visualisierungen
+        </div>
+        <InfographicImage image="infoToxliebe" alt="Neurobiologie der toxischen Liebe" caption="Neurobiologie der toxischen Liebe – Dopamin, Cortisol, Oxytocin im Wechselbad." />
+        <InfographicImage image="infoBancroft" alt="Täterpsychologie nach Lundy Bancroft" caption="Bancroft – Die zentralen Glaubenssätze emotional missbräuchlicher Partner:innen." />
+        <InfographicImage image="infoGaslighting" alt="Gaslighting – Systematische Realitätsverzerrung" caption="Gaslighting – die Mechanik der systematischen Realitätsverzerrung." />
+        <InfographicImage image="infoKptbs" alt="kPTBS – Komplexe Posttraumatische Belastungsstörung" caption="Komplexe PTBS – Symptomcluster nach ICD-11." />
+        <InfographicImage image="infoKptbs2" alt="kPTBS – Symptommuster & Häufigkeit" caption="kPTBS – Symptommuster und Häufigkeit in Studien." />
+      </section>
 
       {/* ── Quick-Tools-Trio direkt unter Hero ── */}
       <QuickToolsTrio tools={QUICK_TOOLS_M02} />

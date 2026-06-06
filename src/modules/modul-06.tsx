@@ -7,6 +7,8 @@ import {
 } from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
+import { ChapterHero } from "@/components/chapter-hero";
+import { InfographicImage } from "@/components/infographic-image";
 import {
   PillCloud,
   Reflection3Step,
@@ -43,6 +45,7 @@ export function Modul06() {
   return (
     <article className="space-y-7">
       {/* ── Einleitung ── */}
+      <ChapterHero image="heroSucht" alt="Suchtmuster brechen – Schritt 07" />
       <ChapterIntro
         title="Kapitel 06 · Suchtmuster brechen"
         keywords={[
@@ -68,6 +71,14 @@ export function Modul06() {
           Belohnungssystem.
         </p>
       </ChapterIntro>
+
+      {/* Visualisierungen aus dem Buch (zoombar) */}
+      <section className="space-y-3 animate-fade-in">
+        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-mauve">
+          Visualisierungen
+        </div>
+        <InfographicImage image="infoRueckfallAmpel" alt="Die UNBOND-Rückfall-Ampel" caption="Die Rückfall-Ampel – Frühwarnsystem für Krisensignale." />
+      </section>
 
       {/* ── Story ── */}
       <Section

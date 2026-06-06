@@ -8,6 +8,8 @@ import {
 } from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
+import { ChapterHero } from "@/components/chapter-hero";
+import { InfographicImage } from "@/components/infographic-image";
 import {
   Reflection3Step,
   CalloutBold,
@@ -41,6 +43,7 @@ export function Modul08() {
   return (
     <article className="space-y-7">
       {/* ── Einleitung mit Keywords ── */}
+      <ChapterHero image="heroBindung" alt="Bindungsmuster & Inneres Kind" />
       <ChapterIntro
         title="Kapitel 08 · Bindungsmuster & Inneres Kind"
         keywords={[
@@ -65,6 +68,17 @@ export function Modul08() {
           was es nie bekommen hat — einen erwachsenen Menschen, der bleibt.
         </p>
       </ChapterIntro>
+
+      {/* Visualisierungen aus dem Buch (zoombar) */}
+      <section className="space-y-3 animate-fade-in">
+        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-mauve">
+          Visualisierungen
+        </div>
+        <InfographicImage image="infoBindungstheorie" alt="Bindungstheorie – Anxious-Avoidant-Falle" caption="Bindungstheorie nach Bowlby/Ainsworth – die Anxious-Avoidant-Falle." />
+        <InfographicImage image="infoWeaponized" alt="Weaponized Diagnosis" caption="Weaponized Diagnosis – wenn Therapiesprache zur Waffe wird." />
+        <InfographicImage image="infoIfs" alt="IFS – Das System hinter deinem Schmerz" caption="Internal Family Systems (IFS) nach Richard Schwartz." />
+        <InfographicImage image="infoCft" alt="CFT – Die drei emotionalen Regulationssysteme" caption="Compassion Focused Therapy nach Paul Gilbert – die drei Systeme." />
+      </section>
 
       {/* ── 1. Story · Mary auf dem Boden ── */}
       <Section icon={<ScrollText className="h-3.5 w-3.5" />} label="Story · Wenn die Scham endlich zerbricht">

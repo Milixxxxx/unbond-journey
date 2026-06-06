@@ -7,6 +7,8 @@ import {
 } from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
+import { ChapterHero } from "@/components/chapter-hero";
+import { InfographicImage } from "@/components/infographic-image";
 import {
   Reflection3Step,
   CalloutBold,
@@ -48,6 +50,7 @@ export function Modul07() {
   return (
     <article className="space-y-7">
       {/* ── Einleitung mit Keywords ── */}
+      <ChapterHero image="heroWlw" alt="WLW-Dynamiken – Queere Frauen in der Szene" />
       <ChapterIntro
         title="Kapitel 07 · WLW-Realität & Community"
         keywords={[
@@ -77,6 +80,15 @@ export function Modul07() {
           (warum ihre neue Partnerin nichts über deinen Wert aussagt).
         </p>
       </ChapterIntro>
+
+      {/* Visualisierungen aus dem Buch (zoombar) */}
+      <section className="space-y-3 animate-fade-in">
+        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-mauve">
+          Visualisierungen
+        </div>
+        <InfographicImage image="infoTriangulation" alt="Triangulierung & Doppelleben" caption="Triangulierung – das Doppelleben in der queeren Szene." />
+        <InfographicImage image="infoIntHomophobie" alt="Internalisierte Homophobie" caption="Internalisierte Homophobie – die unsichtbare Last." />
+      </section>
 
       {/* ── Story · 1:1 aus Quelldatei (Mary/Sandra) ── */}
       <Section

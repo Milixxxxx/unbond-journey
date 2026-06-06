@@ -10,6 +10,8 @@ import {
 } from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
+import { ChapterHero } from "@/components/chapter-hero";
+import { InfographicImage } from "@/components/infographic-image";
 import {
   PillCloud,
   Reflection3Step,
@@ -51,6 +53,7 @@ export function Modul09() {
   return (
     <article className="space-y-7">
       {/* ── Einleitung ── */}
+      <ChapterHero image="heroIdentitaet" alt="Identität, Zukunft & Abschluss" />
       <ChapterIntro
         title="Kapitel 09 · Identität & Zukunft"
         keywords={[
@@ -73,6 +76,16 @@ export function Modul09() {
           einer Vision, die endlich nur dir gehört.
         </p>
       </ChapterIntro>
+
+      {/* Visualisierungen aus dem Buch (zoombar) */}
+      <section className="space-y-3 animate-fade-in">
+        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-mauve">
+          Visualisierungen
+        </div>
+        <InfographicImage image="infoPtg" alt="Post-Traumatic Growth" caption="Post-Traumatic Growth nach Tedeschi & Calhoun – die fünf Wachstumsdimensionen." />
+        <InfographicImage image="infoWertekompass" alt="Werte-Kompass" caption="Der Werte-Kompass – Orientierung für das Leben nach der Bindung." />
+        <InfographicImage image="infoKintsugi" alt="Kintsugi – Die Kunst der goldenen Reparatur" caption="Kintsugi – die japanische Kunst, Brüche mit Gold zu heilen." />
+      </section>
 
       {/* ── Story ── */}
       <Section
