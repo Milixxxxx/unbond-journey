@@ -27,10 +27,12 @@ function Cover() {
     <main className="min-h-screen px-4 py-12 md:py-20">
       <div className="mx-auto max-w-3xl">
         <div className="glass-card-strong p-8 text-center md:p-14 animate-fade-in">
-          {/* Healing-Hearts Logo Platzhalter (User liefert healing_hearts_logo.png) */}
-          <div className="mx-auto mb-8 grid h-40 w-40 place-items-center rounded-full bg-gradient-to-br from-bordeaux/15 via-mauve/10 to-sage/15 ring-1 ring-bordeaux/15 md:h-48 md:w-48">
-            <div className="font-display text-5xl text-bordeaux/80">♥</div>
-          </div>
+          {/* UNBOND Healing-Hearts Logo */}
+          <img
+            src={unbondLogo.url}
+            alt="UNBOND Healing Hearts – zwei Frauen halten ein goldenes Herz"
+            className="mx-auto mb-8 h-44 w-44 object-contain md:h-56 md:w-56"
+          />
 
           <p className="text-[10px] font-semibold uppercase tracking-[0.4em] text-mauve">
             · Healing Hearts ·
