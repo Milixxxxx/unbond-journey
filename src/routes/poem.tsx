@@ -4,9 +4,7 @@ import { GlossarTerm } from "@/components/glossar-term";
 import { LightboxImage } from "@/components/lightbox-image";
 import poemImg1 from "@/assets/poem-liebe-1.png.asset.json";
 import poemImg2 from "@/assets/poem-liebe-2.png.asset.json";
-import marySandraCafe from "@/assets/mary-sandra-cafe.jpg.asset.json";
 import marySandraIntro from "@/assets/book/mary-sandra-intro.png.asset.json";
-import maryErsteNacht from "@/assets/book/mary-erste-nacht.png.asset.json";
 
 export const Route = createFileRoute("/poem")({
   component: Poem,
@@ -67,16 +65,6 @@ function Poem() {
               Café mit zu vielen Stühlen. Sandra saß ihr gegenüber und hörte
               wirklich zu. Mary dachte, sie hätte ihr Zuhause gefunden.
             </p>
-
-            <div className="clear-both" />
-
-            {/* Café-Szene – links umflossen */}
-            <LightboxImage
-              src={marySandraCafe.url}
-              alt="Mary und Sandra im Café"
-              className="float-left mb-3 mr-5 mt-2 w-40 overflow-hidden rounded-2xl shadow-elegant sm:w-52 md:w-60"
-              hint="Bild vergrößern"
-            />
             <p>
               Was sie nicht wusste: Dieses Kribbeln in der Brust, das Gefühl
               tiefer Verbundenheit – das ist keine Magie. Es ist Neurobiologie.
@@ -86,15 +74,6 @@ function Poem() {
               Anfang an anfällig für eine Dynamik, die über sie hinausging.
             </p>
 
-            <div className="clear-both" />
-
-            {/* Mary – Die erste Nacht (links umflossen) */}
-            <LightboxImage
-              src={maryErsteNacht.url}
-              alt="Mary in der Nacht – Telefon am Ohr, Großstadtlichter im Hintergrund"
-              className="float-left mb-3 mr-5 mt-2 w-40 overflow-hidden rounded-2xl shadow-elegant sm:w-52 md:w-60"
-              hint="Bild vergrößern"
-            />
             <p>
               Das Gedicht „Liebe fragt nicht nach der Uhr" wurde im Mai 2024
               geschrieben – als Versuch, das Unbegreifliche in Sprache zu
