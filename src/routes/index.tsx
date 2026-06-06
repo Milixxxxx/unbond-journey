@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
+import unbondLogo from "@/assets/unbond-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Cover,
