@@ -19,9 +19,20 @@ export type JourneyChapter = {
 
 export const JOURNEY_CHAPTERS: JourneyChapter[] = [
   {
-    slug: "modul-01",
+    slug: "sos-soforthilfe",
     number: "01",
-    title: "Trauma-Bonding: Anatomie der Fessel",
+    title: "SOS: Stabilisierung",
+    shortTitle: "SOS",
+    goals: [
+      "Ich kann mein Nervensystem in einer akuten Welle binnen Minuten herunterregulieren.",
+      "Ich habe mindestens einen SOS-Skill (TIPP, 4-7-8, Grounding) verinnerlicht.",
+      "Ich kenne meine Notfallkontakte und nutze sie, ohne mich dafür zu schämen.",
+    ],
+  },
+  {
+    slug: "modul-01",
+    number: "02",
+    title: "Trauma-Bonding",
     shortTitle: "Trauma-Bond",
     goals: [
       "Ich verstehe meine Sehnsucht als neurobiologische Reaktion, nicht als Beweis für Liebe.",
@@ -31,8 +42,8 @@ export const JOURNEY_CHAPTERS: JourneyChapter[] = [
   },
   {
     slug: "modul-02",
-    number: "02",
-    title: "Die Rosa-Brille abnehmen",
+    number: "03",
+    title: "Rosa-Brille",
     shortTitle: "Rosa-Brille",
     goals: [
       "Ich erkenne Gaslighting im Nachhinein und vertraue meiner Erinnerung.",
@@ -42,8 +53,8 @@ export const JOURNEY_CHAPTERS: JourneyChapter[] = [
   },
   {
     slug: "modul-03",
-    number: "03",
-    title: "No Contact als Neurobiologie",
+    number: "04",
+    title: "No Contact",
     shortTitle: "No Contact",
     goals: [
       "Ich verstehe No Contact als medizinischen Entzug, nicht als Strafe.",
@@ -53,7 +64,7 @@ export const JOURNEY_CHAPTERS: JourneyChapter[] = [
   },
   {
     slug: "modul-04",
-    number: "04",
+    number: "05",
     title: "Trigger entmachten",
     shortTitle: "Trigger",
     goals: [
@@ -64,8 +75,8 @@ export const JOURNEY_CHAPTERS: JourneyChapter[] = [
   },
   {
     slug: "modul-05",
-    number: "05",
-    title: "Der Körper zuerst",
+    number: "06",
+    title: "Körper zuerst",
     shortTitle: "Körper",
     goals: [
       "Ich erkenne meinen Nervensystem-Zustand (kämpfen, fliehen, erstarren, regulieren).",
@@ -75,7 +86,7 @@ export const JOURNEY_CHAPTERS: JourneyChapter[] = [
   },
   {
     slug: "modul-06",
-    number: "06",
+    number: "07",
     title: "Suchtmuster brechen",
     shortTitle: "Sucht",
     goals: [
@@ -86,8 +97,8 @@ export const JOURNEY_CHAPTERS: JourneyChapter[] = [
   },
   {
     slug: "modul-07",
-    number: "07",
-    title: "WLW-Realität & Community",
+    number: "08",
+    title: "WLW-Kontext",
     shortTitle: "WLW",
     goals: [
       "Ich akzeptiere die kleine Szene, ohne mich erpressen zu lassen.",
@@ -97,9 +108,9 @@ export const JOURNEY_CHAPTERS: JourneyChapter[] = [
   },
   {
     slug: "modul-08",
-    number: "08",
-    title: "Bindungsmuster & Inneres Kind",
-    shortTitle: "Inneres Kind",
+    number: "09",
+    title: "Bindungsmuster",
+    shortTitle: "Bindung",
     goals: [
       "Ich verstehe mein \u201ehysterisches\u201c Verhalten als biologische Notwehr.",
       "Ich erkenne den Anxious-Avoidant-Tanz und kann ihn unterbrechen.",
@@ -108,23 +119,12 @@ export const JOURNEY_CHAPTERS: JourneyChapter[] = [
   },
   {
     slug: "modul-09",
-    number: "09",
-    title: "Identität & Zukunft",
+    number: "10",
+    title: "Identität & Abschluss",
     shortTitle: "Identität",
     goals: [
       "Ich kenne meine drei Kernwerte unabhängig von ihr.",
       "Ich erweitere mich (Self-Expansion) in neue Bereiche.",
-      "Mein Vakuum wird zum Möglichkeitsraum.",
-    ],
-  },
-  {
-    slug: "modul-10",
-    number: "10",
-    title: "Kintsugi · Wachstum",
-    shortTitle: "Kintsugi",
-    goals: [
-      "Ich benenne mindestens drei Wachstumsfelder durch diese Erfahrung.",
-      "Ich habe meine Bruchstellen vergoldet, nicht versteckt.",
       "Mein Manifest ist geschrieben — ich bin nicht kaputt, ich bin erfahren.",
     ],
   },
