@@ -29,3 +29,4 @@ Dashboard-Hauptvisual ist der Winding-Path-Journey (NICHT der Healing-Tree). 10 
 - [Modul 02 Stable](mem://modules/modul-02-stable) — Referenz für interaktive Diagnose-/Übungsdichte
 - [Winding-Path-Journey](mem://features/winding-path-journey) — Dashboard-Pfad mit 10 Knoten, 3 Goals/Kapitel
 - [ZIP-Design-Tokens](mem://design/zip-design-tokens) — Übernommene Design-Foundation (Fonts, Tokens, Glass-Utilities, Body-Gradient)
+- [Kapitel-Elementordnung](mem://design/chapter-element-order) — Verbindliche Reihenfolge Diagnose→Lösung→Übungen→Transformationsziele + Accent-Farben
