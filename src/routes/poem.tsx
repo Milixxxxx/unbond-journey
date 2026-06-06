@@ -48,18 +48,14 @@ function Poem() {
             </h1>
           </header>
 
-          {/* Mary & Sandra im Café */}
-          <figure className="animate-fade-in">
-            <LightboxImage
-              src={marySandraCafe.url}
-              alt="Mary und Sandra im Café – ein erster Moment, der alles veränderte"
-              className="w-full overflow-hidden rounded-2xl shadow-elegant"
-              caption="Mary & Sandra · Ein gewöhnlicher Nachmittag, ein Café mit zu vielen Stühlen."
-            />
-          </figure>
-
-
           <div className="glass-card p-6 md:p-8 space-y-5 text-[15px] leading-relaxed text-graphite/90 animate-fade-in">
+            {/* Mary & Sandra – Intro (links umflossen) */}
+            <LightboxImage
+              src={marySandraIntro.url}
+              alt="Mary und Sandra – zwei Frauen, Rücken an Rücken"
+              className="float-left mb-3 mr-5 w-40 overflow-hidden rounded-2xl shadow-elegant sm:w-52 md:w-60"
+              hint="Bild vergrößern"
+            />
             <p>
               Es gibt diesen Moment, den viele von uns kennen. Den Moment, in
               dem jemand in dein Leben tritt und alles auf einmal heller macht.
@@ -71,6 +67,16 @@ function Poem() {
               Café mit zu vielen Stühlen. Sandra saß ihr gegenüber und hörte
               wirklich zu. Mary dachte, sie hätte ihr Zuhause gefunden.
             </p>
+
+            <div className="clear-both" />
+
+            {/* Café-Szene – links umflossen */}
+            <LightboxImage
+              src={marySandraCafe.url}
+              alt="Mary und Sandra im Café"
+              className="float-left mb-3 mr-5 mt-2 w-40 overflow-hidden rounded-2xl shadow-elegant sm:w-52 md:w-60"
+              hint="Bild vergrößern"
+            />
             <p>
               Was sie nicht wusste: Dieses Kribbeln in der Brust, das Gefühl
               tiefer Verbundenheit – das ist keine Magie. Es ist Neurobiologie.
@@ -79,12 +85,24 @@ function Poem() {
               und Serotonin aus. Ihre Liebe war real – und gleichzeitig von
               Anfang an anfällig für eine Dynamik, die über sie hinausging.
             </p>
+
+            <div className="clear-both" />
+
+            {/* Mary – Die erste Nacht (links umflossen) */}
+            <LightboxImage
+              src={maryErsteNacht.url}
+              alt="Mary in der Nacht – Telefon am Ohr, Großstadtlichter im Hintergrund"
+              className="float-left mb-3 mr-5 mt-2 w-40 overflow-hidden rounded-2xl shadow-elegant sm:w-52 md:w-60"
+              hint="Bild vergrößern"
+            />
             <p>
               Das Gedicht „Liebe fragt nicht nach der Uhr" wurde im Mai 2024
               geschrieben – als Versuch, das Unbegreifliche in Sprache zu
               fassen. Zwei Schatten auf einem Weg, der nirgendwo hinführt. Es
               ist Marys Geschichte. Und vielleicht auch deine.
             </p>
+
+            <div className="clear-both" />
           </div>
 
           {/* Der Brief / Das Gedicht */}
