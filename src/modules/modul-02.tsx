@@ -22,6 +22,8 @@ import {
 } from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
+import { ChapterHero } from "@/components/chapter-hero";
+import { InfographicImage } from "@/components/infographic-image";
 import { SectionBlock } from "@/components/section-block";
 import { Reveal } from "@/components/reveal";
 import { DeepDiveIntro } from "@/components/deep-dive-intro";
@@ -55,6 +57,7 @@ const SLUG = "modul-02";
 export function Modul02() {
   return (
     <article className="space-y-7">
+      <ChapterHero image="heroRosabrille" alt="Die rosa Brille abnehmen – Schritt 03" />
       <ChapterIntro
         title="Schritt 03 · Die Rosa-Brille abnehmen"
         keywords={[
@@ -75,6 +78,16 @@ export function Modul02() {
           romantische Illusion durch schriftlich festgehaltene Fakten dauerhaft zu zertrümmern.
         </p>
       </ChapterIntro>
+
+      {/* Visualisierungen aus dem Buch (zoombar) */}
+      <section className="space-y-3 animate-fade-in">
+        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-mauve">
+          Visualisierungen
+        </div>
+        <InfographicImage image="infoZyklusTox" alt="Der Zyklus toxischer Beziehungen" caption="Der wiederkehrende Zyklus toxischer Beziehungen." />
+        <InfographicImage image="infoGaslightingNotbremse" alt="Gaslighting-Notbremse – Reality Check" caption="Die Gaslighting-Notbremse – Sofort-Reality-Check für den Alltag." />
+        <InfographicImage image="infoRadicalAcceptance" alt="Radikale Akzeptanz nach Marsha Linehan" caption="Radikale Akzeptanz – das DBT-Werkzeug zur Beendigung des Leidens am Leiden." />
+      </section>
 
       <SectionBlock
         kind="story"

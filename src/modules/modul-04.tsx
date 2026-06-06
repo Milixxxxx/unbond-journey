@@ -9,6 +9,8 @@ import {
 } from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
+import { ChapterHero } from "@/components/chapter-hero";
+import { InfographicImage } from "@/components/infographic-image";
 import {
   Reflection3Step,
   StackedCards,
@@ -45,6 +47,7 @@ export function Modul04() {
   return (
     <article className="space-y-7">
       {/* ── Einleitungs-Block ── */}
+      <ChapterHero image="heroTrigger" alt="Trigger entmachten – Urge Surfing" />
       <ChapterIntro
         title="Kapitel 04 · Trigger entmachten"
         keywords={[
@@ -66,6 +69,14 @@ export function Modul04() {
           statt in ihnen zu ertrinken.
         </p>
       </ChapterIntro>
+
+      {/* Visualisierungen aus dem Buch (zoombar) */}
+      <section className="space-y-3 animate-fade-in">
+        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-mauve">
+          Visualisierungen
+        </div>
+        <InfographicImage image="infoReactiveAbuse" alt="Reaktiver Missbrauch – das Reframing" caption="Reaktiver Missbrauch – warum die eigene Reaktion nicht das Problem ist." />
+      </section>
 
       {/* ── Story · Eine Welle bricht ── */}
       <Section icon={<ScrollText className="h-4 w-4" />} label="Story · Eine Welle bricht">
