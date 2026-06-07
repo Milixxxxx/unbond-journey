@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { MODULES, isBonus } from "@/lib/modules";
-import { ArrowRight, Leaf, Flower2, LifeBuoy, Compass, Heart } from "lucide-react";
+import { ArrowRight, Footprints, Target, LifeBuoy, Compass, Heart } from "lucide-react";
 import { WindingPathJourney } from "@/components/winding-path-journey";
 import { readPathMode, writePathMode, type PathMode } from "@/lib/path-mode";
+import { useJourneyProgress } from "@/hooks/use-journey-progress";
 
 const STORAGE_KEY = "unbond-bonus-unlocks";
 function readBonusUnlocks(): string[] {
