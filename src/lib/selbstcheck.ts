@@ -69,7 +69,7 @@ export const CONCEPTS: ConceptDef[] = [
     short: "Weaponized Virtue",
     desc: "Wurde Tugend (Fürsorge, Spiritualität, Aktivismus) gegen dich gewendet?",
     questions: [
-      "Ihre/seine „Güte" nach außen passt nicht zu dem, was ich privat erlebt habe.",
+      'Ihre/seine „Güte" nach außen passt nicht zu dem, was ich privat erlebt habe.',
       "Wenn ich Grenzen setzte, wurde ich als egoistisch, kalt oder krank dargestellt.",
       "Dritte glauben ihr/ihm — ich werde als die Schwierige wahrgenommen.",
     ],
@@ -84,7 +84,7 @@ export const CONCEPTS: ConceptDef[] = [
     questions: [
       "Ich habe Flashbacks, intrusive Bilder oder Albträume aus der Beziehung.",
       "Ich misstraue mir selbst — meiner Wahrnehmung, meinem Gedächtnis, meinen Gefühlen.",
-      "Scham und das Gefühl, grundlegend „falsch" zu sein, sind ständige Begleiter.",
+      'Scham und das Gefühl, grundlegend „falsch" zu sein, sind ständige Begleiter.',
     ],
     primarySlug: "modul-01",
     primaryLabel: "Schritt 02 · Trauma-Bonding",
