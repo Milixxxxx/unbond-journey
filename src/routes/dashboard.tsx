@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { MODULES, isBonus } from "@/lib/modules";
-import { ArrowRight, Leaf, Flower2, LifeBuoy, Compass, Heart } from "lucide-react";
+import { ArrowRight, Footprints, Target, LifeBuoy, Compass, Heart } from "lucide-react";
 import { WindingPathJourney } from "@/components/winding-path-journey";
 import { readPathMode, writePathMode, type PathMode } from "@/lib/path-mode";
+import { useJourneyProgress } from "@/hooks/use-journey-progress";
 
 const STORAGE_KEY = "unbond-bonus-unlocks";
 function readBonusUnlocks(): string[] {
@@ -86,6 +87,11 @@ function Dashboard() {
   const doneSlugs = new Set<string>(earnedSlugs);
   const total = allModules.length;
   const done = allModules.filter((m) => doneSlugs.has(m.slug)).length;
+  const { goals } = useJourneyProgress();
+  const goalsDone = Object.values(goals).reduce(
+    (sum, g) => sum + (g?.filter(Boolean).length ?? 0),
+    0,
+  );
 
   // nächstes offenes Modul – respektiert den Pfad-Modus.
   // "klarheit": SOS wird aus dem "Weiter mit"-Vorschlag ausgeklammert
@@ -184,12 +190,12 @@ function Dashboard() {
               </div>
               <div className="mt-3 flex items-center gap-4 text-[11px] text-muted-foreground">
                 <span className="inline-flex items-center gap-1.5">
-                  <Leaf className="h-3.5 w-3.5" style={{ color: "var(--sage)" }} />
-                  {done} Blätter
+                  <Footprints className="h-3.5 w-3.5" style={{ color: "var(--sage)" }} />
+                  {done} {done === 1 ? "Schritt" : "Schritte"}
                 </span>
                 <span className="inline-flex items-center gap-1.5">
-                  <Flower2 className="h-3.5 w-3.5" style={{ color: "var(--mauve)" }} />
-                  0 Blüten
+                  <Target className="h-3.5 w-3.5" style={{ color: "var(--mauve)" }} />
+                  {goalsDone} {goalsDone === 1 ? "Ziel erreicht" : "Ziele erreicht"}
                 </span>
               </div>
             </div>
