@@ -185,12 +185,12 @@ function Dashboard() {
               </div>
               <div className="mt-3 flex items-center gap-4 text-[11px] text-muted-foreground">
                 <span className="inline-flex items-center gap-1.5">
-                  <Leaf className="h-3.5 w-3.5" style={{ color: "var(--sage)" }} />
-                  {done} Blätter
+                  <Footprints className="h-3.5 w-3.5" style={{ color: "var(--sage)" }} />
+                  {done} {done === 1 ? "Schritt" : "Schritte"}
                 </span>
                 <span className="inline-flex items-center gap-1.5">
-                  <Flower2 className="h-3.5 w-3.5" style={{ color: "var(--mauve)" }} />
-                  0 Blüten
+                  <Target className="h-3.5 w-3.5" style={{ color: "var(--mauve)" }} />
+                  {goalsDone} {goalsDone === 1 ? "Ziel erreicht" : "Ziele erreicht"}
                 </span>
               </div>
             </div>
