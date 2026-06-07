@@ -87,6 +87,11 @@ function Dashboard() {
   const doneSlugs = new Set<string>(earnedSlugs);
   const total = allModules.length;
   const done = allModules.filter((m) => doneSlugs.has(m.slug)).length;
+  const { goals } = useJourneyProgress();
+  const goalsDone = Object.values(goals).reduce(
+    (sum, g) => sum + (g?.filter(Boolean).length ?? 0),
+    0,
+  );
 
   // nächstes offenes Modul – respektiert den Pfad-Modus.
   // "klarheit": SOS wird aus dem "Weiter mit"-Vorschlag ausgeklammert
