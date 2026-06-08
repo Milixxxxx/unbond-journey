@@ -269,9 +269,27 @@ function Routing() {
                   const val = answers[current.id]?.[qIdx] ?? 0;
                   return (
                     <div key={qIdx}>
-                      <p className="text-[14px] leading-relaxed text-graphite/90">
-                        {qIdx + 1}. {q}
-                      </p>
+                      <div className="flex items-start justify-between gap-3">
+                        <p className="text-[14px] leading-relaxed text-graphite/90">
+                          {qIdx + 1}. {q}
+                        </p>
+                        <span
+                          className={`mt-0.5 inline-flex flex-shrink-0 items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${
+                            val >= 1
+                              ? "bg-sage/15 text-sage"
+                              : "bg-graphite/8 text-graphite/55"
+                          }`}
+                        >
+                          <span
+                            className={`inline-block h-1.5 w-1.5 rounded-full ${
+                              val >= 1
+                                ? "bg-sage"
+                                : "border border-dashed border-graphite/55"
+                            }`}
+                          />
+                          {val >= 1 ? "beantwortet" : "noch offen"}
+                        </span>
+                      </div>
                       <div className="mt-2 grid grid-cols-4 gap-1.5">
                         {LIKERT.map((opt) => {
                           const on = val === opt.value;
