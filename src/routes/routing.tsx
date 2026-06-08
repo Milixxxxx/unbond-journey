@@ -124,6 +124,17 @@ function Routing() {
       (answers[current.id] ?? []).every((v) => v >= 1 && v <= 4)
     : false;
 
+  const currentOpenCount = current
+    ? current.questions.length -
+      (answers[current.id] ?? []).filter((v) => v >= 1 && v <= 4).length
+    : 0;
+
+  const missingConcepts = CONCEPTS.filter(
+    (c) =>
+      (answers[c.id]?.length ?? 0) !== c.questions.length ||
+      !(answers[c.id] ?? []).every((v) => v >= 1 && v <= 4),
+  );
+
   const finish = () => {
     const p = evaluate(answers);
     writeProfile(p);
