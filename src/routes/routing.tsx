@@ -94,6 +94,12 @@ function Routing() {
     }
   }, []);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [step, mode]);
+
   const current = CONCEPTS[step];
   const totalSteps = CONCEPTS.length;
   const allAnswered = useMemo(
