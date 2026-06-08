@@ -319,33 +319,53 @@ function Routing() {
               </div>
             </div>
 
-            <div className="flex items-center justify-between">
-              <button
-                type="button"
-                onClick={() => setStep((s) => Math.max(0, s - 1))}
-                disabled={step === 0}
-                className="inline-flex items-center gap-1.5 rounded-md border border-bordeaux/20 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-bordeaux transition hover:bg-white disabled:opacity-40"
-              >
-                <ArrowLeft className="h-3.5 w-3.5" /> Zurück
-              </button>
-              {step < totalSteps - 1 ? (
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
                 <button
                   type="button"
-                  onClick={() => setStep((s) => s + 1)}
-                  disabled={!currentComplete}
-                  className="inline-flex items-center gap-1.5 rounded-md bg-bordeaux px-5 py-2 text-xs font-semibold uppercase tracking-wider text-white shadow-elegant transition hover:opacity-90 disabled:opacity-40"
+                  onClick={() => setStep((s) => Math.max(0, s - 1))}
+                  disabled={step === 0}
+                  className="inline-flex items-center gap-1.5 rounded-md border border-bordeaux/20 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-bordeaux transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-40"
                 >
-                  Weiter <ArrowRight className="h-3.5 w-3.5" />
+                  <ArrowLeft className="h-3.5 w-3.5" /> Zurück
                 </button>
-              ) : (
-                <button
-                  type="button"
-                  onClick={finish}
-                  disabled={!allAnswered}
-                  className="inline-flex items-center gap-1.5 rounded-md bg-sage px-5 py-2 text-xs font-semibold uppercase tracking-wider text-white shadow-elegant transition hover:opacity-90 disabled:opacity-40"
-                >
-                  Auswerten <ArrowRight className="h-3.5 w-3.5" />
-                </button>
+                {step < totalSteps - 1 ? (
+                  <button
+                    type="button"
+                    onClick={() => setStep((s) => s + 1)}
+                    disabled={!currentComplete}
+                    className={`inline-flex items-center gap-1.5 rounded-md px-5 py-2 text-xs font-semibold uppercase tracking-wider transition ${
+                      currentComplete
+                        ? "bg-bordeaux text-white shadow-elegant hover:opacity-90"
+                        : "cursor-not-allowed border border-graphite/20 bg-graphite/10 text-graphite/55"
+                    }`}
+                  >
+                    Weiter <ArrowRight className="h-3.5 w-3.5" />
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={finish}
+                    disabled={!allAnswered}
+                    className={`inline-flex items-center gap-1.5 rounded-md px-5 py-2 text-xs font-semibold uppercase tracking-wider transition ${
+                      allAnswered
+                        ? "bg-sage text-white shadow-elegant hover:opacity-90"
+                        : "cursor-not-allowed border border-graphite/20 bg-graphite/10 text-graphite/55"
+                    }`}
+                  >
+                    Auswerten <ArrowRight className="h-3.5 w-3.5" />
+                  </button>
+                )}
+              </div>
+              {step < totalSteps - 1 && !currentComplete && (
+                <p className="text-right text-[11px] text-bordeaux/75">
+                  Beantworte alle {current.questions.length} Fragen, um weiterzugehen — noch {currentOpenCount} offen.
+                </p>
+              )}
+              {step === totalSteps - 1 && !allAnswered && (
+                <p className="text-right text-[11px] text-bordeaux/75">
+                  Es fehlen noch Antworten in: {missingConcepts.map((c) => c.short).join(", ")}.
+                </p>
               )}
             </div>
           </section>
