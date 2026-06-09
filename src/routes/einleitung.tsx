@@ -189,7 +189,7 @@ function Einleitung() {
             </div>
           </Details>
 
-          <Details summary="✉︎ Gedicht: „Liebe fragt nicht nach der Uhr"">
+          <Details summary={'✉︎ Gedicht: „Liebe fragt nicht nach der Uhr"'}>
             <p className="text-[13px] text-graphite/75">
               Tippe auf den Brief, um ihn in voller Größe zu lesen.
             </p>
