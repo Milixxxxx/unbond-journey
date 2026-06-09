@@ -74,7 +74,7 @@ export function SosSoforthilfe() {
           {
             icon: <Hand className="h-3.5 w-3.5" />,
             label: "SOS-Stopp",
-            text: "Hand hoch wie ein Stoppschild · laut „STOPP!" · bis 5 zählen, dann eine Ersatzhandlung wählen.",
+            text: 'Hand hoch wie ein Stoppschild · laut „STOPP!" · bis 5 zählen, dann eine Ersatzhandlung wählen.',
             tint: "bordeaux",
           },
           {
