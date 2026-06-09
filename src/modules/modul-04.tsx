@@ -9,7 +9,6 @@ import {
 } from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
-import { ChapterHero } from "@/components/chapter-hero";
 import { InfographicImage } from "@/components/infographic-image";
 import {
   Reflection3Step,
@@ -47,7 +46,6 @@ export function Modul04() {
   return (
     <article className="space-y-7">
       {/* ── Einleitungs-Block ── */}
-      <ChapterHero image="heroTrigger" alt="Trigger entmachten – Urge Surfing" />
       <ChapterIntro
         title="Kapitel 04 · Trigger entmachten"
         keywords={[

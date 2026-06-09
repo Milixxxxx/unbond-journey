@@ -17,7 +17,6 @@ import {
 } from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
-import { ChapterHero } from "@/components/chapter-hero";
 import { SectionBlock } from "@/components/section-block";
 import { StoryPortrait } from "@/components/story-portrait";
 import { InfoGraphicBlock } from "@/components/infographic-block";
@@ -74,7 +73,6 @@ export function Modul01() {
         </span>
         <span>Phase 1 · Die Fessel verstehen</span>
       </div>
-      <ChapterHero image="heroTraumabonding" alt="Trauma-Bonding – Schritt 02" />
       <ChapterIntro
         title="Schritt 02 · Trauma-Bonding: Anatomie der Fessel"
         keywords={[
@@ -91,49 +89,6 @@ export function Modul01() {
           Bindung so schwer zu durchbrechen.
         </p>
       </ChapterIntro>
-
-      {/* ── HOOK · die eine Frage, die alles trägt ── */}
-      <section
-        aria-labelledby="m02-hook"
-        className="relative overflow-hidden rounded-3xl border border-bordeaux/20 bg-gradient-to-br from-bordeaux/8 via-mauve/8 to-terracotta/10 p-6 shadow-soft sm:p-8"
-      >
-        <span className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-mauve/15 blur-2xl" aria-hidden />
-        <span className="absolute -bottom-12 -left-8 h-36 w-36 rounded-full bg-terracotta/15 blur-2xl" aria-hidden />
-        <div className="relative">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-mauve">
-            Die eine Frage
-          </p>
-          <h2
-            id="m02-hook"
-            className="mt-3 font-display text-2xl font-bold leading-tight text-bordeaux sm:text-3xl"
-          >
-            „Warum liebe ich sie — obwohl sie mir nachweislich schadet?"
-          </h2>
-          <p className="mt-4 max-w-prose text-sm leading-relaxed text-graphite/85 sm:text-[15px]">
-            Diese Frage ist der rote Faden dieses Kapitels. Die Antwort ist
-            <strong className="text-bordeaux"> nicht „weil du schwach bist"</strong> und
-            auch nicht <em>„weil sie deine große Liebe war"</em>. Sie ist
-            biochemisch — und genau das macht sie heilbar. Wir gehen Schritt
-            für Schritt durch das, was in dir passiert.
-          </p>
-          <ul className="mt-5 grid gap-2 text-sm text-graphite/85 sm:grid-cols-2">
-            {[
-              "Warum verschwindet mein Verstand, wenn sie schreibt?",
-              "Warum wiegt ein gutes Wort eine Woche Kälte auf?",
-              'Warum hilft kein Vorsatz „nie wieder"?',
-              "Was unterscheidet Liebe von Sucht — körperlich?",
-            ].map((q) => (
-              <li
-                key={q}
-                className="flex items-start gap-2 rounded-xl border border-bordeaux/15 bg-white/55 px-3 py-2 backdrop-blur-sm"
-              >
-                <span aria-hidden className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-bordeaux" />
-                <span>{q}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
 
       {/* ── Quick-Tools-Trio: sofort-Anker, falls Drang JETZT da ist ── */}
       <QuickToolsTrio tools={QUICK_TOOLS_M02} />

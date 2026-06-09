@@ -1,7 +1,6 @@
 import { ScrollText, Sparkles, HeartHandshake } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { ChapterIntro } from "@/components/chapter-intro";
-import { ChapterHero } from "@/components/chapter-hero";
 import { BonusLock } from "@/components/bonus-lock";
 
 const SLUG = "bonus-f";
@@ -20,7 +19,6 @@ const SLUG = "bonus-f";
 export function BonusF() {
   return (
     <article className="space-y-7">
-      <ChapterHero image="heroBonusF" alt="Bonus F – Ankommen in der Trauer" />
       <ChapterIntro
         title="Bonus F · Ankommen in der Trauer"
         keywords={[

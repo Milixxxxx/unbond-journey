@@ -10,9 +10,9 @@ Gilt für ALLE Module (SOS / 01–10 / Bonus D, E, F). Diese Reihenfolge darf NI
 
 | # | Element | Regel / Layout | Accent | Border-Stripe |
 |---|---|---|---|---|
-| 1 | **Kapitelthema / Name** | Hero mit Schritt-Nummer + Titel + 1-Satz-Leitmotiv | — | — |
-| 2 | **Einleitende Sätze** | 2–3 Sätze: Schwerpunkte des Kapitels. Direkt unter Hero. | — | — |
-| 3 | **Mary & Sandra Story (mit Bild)** | **Bild LINKS, Text umfließend** (Grid 200px / 1fr oder `float-left`). Erster Absatz mit Drop-Cap. **VOR der Story darf KEIN anderes Bild im Kapitel stehen.** | — | — |
+| 1 | **Kapiteltitel** | NUR Schritt-Nummer + Titel (z. B. „Schritt 02 · Trauma-Bonding"). **KEIN großes Hero-Bild oben.** Das erste Bild im Kapitel ist IMMER das Mary-&-Sandra-Story-Foto (Element 3). | — | — |
+| 2 | **Einleitung / Hook** | 2–3 Sätze direkt unter dem Titel. Schlägt das Leitmotiv des Kapitels an. **KEINE zusätzliche Hook-Karte, keine „Die eine Frage"-Box** — Einleitung lebt im `ChapterIntro`-Block. | — | — |
+| 3 | **Mary & Sandra Story (mit Bild)** | **Bild LINKS, Text umfließend** (Grid 200px / 1fr oder `float-left`). Erster Absatz mit Drop-Cap. **VOR der Story darf KEIN anderes Bild im Kapitel stehen — auch kein Hero.** | — | — |
 | 4 | **Diagnose / Problem** | Was passiert neurobiologisch / psychologisch? | Sage `#2D4F3C` / `var(--sage)` | 6px links |
 | 5 | **Lösung / Konzept** | Evidenzbasiertes Modell, Quellen mit Autor+Jahr | Terracotta `#C4836E` / `var(--terracotta)` | 6px links |
 | 6 | **Wissenschaftlicher Deep Dive** | Collapsible „Wenn du tiefer verstehen willst …". Optional zu öffnen, Quellen Pflicht. | dunkles Sage / Graphite | 6px links |
