@@ -17,7 +17,7 @@ export function InfographicImage({
   className?: string;
 }) {
   return (
-    <div className={"my-5 mx-auto w-full max-w-[80%] animate-fade-in " + (className ?? "")}>
+    <div className={"my-5 w-full animate-fade-in " + (className ?? "")}>
       <LightboxImage
         src={bookImages[image]}
         alt={alt}
