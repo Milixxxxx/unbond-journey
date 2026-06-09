@@ -1,70 +1,70 @@
-Ich habe beide Uploads jetzt vollständig gelesen (`Scchritt_01.txt`, 116 Z. — und `Schritt_2_SOS.html`, 1127 Z., relevant: SCHRITT-1-Block Z. 343–542). Plan in zwei Schritten:
+
+## Mapping-Hinweis
+
+Buch-Schritt 02 (Trauma-Bonding) liegt in `src/modules/modul-01.tsx` (Off-by-one aus dem Memory-Mapping).
 
 ---
 
-## Schritt A · Knowledge-Datei aktualisieren
+## 1) Audit: aktuelle Reihenfolge vs. Knowledge-Vorgabe
 
-Datei: `.lovable/memory/design/chapter-element-order.md` — komplett überschreiben mit der neuen, verbindlichen Reihenfolge:
+Soll-Reihenfolge (laut `chapter-element-order`): **1 Titel · 2 Einleitung · 3 Story+Bild · 4 Diagnose · 5 Lösung · 6 Deep Dive · 7 Infografik (80%) · 8 ≥3 Übungen · 9 Meditation · 10 Checkliste**.
 
-1. **Kapitelthema / Name** (Hero mit Schritt-Nummer + Titel)
-2. **Einleitende Sätze** — Schwerpunkte des Kapitels in 2–3 Sätzen
-3. **Mary & Sandra Story** — **Bild links, Text umfließend** (Grid 200px / 1fr). Vor der Story KEIN anderes Bild im Kapitel.
-4. **Diagnose / Problem** — Accent Sage `#2D4F3C`, 6px-Border links
-5. **Lösung / Konzept** — Accent Terracotta `#C4836E`, 6px-Border links
-6. **Wissenschaftlicher Deep Dive** — collapsible „Wenn du tiefer verstehen willst …", Quellenangaben mit Autor + Jahr
-7. **Infografik** (falls vorhanden) — Grafik 80 % Seitenbreite, zentriert; erklärender Text DARUNTER (nicht daneben)
-8. **Mindestens 3 interaktive Übungen** — jede mit kurzem Warum-Text; bevorzugt aktive Komponenten (Timer, Slider, Pills, Reflection) statt nur Textareas. Accent Gold `#D4A574`, 6px-Border links
-9. **Begleitende Meditation** — `MeditationCard` mit YouTube-Link, Quelle, Dauer
-10. **Transformationsziele** (3 Stück, an Winding-Path gekoppelt) — Accent Mauve `#9B7FA4`, 6px-Border links
-
-Zusätzlich in der Knowledge-Datei festhalten:
-- Reihenfolge ist verbindlich für alle Module 01–10 + Bonus D/E/F
-- Inhalte werden vom User geliefert — nichts erfinden, bei Lücken nachfragen
-- Die 3 Transformationsziele dürfen NIE umsortiert oder ersetzt werden (Kopplung an `useJourneyProgress`)
-
-Die alte Memory `mem://index.md` muss nicht angepasst werden — sie verweist bereits auf diese Datei.
+| # | Soll | Ist (modul-01.tsx) | Status |
+|---|------|--------------------|--------|
+| – | (kein Bild vor Story) | „Visualisierungen"-Block mit 5 Infografiken **direkt nach Intro** | ❌ Verstoß |
+| – | (Quick-Tools optional, nicht zwischen Intro & Story) | Quick-Tools-Trio nach Visualisierungen | ⚠️ Position |
+| 1 | Titel | ChapterHero + ChapterIntro | ✅ |
+| 2 | Einleitung | ChapterIntro mit Keywords | ✅ |
+| 3 | Story + Bild links umflossen | StoryPortrait `side="left"` + Reveal-Absätze | ✅ |
+| 4 | Diagnose | Accordion Skinner/Fisher/Dutton + 10 Warnsignale FlipCards | ✅ |
+| 5 | Lösung | ACT-Defusion + Dopamin-Reset + CalloutBold | ✅ |
+| 6 | Deep Dive | 5 FlipCards | ✅ (aber **nach** Infografik – Reihenfolge gedreht) |
+| 7 | Infografik (80%, Text darunter) | InfoGraphicBlock `aspect 16/9` **vor** Deep Dive | ⚠️ Reihenfolge |
+| 8 | ≥3 Übungen | 4 Übungen (Warnsignale · Rationalisierung · Jackpot · 4-7-8) | ✅ |
+| 9 | Meditation | MeditationCard | ✅ |
+| 10 | Checkliste | ChecklistGoals (5 Ziele) | ✅ |
 
 ---
 
-## Schritt B · Vergleichstabelle für Kapitel SOS (Schritt 01)
+## 2) Was die Uploads bieten, was im Modul fehlt
 
-Quellen für den Vergleich:
-- **Code aktuell**: `src/modules/sos-soforthilfe.tsx` (478 Z.)
-- **Upload 1**: `Scchritt_01.txt` (Fragment ab Story)
-- **Upload 2**: `Schritt_2_SOS.html` Z. 343–542 (SCHRITT-1-Block)
-
-| # | Pflicht-Element | Im Code (`sos-soforthilfe.tsx`) | In den Uploads zusätzlich | Empfehlung |
-|---|---|---|---|---|
-| 1 | Kapitelthema/Name | ✓ „Schritt 01 · SOS: Akute Stabilisierung" | identisch | OK |
-| 2 | Einleitende Sätze | ✓ 2 Absätze in `ChapterIntro` | Upload2 zusätzlich: 3 Quick-Tool-Karten direkt unter Hero (SOS-rot / Atmung / Merke 90 Sek) | **Hinzufügen** — kompakte Quick-Tool-Trio gibt sofort handlungsfähiges Notfall-Triple |
-| 3 | Story mit Bild links, Text umfließend | ✓ Grid 200px/1fr, `ZoomableImage`, Drop-Cap-Style fehlt | Upload2: `story-dropcap` (ersten Absatz mit Drop-Cap) | **Hinzufügen** — Drop-Cap-Klasse für ersten Story-Absatz |
-| 4 | Diagnose / Problem | ✓ Amygdala-Hijacking, vollständig | identisch | OK |
-| 5 | Lösung / Konzept | ✓ TIPP-Erklärung + 4 `TippCard`s | identisch | OK |
-| 6 | Wissenschaftlicher Deep Dive | ✓ 90-Sek-Regel in `DeepDiveIntro` collapsible | identisch | OK |
-| 7 | Infografik (80 % breit, Text drunter) | ✗ **fehlt** — TIPP-Bild nicht eingebunden | Upload1/2: `assets/TIPP_1774948999615.png` (75 % breit, Bildunterschrift, Quellenangabe) | **Hinzufügen** — TIPP-Infografik als `InfographicImage` + Caption + Quelle |
-| 8a | Übung 1 · TIPP-Notfallplan | ✓ `Reflection3Step` + 1 `ReflectionField` | identisch | OK |
-| 8b | Übung 1b · 4-7-8 Atem-Timer (Breath-Pacer) | ✗ **fehlt** | Upload2 Z. 426–445: animierter SVG-Atem-Ring mit Start-Button, Zyklus-Zähler | **Hinzufügen** — `BreathPacer`-Komponente existiert bereits (`src/components/exercise/breath-pacer.tsx`) → einfügen |
-| 8c | Übung 1c · Drang-Intensität Slider (vor/nach) | ✗ **fehlt** | Upload2 Z. 447–462: Slider 0–10 mit Vorher/Nachher-Vergleich | **Hinzufügen** — `SliderDiscrete` oder `TapScale` mit Vorher-/Nachher-Erfassung |
-| 8d | Übung 2 · Urge Surfing | ✓ `UrgeSurfWave` + `Reflection3Step` | identisch (Upload nur textuell) | OK — Code ist reicher |
-| 8e | Übung 3 · STOPP-Technik | ✓ `PillCloud` mit 10 Ersatzhandlungen + Reflection | identisch | OK — Code ist reicher |
-| 8f | Übung 4 · High-Load Distraction | ✓ `HighLoadDistraction`-Komponente | identisch | OK |
-| 9 | Meditation | ✓ `MeditationCard` ChakraTunes | identisch | OK |
-| 10 | Transformationsziele | ✓ 5 Ziele in `ChecklistGoals` | Upload nennt 5 — Memory schreibt 3 vor (Winding-Path) | **Klären**: aktueller Code hat 5, Winding-Path erwartet 3 — Diskrepanz prüfen |
-| Bonus | Notfall-Kontaktliste (A/B/C) | ✓ 3 `ReflectionInput` + Telefonseelsorge-Hinweis | nicht im Upload | OK — Code-Plus, behalten |
-| Bonus | Tägliches Nervensystem-Tracking | ✓ `DailyTracker` | nicht im Upload | OK — Code-Plus, behalten |
-
-### Zusammenfassung Lücken
-Drei **fehlende** Pflichtelemente im SOS-Modul:
-1. **Quick-Tool-Trio** unter dem Hero (3 Mini-Karten)
-2. **TIPP-Infografik** (Bild + Caption + Quelle)
-3. **Atem-Timer 4-7-8** (`BreathPacer`) + **Drang-Slider** vor/nach
-
-### Ein offener Klärungspunkt
-- **Transformationsziele 3 vs. 5**: Memory schreibt 3 pro Kapitel vor (Winding-Path-Kopplung), Code und Upload haben 5. → in Schritt C (separater Turn) entscheiden.
+| Element aus `schritt-2.Traumabonding.html` / `Schritt_2.txt` | Im Modul vorhanden? | Meinung |
+|---|---|---|
+| Phase-Eyebrow „Phase 1 · Die Fessel verstehen" + Hero-Nummer „02" | ❌ | **Übernehmen** — schafft Orientierung im Pfad |
+| Quick-Tools-Trio (Sofort-Erkenntnis · Atem 4-7-8 · Merksatz) | ✅ aus `QUICK_TOOLS_M02` | Position korrigieren (nach Intro **vor** Story ist OK, aber **kein Bild davor**) |
+| Story mit Mary-Sandra-Bild links + Drop-Cap | ✅ | – |
+| Diagnose-Text Skinner/Fisher/Dutton | ✅ als Accordion | – |
+| Infografik „Neurobiologie der toxischen Liebe" (toxLiebe) direkt unter Diagnose, mit ausführlicher Caption (VTA · Spielautomat · Vagus-Reset) | ⚠️ liegt im oberen „Visualisierungen"-Stack, nicht inline unter Diagnose | **Inline unter Diagnose** verschieben (siehe TODO im Code Z.277) |
+| 10 Warnsignale-Grid | ✅ als FlipCards | – |
+| Lösung-Text ACT-Defusion + Dopamin-Reset | ✅ | – |
+| Übung 1: 3 Textareas „Meine 3 klarsten Warnsignale in eigenen Worten" | ❌ (nur PillCloud + ButtonChoice) | **Hinzufügen** — gibt der Übung den im Buch vorgesehenen Schreib-Schritt |
+| Übung 2: Rationalisierungskarten + Reframes („was steckt wirklich dahinter") + freie Textarea | ⚠️ ButtonChoice + Reflection3Step, aber **Reframes** fehlen | **Reframe-Texte** ergänzen (Karte zeigt Rationalisierung → Tap zeigt ACT-Reframe) |
+| Übung 3: Jackpot-Wheel-SVG (4 Stages: Kälte · Sehnsucht · Jackpot · Dopamin · ♾️) + 3 Jackpot-Momente + Muster-Frage | ⚠️ StackedCards vorhanden, **Wheel-Visualisierung & Muster-Textarea** fehlen | **Wheel als brand-styled Komponente** + Muster-Textarea ergänzen |
+| Übung 4: 4-7-8 Atem | ✅ via `BreathPacer` | – |
+| Extinction-Burst (animierte Diagnose-Box) | ❌ | **Nicht übernehmen** — doppelt zu Lösung/Deep Dive, eher Inhalt für Modul 04 (No Contact) |
+| Rückfall-Ampel (grün/gelb/rot, interaktiv) | ❌ | **Nicht übernehmen** — gehört thematisch zu Modul „Suchtmuster brechen" (Buch-Schritt 07) |
+| Cue-Audit Mapper | ❌ | **Nicht übernehmen** — gehört zu Dopamin-Reset Praxis = passt besser in Modul 04/05 |
+| Deep-Dive-Text Fisher/Skinner/Langeslag/Grant | ✅ als FlipCards | – |
+| Meditation „Lass los" (Kempermann, YouTube) | ✅ | – |
+| 5 Transformationsziele | ✅ identisch | – |
 
 ---
 
-## Was passiert nicht in diesem Plan
-- Keine Code-Änderung am SOS-Modul jetzt — erst nach deiner Freigabe der Tabelle.
-- Andere Kapitel werden später Schritt für Schritt analog geprüft (M01, M02 …).
-- Die Datei-↔-Schritt-Off-by-one-Regel bleibt unverändert.
+## 3) Geplante Änderungen an `src/modules/modul-01.tsx`
+
+1. **„Visualisierungen"-Block entfernen** (Z. 88–97). Verstößt gegen „kein Bild vor Story". Die einzelne wichtige Infografik (`infoToxliebe`) wird stattdessen inline unter die Diagnose-Accordion verschoben — 80 % Breite, Caption mit Vagus-Reset-Hinweis darunter (ersetzt den TODO bei Z. 277).
+2. **Quick-Tools-Trio** bleibt direkt nach Intro (vor Story) — keine Bilder davor, also regelkonform.
+3. **Reihenfolge tauschen**: Deep Dive **vor** Infografik `trauma-bonding-kreislauf` rücken, damit die Vorgabe „7. Infografik mit Erklärung" nach dem Deep Dive sitzt. Caption-Text wird zur didaktischen Erklärung ausgebaut.
+4. **Hero**: Eyebrow „Phase 1 · Die Fessel verstehen" + große „02"-Nummer ergänzen (über `ChapterHero` props oder im JSX direkt darüber).
+5. **Übung 1**: Unter PillCloud drei `Reflection3Step`-Felder „Meine 3 klarsten Warnsignale in eigenen Worten" anhängen.
+6. **Übung 2**: Aus den 10 Rationalisierungen werden Flip-/Reveal-Karten mit ACT-Reframe auf der Rückseite (z. B. „Sie hatte eine schwere Kindheit" → „Mitgefühl ersetzt nicht Sicherheit"). Bestehende `ButtonChoice` + `Reflection3Step` bleiben darunter.
+7. **Übung 3**: Neue kleine Komponente `JackpotWheel` (SVG, 4 Stages im Kreis, brand-tokens), darunter die bestehenden StackedCards. Zusätzliche Textarea „Was erkennst du in deinem persönlichen Muster?".
+8. **Keine** Übernahme von Extinction-Burst, Rückfall-Ampel, Cue-Audit Mapper (gehören thematisch in spätere Module).
+
+Alle Inhalte bleiben textlich nahe am Buch (Mary-Sandra-Story, Skinner/Fisher/Dutton, ACT-Defusion). Persistenz weiter über `useModuleProgress("modul-01")` / `unbond_m01_*`.
+
+---
+
+## Hinweis vor Implementierung
+
+Soll ich die ACT-Reframes (Übung 2) und den Wheel (Übung 3) direkt umsetzen, oder willst du die Reframe-Texte vorab gegenlesen? Sonst formuliere ich sie selbst aus dem ACT-Defusion-Stil des Buchs.

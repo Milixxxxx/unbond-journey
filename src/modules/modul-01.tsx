@@ -26,6 +26,7 @@ import { TextCollapse } from "@/components/text-collapse";
 import marySpielautomatImg from "@/assets/story/mary-spielautomat.jpg";
 import traumaBondingInfografik from "@/assets/infographics/trauma-bonding-kreislauf.png";
 import { ButtonChoice } from "@/components/button-choice";
+import { ReflectionField } from "@/components/exercise-fields";
 import { ChecklistGoals } from "@/components/checklist-goals";
 import { DeepDiveIntro } from "@/components/deep-dive-intro";
 import { Reveal } from "@/components/reveal";
@@ -65,7 +66,13 @@ export function Modul01() {
 
   return (
     <article className="space-y-7">
-      {/* ── Einleitung (3 Sätze max) ── */}
+      {/* ── Phase-Strip + Hero + Einleitung ── */}
+      <div className="-mb-2 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-mauve">
+        <span className="grid h-8 w-8 place-items-center rounded-full border border-mauve/40 bg-mauve/10 font-display text-sm text-mauve">
+          02
+        </span>
+        <span>Phase 1 · Die Fessel verstehen</span>
+      </div>
       <ChapterHero image="heroTraumabonding" alt="Trauma-Bonding – Schritt 02" />
       <ChapterIntro
         title="Schritt 02 · Trauma-Bonding: Anatomie der Fessel"
@@ -84,19 +91,7 @@ export function Modul01() {
         </p>
       </ChapterIntro>
 
-      {/* Visualisierungen aus dem Buch (zoombar) */}
-      <section className="space-y-3 animate-fade-in">
-        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-mauve">
-          Visualisierungen
-        </div>
-        <InfographicImage image="infoToxliebe" alt="Neurobiologie der toxischen Liebe" caption="Neurobiologie der toxischen Liebe – Dopamin, Cortisol, Oxytocin im Wechselbad." />
-        <InfographicImage image="infoBancroft" alt="Täterpsychologie nach Lundy Bancroft" caption="Bancroft – Die zentralen Glaubenssätze emotional missbräuchlicher Partner:innen." />
-        <InfographicImage image="infoGaslighting" alt="Gaslighting – Systematische Realitätsverzerrung" caption="Gaslighting – die Mechanik der systematischen Realitätsverzerrung." />
-        <InfographicImage image="infoKptbs" alt="kPTBS – Komplexe Posttraumatische Belastungsstörung" caption="Komplexe PTBS – Symptomcluster nach ICD-11." />
-        <InfographicImage image="infoKptbs2" alt="kPTBS – Symptommuster & Häufigkeit" caption="kPTBS – Symptommuster und Häufigkeit in Studien." />
-      </section>
-
-      {/* ── Quick-Tools-Trio direkt unter Hero ── */}
+      {/* ── Quick-Tools-Trio direkt unter Intro (vor Story, ohne Bild davor) ── */}
       <QuickToolsTrio tools={QUICK_TOOLS_M02} />
 
 
@@ -274,8 +269,12 @@ export function Modul01() {
           </AccordionItem>
         </Accordion>
 
-        {/* TODO: Infografik „Neurobiologie der toxischen Liebe" hier einsetzen
-            (Caption: VTA als Spielautomat · Trennungsschmerz = Kokain-Entzug · Vagus-Reset & No Contact als med. Protokoll) */}
+        {/* Inline-Infografik direkt unter der Diagnose (Vagus-Reset · VTA · Spielautomat) */}
+        <InfographicImage
+          image="infoToxliebe"
+          alt="Neurobiologie der toxischen Liebe – VTA als Spielautomat"
+          caption="Abb. 2.1 · Das Ventrale Tegmentale Areal (VTA) fungiert als interner Spielautomat: Es schüttet bei Kontakt Dopamin aus, während der Trennungsschmerz neurochemisch identisch mit Kokain-/Opioid-Entzug ist. Im Überlebensmodus schaltet der präfrontale Kortex ab — Vagus-Reset (TIPP) und absolutes No Contact sind daher keine Willensfrage, sondern medizinisches Protokoll."
+        />
       </SectionBlock>
 
       {/* ── 10 Warnsignale als interaktive FlipCards ── */}
@@ -361,18 +360,9 @@ export function Modul01() {
         </p>
       </SectionBlock>
 
-      {/* ── Infografik nach der Lösung: Anatomie des toxischen Kreislaufs ── */}
-      <InfoGraphicBlock
-        src={traumaBondingInfografik}
-        alt="Infografik: Anatomie des toxischen Kreislaufs — fünf Phasen des Trauma-Bondings"
-        title="Infografik · Anatomie des toxischen Kreislaufs"
-        caption="Die fünf Phasen, die dein Gehirn in der Sucht halten — Tap zum Vergrößern."
-        aspect="16/9"
-      />
-
       <DeepDiveIntro
         label="Wenn du tiefer verstehen willst …"
-        hint="Optional. Drei Studien, die das Muster erklären — du musst sie nicht lesen, um zu heilen."
+        hint="Optional. Fünf Studien, die das Muster erklären — du musst sie nicht lesen, um zu heilen."
       >
         <SectionBlock kind="deep-dive" title="Fünf Studien, die alles erklären">
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -420,6 +410,15 @@ export function Modul01() {
         </SectionBlock>
       </DeepDiveIntro>
 
+      {/* ── Infografik nach dem Deep Dive: Anatomie des toxischen Kreislaufs (80% Breite, Text darunter) ── */}
+      <InfoGraphicBlock
+        src={traumaBondingInfografik}
+        alt="Infografik: Anatomie des toxischen Kreislaufs — fünf Phasen des Trauma-Bondings"
+        title="Infografik · Anatomie des toxischen Kreislaufs"
+        caption="Die fünf Phasen — Idealisierung · Entwertung · Verwirrung · Versöhnung · erneute Idealisierung — die dein Gehirn in der Sucht halten. Jede Versöhnung erzeugt einen Dopamin-Spike, der die Konditionierung verstärkt. Tap zum Vergrößern."
+        aspect="16/9"
+      />
+
       {/* ════════════════ 5 · ÜBUNGEN (4) ════════════════ */}
 
 
@@ -451,6 +450,30 @@ export function Modul01() {
           counterLabel="Warnsignale erkannt"
           emptyHint="Tippe an, was du wiedererkennst."
         />
+        <div className="mt-5 space-y-3">
+          <p className="text-sm font-semibold text-bordeaux">
+            Meine 3 klarsten Warnsignale — in eigenen Worten
+          </p>
+          <ReflectionField
+            slug={SLUG}
+            exerciseKey="ws_eigen_1"
+            label="Warnsignal 1 — das Klarste, das ich lange nicht sehen wollte:"
+            placeholder="z.B. „Wenn ich Nähe wollte, wurde sie kalt …"
+            rows={2}
+          />
+          <ReflectionField
+            slug={SLUG}
+            exerciseKey="ws_eigen_2"
+            label="Warnsignal 2 — ein Muster, das sich immer wiederholte:"
+            rows={2}
+          />
+          <ReflectionField
+            slug={SLUG}
+            exerciseKey="ws_eigen_3"
+            label="Warnsignal 3 — das Zeichen, das mein Körper kannte, bevor mein Verstand es zugab:"
+            rows={2}
+          />
+        </div>
       </SectionBlock>
 
       {/* ── Übung 2 · Innere Anwältinnen der Sucht ── */}
@@ -459,10 +482,27 @@ export function Modul01() {
         eyebrow="Übung 2 · Innere Anwältinnen der Sucht"
         title="Welcher Satz hat dich am längsten gehalten?"
       >
+        <p className="text-sm text-graphite/75">
+          Welche dieser Sätze hast du gedacht? Tippe eine Karte an — auf der
+          Rückseite siehst du den ACT-Reframe, der den Gedanken entwaffnet.
+        </p>
+        <div className="grid grid-cols-1 gap-2 sm:gap-2.5 sm:grid-cols-2 md:grid-cols-3">
+          {RATIONALISIERUNGEN.map((r) => (
+            <FlipCard
+              key={r.id}
+              icon={Brain}
+              color="var(--color-mauve)"
+              label="Rationalisierung"
+              heading={r.label}
+              front={r.front}
+              back={r.reframe}
+            />
+          ))}
+        </div>
         <ButtonChoice
           moduleSlug={SLUG}
           storageKey="rationalisierung_top"
-          label="Wähle die Rationalisierung, die du am häufigsten gedacht hast:"
+          label="Welche Rationalisierung hat dich am längsten gehalten?"
           options={RATIONALISIERUNGEN.map((r) => ({
             value: r.id,
             label: r.label,
@@ -498,6 +538,7 @@ export function Modul01() {
         eyebrow="Übung 3 · Jackpot-Protokoll"
         title="Mein persönlicher Spielautomaten-Zyklus"
       >
+        <JackpotWheel />
         <ButtonChoice
           moduleSlug={SLUG}
           storageKey="jackpot_intensitaet"
@@ -540,6 +581,13 @@ export function Modul01() {
               },
             ],
           }))}
+        />
+        <ReflectionField
+          slug={SLUG}
+          exerciseKey="jackpot_muster"
+          label="Was erkennst du in deinem persönlichen Muster?"
+          placeholder="z.B. „Meine Hoffnung stieg immer dann, wenn …“"
+          rows={3}
         />
       </SectionBlock>
 
@@ -595,6 +643,76 @@ export function Modul01() {
         />
       </SectionBlock>
     </article>
+  );
+}
+
+/**
+ * JackpotWheel · Brand-styled SVG des 4-Phasen-Zyklus
+ * (Kälte → Sehnsucht → Jackpot → Dopamin → ♾️).
+ * Rein dekorativ, keine Persistenz.
+ */
+function JackpotWheel() {
+  return (
+    <figure className="mx-auto my-4 w-full max-w-[340px]">
+      <div className="relative aspect-square w-full">
+        <svg viewBox="0 0 300 300" className="absolute inset-0 h-full w-full">
+          <circle
+            cx="150"
+            cy="150"
+            r="120"
+            fill="none"
+            stroke="color-mix(in oklab, var(--color-graphite) 18%, transparent)"
+            strokeWidth="2"
+          />
+          <defs>
+            <marker
+              id="jpArrow"
+              viewBox="0 0 10 10"
+              refX="8"
+              refY="5"
+              markerWidth="6"
+              markerHeight="6"
+              orient="auto"
+            >
+              <path d="M0,0 L10,5 L0,10" fill="color-mix(in oklab, var(--color-graphite) 38%, transparent)" />
+            </marker>
+          </defs>
+          <path d="M150,30 A120,120 0 0,1 262,105" fill="none" stroke="color-mix(in oklab, var(--color-graphite) 28%, transparent)" strokeWidth="2" markerEnd="url(#jpArrow)" />
+          <path d="M262,195 A120,120 0 0,1 195,262" fill="none" stroke="color-mix(in oklab, var(--color-graphite) 28%, transparent)" strokeWidth="2" markerEnd="url(#jpArrow)" />
+          <path d="M105,262 A120,120 0 0,1 38,195" fill="none" stroke="color-mix(in oklab, var(--color-graphite) 28%, transparent)" strokeWidth="2" markerEnd="url(#jpArrow)" />
+          <path d="M38,105 A120,120 0 0,1 105,38" fill="none" stroke="color-mix(in oklab, var(--color-graphite) 28%, transparent)" strokeWidth="2" markerEnd="url(#jpArrow)" />
+        </svg>
+        <div className="absolute left-1/2 top-0 -translate-x-1/2">
+          <span className="rounded-full border border-bordeaux/30 bg-bordeaux/10 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.08em] text-bordeaux">
+            🧊 Kälte
+          </span>
+        </div>
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1">
+          <span className="rounded-full border border-terracotta/30 bg-terracotta/10 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.08em] text-terracotta">
+            💔 Sehnsucht
+          </span>
+        </div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
+          <span className="rounded-full border border-mauve/40 bg-mauve/15 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.08em] text-mauve">
+            🎰 Jackpot
+          </span>
+        </div>
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1">
+          <span className="rounded-full border border-sage/40 bg-sage/15 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.08em] text-sage">
+            💊 Dopamin
+          </span>
+        </div>
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+          <span className="block font-display text-2xl text-graphite/80">♾️</span>
+          <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-graphite/55">
+            Endlosschleife
+          </span>
+        </div>
+      </div>
+      <figcaption className="mt-3 text-center text-xs italic text-graphite/65">
+        Der Zyklus wiederholt sich — bis du ihn benennst.
+      </figcaption>
+    </figure>
   );
 }
 
@@ -688,15 +806,70 @@ const WARNSIGNALE: {
   },
 ];
 
-const RATIONALISIERUNGEN = [
-  { id: "kindheit", label: "Sie hatte eine schwere Kindheit" },
-  { id: "guteph", label: "In guten Phasen war sie perfekt" },
-  { id: "ichauch", label: "Ich war auch nicht immer einfach" },
-  { id: "meintenicht", label: "Sie meinte es nicht so" },
-  { id: "aufgeben", label: "Wer gibt so eine Liebe einfach auf?" },
-  { id: "geduld", label: "Ich hätte mehr Geduld haben sollen" },
-  { id: "aendern", label: "Sie ändert sich noch" },
-  { id: "ohnemich", label: "Ohne mich bricht sie zusammen" },
-  { id: "allebez", label: "Alle Beziehungen sind manchmal so" },
-  { id: "liebenicht", label: "Liebe ist nicht immer einfach" },
+const RATIONALISIERUNGEN: {
+  id: string;
+  label: string;
+  front: string;
+  reframe: string;
+}[] = [
+  {
+    id: "kindheit",
+    label: "Sie hatte eine schwere Kindheit",
+    front: "„Ich muss sie verstehen — sie hatte es nie leicht.“",
+    reframe: "Mitgefühl ersetzt keine Sicherheit. Ihre Geschichte erklärt Verhalten, sie entschuldigt es nicht.",
+  },
+  {
+    id: "guteph",
+    label: "In guten Phasen war sie perfekt",
+    front: "„Wenn es gut war, war es das Beste, was ich je hatte.“",
+    reframe: "Die guten Phasen sind der Jackpot — sie machen den Spielautomaten süchtig, nicht sicher.",
+  },
+  {
+    id: "ichauch",
+    label: "Ich war auch nicht immer einfach",
+    front: "„Ich habe auch Fehler gemacht — wer bin ich, zu urteilen?“",
+    reframe: "Fehler machen ist menschlich. Systematisches Verletzen ist ein Muster. Das ist nicht dasselbe.",
+  },
+  {
+    id: "meintenicht",
+    label: "Sie meinte es nicht so",
+    front: "„Sie wollte mich nicht verletzen — es ist ihr nur rausgerutscht.“",
+    reframe: "Absicht ändert nichts an der Wirkung. Dein Nervensystem reagiert auf das, was passiert ist — nicht auf das, was gemeint war.",
+  },
+  {
+    id: "aufgeben",
+    label: "Wer gibt so eine Liebe einfach auf?",
+    front: "„Diese Liebe war doch einzigartig.“",
+    reframe: "Das Gefühl der Einzigartigkeit ist Dopamin, nicht Bestimmung. Gesunde Liebe fühlt sich nicht wie Überleben an.",
+  },
+  {
+    id: "geduld",
+    label: "Ich hätte mehr Geduld haben sollen",
+    front: "„Wenn ich nur noch geduldiger gewesen wäre …“",
+    reframe: "Geduld heilt nicht das, was nicht heilen will. Es war nie deine Aufgabe, jemanden zu reparieren.",
+  },
+  {
+    id: "aendern",
+    label: "Sie ändert sich noch",
+    front: "„Beim nächsten Mal wird alles anders.“",
+    reframe: "Veränderung ist kein Versprechen, sondern ein Verhaltensbeweis über Zeit. Du hast lange genug gewartet.",
+  },
+  {
+    id: "ohnemich",
+    label: "Ohne mich bricht sie zusammen",
+    front: "„Ich kann sie doch nicht im Stich lassen.“",
+    reframe: "Niemand bricht zusammen, weil eine andere Person Selbstschutz wählt. Ihre Stabilität ist nicht dein Job.",
+  },
+  {
+    id: "allebez",
+    label: "Alle Beziehungen sind manchmal so",
+    front: "„So schlimm ist das doch nicht — andere Paare streiten auch.“",
+    reframe: "Streit ja, systematische Entwertung nein. Vergleich mit gesunden Beziehungen, nicht mit toxischen Normalisierungen.",
+  },
+  {
+    id: "liebenicht",
+    label: "Liebe ist nicht immer einfach",
+    front: "„Echte Liebe braucht eben Arbeit.“",
+    reframe: "Liebe darf anstrengend sein. Sie darf nicht weh tun. Der Unterschied ist deine Sicherheit — körperlich, emotional, psychisch.",
+  },
 ];
