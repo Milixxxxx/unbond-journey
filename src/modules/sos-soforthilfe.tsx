@@ -30,7 +30,7 @@ import {
 } from "@/components/exercise";
 import { HighLoadDistraction } from "@/components/exercise/high-load-distraction";
 import { QuickToolsTrio } from "@/components/quick-tools-trio";
-import tippInfografik from "@/assets/tipp-protokoll.png.asset.json";
+
 
 const SLUG = "sos-soforthilfe";
 
