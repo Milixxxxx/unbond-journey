@@ -13,7 +13,6 @@ import {
 import { CollapsibleBox } from "@/components/collapsible-box";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ZoomableImage } from "@/components/zoomable-image";
-import { LightboxImage } from "@/components/lightbox-image";
 import { CrisisBanner } from "@/components/crisis-banner";
 import { ChapterIntro } from "@/components/chapter-intro";
 import { SectionBlock } from "@/components/section-block";
@@ -23,6 +22,7 @@ import { DeepDiveIntro } from "@/components/deep-dive-intro";
 import { ReflectionField, ReflectionInput } from "@/components/exercise-fields";
 import { DailyTracker } from "@/components/exercise/daily-tracker";
 import { UrgeSurfWave } from "@/components/exercise/urge-surf-wave";
+
 import {
   Reflection3Step,
   PillCloud,
