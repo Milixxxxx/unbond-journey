@@ -313,11 +313,13 @@ export function Modul01() {
           </AccordionItem>
         </Accordion>
 
-        {/* Inline-Infografik direkt unter der Diagnose (Vagus-Reset · VTA · Spielautomat) */}
-        <InfographicImage
-          image="infoToxliebe"
+        {/* Inline-Infografik mit 5 Hotspots — die 5 Säulen der Diagnose interaktiv */}
+        <InfographicHotspots
+          src={bookImages.infoToxliebe}
           alt="Neurobiologie der toxischen Liebe – VTA als Spielautomat"
-          caption="Abb. 2.1 · Das Ventrale Tegmentale Areal (VTA) fungiert als interner Spielautomat: Es schüttet bei Kontakt Dopamin aus, während der Trennungsschmerz neurochemisch identisch mit Kokain-/Opioid-Entzug ist. Im Überlebensmodus schaltet der präfrontale Kortex ab — Vagus-Reset (TIPP) und absolutes No Contact sind daher keine Willensfrage, sondern medizinisches Protokoll."
+          title="Wenn Bindung zur Sucht wird · interaktiv"
+          caption="Tippe die markierten Punkte an — jeder zeigt einen Baustein deiner Diagnose. So wird sichtbar, warum dein Wille allein nicht ausreicht."
+          hotspots={DIAGNOSE_HOTSPOTS}
         />
       </SectionBlock>
 
