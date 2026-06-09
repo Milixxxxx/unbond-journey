@@ -187,10 +187,10 @@ function Vorwort() {
               <ArrowLeft className="h-3.5 w-3.5" /> Zurück
             </Link>
             <Link
-              to="/poem"
+              to="/einleitung"
               className="inline-flex items-center gap-1.5 rounded-md bg-bordeaux px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-white shadow-elegant transition hover:opacity-90"
             >
-              Marys Geschichte <ArrowRight className="h-3.5 w-3.5" />
+              Marys Geschichte &amp; Einleitung <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
         </article>

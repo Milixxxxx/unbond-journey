@@ -15,8 +15,7 @@ export function SiteHeader() {
           <NavLink to="/dashboard">Dashboard</NavLink>
           <NavLink to="/inhalt">Inhalt</NavLink>
           <NavLink to="/vorwort">Vorwort</NavLink>
-          <NavLink to="/poem">Marys Geschichte</NavLink>
-          <NavLink to="/einleitung">Über</NavLink>
+          <NavLink to="/einleitung">Einleitung &amp; Marys Story</NavLink>
           <NavLink to="/einstellungen">Profil</NavLink>
         </nav>
       </div>

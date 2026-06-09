@@ -31,8 +31,8 @@ type Item = {
 const ITEMS: Item[] = [
   {
     num: "✦ Einleitung",
-    title: "Mary & Sandra – Das Programm verstehen",
-    sub: "Wer sind Mary und Sandra – Wie du dieses Programm nutzt – Für wen UNBOND geschrieben wurde",
+    title: "Marys Geschichte &amp; So nutzt du dieses Buch",
+    sub: "Mary & Sandra im Café – Der 5-Schritt-Bogen – Optional: Wissenschaft, Säulen, Phasen, Gedicht",
     to: "/einleitung",
     cta: true,
   },
@@ -41,12 +41,6 @@ const ITEMS: Item[] = [
     title: "Ein Brief von Milena",
     sub: "Warum dieses Programm entstanden ist – Meine Geschichte – An dich, die liest",
     to: "/vorwort",
-  },
-  {
-    num: "✦ Marys Geschichte",
-    title: "Am Anfang war das Gefühl",
-    sub: "Wo alles begann – Liebe fragt nicht nach der Uhr – Mary & Sandra im Café",
-    to: "/poem",
   },
   {
     num: "🧭 Routing",
@@ -151,8 +145,8 @@ function Inhalt() {
   return (
     <main className="min-h-screen px-4 py-10 pb-24">
       <div className="mx-auto max-w-3xl space-y-7">
-        <Link to="/poem" className="inline-flex items-center gap-1 text-sm text-bordeaux hover:underline">
-          <ArrowLeft className="h-3.5 w-3.5" /> Marys Geschichte
+        <Link to="/einleitung" className="inline-flex items-center gap-1 text-sm text-bordeaux hover:underline">
+          <ArrowLeft className="h-3.5 w-3.5" /> Einleitung &amp; Marys Geschichte
         </Link>
 
         <header className="text-center animate-fade-in">
