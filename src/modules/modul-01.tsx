@@ -65,7 +65,13 @@ export function Modul01() {
 
   return (
     <article className="space-y-7">
-      {/* ── Einleitung (3 Sätze max) ── */}
+      {/* ── Phase-Strip + Hero + Einleitung ── */}
+      <div className="-mb-2 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-mauve">
+        <span className="grid h-8 w-8 place-items-center rounded-full border border-mauve/40 bg-mauve/10 font-display text-sm text-mauve">
+          02
+        </span>
+        <span>Phase 1 · Die Fessel verstehen</span>
+      </div>
       <ChapterHero image="heroTraumabonding" alt="Trauma-Bonding – Schritt 02" />
       <ChapterIntro
         title="Schritt 02 · Trauma-Bonding: Anatomie der Fessel"
@@ -84,19 +90,7 @@ export function Modul01() {
         </p>
       </ChapterIntro>
 
-      {/* Visualisierungen aus dem Buch (zoombar) */}
-      <section className="space-y-3 animate-fade-in">
-        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-mauve">
-          Visualisierungen
-        </div>
-        <InfographicImage image="infoToxliebe" alt="Neurobiologie der toxischen Liebe" caption="Neurobiologie der toxischen Liebe – Dopamin, Cortisol, Oxytocin im Wechselbad." />
-        <InfographicImage image="infoBancroft" alt="Täterpsychologie nach Lundy Bancroft" caption="Bancroft – Die zentralen Glaubenssätze emotional missbräuchlicher Partner:innen." />
-        <InfographicImage image="infoGaslighting" alt="Gaslighting – Systematische Realitätsverzerrung" caption="Gaslighting – die Mechanik der systematischen Realitätsverzerrung." />
-        <InfographicImage image="infoKptbs" alt="kPTBS – Komplexe Posttraumatische Belastungsstörung" caption="Komplexe PTBS – Symptomcluster nach ICD-11." />
-        <InfographicImage image="infoKptbs2" alt="kPTBS – Symptommuster & Häufigkeit" caption="kPTBS – Symptommuster und Häufigkeit in Studien." />
-      </section>
-
-      {/* ── Quick-Tools-Trio direkt unter Hero ── */}
+      {/* ── Quick-Tools-Trio direkt unter Intro (vor Story, ohne Bild davor) ── */}
       <QuickToolsTrio tools={QUICK_TOOLS_M02} />
 
 
