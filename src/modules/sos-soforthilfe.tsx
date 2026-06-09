@@ -27,8 +27,6 @@ import {
   MeditationCard,
 } from "@/components/exercise";
 import { HighLoadDistraction } from "@/components/exercise/high-load-distraction";
-import { BreathPacer } from "@/components/exercise/breath-pacer";
-import { IntensityPrePost } from "@/components/exercise/intensity-pre-post";
 
 const SLUG = "sos-soforthilfe";
 
@@ -230,47 +228,6 @@ export function SosSoforthilfe() {
           exerciseKey="tipp_p2"
           label="P · Progressive Relaxation — Wann und wo übe ich das?"
           placeholder="z.B. Abends im Bett, bevor ich einschlafe …"
-        />
-      </SectionBlock>
-
-      {/* Übung 1b · Paced Breathing — 4-7-8 Atem-Timer */}
-      <SectionBlock
-        kind="uebung"
-        eyebrow="Übung 1b · Paced Breathing"
-        title={`4-7-8 Atem-Timer — das „P" im TIPP live erleben`}
-      >
-        <p className="text-sm text-graphite/80">
-          Atme nach diesem Rhythmus:{" "}
-          <strong>4 Sek. einatmen — 7 Sek. halten — 8 Sek. ausatmen.</strong>{" "}
-          Die verlängerte Ausatmung aktiviert den Vagusnerv und senkt Herzfrequenz
-          und Cortisol messbar (Polyvagal-Theorie, Porges).
-        </p>
-        <BreathPacer
-          slug={SLUG}
-          totalCycles={4}
-          title="4-7-8 Atem · 4 Zyklen"
-          subtitle="Folge dem Kreis — er weiß den Takt. Mund leicht geöffnet, Ausatmen hörbar wie ein Seufzer."
-          meta="🌬️ Vagus-Reset · ca. 1:30 Min"
-          accent="bordeaux"
-        />
-      </SectionBlock>
-
-      {/* Übung 1c · Drang-Intensität vor / nach */}
-      <SectionBlock
-        kind="uebung"
-        eyebrow="Übung 1c · Drang-Intensität messen"
-        title="Vor und nach dem Atem-Timer vergleichen"
-      >
-        <p className="text-sm text-graphite/80">
-          Wie stark ist dein Impuls oder deine Anspannung gerade? Messe einmal{" "}
-          <strong>vor</strong> dem Atem-Timer und einmal direkt{" "}
-          <strong>danach</strong> — der Unterschied macht Selbstwirksamkeit
-          sichtbar.
-        </p>
-        <IntensityPrePost
-          slug={SLUG}
-          storageKeyBefore="drang_vor"
-          storageKeyAfter="drang_nach"
         />
       </SectionBlock>
 
