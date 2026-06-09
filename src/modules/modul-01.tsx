@@ -120,7 +120,7 @@ export function Modul01() {
             {[
               "Warum verschwindet mein Verstand, wenn sie schreibt?",
               "Warum wiegt ein gutes Wort eine Woche Kälte auf?",
-              "Warum hilft kein Vorsatz „nie wieder"?",
+              'Warum hilft kein Vorsatz „nie wieder"?',
               "Was unterscheidet Liebe von Sucht — körperlich?",
             ].map((q) => (
               <li
