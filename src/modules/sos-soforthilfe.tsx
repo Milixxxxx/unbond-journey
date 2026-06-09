@@ -237,7 +237,7 @@ export function SosSoforthilfe() {
       <SectionBlock
         kind="uebung"
         eyebrow="Übung 1b · Paced Breathing"
-        title="4-7-8 Atem-Timer — das „P" im TIPP live erleben"
+        title={`4-7-8 Atem-Timer — das „P" im TIPP live erleben`}
       >
         <p className="text-sm text-graphite/80">
           Atme nach diesem Rhythmus:{" "}
