@@ -8,10 +8,12 @@ import {
   Activity,
   Wind,
   Pause,
+  Waves,
 } from "lucide-react";
 import { CollapsibleBox } from "@/components/collapsible-box";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ZoomableImage } from "@/components/zoomable-image";
+import { LightboxImage } from "@/components/lightbox-image";
 import { CrisisBanner } from "@/components/crisis-banner";
 import { ChapterIntro } from "@/components/chapter-intro";
 import { SectionBlock } from "@/components/section-block";
@@ -27,6 +29,8 @@ import {
   MeditationCard,
 } from "@/components/exercise";
 import { HighLoadDistraction } from "@/components/exercise/high-load-distraction";
+import { QuickToolsTrio } from "@/components/quick-tools-trio";
+import tippInfografik from "@/assets/tipp-protokoll.png.asset.json";
 
 const SLUG = "sos-soforthilfe";
 
