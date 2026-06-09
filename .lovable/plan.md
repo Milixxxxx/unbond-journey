@@ -1,46 +1,70 @@
-## Diagnose
+Ich habe beide Uploads jetzt vollständig gelesen (`Scchritt_01.txt`, 116 Z. — und `Schritt_2_SOS.html`, 1127 Z., relevant: SCHRITT-1-Block Z. 343–542). Plan in zwei Schritten:
 
-Im Code (`src/routes/routing.tsx`) ist die Weiter-Logik technisch korrekt:
+---
 
-```ts
-const currentComplete =
-  (answers[current.id]?.length ?? 0) === current.questions.length &&
-  (answers[current.id] ?? []).every((v) => v >= 1 && v <= 4);
-```
+## Schritt A · Knowledge-Datei aktualisieren
 
-Der Button ist `disabled={!currentComplete}`. Auf dem Screenshot ist auch keine der 12 Polyvagal-Antworten ausgewählt (kein Bordeaux-Highlight) — d.h. der Weiter-Button ist **bewusst deaktiviert**, weil noch nicht alle 3 Polyvagal-Fragen beantwortet sind. Das einzige visuelle Signal dafür ist `opacity-40`, was bei dem mauve-rosa Button auf cremefarbenem Hintergrund kaum erkennbar ist. Daher der Eindruck: "Klick passiert, aber Weiter macht nichts."
+Datei: `.lovable/memory/design/chapter-element-order.md` — komplett überschreiben mit der neuen, verbindlichen Reihenfolge:
 
-Es ist also **kein State-Bug, sondern ein UX-Problem**: zu schwaches Feedback, was fehlt.
+1. **Kapitelthema / Name** (Hero mit Schritt-Nummer + Titel)
+2. **Einleitende Sätze** — Schwerpunkte des Kapitels in 2–3 Sätzen
+3. **Mary & Sandra Story** — **Bild links, Text umfließend** (Grid 200px / 1fr). Vor der Story KEIN anderes Bild im Kapitel.
+4. **Diagnose / Problem** — Accent Sage `#2D4F3C`, 6px-Border links
+5. **Lösung / Konzept** — Accent Terracotta `#C4836E`, 6px-Border links
+6. **Wissenschaftlicher Deep Dive** — collapsible „Wenn du tiefer verstehen willst …", Quellenangaben mit Autor + Jahr
+7. **Infografik** (falls vorhanden) — Grafik 80 % Seitenbreite, zentriert; erklärender Text DARUNTER (nicht daneben)
+8. **Mindestens 3 interaktive Übungen** — jede mit kurzem Warum-Text; bevorzugt aktive Komponenten (Timer, Slider, Pills, Reflection) statt nur Textareas. Accent Gold `#D4A574`, 6px-Border links
+9. **Begleitende Meditation** — `MeditationCard` mit YouTube-Link, Quelle, Dauer
+10. **Transformationsziele** (3 Stück, an Winding-Path gekoppelt) — Accent Mauve `#9B7FA4`, 6px-Border links
 
-## Fix
+Zusätzlich in der Knowledge-Datei festhalten:
+- Reihenfolge ist verbindlich für alle Module 01–10 + Bonus D/E/F
+- Inhalte werden vom User geliefert — nichts erfinden, bei Lücken nachfragen
+- Die 3 Transformationsziele dürfen NIE umsortiert oder ersetzt werden (Kopplung an `useJourneyProgress`)
 
-Minimale, gezielte Verbesserungen in `src/routes/routing.tsx` — nur Frontend, keine Logikänderung an `selbstcheck.ts`:
+Die alte Memory `mem://index.md` muss nicht angepasst werden — sie verweist bereits auf diese Datei.
 
-1. **Pro-Frage-Status sichtbar machen**  
-   Neben jeder Fragenummer einen kleinen Status zeigen:
-   - unbeantwortet: gepunkteter Kreis + "noch offen" in `graphite/55`
-   - beantwortet: gefüllter Sage-Punkt + "beantwortet" in `sage`
-   So sieht die Nutzerin sofort, welche Fragen noch fehlen.
+---
 
-2. **Stärkeres Disabled-Styling für Weiter**  
-   - Klar grau statt mauve-mit-Opacity (z.B. `bg-graphite/15 text-graphite/55 border border-graphite/20`)
-   - `cursor-not-allowed`
+## Schritt B · Vergleichstabelle für Kapitel SOS (Schritt 01)
 
-3. **Inline-Hinweis bei deaktiviertem Weiter**  
-   Direkt unterhalb der Button-Zeile (nur wenn `!currentComplete`):  
-   *"Beantworte alle 3 Fragen, um weiterzugehen — `{offene}` noch offen."*  
-   In `text-[11px] text-bordeaux/75`.
+Quellen für den Vergleich:
+- **Code aktuell**: `src/modules/sos-soforthilfe.tsx` (478 Z.)
+- **Upload 1**: `Scchritt_01.txt` (Fragment ab Story)
+- **Upload 2**: `Schritt_2_SOS.html` Z. 343–542 (SCHRITT-1-Block)
 
-4. **Smooth Scroll nach oben bei Step-Wechsel**  
-   `useEffect(() => window.scrollTo({ top: 0, behavior: "smooth" }), [step])` — damit nach Klick auf Weiter sichtbar wird, dass das neue Konzept geladen ist (zusätzlicher Schutz gegen den "passiert nichts"-Eindruck, falls die Nutzerin doch alle 3 beantwortet hat).
+| # | Pflicht-Element | Im Code (`sos-soforthilfe.tsx`) | In den Uploads zusätzlich | Empfehlung |
+|---|---|---|---|---|
+| 1 | Kapitelthema/Name | ✓ „Schritt 01 · SOS: Akute Stabilisierung" | identisch | OK |
+| 2 | Einleitende Sätze | ✓ 2 Absätze in `ChapterIntro` | Upload2 zusätzlich: 3 Quick-Tool-Karten direkt unter Hero (SOS-rot / Atmung / Merke 90 Sek) | **Hinzufügen** — kompakte Quick-Tool-Trio gibt sofort handlungsfähiges Notfall-Triple |
+| 3 | Story mit Bild links, Text umfließend | ✓ Grid 200px/1fr, `ZoomableImage`, Drop-Cap-Style fehlt | Upload2: `story-dropcap` (ersten Absatz mit Drop-Cap) | **Hinzufügen** — Drop-Cap-Klasse für ersten Story-Absatz |
+| 4 | Diagnose / Problem | ✓ Amygdala-Hijacking, vollständig | identisch | OK |
+| 5 | Lösung / Konzept | ✓ TIPP-Erklärung + 4 `TippCard`s | identisch | OK |
+| 6 | Wissenschaftlicher Deep Dive | ✓ 90-Sek-Regel in `DeepDiveIntro` collapsible | identisch | OK |
+| 7 | Infografik (80 % breit, Text drunter) | ✗ **fehlt** — TIPP-Bild nicht eingebunden | Upload1/2: `assets/TIPP_1774948999615.png` (75 % breit, Bildunterschrift, Quellenangabe) | **Hinzufügen** — TIPP-Infografik als `InfographicImage` + Caption + Quelle |
+| 8a | Übung 1 · TIPP-Notfallplan | ✓ `Reflection3Step` + 1 `ReflectionField` | identisch | OK |
+| 8b | Übung 1b · 4-7-8 Atem-Timer (Breath-Pacer) | ✗ **fehlt** | Upload2 Z. 426–445: animierter SVG-Atem-Ring mit Start-Button, Zyklus-Zähler | **Hinzufügen** — `BreathPacer`-Komponente existiert bereits (`src/components/exercise/breath-pacer.tsx`) → einfügen |
+| 8c | Übung 1c · Drang-Intensität Slider (vor/nach) | ✗ **fehlt** | Upload2 Z. 447–462: Slider 0–10 mit Vorher/Nachher-Vergleich | **Hinzufügen** — `SliderDiscrete` oder `TapScale` mit Vorher-/Nachher-Erfassung |
+| 8d | Übung 2 · Urge Surfing | ✓ `UrgeSurfWave` + `Reflection3Step` | identisch (Upload nur textuell) | OK — Code ist reicher |
+| 8e | Übung 3 · STOPP-Technik | ✓ `PillCloud` mit 10 Ersatzhandlungen + Reflection | identisch | OK — Code ist reicher |
+| 8f | Übung 4 · High-Load Distraction | ✓ `HighLoadDistraction`-Komponente | identisch | OK |
+| 9 | Meditation | ✓ `MeditationCard` ChakraTunes | identisch | OK |
+| 10 | Transformationsziele | ✓ 5 Ziele in `ChecklistGoals` | Upload nennt 5 — Memory schreibt 3 vor (Winding-Path) | **Klären**: aktueller Code hat 5, Winding-Path erwartet 3 — Diskrepanz prüfen |
+| Bonus | Notfall-Kontaktliste (A/B/C) | ✓ 3 `ReflectionInput` + Telefonseelsorge-Hinweis | nicht im Upload | OK — Code-Plus, behalten |
+| Bonus | Tägliches Nervensystem-Tracking | ✓ `DailyTracker` | nicht im Upload | OK — Code-Plus, behalten |
 
-5. **Gleiche Logik für "Auswerten"-Button** auf dem letzten Step: Hinweis "Es fehlen noch `N` Antworten in `{Konzeptliste}`".
+### Zusammenfassung Lücken
+Drei **fehlende** Pflichtelemente im SOS-Modul:
+1. **Quick-Tool-Trio** unter dem Hero (3 Mini-Karten)
+2. **TIPP-Infografik** (Bild + Caption + Quelle)
+3. **Atem-Timer 4-7-8** (`BreathPacer`) + **Drang-Slider** vor/nach
 
-## Nicht-Ziel
+### Ein offener Klärungspunkt
+- **Transformationsziele 3 vs. 5**: Memory schreibt 3 pro Kapitel vor (Winding-Path-Kopplung), Code und Upload haben 5. → in Schritt C (separater Turn) entscheiden.
 
-- Keine Änderung der Scoring-Logik, der Fragen, der Ampel oder der Persistenz.
-- Keine Auto-Advance (Buch-Doktrin: aktive Entscheidung pro Frage bleibt).
+---
 
-## Dateien
-
-- `src/routes/routing.tsx` — UI/State-Hinweise (ca. 30 Zeilen geändert)
+## Was passiert nicht in diesem Plan
+- Keine Code-Änderung am SOS-Modul jetzt — erst nach deiner Freigabe der Tabelle.
+- Andere Kapitel werden später Schritt für Schritt analog geprüft (M01, M02 …).
+- Die Datei-↔-Schritt-Off-by-one-Regel bleibt unverändert.
