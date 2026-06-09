@@ -919,3 +919,46 @@ const RATIONALISIERUNGEN: {
     reframe: "Liebe darf anstrengend sein. Sie darf nicht weh tun. Der Unterschied ist deine Sicherheit — körperlich, emotional, psychisch.",
   },
 ];
+
+/**
+ * 5 Hotspots auf der Infografik „Wenn Bindung zur Sucht wird".
+ * Positionen sind Schätzungen relativ zum Bild — bei Bedarf nach Sichtprüfung
+ * feinjustieren. Inhalte folgen der Diagnose-Säulen-Struktur des Plans.
+ */
+const DIAGNOSE_HOTSPOTS = [
+  {
+    id: "skinner",
+    x: 22,
+    y: 30,
+    label: "1 · Verstärkung",
+    body: "Intermittierende Verstärkung (Skinner): Unvorhersehbare Belohnung konditioniert stärker als jede konstante Zuneigung. Genau deshalb hängst du an den seltenen guten Momenten — nicht weil sie echt sind, sondern weil sie unberechenbar kommen.",
+  },
+  {
+    id: "vta",
+    x: 52,
+    y: 38,
+    label: "2 · VTA",
+    body: "Das Ventrale Tegmentale Areal ist dein interner Spielautomat. Bei Kontakt zu ihr feuert es Dopamin — derselbe Pfad, der bei Kokain anspringt (Fisher, 2005). Liebe und Sucht sind hier neurochemisch nicht zu unterscheiden.",
+  },
+  {
+    id: "dopamin",
+    x: 78,
+    y: 34,
+    label: "3 · Sensitivierung",
+    body: "Dopamin-Sensitivierung (Nestler, 2005): Das System wird hyperreaktiv. Schon ein Song, ihr Profilbild, ein Geruch lösen einen vollen Craving-Anfall aus. Das ist kein Rückschlag — das ist Biochemie.",
+  },
+  {
+    id: "cortisol",
+    x: 30,
+    y: 70,
+    label: "4 · Cortisol-Bindung",
+    body: "Dutton & Painter (1993): Bindung entsteht WEGEN, nicht trotz des Schmerzes. Die Erleichterung nach Kälte ist so intensiv, dass dein Gehirn die Bestrafung als Teil der Belohnung speichert.",
+  },
+  {
+    id: "praefrontal",
+    x: 72,
+    y: 70,
+    label: "5 · Shutdown",
+    body: "Im Craving fällt der präfrontale Kortex biochemisch aus — der Teil, der „Vernunft" macht. Deshalb hilft kein Vorsatz im Moment des Drangs. Du brauchst ein Protokoll, das vorher steht.",
+  },
+];
