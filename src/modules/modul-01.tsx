@@ -482,10 +482,27 @@ export function Modul01() {
         eyebrow="Übung 2 · Innere Anwältinnen der Sucht"
         title="Welcher Satz hat dich am längsten gehalten?"
       >
+        <p className="text-sm text-graphite/75">
+          Welche dieser Sätze hast du gedacht? Tippe eine Karte an — auf der
+          Rückseite siehst du den ACT-Reframe, der den Gedanken entwaffnet.
+        </p>
+        <div className="grid grid-cols-1 gap-2 sm:gap-2.5 sm:grid-cols-2 md:grid-cols-3">
+          {RATIONALISIERUNGEN.map((r) => (
+            <FlipCard
+              key={r.id}
+              icon={Brain}
+              color="var(--color-mauve)"
+              label="Rationalisierung"
+              heading={r.label}
+              front={r.front}
+              back={r.reframe}
+            />
+          ))}
+        </div>
         <ButtonChoice
           moduleSlug={SLUG}
           storageKey="rationalisierung_top"
-          label="Wähle die Rationalisierung, die du am häufigsten gedacht hast:"
+          label="Welche Rationalisierung hat dich am längsten gehalten?"
           options={RATIONALISIERUNGEN.map((r) => ({
             value: r.id,
             label: r.label,
