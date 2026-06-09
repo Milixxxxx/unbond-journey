@@ -1,70 +1,137 @@
+## Phase A · Analyse aus drei Perspektiven
 
-## Mapping-Hinweis
+### 1) Was ich an Quellen gesichtet habe
+- `UNBOND_Final_02-2.html` (Kanon, 7105 Zeilen)
+- `Schritt_2.txt` (Kurzfassung mit 10 Warnsignalen, Goals, ACT-Defusion)
+- `schritt-2.Traumabonding.html` (volle interaktive Vorlage: Warnsignal-Radar mit Pill-Cloud + 3 Textareas, Rationalisierungs-FlipCards mit Reframes, Jackpot-Wheel SVG + 3×3-Grid, 4-7-8-Atem, Deep Dive)
+- `mary-sandra-canon.md` — Mary&Sandra-Story bleibt **unverändert**
+- Bilder: `info-toxliebe.png` (Anatomie der toxischen Liebe), `info-zyklus-tox.png` (Spielautomaten-Kreislauf)
+- Vorhandene Interaktiv-Bausteine: 44 Komponenten in `src/components/exercise/` (siehe Übersicht weiter unten)
 
-Buch-Schritt 02 (Trauma-Bonding) liegt in `src/modules/modul-01.tsx` (Off-by-one aus dem Memory-Mapping).
+### 2) Perspektive Betroffene (Mary)
+Die *eine* Frage, die alles trägt: **„Warum liebe ich sie, obwohl sie mir nachweislich schadet?"**
+Daraus zerlegt:
+- Warum verschwindet mein Verstand, wenn sie schreibt?
+- Warum ist der „gute Moment" wertvoller als 100 schlechte?
+- Warum schäme ich mich für meine Sehnsucht?
+- Warum hilft kein Vorsatz „nie wieder"?
+- Was unterscheidet Liebe von Sucht — körperlich, nicht moralisch?
+- Wie komme ich raus, ohne mich selbst zu verraten?
+
+### 3) Perspektive Therapeut/Coach — Diagnose & Lösung
+
+**a) Diagnose (Ursache)** — strukturiert nach Infografik *Wenn Bindung zur Sucht wird*:
+1. **Intermittierende Verstärkung** (Skinner) — Unvorhersehbarkeit konditioniert stärker als Konstanz.
+2. **VTA / Nucleus accumbens** (Fisher) — Liebe = Kokainpfad. Bei Trauma-Bonding hyperreaktiv.
+3. **Dopamin-Sensitivierung** (Nestler) — schon Micro-Cues (Profil, Lied, Geruch) lösen Craving aus.
+4. **Cortisol-Bindung** (Dutton & Painter) — Bindung entsteht *wegen*, nicht trotz des Schmerzes.
+5. **Präfrontaler Shutdown** — im Craving fällt die Logik biochemisch aus → keine Willensfrage.
+
+**b) Lösung (Konzept)** — strukturiert nach Infografik *Anatomie des toxischen Kreislaufs* (4 Phasen):
+1. **Kälte erkennen** → benennen statt aushalten
+2. **Sehnsucht entkoppeln** → ACT-Defusion: „Da ist der Gedanke …"
+3. **Jackpot entlarven** → als Konditionierungs-Trigger, nicht als „Beweis der Liebe"
+4. **Dopamin-Reset** → Null-Exposition gegenüber Micro-Cues (Profil, Songs, Orte)
 
 ---
 
-## 1) Audit: aktuelle Reihenfolge vs. Knowledge-Vorgabe
+## Phase B · Roter Faden des neuen Kapitels
 
-Soll-Reihenfolge (laut `chapter-element-order`): **1 Titel · 2 Einleitung · 3 Story+Bild · 4 Diagnose · 5 Lösung · 6 Deep Dive · 7 Infografik (80%) · 8 ≥3 Übungen · 9 Meditation · 10 Checkliste**.
+Ein einziger Erzählbogen, alles baut aufeinander auf:
 
-| # | Soll | Ist (modul-01.tsx) | Status |
-|---|------|--------------------|--------|
-| – | (kein Bild vor Story) | „Visualisierungen"-Block mit 5 Infografiken **direkt nach Intro** | ❌ Verstoß |
-| – | (Quick-Tools optional, nicht zwischen Intro & Story) | Quick-Tools-Trio nach Visualisierungen | ⚠️ Position |
-| 1 | Titel | ChapterHero + ChapterIntro | ✅ |
-| 2 | Einleitung | ChapterIntro mit Keywords | ✅ |
-| 3 | Story + Bild links umflossen | StoryPortrait `side="left"` + Reveal-Absätze | ✅ |
-| 4 | Diagnose | Accordion Skinner/Fisher/Dutton + 10 Warnsignale FlipCards | ✅ |
-| 5 | Lösung | ACT-Defusion + Dopamin-Reset + CalloutBold | ✅ |
-| 6 | Deep Dive | 5 FlipCards | ✅ (aber **nach** Infografik – Reihenfolge gedreht) |
-| 7 | Infografik (80%, Text darunter) | InfoGraphicBlock `aspect 16/9` **vor** Deep Dive | ⚠️ Reihenfolge |
-| 8 | ≥3 Übungen | 4 Übungen (Warnsignale · Rationalisierung · Jackpot · 4-7-8) | ✅ |
-| 9 | Meditation | MeditationCard | ✅ |
-| 10 | Checkliste | ChecklistGoals (5 Ziele) | ✅ |
+```text
+HERO  →  HOOK „Warum liebe ich sie?"  →  STORY Mary  →  DIAGNOSE (Infografik 1 als Hotspot)
+   →  ÜBUNG 1+2 (Selbst-Diagnose)  →  KREISLAUF (Infografik 2 interaktiv)
+   →  ÜBUNG 3+4 (Kreislauf am eigenen Fall)  →  LÖSUNG (ACT + Dopamin-Reset)
+   →  ÜBUNG 5+6 (Defusion + Reset-Plan)  →  GOALS  →  WEITER
+```
+
+Jede Übung kommt **mit Setup-Satz** („Warum jetzt diese Übung?"), damit nichts unvermittelt erscheint.
 
 ---
 
-## 2) Was die Uploads bieten, was im Modul fehlt
+## Phase C · Interaktivitäts-Inventar (was steht zur Verfügung)
 
-| Element aus `schritt-2.Traumabonding.html` / `Schritt_2.txt` | Im Modul vorhanden? | Meinung |
+Bevor ich neue Übungen vorschlage, das Repertoire, das wir ohne Neubau nutzen können:
+
+| Pattern | Komponente | Beispielnutzen |
 |---|---|---|
-| Phase-Eyebrow „Phase 1 · Die Fessel verstehen" + Hero-Nummer „02" | ❌ | **Übernehmen** — schafft Orientierung im Pfad |
-| Quick-Tools-Trio (Sofort-Erkenntnis · Atem 4-7-8 · Merksatz) | ✅ aus `QUICK_TOOLS_M02` | Position korrigieren (nach Intro **vor** Story ist OK, aber **kein Bild davor**) |
-| Story mit Mary-Sandra-Bild links + Drop-Cap | ✅ | – |
-| Diagnose-Text Skinner/Fisher/Dutton | ✅ als Accordion | – |
-| Infografik „Neurobiologie der toxischen Liebe" (toxLiebe) direkt unter Diagnose, mit ausführlicher Caption (VTA · Spielautomat · Vagus-Reset) | ⚠️ liegt im oberen „Visualisierungen"-Stack, nicht inline unter Diagnose | **Inline unter Diagnose** verschieben (siehe TODO im Code Z.277) |
-| 10 Warnsignale-Grid | ✅ als FlipCards | – |
-| Lösung-Text ACT-Defusion + Dopamin-Reset | ✅ | – |
-| Übung 1: 3 Textareas „Meine 3 klarsten Warnsignale in eigenen Worten" | ❌ (nur PillCloud + ButtonChoice) | **Hinzufügen** — gibt der Übung den im Buch vorgesehenen Schreib-Schritt |
-| Übung 2: Rationalisierungskarten + Reframes („was steckt wirklich dahinter") + freie Textarea | ⚠️ ButtonChoice + Reflection3Step, aber **Reframes** fehlen | **Reframe-Texte** ergänzen (Karte zeigt Rationalisierung → Tap zeigt ACT-Reframe) |
-| Übung 3: Jackpot-Wheel-SVG (4 Stages: Kälte · Sehnsucht · Jackpot · Dopamin · ♾️) + 3 Jackpot-Momente + Muster-Frage | ⚠️ StackedCards vorhanden, **Wheel-Visualisierung & Muster-Textarea** fehlen | **Wheel als brand-styled Komponente** + Muster-Textarea ergänzen |
-| Übung 4: 4-7-8 Atem | ✅ via `BreathPacer` | – |
-| Extinction-Burst (animierte Diagnose-Box) | ❌ | **Nicht übernehmen** — doppelt zu Lösung/Deep Dive, eher Inhalt für Modul 04 (No Contact) |
-| Rückfall-Ampel (grün/gelb/rot, interaktiv) | ❌ | **Nicht übernehmen** — gehört thematisch zu Modul „Suchtmuster brechen" (Buch-Schritt 07) |
-| Cue-Audit Mapper | ❌ | **Nicht übernehmen** — gehört zu Dopamin-Reset Praxis = passt besser in Modul 04/05 |
-| Deep-Dive-Text Fisher/Skinner/Langeslag/Grant | ✅ als FlipCards | – |
-| Meditation „Lass los" (Kempermann, YouTube) | ✅ | – |
-| 5 Transformationsziele | ✅ identisch | – |
+| Tag-Cloud Multi-Select | `pill-cloud.tsx` | Warnsignale anklicken |
+| FlipCard 2-seitig | `flip-card.tsx` | Rationalisierung ↔ Reframe |
+| Slider mit Auswertung | `tap-scale.tsx`, `slider-discrete.tsx`, `likert-scale.tsx` | Sucht-Selbstcheck |
+| Sortier-Timeline | `timeline-sorter.tsx` | Kreislauf-Phasen ordnen |
+| Hotspot-Bild | `infographic-hotspots.tsx` | Infografik klickbar |
+| Reflection 3-Step | `reflection-3-step.tsx` | strukturierte Eingabe |
+| Stacked Cards | `stacked-cards.tsx` | Schritt-für-Schritt durchblättern |
+| Szenen-Map | `scene-map.tsx` | Jackpot-Momente verorten |
+| Atem-Pacer | `breath-pacer.tsx` | 4-7-8 (existiert, KEIN Doppelnutz hier) |
+| If-Then-Plan | `if-then-trigger-plan.tsx` | Reset-Pakt |
+
+Neu zu bauen wäre nur: das **Spielautomaten-Wheel** als interaktives SVG (4 Phasen klickbar + eigene Einträge).
 
 ---
 
-## 3) Geplante Änderungen an `src/modules/modul-01.tsx`
+## Phase D · Vorschlag: 6 neue Übungen mit rotem Faden
 
-1. **„Visualisierungen"-Block entfernen** (Z. 88–97). Verstößt gegen „kein Bild vor Story". Die einzelne wichtige Infografik (`infoToxliebe`) wird stattdessen inline unter die Diagnose-Accordion verschoben — 80 % Breite, Caption mit Vagus-Reset-Hinweis darunter (ersetzt den TODO bei Z. 277).
-2. **Quick-Tools-Trio** bleibt direkt nach Intro (vor Story) — keine Bilder davor, also regelkonform.
-3. **Reihenfolge tauschen**: Deep Dive **vor** Infografik `trauma-bonding-kreislauf` rücken, damit die Vorgabe „7. Infografik mit Erklärung" nach dem Deep Dive sitzt. Caption-Text wird zur didaktischen Erklärung ausgebaut.
-4. **Hero**: Eyebrow „Phase 1 · Die Fessel verstehen" + große „02"-Nummer ergänzen (über `ChapterHero` props oder im JSX direkt darüber).
-5. **Übung 1**: Unter PillCloud drei `Reflection3Step`-Felder „Meine 3 klarsten Warnsignale in eigenen Worten" anhängen.
-6. **Übung 2**: Aus den 10 Rationalisierungen werden Flip-/Reveal-Karten mit ACT-Reframe auf der Rückseite (z. B. „Sie hatte eine schwere Kindheit" → „Mitgefühl ersetzt nicht Sicherheit"). Bestehende `ButtonChoice` + `Reflection3Step` bleiben darunter.
-7. **Übung 3**: Neue kleine Komponente `JackpotWheel` (SVG, 4 Stages im Kreis, brand-tokens), darunter die bestehenden StackedCards. Zusätzliche Textarea „Was erkennst du in deinem persönlichen Muster?".
-8. **Keine** Übernahme von Extinction-Burst, Rückfall-Ampel, Cue-Audit Mapper (gehören thematisch in spätere Module).
+Jede Übung hat: **Aufhänger (warum jetzt)** · **Mechanik** · **Output**.
 
-Alle Inhalte bleiben textlich nahe am Buch (Mary-Sandra-Story, Skinner/Fisher/Dutton, ACT-Defusion). Persistenz weiter über `useModuleProgress("modul-01")` / `unbond_m01_*`.
+### Übung 1 — „Warum kann ich nicht weg?" Selbst-Check
+- **Aufhänger:** Direkt nach dem Story-Block, als Antwort auf die Hook-Frage.
+- **Mechanik:** 8 Likert-Aussagen („Ich denke an sie, sobald ich allein bin", „Ein gutes Wort von ihr wiegt eine Woche Kälte auf" …) → Skala 0–4.
+- **Output:** Score-Balken + Einordnung („Das ist kein Charakter, das ist Konditionierung").
+- **Basiert auf:** `likert-scale.tsx` (vorhanden).
+
+### Übung 2 — Warnsignal-Radar mit Resonanz-Score
+- **Aufhänger:** „Bevor wir den Kreislauf öffnen, brauchst du Worte für das, was war."
+- **Mechanik:** Pill-Cloud mit 10 Warnsignalen → live Counter + Mikro-Feedback („6 von 10 — kein Zufall, ein Muster"). Danach 3 freie Textfelder „in eigenen Worten".
+- **Output:** Persönliches Warnsignal-Profil, lokal gespeichert.
+- **Basiert auf:** `pill-cloud.tsx` + `reflection-3-step.tsx`.
+
+### Übung 3 — Kreislauf-Sortierer (Anatomie des toxischen Kreislaufs)
+- **Aufhänger:** Direkte Brücke zur Infografik „Anatomie des Kreislaufs": „Sortiere die Phasen so, wie du sie erlebt hast — die richtige Reihenfolge zeigt sich automatisch."
+- **Mechanik:** 4 Karten (Kälte · Sehnsucht · Jackpot · Dopamin-Crash) werden vom Nutzer in eine Schleife gezogen; nach dem Ablegen klappt die korrekte Reihenfolge mit Erklärung auf.
+- **Output:** „Aha"-Moment + Vorlage für Übung 4.
+- **Basiert auf:** `timeline-sorter.tsx` (anpassen auf 4-Phasen-Kreis).
+
+### Übung 4 — Mein Spielautomaten-Protokoll (3 echte Jackpots)
+- **Aufhänger:** „Jetzt setzen wir dich an deinen Spielautomaten."
+- **Mechanik:** Interaktives SVG-Wheel (4 Knoten leuchten beim Klick) + 3 Einträge mit je 3 Feldern: *Kälte davor · Jackpot · Wirkung auf mich*. Abschluss-Reflexion: „Was erkennst du in deinem Muster?"
+- **Output:** Persönlicher Suchtzyklus dokumentiert.
+- **Basiert auf:** **neu zu bauender** `JackpotWheel`-Component (SVG, Brand-Tokens) + bestehender ReflectionField.
+
+### Übung 5 — Rationalisierungen entlarven (ACT-Defusion)
+- **Aufhänger:** „Jeder Süchtige hat innere Anwältinnen. Lass uns deine kennenlernen."
+- **Mechanik:** FlipCards: Vorderseite = Rationalisierung („Niemand versteht mich so wie sie"), Rückseite = ACT-Defusion-Reframe („Da ist der Gedanke 'niemand versteht mich' — er gehört zum Entzug, nicht zur Wahrheit"). Anklicken markiert „kenne ich". Freitextfeld für eigene.
+- **Output:** Markierte eigene Anwältinnen + Reframe-Skript.
+- **Basiert auf:** `flip-card.tsx`. **Reframe-Texte schreibe ich, du gibst sie frei, bevor sie live gehen.**
+
+### Übung 6 — Mein Dopamin-Reset-Pakt (If-Then-Plan)
+- **Aufhänger:** „Wissen reicht nicht — dein Gehirn braucht ein Protokoll."
+- **Mechanik:** 5 If-Then-Zeilen: „**Wenn** Profil anschauen-Drang → **dann** Handy 20 Min weglegen + 4-7-8 Atem", etc. Mit Toggle pro Cue (Profil · Songs · Orte · gemeinsame Freunde · Geruch).
+- **Output:** Persönlicher Notfall-Pakt, druckbar/speicherbar.
+- **Basiert auf:** `if-then-trigger-plan.tsx`.
+
+### Was rausfliegt
+- „Welches Signal hat dich am meisten getroffen?" — unvermittelt, ersatzlos.
+- Statischer Visualisierungs-Block oben — wandert in die Diagnose-Hotspots.
+- 4-7-8-Atem als Übung 4 — gehört in SOS, hier nur als Mini-CTA im Reset-Pakt.
 
 ---
 
-## Hinweis vor Implementierung
+## Phase E · Technische Umsetzung (wenn du freigibst)
 
-Soll ich die ACT-Reframes (Übung 2) und den Wheel (Übung 3) direkt umsetzen, oder willst du die Reframe-Texte vorab gegenlesen? Sonst formuliere ich sie selbst aus dem ACT-Defusion-Stil des Buchs.
+Geänderte Dateien:
+- `src/modules/modul-01.tsx` — komplette Re-Komposition (Hero → Hook → Story → Diagnose mit Hotspots → 6 Übungen → Lösung → Goals)
+- Neu: `src/components/exercise/jackpot-wheel.tsx` (SVG, Brand-Tokens)
+- Neu: `src/components/exercise/cycle-sorter.tsx` (4-Phasen-Schleifen-Sortierer) — falls `timeline-sorter` nicht passt
+- Neu: `src/components/exercise/why-cant-i-leave.tsx` (Likert-Wrapper mit Score-Balken)
+
+Vorhandenes bleibt unverändert.
+
+---
+
+## Was ich von dir brauche, bevor ich anfange
+
+1. **Freigabe für die 6-Übungs-Struktur** (oder Änderungswünsche an einzelnen Übungen).
+2. **Reframe-Texte (Übung 5):** Soll ich sie vorab im Chat zur Korrektur liefern, oder direkt einbauen und du korrigierst live?
+3. **Umgang mit dem bestehenden Modul 02:** komplett ersetzen, oder Schritt-für-Schritt umbauen mit jeweils Zwischenfreigabe?
