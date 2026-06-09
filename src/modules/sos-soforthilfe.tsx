@@ -212,7 +212,7 @@ export function SosSoforthilfe() {
         </div>
 
         {/* TIPP-Infografik · 80 % Seitenbreite, Caption darunter */}
-        <figure className="my-4 mx-auto w-full max-w-[80%]">
+        <figure className="my-4 mx-auto w-full max-w-sm">
           <LightboxImage
             src={tippInfografik.url}
             alt="Das TIPP-Protokoll – biologische Notaufnahme: Temperatur, Intensive Bewegung, Paced Breathing, 90-Sekunden-Regel"
