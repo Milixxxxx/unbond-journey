@@ -64,7 +64,7 @@ export function InfoGraphicBlock({
   return (
     <figure
       className={cn(
-        "my-6 overflow-hidden rounded-2xl",
+        "my-6 mx-auto w-full max-w-[80%] overflow-hidden rounded-2xl",
         "border border-mauve/15 bg-white/85",
         "shadow-[0_10px_30px_-12px_oklch(0.30_0.02_30/0.25)]",
         className,
@@ -94,12 +94,12 @@ export function InfoGraphicBlock({
         />
         <span
           className={cn(
-            "absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full",
-            "bg-white/90 text-bordeaux shadow-soft backdrop-blur",
-            "opacity-90 transition group-hover:opacity-100 group-hover:scale-105",
+            "absolute right-3 top-3 flex items-center gap-1.5 rounded-full",
+            "bg-white/92 px-3 py-1.5 text-[10.5px] font-semibold uppercase tracking-[0.12em] text-bordeaux shadow-soft backdrop-blur",
           )}
         >
-          <ZoomIn className="h-4 w-4" strokeWidth={1.75} />
+          <ZoomIn className="h-3.5 w-3.5" strokeWidth={2} />
+          Tippen zum Vergrößern
         </span>
       </button>
 
