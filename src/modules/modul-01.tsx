@@ -728,15 +728,70 @@ const WARNSIGNALE: {
   },
 ];
 
-const RATIONALISIERUNGEN = [
-  { id: "kindheit", label: "Sie hatte eine schwere Kindheit" },
-  { id: "guteph", label: "In guten Phasen war sie perfekt" },
-  { id: "ichauch", label: "Ich war auch nicht immer einfach" },
-  { id: "meintenicht", label: "Sie meinte es nicht so" },
-  { id: "aufgeben", label: "Wer gibt so eine Liebe einfach auf?" },
-  { id: "geduld", label: "Ich hätte mehr Geduld haben sollen" },
-  { id: "aendern", label: "Sie ändert sich noch" },
-  { id: "ohnemich", label: "Ohne mich bricht sie zusammen" },
-  { id: "allebez", label: "Alle Beziehungen sind manchmal so" },
-  { id: "liebenicht", label: "Liebe ist nicht immer einfach" },
+const RATIONALISIERUNGEN: {
+  id: string;
+  label: string;
+  front: string;
+  reframe: string;
+}[] = [
+  {
+    id: "kindheit",
+    label: "Sie hatte eine schwere Kindheit",
+    front: "„Ich muss sie verstehen — sie hatte es nie leicht.“",
+    reframe: "Mitgefühl ersetzt keine Sicherheit. Ihre Geschichte erklärt Verhalten, sie entschuldigt es nicht.",
+  },
+  {
+    id: "guteph",
+    label: "In guten Phasen war sie perfekt",
+    front: "„Wenn es gut war, war es das Beste, was ich je hatte.“",
+    reframe: "Die guten Phasen sind der Jackpot — sie machen den Spielautomaten süchtig, nicht sicher.",
+  },
+  {
+    id: "ichauch",
+    label: "Ich war auch nicht immer einfach",
+    front: "„Ich habe auch Fehler gemacht — wer bin ich, zu urteilen?“",
+    reframe: "Fehler machen ist menschlich. Systematisches Verletzen ist ein Muster. Das ist nicht dasselbe.",
+  },
+  {
+    id: "meintenicht",
+    label: "Sie meinte es nicht so",
+    front: "„Sie wollte mich nicht verletzen — es ist ihr nur rausgerutscht.“",
+    reframe: "Absicht ändert nichts an der Wirkung. Dein Nervensystem reagiert auf das, was passiert ist — nicht auf das, was gemeint war.",
+  },
+  {
+    id: "aufgeben",
+    label: "Wer gibt so eine Liebe einfach auf?",
+    front: "„Diese Liebe war doch einzigartig.“",
+    reframe: "Das Gefühl der Einzigartigkeit ist Dopamin, nicht Bestimmung. Gesunde Liebe fühlt sich nicht wie Überleben an.",
+  },
+  {
+    id: "geduld",
+    label: "Ich hätte mehr Geduld haben sollen",
+    front: "„Wenn ich nur noch geduldiger gewesen wäre …“",
+    reframe: "Geduld heilt nicht das, was nicht heilen will. Es war nie deine Aufgabe, jemanden zu reparieren.",
+  },
+  {
+    id: "aendern",
+    label: "Sie ändert sich noch",
+    front: "„Beim nächsten Mal wird alles anders.“",
+    reframe: "Veränderung ist kein Versprechen, sondern ein Verhaltensbeweis über Zeit. Du hast lange genug gewartet.",
+  },
+  {
+    id: "ohnemich",
+    label: "Ohne mich bricht sie zusammen",
+    front: "„Ich kann sie doch nicht im Stich lassen.“",
+    reframe: "Niemand bricht zusammen, weil eine andere Person Selbstschutz wählt. Ihre Stabilität ist nicht dein Job.",
+  },
+  {
+    id: "allebez",
+    label: "Alle Beziehungen sind manchmal so",
+    front: "„So schlimm ist das doch nicht — andere Paare streiten auch.“",
+    reframe: "Streit ja, systematische Entwertung nein. Vergleich mit gesunden Beziehungen, nicht mit toxischen Normalisierungen.",
+  },
+  {
+    id: "liebenicht",
+    label: "Liebe ist nicht immer einfach",
+    front: "„Echte Liebe braucht eben Arbeit.“",
+    reframe: "Liebe darf anstrengend sein. Sie darf nicht weh tun. Der Unterschied ist deine Sicherheit — körperlich, emotional, psychisch.",
+  },
 ];
