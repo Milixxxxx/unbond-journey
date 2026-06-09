@@ -14,10 +14,8 @@ export function SiteHeader() {
         <nav className="flex flex-wrap items-center justify-center gap-x-7 gap-y-2">
           <NavLink to="/dashboard">Dashboard</NavLink>
           <NavLink to="/inhalt">Inhalt</NavLink>
-          <NavLink to="/vorwort">Vorwort</NavLink>
-          <NavLink to="/einleitung">Einleitung &amp; Marys Story</NavLink>
-          <NavLink to="/einstellungen">Profil</NavLink>
         </nav>
+
       </div>
     </header>
   );
