@@ -959,6 +959,6 @@ const DIAGNOSE_HOTSPOTS = [
     x: 72,
     y: 70,
     label: "5 · Shutdown",
-    body: "Im Craving fällt der präfrontale Kortex biochemisch aus — der Teil, der „Vernunft" macht. Deshalb hilft kein Vorsatz im Moment des Drangs. Du brauchst ein Protokoll, das vorher steht.",
+    body: 'Im Craving fällt der präfrontale Kortex biochemisch aus — der Teil, der „Vernunft" macht. Deshalb hilft kein Vorsatz im Moment des Drangs. Du brauchst ein Protokoll, das vorher steht.',
   },
 ];
