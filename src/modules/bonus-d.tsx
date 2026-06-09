@@ -8,7 +8,6 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { ChapterIntro } from "@/components/chapter-intro";
-import { ChapterHero } from "@/components/chapter-hero";
 import { ChecklistGoals } from "@/components/checklist-goals";
 import { BonusLock } from "@/components/bonus-lock";
 import { WitnessCircle } from "@/components/exercise/witness-circle";
@@ -42,7 +41,6 @@ export function BonusD() {
   return (
     <article className="space-y-7">
       {/* ── Einleitung ── */}
-      <ChapterHero image="heroDoppelmoral" alt="Bonus D – Behörden als Waffe" />
       <ChapterIntro
         title="Bonus D · Wenn Behörden zur Waffe werden"
         keywords={[

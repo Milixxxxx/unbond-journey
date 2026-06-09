@@ -17,7 +17,6 @@ import {
 } from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
-import { ChapterHero } from "@/components/chapter-hero";
 import { SectionBlock } from "@/components/section-block";
 import { StoryPortrait } from "@/components/story-portrait";
 import { InfoGraphicBlock } from "@/components/infographic-block";
@@ -74,7 +73,6 @@ export function Modul01() {
         </span>
         <span>Phase 1 · Die Fessel verstehen</span>
       </div>
-      <ChapterHero image="heroTraumabonding" alt="Trauma-Bonding – Schritt 02" />
       <ChapterIntro
         title="Schritt 02 · Trauma-Bonding: Anatomie der Fessel"
         keywords={[

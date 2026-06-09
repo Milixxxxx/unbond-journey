@@ -8,7 +8,6 @@ import {
   Quote,
 } from "lucide-react";
 import { ChapterIntro } from "@/components/chapter-intro";
-import { ChapterHero } from "@/components/chapter-hero";
 import { ChecklistGoals } from "@/components/checklist-goals";
 import { BonusLock } from "@/components/bonus-lock";
 import { CalloutBold, LikertScale, PillCloud } from "@/components/exercise";
@@ -44,7 +43,6 @@ export function BonusE() {
   return (
     <article className="space-y-7">
       {/* ── Einleitung ── */}
-      <ChapterHero image="heroBonusE" alt="Bonus E – Das Warum hinter dem Warum" />
       <ChapterIntro
         title="Bonus E · Das Warum hinter dem Warum"
         keywords={[

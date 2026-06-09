@@ -8,7 +8,6 @@ import {
 } from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
-import { ChapterHero } from "@/components/chapter-hero";
 import { InfographicImage } from "@/components/infographic-image";
 import {
   Reflection3Step,
@@ -43,7 +42,6 @@ export function Modul08() {
   return (
     <article className="space-y-7">
       {/* ── Einleitung mit Keywords ── */}
-      <ChapterHero image="heroBindung" alt="Bindungsmuster & Inneres Kind" />
       <ChapterIntro
         title="Kapitel 08 · Bindungsmuster & Inneres Kind"
         keywords={[

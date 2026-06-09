@@ -7,7 +7,6 @@ import {
 } from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
-import { ChapterHero } from "@/components/chapter-hero";
 import { InfographicImage } from "@/components/infographic-image";
 import {
   Reflection3Step,
@@ -50,7 +49,6 @@ export function Modul07() {
   return (
     <article className="space-y-7">
       {/* ── Einleitung mit Keywords ── */}
-      <ChapterHero image="heroWlw" alt="WLW-Dynamiken – Queere Frauen in der Szene" />
       <ChapterIntro
         title="Kapitel 07 · WLW-Realität & Community"
         keywords={[

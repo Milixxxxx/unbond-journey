@@ -10,7 +10,6 @@ import {
 } from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
-import { ChapterHero } from "@/components/chapter-hero";
 import { InfographicImage } from "@/components/infographic-image";
 import {
   PillCloud,
@@ -53,7 +52,6 @@ export function Modul09() {
   return (
     <article className="space-y-7">
       {/* ── Einleitung ── */}
-      <ChapterHero image="heroIdentitaet" alt="Identität, Zukunft & Abschluss" />
       <ChapterIntro
         title="Kapitel 09 · Identität & Zukunft"
         keywords={[

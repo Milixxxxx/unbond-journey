@@ -7,7 +7,6 @@ import {
 } from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
-import { ChapterHero } from "@/components/chapter-hero";
 import { InfographicImage } from "@/components/infographic-image";
 import {
   PillCloud,
@@ -45,7 +44,6 @@ export function Modul06() {
   return (
     <article className="space-y-7">
       {/* ── Einleitung ── */}
-      <ChapterHero image="heroSucht" alt="Suchtmuster brechen – Schritt 07" />
       <ChapterIntro
         title="Kapitel 06 · Suchtmuster brechen"
         keywords={[

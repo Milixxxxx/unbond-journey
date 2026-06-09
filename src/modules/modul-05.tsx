@@ -9,7 +9,6 @@ import {
 } from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
-import { ChapterHero } from "@/components/chapter-hero";
 import {
   PillCloud,
   Reflection3Step,
@@ -54,7 +53,6 @@ export function Modul05() {
   return (
     <article className="space-y-7">
       {/* ── Einleitungs-Block ── */}
-      <ChapterHero image="heroPolyvagal" alt="Körperwahrnehmung & Polyvagal-Theorie" />
       <ChapterIntro
         title="Kapitel 05 · Der Körper zuerst"
         keywords={[

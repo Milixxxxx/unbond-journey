@@ -22,7 +22,6 @@ import {
 } from "lucide-react";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
-import { ChapterHero } from "@/components/chapter-hero";
 import { InfographicImage } from "@/components/infographic-image";
 import { SectionBlock } from "@/components/section-block";
 import { Reveal } from "@/components/reveal";
@@ -57,7 +56,6 @@ const SLUG = "modul-02";
 export function Modul02() {
   return (
     <article className="space-y-7">
-      <ChapterHero image="heroRosabrille" alt="Die rosa Brille abnehmen – Schritt 03" />
       <ChapterIntro
         title="Schritt 03 · Die Rosa-Brille abnehmen"
         keywords={[
