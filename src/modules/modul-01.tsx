@@ -359,18 +359,9 @@ export function Modul01() {
         </p>
       </SectionBlock>
 
-      {/* ── Infografik nach der Lösung: Anatomie des toxischen Kreislaufs ── */}
-      <InfoGraphicBlock
-        src={traumaBondingInfografik}
-        alt="Infografik: Anatomie des toxischen Kreislaufs — fünf Phasen des Trauma-Bondings"
-        title="Infografik · Anatomie des toxischen Kreislaufs"
-        caption="Die fünf Phasen, die dein Gehirn in der Sucht halten — Tap zum Vergrößern."
-        aspect="16/9"
-      />
-
       <DeepDiveIntro
         label="Wenn du tiefer verstehen willst …"
-        hint="Optional. Drei Studien, die das Muster erklären — du musst sie nicht lesen, um zu heilen."
+        hint="Optional. Fünf Studien, die das Muster erklären — du musst sie nicht lesen, um zu heilen."
       >
         <SectionBlock kind="deep-dive" title="Fünf Studien, die alles erklären">
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -417,6 +408,15 @@ export function Modul01() {
           </div>
         </SectionBlock>
       </DeepDiveIntro>
+
+      {/* ── Infografik nach dem Deep Dive: Anatomie des toxischen Kreislaufs (80% Breite, Text darunter) ── */}
+      <InfoGraphicBlock
+        src={traumaBondingInfografik}
+        alt="Infografik: Anatomie des toxischen Kreislaufs — fünf Phasen des Trauma-Bondings"
+        title="Infografik · Anatomie des toxischen Kreislaufs"
+        caption="Die fünf Phasen — Idealisierung · Entwertung · Verwirrung · Versöhnung · erneute Idealisierung — die dein Gehirn in der Sucht halten. Jede Versöhnung erzeugt einen Dopamin-Spike, der die Konditionierung verstärkt. Tap zum Vergrößern."
+        aspect="16/9"
+      />
 
       {/* ════════════════ 5 · ÜBUNGEN (4) ════════════════ */}
 
