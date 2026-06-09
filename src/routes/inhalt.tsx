@@ -30,23 +30,11 @@ type Item = {
 
 const ITEMS: Item[] = [
   {
-    num: "✦ Einleitung",
-    title: "Marys Geschichte &amp; So nutzt du dieses Buch",
-    sub: "Mary & Sandra im Café – Der 5-Schritt-Bogen – Optional: Wissenschaft, Säulen, Phasen, Gedicht",
-    to: "/einleitung",
-    cta: true,
-  },
-  {
-    num: "✉︎ Vorwort",
-    title: "Ein Brief von Milena",
-    sub: "Warum dieses Programm entstanden ist – Meine Geschichte – An dich, die liest",
-    to: "/vorwort",
-  },
-  {
     num: "🧭 Routing",
     title: "Wo stehst du gerade?",
     sub: "Self-Select – Persönliche Routingempfehlung für deinen Einstiegspunkt",
     to: "/routing",
+    cta: true,
   },
   {
     num: "Schritt 01",
