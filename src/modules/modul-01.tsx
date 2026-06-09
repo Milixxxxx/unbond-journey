@@ -449,6 +449,30 @@ export function Modul01() {
           counterLabel="Warnsignale erkannt"
           emptyHint="Tippe an, was du wiedererkennst."
         />
+        <div className="mt-5 space-y-3">
+          <p className="text-sm font-semibold text-bordeaux">
+            Meine 3 klarsten Warnsignale — in eigenen Worten
+          </p>
+          <ReflectionField
+            slug={SLUG}
+            exerciseKey="ws_eigen_1"
+            label="Warnsignal 1 — das Klarste, das ich lange nicht sehen wollte:"
+            placeholder="z.B. „Wenn ich Nähe wollte, wurde sie kalt …"
+            rows={2}
+          />
+          <ReflectionField
+            slug={SLUG}
+            exerciseKey="ws_eigen_2"
+            label="Warnsignal 2 — ein Muster, das sich immer wiederholte:"
+            rows={2}
+          />
+          <ReflectionField
+            slug={SLUG}
+            exerciseKey="ws_eigen_3"
+            label="Warnsignal 3 — das Zeichen, das mein Körper kannte, bevor mein Verstand es zugab:"
+            rows={2}
+          />
+        </div>
       </SectionBlock>
 
       {/* ── Übung 2 · Innere Anwältinnen der Sucht ── */}
