@@ -64,7 +64,7 @@ export function InfoGraphicBlock({
   return (
     <figure
       className={cn(
-        "my-6 overflow-hidden rounded-2xl",
+        "my-6 mx-auto w-full max-w-[80%] overflow-hidden rounded-2xl",
         "border border-mauve/15 bg-white/85",
         "shadow-[0_10px_30px_-12px_oklch(0.30_0.02_30/0.25)]",
         className,
