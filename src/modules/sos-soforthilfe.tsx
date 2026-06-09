@@ -68,6 +68,30 @@ export function SosSoforthilfe() {
         </p>
       </ChapterIntro>
 
+      {/* Quick-Tools-Trio · 3 Sofort-Werkzeuge direkt unter Hero */}
+      <QuickToolsTrio
+        tools={[
+          {
+            icon: <Hand className="h-3.5 w-3.5" />,
+            label: "SOS-Stopp",
+            text: "Hand hoch wie ein Stoppschild · laut „STOPP!" · bis 5 zählen, dann eine Ersatzhandlung wählen.",
+            tint: "bordeaux",
+          },
+          {
+            icon: <Snowflake className="h-3.5 w-3.5" />,
+            label: "Vagus-Reset",
+            text: "Gesicht 15–30 Sek. in eiskaltes Wasser (oder Coolpack auf Wangen) — senkt den Puls in Sekunden.",
+            tint: "sage",
+          },
+          {
+            icon: <Waves className="h-3.5 w-3.5" />,
+            label: "Merke · 90 Sek.",
+            text: "Eine Emotionswelle hält biochemisch nur ~90 Sek. — du musst sie nur überstehen, ohne zu handeln.",
+            tint: "mauve",
+          },
+        ]}
+      />
+
       {/* Crisis-Banner ganz oben */}
       <CrisisBanner />
 
