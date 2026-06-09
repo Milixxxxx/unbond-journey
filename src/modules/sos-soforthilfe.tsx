@@ -211,17 +211,9 @@ export function SosSoforthilfe() {
           />
         </div>
 
-        {/* TIPP-Infografik · 80 % Seitenbreite, Caption darunter */}
-        <figure className="my-4 mx-auto w-full max-w-sm">
-          <LightboxImage
-            src={tippInfografik.url}
-            alt="Das TIPP-Protokoll – biologische Notaufnahme: Temperatur, Intensive Bewegung, Paced Breathing, 90-Sekunden-Regel"
-            className="overflow-hidden rounded-2xl border border-bordeaux/10 bg-cream shadow-soft"
-          />
-          <figcaption className="mt-2 text-center text-xs italic text-graphite/65">
-            TIPP-Protokoll · Vagus-Nerv aktivieren, Herzschlag senken, Welle reiten
-          </figcaption>
-        </figure>
+        {/* TIPP-Infografik · brand-styled HTML statt PNG */}
+        <TippProtokollInfografik />
+
 
         <p className="mt-2 text-xs italic text-graphite/65">
           Quellen: Linehan, M. M. (1993), <em>DBT Skills Training Manual</em>;
