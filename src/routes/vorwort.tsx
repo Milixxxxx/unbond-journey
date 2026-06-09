@@ -2,6 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { LightboxImage } from "@/components/lightbox-image";
 import milenaAuthor from "@/assets/milena-author.png.asset.json";
+import poemImg1 from "@/assets/poem-liebe-1.png.asset.json";
+import poemImg2 from "@/assets/poem-liebe-2.png.asset.json";
+
 
 export const Route = createFileRoute("/vorwort")({
   component: Vorwort,
