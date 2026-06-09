@@ -496,6 +496,99 @@ function TippCard({
   );
 }
 
+/* ─── TIPP-Protokoll · brand-styled HTML-Infografik ─── */
+function TippProtokollInfografik() {
+  const rows = [
+    {
+      tint: "sage",
+      letter: "T",
+      icon: <Snowflake className="h-5 w-5" />,
+      title: "Temperatur · Der Vagus-Reset",
+      text: "Tauche dein Gesicht 15–30 Sek. in eiskaltes Wasser — der Tauchreflex senkt den Puls in Sekunden.",
+    },
+    {
+      tint: "mauve",
+      letter: "I",
+      icon: <Activity className="h-5 w-5" />,
+      title: "Intensive Bewegung · Adrenalin verbrennen",
+      text: "2 Min. Hampelmänner, Sprints oder Treppe — metabolisiert Cortisol und Adrenalin im Blut.",
+    },
+    {
+      tint: "terracotta",
+      letter: "P",
+      icon: <Wind className="h-5 w-5" />,
+      title: "Paced Breathing · Rhythmisches Atmen",
+      text: "4 Sek. ein, 8 Sek. aus — der lange Ausatem aktiviert den Parasympathikus.",
+    },
+    {
+      tint: "bordeaux",
+      letter: "90″",
+      icon: <Waves className="h-5 w-5" />,
+      title: "90-Sekunden-Regel · Die Welle reiten",
+      text: "Eine reine Emotionswelle dauert biochemisch nur ~90 Sek. — du musst sie nur überstehen, ohne zu handeln.",
+    },
+  ] as const;
+
+  const tintBg: Record<string, string> = {
+    sage: "bg-sage/18",
+    mauve: "bg-mauve/15",
+    terracotta: "bg-terracotta/18",
+    bordeaux: "bg-bordeaux/12",
+  };
+  const tintText: Record<string, string> = {
+    sage: "text-sage",
+    mauve: "text-mauve",
+    terracotta: "text-terracotta",
+    bordeaux: "text-bordeaux",
+  };
+  const tintBorder: Record<string, string> = {
+    sage: "border-sage/30",
+    mauve: "border-mauve/30",
+    terracotta: "border-terracotta/35",
+    bordeaux: "border-bordeaux/30",
+  };
+
+  return (
+    <figure className="my-5 rounded-2xl border border-bordeaux/10 bg-cream/60 p-5 shadow-soft">
+      <figcaption className="mb-4">
+        <h4 className="font-display text-lg font-bold text-bordeaux">
+          Das TIPP-Protokoll · Deine biologische Notaufnahme
+        </h4>
+        <p className="mt-1 text-sm leading-relaxed text-graphite/80">
+          Wenn das Gehirn im Überlebensmodus feststeckt, schaltet <strong>TIPP</strong>{" "}
+          die emotionale Panik physiologisch ab — über den{" "}
+          <strong>Vagus-Nerv</strong>, ohne dass dein Verstand mitspielen muss.
+        </p>
+      </figcaption>
+
+      <ul className="space-y-2.5">
+        {rows.map((r) => (
+          <li
+            key={r.letter}
+            className={`flex items-start gap-3 rounded-xl border ${tintBorder[r.tint]} ${tintBg[r.tint]} p-3`}
+          >
+            <div
+              className={`grid h-11 w-11 flex-shrink-0 place-items-center rounded-full bg-white/70 font-display text-sm font-extrabold ${tintText[r.tint]}`}
+            >
+              {r.letter}
+            </div>
+            <div className="min-w-0">
+              <div
+                className={`mb-0.5 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.12em] ${tintText[r.tint]}`}
+              >
+                {r.icon}
+                {r.title}
+              </div>
+              <p className="text-sm leading-relaxed text-graphite/90">{r.text}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </figure>
+  );
+}
+
+
 const ERSATZHANDLUNGEN = [
   { id: "freundin", label: "Freundin anrufen" },
   { id: "spaziergang", label: "5 Min. spazieren gehen" },
