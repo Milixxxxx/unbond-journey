@@ -2,6 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { LightboxImage } from "@/components/lightbox-image";
 import milenaAuthor from "@/assets/milena-author.png.asset.json";
+import poemImg1 from "@/assets/poem-liebe-1.png.asset.json";
+import poemImg2 from "@/assets/poem-liebe-2.png.asset.json";
+
 
 export const Route = createFileRoute("/vorwort")({
   component: Vorwort,
@@ -178,6 +181,42 @@ function Vorwort() {
               — Milena
             </p>
           </div>
+
+          {/* Gedicht – im Anschluss an Milenas Brief */}
+          <section className="glass-card p-6 md:p-8 animate-fade-in">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-mauve">
+              Im Anschluss · Ein Gedicht
+            </p>
+            <h2 className="mt-2 font-display text-2xl font-bold text-bordeaux">
+              „Liebe fragt nicht nach der Uhr"
+            </h2>
+            <p className="mt-3 text-[15px] leading-relaxed text-graphite/90">
+              Das Gedicht entstand im Mai 2024 – als Versuch, das Unbegreifliche
+              in Sprache zu fassen. Zwei Schatten auf einem Weg, der nirgendwo
+              hinführt. Es ist Marys Geschichte. Und vielleicht auch deine.
+            </p>
+            <p className="mt-2 text-[13px] text-graphite/70">
+              Tippe auf den Brief, um ihn in voller Größe zu lesen.
+            </p>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              <LightboxImage
+                src={poemImg1.url}
+                alt="Liebe fragt nicht nach der Uhr – Teil 1"
+                className="w-full overflow-hidden rounded-2xl shadow-soft ring-1 ring-bordeaux/10"
+                hint="Vergrößern"
+              />
+              <LightboxImage
+                src={poemImg2.url}
+                alt="Liebe fragt nicht nach der Uhr – Teil 2"
+                className="w-full overflow-hidden rounded-2xl shadow-soft ring-1 ring-bordeaux/10"
+                hint="Vergrößern"
+              />
+            </div>
+            <p className="mt-3 text-center text-[11px] italic text-graphite/60">
+              — Unbekannter Autor, Mai 2024
+            </p>
+          </section>
+
 
           <div className="flex items-center justify-between gap-3 pt-2">
             <Link

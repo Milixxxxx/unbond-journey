@@ -4,8 +4,7 @@ import { GlossarTerm } from "@/components/glossar-term";
 import { LightboxImage } from "@/components/lightbox-image";
 import { TextCollapse } from "@/components/text-collapse";
 import marySandraIntro from "@/assets/book/mary-sandra-intro.png.asset.json";
-import poemImg1 from "@/assets/poem-liebe-1.png.asset.json";
-import poemImg2 from "@/assets/poem-liebe-2.png.asset.json";
+
 
 export const Route = createFileRoute("/einleitung")({
   component: Einleitung,
@@ -187,29 +186,6 @@ function Einleitung() {
                 Werte, Self-Expansion, posttraumatisches Wachstum.
               </Phase>
             </div>
-          </Details>
-
-          <Details summary={'✉︎ Gedicht: „Liebe fragt nicht nach der Uhr"'}>
-            <p className="text-[13px] text-graphite/75">
-              Tippe auf den Brief, um ihn in voller Größe zu lesen.
-            </p>
-            <div className="mt-3 grid gap-3 sm:grid-cols-2">
-              <LightboxImage
-                src={poemImg1.url}
-                alt="Liebe fragt nicht nach der Uhr – Teil 1"
-                className="w-full overflow-hidden rounded-2xl shadow-soft ring-1 ring-bordeaux/10"
-                hint="Vergrößern"
-              />
-              <LightboxImage
-                src={poemImg2.url}
-                alt="Liebe fragt nicht nach der Uhr – Teil 2"
-                className="w-full overflow-hidden rounded-2xl shadow-soft ring-1 ring-bordeaux/10"
-                hint="Vergrößern"
-              />
-            </div>
-            <p className="mt-2 text-center text-[11px] italic text-graphite/60">
-              — Unbekannter Autor, Mai 2024
-            </p>
           </Details>
         </section>
 
