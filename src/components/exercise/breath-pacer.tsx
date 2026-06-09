@@ -18,7 +18,21 @@ const PHASE_LABEL: Record<Exclude<Phase, "idle">, string> = {
   out: "Ausatmen",
 };
 
-export function BreathPacer({ slug, totalCycles = 6 }: { slug: string; totalCycles?: number }) {
+export function BreathPacer({
+  slug,
+  totalCycles = 6,
+  title,
+  subtitle,
+  meta,
+  accent = "sage",
+}: {
+  slug: string;
+  totalCycles?: number;
+  title?: string;
+  subtitle?: string;
+  meta?: string;
+  accent?: "sage" | "mauve" | "terracotta" | "bordeaux";
+}) {
   const { exerciseState, setExercise, loaded } = useModuleProgress(slug);
   const sessionsKey = "breath_478_sessions";
   const sessions = (exerciseState[sessionsKey] as number) ?? 0;
@@ -97,10 +111,13 @@ export function BreathPacer({ slug, totalCycles = 6 }: { slug: string; totalCycl
 
   return (
     <ExerciseFrame
-      title="Übung 2 · 4-7-8-Atem (6 Zyklen)"
-      subtitle="4 Sek. einatmen · 7 Sek. die Luft anhalten · 8 Sek. ausatmen. Die verlängerte Ausatmung aktiviert den ventralen Vagus. Folge dem Kreis — er weiß den Takt."
-      meta={`🌬️ Vagus-Reset · 6 Zyklen · ~2 Min · ${sessions}× absolviert`}
-      accent="sage"
+      title={title ?? "Übung 2 · 4-7-8-Atem (6 Zyklen)"}
+      subtitle={
+        subtitle ??
+        "4 Sek. einatmen · 7 Sek. die Luft anhalten · 8 Sek. ausatmen. Die verlängerte Ausatmung aktiviert den ventralen Vagus. Folge dem Kreis — er weiß den Takt."
+      }
+      meta={meta ?? `🌬️ Vagus-Reset · ${totalCycles} Zyklen · ${sessions}× absolviert`}
+      accent={accent}
       showSave={false}
     >
       <div className="grid place-items-center py-2">
