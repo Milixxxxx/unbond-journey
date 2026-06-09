@@ -646,6 +646,76 @@ export function Modul01() {
   );
 }
 
+/**
+ * JackpotWheel · Brand-styled SVG des 4-Phasen-Zyklus
+ * (Kälte → Sehnsucht → Jackpot → Dopamin → ♾️).
+ * Rein dekorativ, keine Persistenz.
+ */
+function JackpotWheel() {
+  return (
+    <figure className="mx-auto my-4 w-full max-w-[340px]">
+      <div className="relative aspect-square w-full">
+        <svg viewBox="0 0 300 300" className="absolute inset-0 h-full w-full">
+          <circle
+            cx="150"
+            cy="150"
+            r="120"
+            fill="none"
+            stroke="color-mix(in oklab, var(--color-graphite) 18%, transparent)"
+            strokeWidth="2"
+          />
+          <defs>
+            <marker
+              id="jpArrow"
+              viewBox="0 0 10 10"
+              refX="8"
+              refY="5"
+              markerWidth="6"
+              markerHeight="6"
+              orient="auto"
+            >
+              <path d="M0,0 L10,5 L0,10" fill="color-mix(in oklab, var(--color-graphite) 38%, transparent)" />
+            </marker>
+          </defs>
+          <path d="M150,30 A120,120 0 0,1 262,105" fill="none" stroke="color-mix(in oklab, var(--color-graphite) 28%, transparent)" strokeWidth="2" markerEnd="url(#jpArrow)" />
+          <path d="M262,195 A120,120 0 0,1 195,262" fill="none" stroke="color-mix(in oklab, var(--color-graphite) 28%, transparent)" strokeWidth="2" markerEnd="url(#jpArrow)" />
+          <path d="M105,262 A120,120 0 0,1 38,195" fill="none" stroke="color-mix(in oklab, var(--color-graphite) 28%, transparent)" strokeWidth="2" markerEnd="url(#jpArrow)" />
+          <path d="M38,105 A120,120 0 0,1 105,38" fill="none" stroke="color-mix(in oklab, var(--color-graphite) 28%, transparent)" strokeWidth="2" markerEnd="url(#jpArrow)" />
+        </svg>
+        <div className="absolute left-1/2 top-0 -translate-x-1/2">
+          <span className="rounded-full border border-bordeaux/30 bg-bordeaux/10 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.08em] text-bordeaux">
+            🧊 Kälte
+          </span>
+        </div>
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1">
+          <span className="rounded-full border border-terracotta/30 bg-terracotta/10 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.08em] text-terracotta">
+            💔 Sehnsucht
+          </span>
+        </div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
+          <span className="rounded-full border border-mauve/40 bg-mauve/15 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.08em] text-mauve">
+            🎰 Jackpot
+          </span>
+        </div>
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1">
+          <span className="rounded-full border border-sage/40 bg-sage/15 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.08em] text-sage">
+            💊 Dopamin
+          </span>
+        </div>
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+          <span className="block font-display text-2xl text-graphite/80">♾️</span>
+          <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-graphite/55">
+            Endlosschleife
+          </span>
+        </div>
+      </div>
+      <figcaption className="mt-3 text-center text-xs italic text-graphite/65">
+        Der Zyklus wiederholt sich — bis du ihn benennst.
+      </figcaption>
+    </figure>
+  );
+}
+
 const WARNSIGNALE: {
   id: string;
   nr: string;
