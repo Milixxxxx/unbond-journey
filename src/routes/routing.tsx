@@ -258,7 +258,20 @@ function Routing() {
               />
             </div>
 
-            <div className="rounded-2xl border border-bordeaux/10 bg-white/80 p-5 shadow-sm">
+            <div
+              key={current.id}
+              className="rounded-2xl border border-bordeaux/10 p-5 shadow-sm animate-fade-in transition-colors"
+              style={{
+                backgroundColor: [
+                  "rgba(255,255,255,0.85)",
+                  "rgba(245,235,224,0.75)",
+                  "rgba(232,221,235,0.55)",
+                  "rgba(220,232,225,0.55)",
+                  "rgba(244,228,215,0.7)",
+                ][step % 5],
+              }}
+            >
+
               <h2 className="font-display text-xl font-extrabold text-bordeaux">
                 {current.label}
               </h2>
