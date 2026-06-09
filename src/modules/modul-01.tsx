@@ -18,10 +18,11 @@ import {
 import { GlossarTerm } from "@/components/glossar-term";
 import { ChapterIntro } from "@/components/chapter-intro";
 import { ChapterHero } from "@/components/chapter-hero";
-import { InfographicImage } from "@/components/infographic-image";
 import { SectionBlock } from "@/components/section-block";
 import { StoryPortrait } from "@/components/story-portrait";
 import { InfoGraphicBlock } from "@/components/infographic-block";
+import { InfographicHotspots } from "@/components/infographic-hotspots";
+import { bookImages } from "@/lib/book-images";
 import { TextCollapse } from "@/components/text-collapse";
 import marySpielautomatImg from "@/assets/story/mary-spielautomat.jpg";
 import traumaBondingInfografik from "@/assets/infographics/trauma-bonding-kreislauf.png";
