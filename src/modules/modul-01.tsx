@@ -26,6 +26,7 @@ import { TextCollapse } from "@/components/text-collapse";
 import marySpielautomatImg from "@/assets/story/mary-spielautomat.jpg";
 import traumaBondingInfografik from "@/assets/infographics/trauma-bonding-kreislauf.png";
 import { ButtonChoice } from "@/components/button-choice";
+import { ReflectionField } from "@/components/exercise-fields";
 import { ChecklistGoals } from "@/components/checklist-goals";
 import { DeepDiveIntro } from "@/components/deep-dive-intro";
 import { Reveal } from "@/components/reveal";
