@@ -4,8 +4,7 @@ import { GlossarTerm } from "@/components/glossar-term";
 import { LightboxImage } from "@/components/lightbox-image";
 import { TextCollapse } from "@/components/text-collapse";
 import marySandraIntro from "@/assets/book/mary-sandra-intro.png.asset.json";
-import poemImg1 from "@/assets/poem-liebe-1.png.asset.json";
-import poemImg2 from "@/assets/poem-liebe-2.png.asset.json";
+
 
 export const Route = createFileRoute("/einleitung")({
   component: Einleitung,
