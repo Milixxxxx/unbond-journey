@@ -538,6 +538,7 @@ export function Modul01() {
         eyebrow="Übung 3 · Jackpot-Protokoll"
         title="Mein persönlicher Spielautomaten-Zyklus"
       >
+        <JackpotWheel />
         <ButtonChoice
           moduleSlug={SLUG}
           storageKey="jackpot_intensitaet"
@@ -580,6 +581,13 @@ export function Modul01() {
               },
             ],
           }))}
+        />
+        <ReflectionField
+          slug={SLUG}
+          exerciseKey="jackpot_muster"
+          label="Was erkennst du in deinem persönlichen Muster?"
+          placeholder="z.B. „Meine Hoffnung stieg immer dann, wenn …“"
+          rows={3}
         />
       </SectionBlock>
 
