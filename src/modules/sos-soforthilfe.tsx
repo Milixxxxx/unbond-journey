@@ -8,10 +8,12 @@ import {
   Activity,
   Wind,
   Pause,
+  Waves,
 } from "lucide-react";
 import { CollapsibleBox } from "@/components/collapsible-box";
 import { GlossarTerm } from "@/components/glossar-term";
 import { ZoomableImage } from "@/components/zoomable-image";
+import { LightboxImage } from "@/components/lightbox-image";
 import { CrisisBanner } from "@/components/crisis-banner";
 import { ChapterIntro } from "@/components/chapter-intro";
 import { SectionBlock } from "@/components/section-block";
@@ -27,6 +29,8 @@ import {
   MeditationCard,
 } from "@/components/exercise";
 import { HighLoadDistraction } from "@/components/exercise/high-load-distraction";
+import { QuickToolsTrio } from "@/components/quick-tools-trio";
+import tippInfografik from "@/assets/tipp-protokoll.png.asset.json";
 
 const SLUG = "sos-soforthilfe";
 
@@ -63,6 +67,30 @@ export function SosSoforthilfe() {
           ohne einen einzigen klaren Gedanken fassen zu müssen.
         </p>
       </ChapterIntro>
+
+      {/* Quick-Tools-Trio · 3 Sofort-Werkzeuge direkt unter Hero */}
+      <QuickToolsTrio
+        tools={[
+          {
+            icon: <Hand className="h-3.5 w-3.5" />,
+            label: "SOS-Stopp",
+            text: 'Hand hoch wie ein Stoppschild · laut „STOPP!" · bis 5 zählen, dann eine Ersatzhandlung wählen.',
+            tint: "bordeaux",
+          },
+          {
+            icon: <Snowflake className="h-3.5 w-3.5" />,
+            label: "Vagus-Reset",
+            text: "Gesicht 15–30 Sek. in eiskaltes Wasser (oder Coolpack auf Wangen) — senkt den Puls in Sekunden.",
+            tint: "sage",
+          },
+          {
+            icon: <Waves className="h-3.5 w-3.5" />,
+            label: "Merke · 90 Sek.",
+            text: "Eine Emotionswelle hält biochemisch nur ~90 Sek. — du musst sie nur überstehen, ohne zu handeln.",
+            tint: "mauve",
+          },
+        ]}
+      />
 
       {/* Crisis-Banner ganz oben */}
       <CrisisBanner />
@@ -182,6 +210,18 @@ export function SosSoforthilfe() {
             text="Muskelgruppen für 5 Sek. anspannen, dann lösen — entladen körperliche Anspannung systematisch."
           />
         </div>
+
+        {/* TIPP-Infografik · 80 % Seitenbreite, Caption darunter */}
+        <figure className="my-4 mx-auto w-full max-w-[80%]">
+          <LightboxImage
+            src={tippInfografik.url}
+            alt="Das TIPP-Protokoll – biologische Notaufnahme: Temperatur, Intensive Bewegung, Paced Breathing, 90-Sekunden-Regel"
+            className="overflow-hidden rounded-2xl border border-bordeaux/10 bg-cream shadow-soft"
+          />
+          <figcaption className="mt-2 text-center text-xs italic text-graphite/65">
+            TIPP-Protokoll · Vagus-Nerv aktivieren, Herzschlag senken, Welle reiten
+          </figcaption>
+        </figure>
 
         <p className="mt-2 text-xs italic text-graphite/65">
           Quellen: Linehan, M. M. (1993), <em>DBT Skills Training Manual</em>;
