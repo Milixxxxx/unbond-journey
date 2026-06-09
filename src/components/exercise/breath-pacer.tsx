@@ -18,7 +18,21 @@ const PHASE_LABEL: Record<Exclude<Phase, "idle">, string> = {
   out: "Ausatmen",
 };
 
-export function BreathPacer({ slug, totalCycles = 6 }: { slug: string; totalCycles?: number }) {
+export function BreathPacer({
+  slug,
+  totalCycles = 6,
+  title,
+  subtitle,
+  meta,
+  accent = "sage",
+}: {
+  slug: string;
+  totalCycles?: number;
+  title?: string;
+  subtitle?: string;
+  meta?: string;
+  accent?: "sage" | "mauve" | "terracotta" | "bordeaux";
+}) {
   const { exerciseState, setExercise, loaded } = useModuleProgress(slug);
   const sessionsKey = "breath_478_sessions";
   const sessions = (exerciseState[sessionsKey] as number) ?? 0;
