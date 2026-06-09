@@ -30,23 +30,11 @@ type Item = {
 
 const ITEMS: Item[] = [
   {
-    num: "✦ Einleitung",
-    title: "Marys Geschichte &amp; So nutzt du dieses Buch",
-    sub: "Mary & Sandra im Café – Der 5-Schritt-Bogen – Optional: Wissenschaft, Säulen, Phasen, Gedicht",
-    to: "/einleitung",
-    cta: true,
-  },
-  {
-    num: "✉︎ Vorwort",
-    title: "Ein Brief von Milena",
-    sub: "Warum dieses Programm entstanden ist – Meine Geschichte – An dich, die liest",
-    to: "/vorwort",
-  },
-  {
     num: "🧭 Routing",
     title: "Wo stehst du gerade?",
     sub: "Self-Select – Persönliche Routingempfehlung für deinen Einstiegspunkt",
     to: "/routing",
+    cta: true,
   },
   {
     num: "Schritt 01",
@@ -145,8 +133,8 @@ function Inhalt() {
   return (
     <main className="min-h-screen px-4 py-10 pb-24">
       <div className="mx-auto max-w-3xl space-y-7">
-        <Link to="/einleitung" className="inline-flex items-center gap-1 text-sm text-bordeaux hover:underline">
-          <ArrowLeft className="h-3.5 w-3.5" /> Einleitung &amp; Marys Geschichte
+        <Link to="/dashboard" className="inline-flex items-center gap-1 text-sm text-bordeaux hover:underline">
+          <ArrowLeft className="h-3.5 w-3.5" /> Dashboard
         </Link>
 
         <header className="text-center animate-fade-in">
@@ -162,6 +150,45 @@ function Inhalt() {
           </p>
         </header>
 
+        <section className="rounded-2xl border border-bordeaux/15 bg-gradient-to-br from-mauve/8 via-bordeaux/5 to-transparent p-5 animate-fade-in">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-mauve">
+            Bevor du anfängst — optional
+          </p>
+          <p className="mt-1.5 text-xs text-graphite/70">
+            Kein Pflichtprogramm. Lies, wenn dir danach ist.
+          </p>
+          <div className="mt-3 grid gap-3 sm:grid-cols-2">
+            <Link
+              to="/vorwort"
+              className="block rounded-xl border border-border/60 bg-white/70 p-4 transition hover:bg-white hover:shadow-soft hover:-translate-y-[1px]"
+            >
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-mauve">
+                ✉︎ Vorwort
+              </p>
+              <h3 className="mt-1 font-display text-base font-semibold leading-tight text-bordeaux">
+                Ein Brief von Milena
+              </h3>
+              <p className="mt-1 text-xs text-graphite/70">
+                Warum dieses Programm entstanden ist.
+              </p>
+            </Link>
+            <Link
+              to="/einleitung"
+              className="block rounded-xl border border-border/60 bg-white/70 p-4 transition hover:bg-white hover:shadow-soft hover:-translate-y-[1px]"
+            >
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-mauve">
+                ✦ Einleitung
+              </p>
+              <h3 className="mt-1 font-display text-base font-semibold leading-tight text-bordeaux">
+                Marys Geschichte &amp; So nutzt du dieses Buch
+              </h3>
+              <p className="mt-1 text-xs text-graphite/70">
+                Mary &amp; Sandra im Café – der 5-Schritt-Bogen.
+              </p>
+            </Link>
+          </div>
+        </section>
+
         <ul className="grid gap-3 sm:grid-cols-2 animate-fade-in">
           {ITEMS.map((item, i) => (
             <li key={i} className={item.cta ? "sm:col-span-2" : ""}>
@@ -170,13 +197,23 @@ function Inhalt() {
           ))}
         </ul>
 
-        <div className="pt-4 text-center">
-          <Link
-            to="/dashboard"
-            className="text-sm text-bordeaux hover:underline"
-          >
-            → Direkt zum Dashboard
-          </Link>
+        <div className="pt-4 text-center space-y-2">
+          <div>
+            <Link
+              to="/dashboard"
+              className="text-sm text-bordeaux hover:underline"
+            >
+              → Direkt zum Dashboard
+            </Link>
+          </div>
+          <div>
+            <Link
+              to="/einstellungen"
+              className="text-xs text-graphite/60 hover:text-bordeaux hover:underline"
+            >
+              Einstellungen &amp; Fortschritt sichern
+            </Link>
+          </div>
         </div>
       </div>
     </main>
